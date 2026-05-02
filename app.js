@@ -86,18 +86,13 @@ const extractTags = (recipe) => {
   return Array.from(tags);
 };
 
-
-// ─── Guard: si recipes.js n'a pas chargé ────────────────────────────
-if (!window.RECIPES || typeof window.RECIPES !== 'object') {
-  console.error('[Grimoire] window.RECIPES est undefined — recipes.js n\'a pas chargé correctement.');
-  window.RECIPES = {};
-}
-
-const RECIPE_TAGS = window.RECIPES ? Object.fromEntries(
+const RECIPE_TAGS = Object.fromEntries(
   Object.entries(window.RECIPES).map(([id, r]) => [id, extractTags(r)])
-) : {};
+);
 
 // ─── Misc helpers ────────────────────────────────────────────────────
+const generateQR = (url) =>
+  `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
 
 const launchConfetti = () => {
   if (!window.confetti) return;
@@ -251,21 +246,17 @@ function LivreCuisineIndex() {
   const [heroSlide] = useState(() => getDailySlide(3));
 
   const HERO_IMAGES = [
-    'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1920&q=80',
-    'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1920&q=80',
-    'https://images.unsplash.com/photo-1606787364406-a3cdf06c6d0c?w=1920&q=80',
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80',
+    'https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=1920&q=80',
+    'https://images.unsplash.com/photo-1543362906-acfc16c67564?w=1920&q=80',
   ];
 
   // ─── Scroll : parallax + progress bar SANS re-render ────
   useEffect(() => {
     const handle = () => {
       const sy = window.scrollY;
-      if (bgRef.current) {
-        // Clamp translate so image never exposes black edges at top or bottom
-        const maxShift = 80;
-        const shift = Math.min(maxShift, sy * 0.18);
-        bgRef.current.style.transform = `scale(1.12) translateY(${shift}px)`;
-      }
+      if (bgRef.current)
+        bgRef.current.style.transform = `scale(1.04) translateY(${sy * 0.25}px)`;
       if (progRef.current) {
         const dh = document.documentElement.scrollHeight - window.innerHeight;
         progRef.current.style.width = dh > 0 ? `${Math.min(100, (sy / dh) * 100)}%` : '0%';
@@ -314,16 +305,6 @@ function LivreCuisineIndex() {
   };
 
   // ─── History API ─────────────────────────────────────────
-  // ─── Liens inter-recettes depuis HTML (data-goto) ──────────
-  useEffect(() => {
-    const handleClick = (e) => {
-      const el = e.target.closest('[data-goto]');
-      if (el) { e.preventDefault(); go(el.dataset.goto); }
-    };
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
-  }, [go]);
-
   useEffect(() => {
     window.history.replaceState({ view:'index' }, '');
     const handlePop = (e) => {
@@ -1022,11 +1003,33 @@ function LivreCuisineIndex() {
         React.createElement('h2', { style:{ fontSize:17, fontWeight:700, margin:'0 0 12px', color:C.text } }, '📝 Notes'),
         React.createElement('ul', { style:{ margin:0, paddingLeft:20 } },
           r.notes.map((note,i) =>
-            React.createElement('li', { key:i, style:{ fontSize:14, color:C.textSec, marginBottom:6, lineHeight:1.6 },
-              dangerouslySetInnerHTML:{__html:note} })
+            React.createElement('li', { key:i, style:{ fontSize:14, color:C.textSec, marginBottom:6, lineHeight:1.6 } }, note)
           )
         )
       ),
+
+      // ── Notes personnelles ──
+      React.createElement('div', { style:{ ...cardStyle, marginBottom:18, cursor:'default' } },
+        React.createElement('h2', { style:{ fontSize:17, fontWeight:700, margin:'0 0 10px', color:C.text } }, '✏️ Mes notes'),
+        React.createElement('textarea', {
+          value:noteVal, onChange:e=>updateNote(view, e.target.value),
+          placeholder:'Vos remarques, variantes, astuces…',
+          rows:4,
+          style:{ width:'100%', padding:'10px 12px', borderRadius:10, border:`1px solid ${C.border}`,
+                  background:C.bg, color:C.text, fontSize:13, resize:'vertical', outline:'none',
+                  fontFamily:'inherit', lineHeight:1.5, boxSizing:'border-box' }
+        }),
+        noteVal && React.createElement('div', { style:{ fontSize:11, color:C.textSec, marginTop:5, textAlign:'right', opacity:.7 } },
+          `${noteVal.length} caractère${noteVal.length>1?'s':''} · sauvegardé automatiquement`)
+      ),
+
+      // ── QR Code ──
+      React.createElement('div', { style:{ ...cardStyle, cursor:'default', textAlign:'center', marginBottom:20 } },
+        React.createElement('p', { style:{ fontSize:12, opacity:.55, marginBottom:10, color:C.textSec } },
+          'QR Code — partager cette recette'),
+        React.createElement('img', { src:generateQR(window.location.href),
+          alt:'QR Code de partage', width:130, height:130, style:{ borderRadius:8 } })
+      )
     );
   };
 
@@ -1052,7 +1055,7 @@ function LivreCuisineIndex() {
                 backgroundImage:`url(${HERO_IMAGES[heroSlide]})`,
                 backgroundSize:'cover', backgroundPosition:'center',
                 filter:'blur(2px) brightness(0.62)',
-                transform:'scale(1.12) translateY(0px)', zIndex:0 }
+                transform:'scale(1.04) translateY(0px)', zIndex:0 }
       }),
 
       // Dégradé bas

@@ -9,28 +9,19 @@ window.RECIPES = {
   vinaigrette: { title:'Vinaigrette de chef (variantes)', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['30 g moutarde de Dijon','45 g vinaigre de vin rouge ou Xérès','2 g sel fin, 1 g poivre','150 g huile (80 g neutre + 70 g olive)','5 g miel (option)']}],
     steps:['Fouetter moutarde + vinaigre + sel/poivre (et miel).','Verser les huiles en filet pour émulsionner.','Goûter et ajuster.'],
-    notes:['Ratio huile:acide 3:1 à 4:1 selon la salade.','Variantes : citron, herbes, miso blanc, yaourt grec.',
-      '→ Voir aussi : <span data-goto="pesto_salades" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Pesto pour salades</span>',
-      'Stockage optimal : flacon avec couvercle au réfrigérateur ; secouer avant usage.',
-      'Conservation : 5–7 j au froid.']
+    notes:['Ratio huile:acide 3:1 à 4:1 selon la salade.','Variantes : citron, herbes, miso blanc, yaourt grec.','Conservation : 5–7 j au froid.']
   },
 
   pesto_salades: { title:'Pesto pour salades (froid, citronné)', categories:['Entrées','Apéro'], seasons:['Printemps','Été'], difficulty:'easy',
     ingredients:[{group:'Base',items:["50 g basilic","40 g parmesan 24 mois râpé","30 g pignons grillés","1 gousse d'ail dégermée","45 g huile d'olive","45 g huile neutre (colza/tournesol)","10 g jus de citron","Sel fin, poivre"]}],
     steps:["Mixer basilic + pignons + ail + parmesan.","Monter à l'huile ; détendre avec citron.","Assaisonner."],
-    notes:["Noisette ou amandes à la place des pignons.",
-      '→ Version traditionnelle : <span data-goto="pesto_genovese_hg" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Pesto alla Genovese</span>',
-      "Stockage optimal : pot hermétique au froid, fine couche d'huile en surface.",
-      "Conservation : 3–4 j au froid (filmer au contact) ; congélateur 2 mois (sans fromage)."]
+    notes:["Noisette ou amandes à la place des pignons.","Conservation : 3–4 j au froid (filmer au contact)."]
   },
 
   pesto_genovese_hg: { title:'Pesto alla Genovese', categories:['Entrées'], seasons:['Printemps','Été'], difficulty:'medium',
     ingredients:[{group:'Mortier (idéal)',items:["60 g basilic Genovese","30 g pignons","15 g Parmigiano Reggiano (24–30 mois)","15 g Pecorino Sardo","1 petite gousse d'ail","100–120 g huile d'olive EV fruitée","2–3 g sel"]}],
     steps:["Piler ail + sel, ajouter pignons, puis basilic par petites poignées.","Incorporer les fromages, détendre doucement à l'huile jusqu'à texture crémeuse.","Utiliser aussitôt (pâtes, gnocchi) ou filmer au contact."],
-    notes:["Mixer : à-coups courts pour limiter l'oxydation.",
-      '→ Version simplifiée et citronnée : <span data-goto="pesto_salades" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Pesto pour salades</span>',
-      "Stockage optimal : pot en verre hermétique, fine couche d'huile d'olive en surface, au réfrigérateur.",
-      "Conservation : 2–3 j au froid (film au contact + huile) ; congélateur 1 mois sans fromage."]
+    notes:["Mixer : à-coups courts pour limiter l'oxydation.","Conservation : 2–3 j au froid, film au contact + fine couche d'huile."]
   },
 
   ricotta_fouettee: { title:'Ricotta fouettée (assaisonnements)', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
@@ -111,9 +102,7 @@ window.RECIPES = {
       {group:'Dorure',items:["1 jaune + 1 c. à s. d'eau","Graines"]}
     ],
     steps:['Cuire tangzhong ; refroidir.','Pétrir pâte ; incorporer beurre ; fenêtre.','Pointage 60–90 min ; bouler 95–105 g ; apprêt 45–60 min.','Dorer ; cuire 180–190 °C 12–16 min.'],
-    notes:['Stockage optimal : enveloppés individuellement dans film plastique à température ambiante.',
-      'Conservation : 2 j filmés à T° ambiante ; congélateur 1 mois (décongeler à T° ambiante).',
-      '→ Même technique de base que les <span data-goto="donuts_cloud" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Donuts Cloud-like</span>']
+    notes:['Conservation : 2 j filmés ; congélateur 1 mois.']
   },
 
   boeuf_bourguignon: { title:'Bœuf bourguignon', categories:['Plats'], seasons:['Toutes saisons'], difficulty:'medium',
@@ -123,9 +112,7 @@ window.RECIPES = {
       {group:'Beurre manié (option)',items:['20 g beurre','20 g farine']}
     ],
     steps:['Colorer bœuf et lardons ; suer oignons/carottes.','Ajouter concentré ; singer légèrement ; mouiller vin + fond.','Bouquet, mijoter 2 h 30–3 h jusqu\'à fondant.','Épaissir au beurre manié si besoin ; ajouter garniture bourguignonne.'],
-    notes:['Meilleur le lendemain : les saveurs se développent.',
-      'Stockage optimal : dans la cocotte ou boîte hermétique au froid, dégraissé avant de réchauffer.',
-      'Conservation : 3–4 j au froid ; congélateur 3 mois (sans les légumes fragiles).']
+    notes:['Meilleur le lendemain.','Conservation : 3–4 j au froid ; congélateur 3 mois.']
   },
 
   cassoulet: { title:'Cassoulet', categories:['Plats'], seasons:['Toutes saisons'], difficulty:'hard',
@@ -149,9 +136,7 @@ window.RECIPES = {
       {group:'Liquides & finition',items:['400 g lait de coco 1er pressage','250 g fond blanc ou eau','2 feuilles de combava (ou zeste de citron vert)','10 g sucre de palme (ou cassonade)','15 g sauce poisson (ou sel)','15 g jus de citron vert','Coriandre fraîche']}
     ],
     steps:['Colorer le porc ; réserver.','Suer oignon ; ajouter ail + gingembre ; torréfier les épices/pâte 2–3 min.','Ajouter concentré ; déglacer avec un peu de lait de coco.','Remettre le porc ; mouiller lait de coco + fond ; ajouter combava.','Mijoter 45–60 min ; découvrir pour napper.','Assaisonner sucre/nuoc-mâm et acidité citron vert.'],
-    notes:['Meilleur le lendemain : les épices se fondent.',
-      'Stockage optimal : boîte hermétique au réfrigérateur, riz séparé.',
-      'Conservation : 3–4 j au froid ; congélateur 2 mois (sans garnitures fraîches).']
+    notes:['Conservation : 3–4 j au froid ; meilleur le lendemain.']
   },
 
   // Petits-déjeuners / Desserts
@@ -163,9 +148,7 @@ window.RECIPES = {
       {group:'Finition',items:['Sucre semoule 120 g']}
     ],
     steps:['Pétrir 8–10 min jusqu\'à lisse ; pointage 1 h.','Abaisser 12 mm ; détailler anneaux ; apprêt 40–60 min.','Frire 175 °C 60–75 s / face ; égoutter, sucrer.'],
-    notes:['Conservation : meilleurs le jour même ; congélation pâte crue découpée possible.',
-      '→ Pour les fourrer : voir la <span data-goto="creme_diplomate_cloud" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Crème diplomate vanille</span>',
-      '→ Version rapide : <span data-goto="mascarpone" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Chantilly mascarpone</span>']
+    notes:['Conservation : meilleurs le jour même ; congélation pâte crue découpée possible.']
   },
 
   crepes_hd: { title:'Pâte à crêpes', categories:['Petits-déjeuners'], seasons:['Toutes saisons'], difficulty:'easy',
@@ -206,20 +189,13 @@ window.RECIPES = {
   chantilly_classique: { title:'Chantilly classique au fouet', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g crème 35 % très froide','20–30 g sucre glace']}],
     steps:["Bol + fouet au froid ; monter en bec d'oiseau ; sucrer en fin."],
-    notes:['Parfums : vanille, cacao, café, coco (1–2 %).',
-      '→ Version plus stable : <span data-goto="mascarpone" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Chantilly mascarpone</span> ou <span data-goto="chantilly_gelatine" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Chantilly gélatine</span>',
-      'Stockage optimal : dans un bol filmé ou en poche à douille au réfrigérateur.',
-      'Conservation : 24 h au froid maximum.']
+    notes:['Parfums : vanille, cacao, café, coco (1–2 %).','Conservation : 24 h au froid.']
   },
 
   mascarpone: { title:'Chantilly riche (mascarpone)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g crème 35 % froide','125 g mascarpone','40 g sucre glace']}],
     steps:["Fouetter froid jusqu'à bec d'oiseau souple."],
-    notes:['Aromatiser : vanille, cacao, coco (1–2 %).',
-      '→ Version avec tenue longue durée : <span data-goto="chantilly_gelatine" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Chantilly stabilisée gélatine</span>',
-      '→ Parfait pour fourrer les <span data-goto="donuts_cloud" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Donuts Cloud-like</span>',
-      'Stockage optimal : en poche à douille ou boîte hermétique au réfrigérateur.',
-      'Conservation : 36 h au froid.']
+    notes:['Aromatiser : vanille, cacao, coco (1–2 %).','Conservation : 36 h au froid.']
   },
 
   chantilly_gelatine: { title:'Chantilly stabilisée (gélatine)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
@@ -234,11 +210,7 @@ window.RECIPES = {
       {group:'Gélification + Chantilly',items:['6 g gélatine','200 g crème 35 % montée souple']}
     ],
     steps:['Faire une pâtissière classique, incorporer beurre ; ajouter gélatine hydratée à chaud ; refroidir 25–30 °C.','Assouplir puis incorporer la chantilly en 2 fois.'],
-    notes:['Pour choux, fraisiers, tartes.',
-      '→ Utilisation : <span data-goto="choux_craquelin" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Choux au craquelin</span>',
-      '→ Fourrage donuts : <span data-goto="donuts_cloud" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Donuts Cloud-like</span>',
-      'Stockage optimal : boîte hermétique au froid, filmée au contact pour éviter le croûtage.',
-      'Conservation pâtissière seule : 48 h au froid. Assemblée avec chantilly : 24 h au froid.']
+    notes:['Pour choux, fraisiers, tartes.','Conservation : 48 h au froid.']
   },
 
   choux_craquelin: { title:'Choux au craquelin', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
@@ -249,9 +221,7 @@ window.RECIPES = {
       {group:'Garnissage',items:['Crème diplomate vanille ou chantilly']}
     ],
     steps:['Abaisser craquelin 2 mm, détailler disques.','Réaliser pâte à choux ; pocher Ø 3–4 cm ; couvrir d\'un disque de craquelin.','Cuire 170–175 °C 35–40 min ventilé sec.','Refroidir, garnir.'],
-    notes:['Conservation : coques 3 j à température ambiante dans boîte hermétique ; garnis 24 h au froid.',
-      '→ Recette de garnissage : <span data-goto="creme_diplomate_vanille" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Crème diplomate vanille</span>',
-      '→ Version allégée : <span data-goto="chantilly_gelatine" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Chantilly stabilisée</span>']
+    notes:['Conservation : coques 3 j au sec ; garnis 24 h au froid.']
   },
 
   cookies: { title:'Cookies américains', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
@@ -271,10 +241,7 @@ window.RECIPES = {
   coulis_fraise: { title:'Coulis de fraise', categories:['Desserts'], seasons:['Printemps'], difficulty:'easy',
     ingredients:[{group:'Base',items:['400 g fraises','80 g sucre','10 g jus de citron']}],
     steps:['Mixer ; chauffer à frémissement 1–2 min ; refroidir.'],
-    notes:['Texture coulis (burette) ; passer fin.',
-      '→ Guide complet : <span data-goto="coulis_guide" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Coulis — guide & variantes</span>',
-      'Stockage optimal : flacon souple (burette) ou pot hermétique au réfrigérateur.',
-      'Conservation : 5 j au froid ; congélateur 2 mois.']
+    notes:['Texture coulis (burette) ; passer fin.','Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
   coulis_framboise: { title:'Coulis de framboise', categories:['Desserts'], seasons:['Été'], difficulty:'easy',
@@ -319,120 +286,6 @@ window.RECIPES = {
       "Ne pas trop fouetter pour éviter qu'elle gonfle à la cuisson.",
       'Stockage optimal : boîte hermétique au réfrigérateur.',
       'Conservation : 48 h au froid ; congélateur 1 mois.'
-    ]
-  },
-
-
-  // ── Bases / Fonds ──────────────────────────────────────────
-  court_bouillon: { title:'Court-bouillon (Paul Bocuse)', categories:['Entrées','Plats'], seasons:['Toutes saisons'], difficulty:'easy',
-    yield:'≈ 1 litre (pour pocher 4–6 portions)',
-    image:'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80',
-    ingredients:[{group:'Légumes & aromates',items:[
-      '1 poireau','2 carottes','1 oignon','2 branches de céleri',
-      '1 botte de persil','2 branches de thym','¼ feuille de laurier',
-      '1 clou de girofle','5 grains de poivre'
-    ]},{group:'Liquides',items:[
-      '2 verres de vin blanc sec (≈ 30 cl)','50 cl eau','Sel'
-    ]}],
-    steps:[
-      "Éplucher le poireau, les carottes et l'oignon. Laver le céleri et les herbes.",
-      "Couper le poireau en quatre dans la longueur et l'attacher avec les branches de céleri et le laurier pour former le bouquet garni.",
-      "Couper les carottes en quatre dans la longueur. Piquer l'oignon avec le clou de girofle.",
-      "Dans une cocotte, placer le bouquet garni, les carottes, l'oignon, le vin blanc et 50 cl d'eau. Saler et poivrer.",
-      "Porter à ébullition puis laisser cuire 20 min à frémissement.",
-      "Laisser refroidir, puis placer au frais avant utilisation."
-    ],
-    notes:[
-      'Recette de Paul Bocuse — source : Académie du Goût.',
-      'Idéal pour pocher poissons (cabillaud, saumon, sole), crustacés, légumes ou volailles.',
-      "Astuce : ajouter un trait de vinaigre blanc ou de jus de citron pour les crustacés.",
-      "→ Utilisé comme base dans : <span data-goto='boeuf_bourguignon' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Bœuf bourguignon</span>",
-      'Stockage optimal : boîte hermétique ou pot en verre au réfrigérateur.',
-      'Conservation : 3–4 j au froid ; se congèle très bien 2–3 mois (en portions de 250 ml).'
-    ]
-  },
-
-  // ── Donuts Cloud-like ──────────────────────────────────────
-  donuts_cloud: { title:'Donuts "Cloud-like" (pousse lente, levure fraîche)', categories:['Petits-déjeuners','Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
-    yield:'12–14 gros donuts (60–70 g)',
-    image:'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80',
-    ingredients:[
-      {group:'Pâte',items:[
-        '250 g farine T45 ou T55','25 g sucre','3 g sel',
-        '10–12 g levure fraîche','50 g œuf (≈ 1 œuf)','140 g lait entier',
-        '25 g beurre fondu ou mou (tiède)','5 g vanille'
-      ]},
-      {group:'Friture',items:['Huile neutre en quantité suffisante (160–165 °C)']},
-      {group:'Finition — Option 1 (classique)',items:['120 g sucre semoule']},
-      {group:'Finition — Option 2 (fourré)',items:['30–40 g de crème par donut']}
-    ],
-    steps:[
-      '— VEILLE AU SOIR —',
-      "Activer la levure : prélever 40 g de lait sur les 140 g, chauffer à 25–30 °C. Émietter la levure fraîche dedans et mélanger.",
-      "Dans un bol, mélanger farine + sucre + sel + vanille. Ajouter l'œuf, le reste du lait froid, puis le mélange levure. Incorporer enfin le beurre tiède.",
-      "Pétrir 8–10 min jusqu'à pâte lisse, souple et légèrement collante. Repos 15 min.",
-      "Former une boule, placer dans un bol huilé. Laisser 30–45 min à température ambiante, puis couvrir hermétiquement et réfrigérer 12–18 h.",
-      '— LE LENDEMAIN —',
-      "Sortir la pâte 1 h avant pour la remettre à température ambiante.",
-      "Diviser en boules de 60–70 g en serrant bien ('bouler' pour une belle mie). Apprêt 1 h à 1 h 30 à couvert : la pâte doit être gonflée, légère et trembler légèrement.",
-      '— CUISSON —',
-      "Chauffer l'huile à 160–165 °C (thermomètre recommandé). Frire 2 min 30 à 3 min par face (5–6 min total). ⚠️ Maximum 2–3 donuts à la fois pour maintenir la température de l'huile.",
-      "Égoutter sur papier absorbant.",
-      '— FINITION —',
-      "Option 1 : rouler dans le sucre semoule immédiatement à la sortie du bain (colle parfaitement quand chaud).",
-      "Option 2 : laisser tiédir, percer un petit trou sur le côté, pocher 30–40 g de crème à la douille longue jusqu'à sentir le donut s'alourdir légèrement."
-    ],
-    notes:[
-      '⚠️ Température huile trop haute = intérieur cru. Trop basse = donuts gras et compacts.',
-      'Pâte pas assez levée = beignets denses. Trop levée = ils retombent à la cuisson.',
-      "Résultat attendu : extérieur doré uniforme, anneau clair visible au centre, mie très aérée et filante ('cloud-like'), intérieur 100% cuit sans être sec.",
-      "→ Garnissage recommandé : <span data-goto='creme_diplomate_cloud' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Crème diplomate vanille (version donuts)</span>",
-      "→ Garnissage rapide : <span data-goto='mascarpone' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Chantilly mascarpone</span> (prêt en 3 min, très stable)",
-      "→ Recette de base similaire : <span data-goto='donuts_leves' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Donuts au sucre classiques</span>",
-      'Stockage optimal : à température ambiante, boîte semi-ouverte (boîte hermétique = condensation). Ne pas mettre au frigo sans crème.',
-      'Conservation : nature — 24 h max à T° ambiante. Fourrés crème — 12 h au froid (sortir 15 min avant dégust.).'
-    ]
-  },
-
-  creme_diplomate_cloud: { title:'Crème diplomate vanille (pour donuts & choux)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
-    yield:'Garniture pour 12–14 donuts ou 18–22 choux',
-    image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80',
-    ingredients:[
-      {group:'Crème pâtissière',items:[
-        '250 g lait entier','50 g jaunes d\'œufs (≈ 3 jaunes)','60 g sucre',
-        '25 g maïzena','25 g beurre doux','5 g vanille (ou 1 gousse)'
-      ]},
-      {group:'Chantilly',items:[
-        '200 g crème liquide entière (30–35 %) très froide','20 g sucre glace'
-      ]},
-      {group:'Variante mascarpone (rapide)',items:[
-        '250 g mascarpone','200 g crème liquide entière','60 g sucre glace','Vanille'
-      ]}
-    ],
-    steps:[
-      '— CRÈME PÂTISSIÈRE —',
-      "Chauffer le lait avec la vanille (gratter la gousse si entière) jusqu'à frémissement.",
-      "Dans un bol, fouetter les jaunes + sucre jusqu'à blanchiment. Ajouter la maïzena, bien mélanger.",
-      "Verser le lait chaud en filet sur le mélange en fouettant constamment pour éviter la coagulation.",
-      "Remettre dans la casserole, cuire à feu moyen en remuant sans arrêt jusqu'à épaississement net (environ 1–2 min après reprise de l'ébullition).",
-      "Hors du feu, incorporer le beurre en morceaux. Filmer immédiatement au contact (le film touche la crème) et refroidir complètement au réfrigérateur (minimum 2 h).",
-      '— CHANTILLY —',
-      "Fouetter la crème bien froide avec le sucre glace jusqu'à texture souple mais qui tient (bec d'oiseau ferme).",
-      '— ASSEMBLAGE (crème diplomate) —',
-      "Fouetter la pâtissière froide pour la détendre et la lisser. Incorporer la chantilly délicatement à la spatule en 2–3 fois (ne pas écraser les bulles d'air).",
-      '— FOURRAGE DONUTS —',
-      "Faire un petit trou sur le côté de chaque donut tiède ou froid. Mettre la crème en poche avec une douille longue. Pocher 30–40 g de crème par donut — arrêter dès qu'il devient légèrement plus lourd.",
-      '— VARIANTE MASCARPONE (si pressé) —',
-      "Fouetter mascarpone + crème + sucre glace + vanille jusqu'à texture ferme. Prêt en 3 minutes, très stable, excellente tenue."
-    ],
-    notes:[
-      "Ne jamais fourrer des donuts chauds : la crème fond et coule.",
-      "→ Recette des donuts : <span data-goto='donuts_cloud' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Donuts Cloud-like (pousse lente)</span>",
-      "→ Recette des choux : <span data-goto='choux_craquelin' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Choux au craquelin</span>",
-      "→ Version pâtissière seule : <span data-goto='creme_diplomate_vanille' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Crème diplomate vanille (recette de base)</span>",
-      "Stockage optimal pâtissière : filmée au contact dans boîte hermétique au réfrigérateur.",
-      "Conservation pâtissière seule : 48 h au froid. Diplomate assemblée : 24 h au froid. Mascarpone : 36–48 h au froid.",
-      "Congélation : possible pour la pâtissière seule (avant incorporation chantilly) — 1 mois. Fouetter à nouveau après décongélation."
     ]
   }
 
