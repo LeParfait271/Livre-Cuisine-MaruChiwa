@@ -1,4 +1,4 @@
-const CATEGORIES = ['Apéro', 'Entrées', 'Plats', 'Desserts', 'Petits-déjeuners'];
+const CATEGORIES = ['Apéro', 'Entrées', 'Plats', 'Desserts', 'Petits-déjeuners', 'Recettes de base'];
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver', 'Toutes saisons'];
 const DIFFICULTY = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
 

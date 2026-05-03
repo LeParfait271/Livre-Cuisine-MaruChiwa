@@ -1,50 +1,132 @@
-diff --git a/admin.html b/admin.html
-index 898e864ffda54666d18abae8c2839d6b808c6d62..cbf16911a77489b0b5b5904d4e118ac7ec19b3d1 100644
---- a/admin.html
-+++ b/admin.html
-@@ -1,43 +1,43 @@
- <!DOCTYPE html>
- <html lang="fr">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
--  <title>Back-office - MC Food</title>
-+  <title>Back-office - Cook Note</title>
-   <link rel="preconnect" href="https://fonts.googleapis.com" />
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-   <link rel="stylesheet" href="admin.css" />
- </head>
- <body>
-   <div class="admin-shell">
-     <header class="admin-topbar">
-       <a class="admin-brand" href="/">
-         <span>MC</span>
-         <div>
--          <strong>MC Food Admin</strong>
-+          <strong>Cook Note Admin</strong>
-           <small>Recettes locales</small>
-         </div>
-       </a>
-       <div class="admin-top-actions">
-         <a class="ghost-link" href="/" target="_blank" rel="noreferrer">Voir le site</a>
-         <button id="logout-btn" type="button">Déconnexion</button>
-       </div>
-     </header>
- 
-     <main class="admin-layout">
-       <aside class="recipe-sidebar">
-         <div class="sidebar-head">
-           <div>
-             <p class="eyebrow">Catalogue</p>
-             <h1>Recettes</h1>
-           </div>
-           <button id="new-btn" type="button">Nouvelle</button>
-         </div>
-         <input id="recipe-search" class="search-input" placeholder="Chercher une recette..." />
-         <div id="recipe-list" class="recipe-admin-list"></div>
-       </aside>
- 
-       <section class="editor-panel">
-         <div class="editor-head">
-           <div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Back-office - Cook Note</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="admin-shell">
+    <header class="admin-topbar">
+      <a class="admin-brand" href="/">
+        <img src="/assets/cook-note-mark.svg" alt="" />
+        <div>
+          <strong>Cook Note Admin</strong>
+          <small>Recettes locales</small>
+        </div>
+      </a>
+      <div class="admin-top-actions">
+        <a class="ghost-link" href="/" target="_blank" rel="noreferrer">Voir le site</a>
+        <button id="logout-btn" type="button">Déconnexion</button>
+      </div>
+    </header>
+
+    <main class="admin-layout">
+      <aside class="recipe-sidebar">
+        <div class="sidebar-head">
+          <div>
+            <p class="eyebrow">Catalogue</p>
+            <h1>Recettes</h1>
+          </div>
+          <button id="new-btn" type="button">Nouvelle</button>
+        </div>
+        <input id="recipe-search" class="search-input" placeholder="Chercher une recette..." />
+        <div id="recipe-list" class="recipe-admin-list"></div>
+      </aside>
+
+      <section class="editor-panel">
+        <div class="editor-head">
+          <div>
+            <p class="eyebrow">Édition</p>
+            <h2 id="editor-title">Nouvelle recette</h2>
+          </div>
+          <div class="editor-actions">
+            <button id="duplicate-btn" type="button" class="secondary">Dupliquer</button>
+            <button id="delete-btn" type="button" class="danger">Supprimer</button>
+            <button id="save-btn" type="button">Sauvegarder</button>
+          </div>
+        </div>
+
+        <output id="admin-message" class="admin-message" role="status"></output>
+
+        <form id="recipe-form" class="recipe-form">
+          <div class="form-grid">
+            <label>
+              Slug
+              <input id="field-id" required pattern="[a-z0-9_-]+" placeholder="poulet_curry" />
+            </label>
+            <label>
+              Titre
+              <input id="field-title" required placeholder="Titre de la recette" />
+            </label>
+            <label>
+              Difficulté
+              <select id="field-difficulty">
+                <option value="easy">Facile</option>
+                <option value="medium">Intermédiaire</option>
+                <option value="hard">Technique</option>
+              </select>
+            </label>
+            <label>
+              Rendement
+              <input id="field-yield" placeholder="4 portions" />
+            </label>
+            <label>
+              Tags
+              <input id="field-tags" placeholder="rapide, italien, pâte" />
+            </label>
+            <label>
+              Vidéo
+              <input id="field-video" placeholder="https://youtube.com/..." />
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Catégories</legend>
+            <div id="category-options" class="option-grid"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Saisons</legend>
+            <div id="season-options" class="option-grid"></div>
+          </fieldset>
+
+          <section class="media-box">
+            <div>
+              <label>
+                Image
+                <input id="field-image" placeholder="/assets/uploads/image.webp ou https://..." />
+              </label>
+              <label class="file-field">
+                Upload local
+                <input id="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" />
+              </label>
+            </div>
+            <div id="image-preview" class="image-preview">Aperçu</div>
+          </section>
+
+          <label>
+            Ingrédients groupés
+            <textarea id="field-ingredients" rows="12" spellcheck="false" placeholder="Base&#10;- 250 g farine&#10;- 2 oeufs&#10;&#10;Sauce&#10;- 100 g crème"></textarea>
+          </label>
+
+          <label>
+            Étapes
+            <textarea id="field-steps" rows="8" spellcheck="false" placeholder="Une étape par ligne"></textarea>
+          </label>
+
+          <label>
+            Notes
+            <textarea id="field-notes" rows="7" spellcheck="false" placeholder="Une note par ligne. HTML data-goto autorisé."></textarea>
+          </label>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
