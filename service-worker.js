@@ -1,16 +1,18 @@
 // ============================================================
-//  Le Grimoire Culinaire — Service Worker PWA v3
+//  Le Grimoire Culinaire — Service Worker PWA v5
 //  Cache-first pour assets statiques
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'grimoire-v3';
+const CACHE_NAME = 'grimoire-v5';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/style.css',
   '/app.js',
   '/recipes.js',
+  '/recipe.html',
+  '/recipe.js',
   '/manifest.json',
   '/favicon.png',
 ];
@@ -21,7 +23,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v3] Assets statiques mis en cache.');
+        console.log('[SW v5] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
@@ -35,7 +37,7 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-      console.log('[SW v3] Anciens caches supprimés.');
+      console.log('[SW v5] Anciens caches supprimés.');
     })
   );
   self.clients.claim();
@@ -51,6 +53,9 @@ self.addEventListener('fetch', (event) => {
   // Ignorer les requêtes vers des domaines externes (CDN React, Unsplash, etc.)
   // Elles ne doivent pas bloquer l'app hors-ligne
   if (url.origin !== self.location.origin) return;
+
+  // Ne jamais mettre en cache l'admin ni l'API locale.
+  if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) return;
 
   // Pour les assets locaux : cache-first, réseau en fallback
   event.respondWith(

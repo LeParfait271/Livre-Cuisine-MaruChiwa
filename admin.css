@@ -1,0 +1,344 @@
+:root {
+  --bg: #050505;
+  --bg-2: #12100c;
+  --surface: rgba(22, 21, 18, .9);
+  --surface-2: rgba(255, 255, 255, .06);
+  --line: rgba(255, 255, 255, .13);
+  --text: #fff7ed;
+  --muted: #b8b1a6;
+  --accent: #fbbf24;
+  --accent-2: #f97316;
+  --danger: #ef4444;
+  --radius: 8px;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 0, rgba(251, 191, 36, .18), transparent 28rem),
+    radial-gradient(circle at 92% 0, rgba(0, 245, 212, .06), transparent 24rem),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #171106;
+  padding: 0 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+button.secondary,
+.ghost-link {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+button.danger {
+  border: 1px solid rgba(239, 68, 68, .4);
+  background: rgba(239, 68, 68, .14);
+  color: #fecaca;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-login-page {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: min(460px, 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .38);
+  padding: 24px;
+}
+
+.login-card h1,
+.login-card p {
+  margin: 14px 0 0;
+}
+
+.login-card form {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.admin-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-brand span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #171106;
+  font-weight: 950;
+}
+
+.admin-brand strong,
+.admin-brand small {
+  display: block;
+}
+
+.admin-brand small,
+.eyebrow,
+label,
+legend {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.admin-shell {
+  min-height: 100vh;
+}
+
+.admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 14px clamp(16px, 3vw, 36px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(18, 17, 14, .88);
+  backdrop-filter: blur(18px);
+}
+
+.admin-top-actions,
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  border-radius: var(--radius);
+  padding: 0 14px;
+  font-weight: 900;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  gap: 18px;
+  width: min(1440px, calc(100% - 32px));
+  margin: 18px auto;
+}
+
+.recipe-sidebar,
+.editor-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .24);
+}
+
+.recipe-sidebar {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  max-height: calc(100vh - 110px);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+}
+
+.sidebar-head,
+.editor-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.sidebar-head h1,
+.editor-head h2,
+.eyebrow {
+  margin: 0;
+}
+
+.search-input,
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, .24);
+  color: var(--text);
+  padding: 11px 12px;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.recipe-admin-list {
+  overflow: auto;
+  display: grid;
+  gap: 8px;
+  padding-right: 3px;
+}
+
+.admin-recipe-item {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 11px;
+  text-align: left;
+}
+
+.admin-recipe-item.active {
+  border-color: rgba(251, 191, 36, .75);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.admin-recipe-item small {
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+.admin-recipe-item strong {
+  line-height: 1.2;
+}
+
+.editor-panel {
+  padding: 18px;
+}
+
+.admin-message {
+  display: block;
+  min-height: 24px;
+  margin: 12px 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.recipe-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin: 0;
+  padding: 12px;
+}
+
+.option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.option-grid label {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 0 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.media-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.media-box > div:first-child {
+  display: grid;
+  gap: 12px;
+}
+
+.image-preview {
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, .24);
+  color: var(--muted);
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 960px) {
+  .admin-layout,
+  .form-grid,
+  .media-box {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-sidebar {
+    position: static;
+    max-height: none;
+  }
+}

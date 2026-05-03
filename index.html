@@ -29,16 +29,13 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- React 18 production (plus léger que development) -->
+  <!-- React 18 production -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <!-- Babel standalone — compile JSX côté navigateur.
-       Pour un usage local/NUC c'est acceptable.
-       Pour un hébergement public, pré-compiler avec Vite. -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Confetti -->
+  <!-- Confetti + QR code -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 </head>
 <body>
   <!-- Écran de chargement — caché par React au montage (voir app.js) -->
@@ -68,8 +65,8 @@
   <!-- recipes.js DOIT être chargé AVANT app.js -->
   <script src="recipes.js"></script>
 
-  <!-- App React (Babel transpile à la volée) -->
-  <script type="text/babel" src="app.js" data-presets="react"></script>
+  <!-- App React sans transpilation côté navigateur -->
+  <script src="app.js"></script>
 
   <!-- Service Worker -->
   <script>

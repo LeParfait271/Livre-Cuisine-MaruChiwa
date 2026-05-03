@@ -1,216 +1,126 @@
-═══════════════════════════════════════════════════════════════
-  LE GRIMOIRE CULINAIRE DE MARUCHIWA — Version Complète v3
-═══════════════════════════════════════════════════════════════
+GUIDE COMPLET - MC FOOD
+=======================
 
-🎉 NOUVEAUTÉS IMPLÉMENTÉES :
+OBJECTIF
+--------
 
-✨ DESIGN & EFFETS
-  • Glassmorphism (cartes en verre dépoli avec backdrop-filter)
-  • Animations fluides partout (fadeIn, slideUp, scaleIn)
-  • Parallax scroll sur le fond d'écran
-  • Confettis 🎆 quand tu termines une recette
-  • Skeleton loaders qui pulsent au chargement
-  • Hero section avec slideshow automatique (change toutes les 5s)
+MC Food est un site culinaire local pour MaruChiwa :
 
-⚡ CONFORT & UX
-  • Undo/Redo complet (Ctrl+Z / Ctrl+Y)
-  • Navigation clavier :
-      - ← → pour naviguer entre recettes
-      - H pour retourner à l'accueil
-      - ESC pour fermer les modals ou revenir
-      - ⌘K pour focus la recherche
-  • Historique navigateur corrigé (le bouton retour fonctionne !)
-  • Focus automatique maintenu dans la recherche
+- consultation rapide des recettes ;
+- classement saisonnier automatique ;
+- fiches cuisine utilisables pendant la preparation ;
+- back-office local pour ajouter et maintenir les recettes.
 
-🧠 FONCTIONNALITÉS INTELLIGENTES
-  • Tags cliquables auto-extraits des ingrédients
-  • Recherche avancée (modal avec filtres combinés)
-  • Badge rouge sur 🔍 indiquant le nb de filtres actifs
-  • Chips filtres actifs sous chaque saison (avec × pour retirer)
+ARCHITECTURE
+------------
 
-📷 CONTENU ENRICHI
-  • Support photos : ajoute "image: 'URL'" dans recipes.js
-  • Support vidéos : ajoute "video: 'URL YouTube'" dans recipes.js
-  • Badge 🎥 sur les cartes avec vidéo
+- index.html, app.js, style.css : site public React sans build.
+- recipes.js : source publique des recettes.
+- server.js : serveur Node local + API admin.
+- admin-login.html, admin.html, admin.js, admin.css : back-office.
+- assets/uploads/ : images ajoutees depuis l'admin.
+- backups/ : copies horodatees de recipes.js avant ecriture.
 
-💾 PARTAGE & EXPORT PRO
-  • Export PDF stylé (fenêtre d'impression optimisée)
-  • PWA complète (installe comme app, fonctionne offline)
-  • Service Worker qui met tout en cache
-  • Partage WhatsApp/Email direct
-  • QR code généré automatiquement pour chaque recette
-  • Retour visuel "✅ Copié !" après clipboard
+LANCEMENT
+---------
 
-═══════════════════════════════════════════════════════════════
-📦 FICHIERS INCLUS :
-═══════════════════════════════════════════════════════════════
+   npm run dev
 
-✓ index.html           — Page principale avec écran de chargement
-✓ app.js              — Application React complète (1127 lignes)
-✓ style.css           — Styles avec animations et glassmorphism
-✓ recipes.js          — Vos données de recettes
-✓ manifest.json       — Configuration PWA
-✓ service-worker.js   — Cache offline
-✓ README.txt          — Ce fichier
+URLS :
 
-MANQUANT (à créer) :
-  ⚠️ favicon.png           — Icône 32×32 du site
-  ⚠️ icon-192.png          — Icône PWA 192×192
-  ⚠️ icon-192-maskable.png — Icône PWA 192×192 maskable
-  ⚠️ icon-512.png          — Icône PWA 512×512
-  ⚠️ icon-512-maskable.png — Icône PWA 512×512 maskable
+   Public : http://127.0.0.1:8080
+   Admin  : http://127.0.0.1:8080/admin
 
-Pour générer les icônes maskable : https://maskable.app/
+SECURITE ADMIN
+--------------
 
-═══════════════════════════════════════════════════════════════
-🚀 DÉPLOIEMENT RAPIDE :
-═══════════════════════════════════════════════════════════════
+Definir le mot de passe avec une variable d'environnement :
 
-Option 1 — Node.js (recommandé) :
-  cd /chemin/vers/grimoire-culinaire
-  npx serve -l 8080
+   MC_FOOD_ADMIN_PASSWORD
 
-Option 2 — Python :
-  python -m http.server 8080
+ou avec un fichier local non commite :
 
-Option 3 — Serveur portable Mongoose (Windows) :
-  Télécharger Mongoose, copier l'exe dans le dossier, double-clic
+   admin.local.json
 
-Puis ouvrir : http://localhost:8080
+Format :
 
-═══════════════════════════════════════════════════════════════
-📝 AJOUTER DES RECETTES :
-═══════════════════════════════════════════════════════════════
+   { "password": "mot-de-passe" }
 
-Modifier uniquement recipes.js :
+En absence de configuration, le serveur accepte "changeme" pour faciliter le
+developpement local. A changer avant usage familial partage.
 
-window.recipes = {
-  ma_recette: {
-    title: 'Carbonara Classique',
-    categories: ['Plats'],        // Apéro | Entrées | Plats | Desserts
-    seasons: ['Toutes saisons'],  // Printemps | Été | Automne | Hiver
-    difficulty: 'medium',         // easy | medium | hard
-    yield: '4 portions',
-    
-    // ✨ NOUVEAU : Photos et vidéos
-    image: 'https://images.unsplash.com/photo-123456',
-    video: 'https://youtube.com/watch?v=ABC123',
-    
-    // ✨ NOUVEAU : Tags personnalisés
-    tags: ['rapide', 'italien', 'pâtes'],
-    
-    ingredients: [
-      {
-        group: 'Pâtes',
-        items: ['400 g spaghetti', '100 g guanciale', '4 jaunes d'œufs']
-      }
-    ],
-    steps: [
-      'Faire bouillir l'eau salée.',
-      'Cuire les pâtes al dente.',
-      'Mélanger jaunes + pecorino.',
-      'Ajouter pâtes chaudes au mélange.'
-    ],
-    notes: [
-      'Pas de crème dans la vraie carbonara !',
-      'Le guanciale est essentiel.'
-    ]
+SAISONS
+-------
+
+La saison courante est calculee en Europe/Paris :
+
+- Printemps : mars, avril, mai
+- Ete       : juin, juillet, aout
+- Automne   : septembre, octobre, novembre
+- Hiver     : decembre, janvier, fevrier
+
+L'accueil affiche d'abord "En saison maintenant" :
+
+- recettes de la saison courante ;
+- recettes "Toutes saisons".
+
+BACK-OFFICE
+-----------
+
+Fonctions :
+
+- creer une recette ;
+- modifier une recette ;
+- dupliquer une recette ;
+- supprimer une recette ;
+- uploader une image locale jpg, jpeg, png ou webp jusqu'a 5 MB ;
+- sauvegarder automatiquement recipes.js avec backup.
+
+Validation :
+
+- slug unique ;
+- titre obligatoire ;
+- au moins une categorie ;
+- au moins une saison ;
+- difficulte easy, medium ou hard ;
+- au moins un groupe ingredients avec items ;
+- au moins une etape.
+
+SCHEMA RECETTE
+--------------
+
+  {
+    title: string,
+    categories: string[],
+    seasons: string[],
+    difficulty: "easy" | "medium" | "hard",
+    yield?: string,
+    ingredients: { group: string, items: string[] }[],
+    steps: string[],
+    notes?: string[],
+    image?: string,
+    video?: string,
+    tags?: string[]
   }
-};
 
-═══════════════════════════════════════════════════════════════
-⌨️ RACCOURCIS CLAVIER :
-═══════════════════════════════════════════════════════════════
+PWA
+---
 
-⌘K / Ctrl+K     Focus la barre de recherche
-H              Retour à l'accueil
-ESC            Fermer modal / Retour
-← →            Naviguer entre recettes
-Ctrl+Z         Undo (annuler dernière coche)
-Ctrl+Y         Redo (refaire)
+Le service worker cache les fichiers publics et les uploads locaux.
+Il ignore volontairement :
 
-═══════════════════════════════════════════════════════════════
-🎨 PERSONNALISATION :
-═══════════════════════════════════════════════════════════════
+- /admin
+- /api/*
 
-CHANGER LES FONDS D'ÉCRAN :
-Dans app.js, ligne ~165, modifier HERO_IMAGES :
+pour eviter de servir des donnees admin en cache.
 
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-XXXXX?w=1920&q=80',
-  'https://images.unsplash.com/photo-YYYYY?w=1920&q=80',
-  'https://images.unsplash.com/photo-ZZZZZ?w=1920&q=80',
-];
+TESTS MANUELS
+-------------
 
-RECOMMANDATIONS UNSPLASH :
-• photo-1504674900247-0877df9cc836 — Ingrédients sur marbre noir
-• photo-1556912167-f556f1f39faa — Cuisine moderne noir et bois
-• photo-1543362906-acfc16c67564 — Table rustique avec légumes
-• photo-1556909212-d5b604d0c90d — Planche à découper professionnelle
-
-CHANGER LES COULEURS :
-Dans style.css, modifier les variables :
-
-:root {
-  --gold: #fbbf24;        /* Couleur principale */
-  --radius-md: 12px;      /* Arrondi des cartes */
-  --shadow-md: ...;       /* Ombres */
-}
-
-═══════════════════════════════════════════════════════════════
-🐛 RÉSOLUTION DE PROBLÈMES :
-═══════════════════════════════════════════════════════════════
-
-❌ "Le site ne charge pas" :
-  → Vérifier la console (F12)
-  → recipes.js doit être chargé AVANT app.js
-  → Vérifier que window.recipes existe bien
-
-❌ "Les confettis ne marchent pas" :
-  → Vérifier que le script confetti est chargé dans index.html
-  → https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0
-
-❌ "Impossible d'installer en PWA" :
-  → Créer les icônes manquantes (voir liste ci-dessus)
-  → Servir en HTTPS (requis pour PWA)
-  → Vérifier manifest.json
-
-❌ "Le thème auto ne marche pas" :
-  → app.js écoute prefers-color-scheme
-  → Vérifier les paramètres OS (mode sombre activé ?)
-
-═══════════════════════════════════════════════════════════════
-📱 INSTALLATION PWA :
-═══════════════════════════════════════════════════════════════
-
-Sur Chrome Desktop :
-  Icône ⊕ dans la barre d'adresse → "Installer Le Grimoire"
-
-Sur Android Chrome :
-  Menu ⋮ → "Ajouter à l'écran d'accueil"
-
-Sur iOS Safari :
-  Partage → "Sur l'écran d'accueil"
-
-Avantages :
-  ✓ Fonctionne hors ligne
-  ✓ Icône sur l'écran d'accueil
-  ✓ Pas de barre d'adresse
-  ✓ Accès rapide
-
-═══════════════════════════════════════════════════════════════
-🔒 SÉCURITÉ & CONFIDENTIALITÉ :
-═══════════════════════════════════════════════════════════════
-
-Tout est stocké localement dans ton navigateur :
-  • Favoris → localStorage
-  • Historique → localStorage
-  • Coches mode cuisine → état React (perdu au refresh)
-  • Historique Undo/Redo → état React
-
-Aucune donnée n'est envoyée à un serveur externe.
-Les images Unsplash sont chargées depuis leur CDN public.
-
-═══════════════════════════════════════════════════════════════
-✨ BONNE CUISINE ! ✨
-═══════════════════════════════════════════════════════════════
+1. npm run check
+2. Lancer npm run dev.
+3. Verifier l'accueil desktop/mobile.
+4. Verifier une fiche recette.
+5. Tester favoris, courses, partage, QR, print.
+6. Tester /admin avec login.
+7. Creer une recette test, verifier backup, puis supprimer la recette test.

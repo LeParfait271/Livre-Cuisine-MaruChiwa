@@ -1,0 +1,5 @@
+node_modules/
+admin.local.json
+backups/
+.DS_Store
+*.log

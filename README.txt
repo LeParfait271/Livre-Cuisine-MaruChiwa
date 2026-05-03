@@ -1,94 +1,112 @@
-GRIMOIRE CULINAIRE DE MARUCHIWA — v3
-Déploiement rapide (NUC Windows ou tout autre serveur local)
-=============================================================
+MC FOOD - LE GRIMOIRE CULINAIRE DE MARUCHIWA
+============================================
 
-DÉPLOIEMENT
------------
+LANCER EN LOCAL
+---------------
 
-Option 1 — Node.js (recommandé) :
-  cd C:\chemin\vers\grimoire-culinaire
-  npx serve -l 8080
-  → Ouvrir http://localhost:8080
+1. Installer Node.js 18+ si besoin.
+2. Depuis ce dossier :
 
-Option 2 — Python :
-  python -m http.server 8080
+   npm run dev
 
-Option 3 — Serveur portable Mongoose :
-  Copier l'exe Mongoose dans le dossier, lancer.
+3. Ouvrir :
 
-Option 4 — IIS (Windows) :
-  Activer IIS, pointer un site vers ce dossier.
+   Site public : http://127.0.0.1:8080
+   Admin       : http://127.0.0.1:8080/admin
+
+Le serveur Node remplace Mongoose pour le mode dev/admin.
+Mongoose peut toujours servir les fichiers statiques, mais il ne permet pas
+d'ecrire les recettes depuis le back-office.
+
+MOT DE PASSE ADMIN
+------------------
+
+Option recommandee :
+
+1. Copier admin.local.example.json vers admin.local.json.
+2. Mettre le mot de passe voulu :
+
+   {
+     "password": "mon-mot-de-passe"
+   }
+
+admin.local.json est ignore par Git.
+
+Alternative :
+
+   set MC_FOOD_ADMIN_PASSWORD=mon-mot-de-passe
+   npm run dev
+
+Si rien n'est configure, le mot de passe dev temporaire est :
+
+   changeme
 
 AJOUTER DES RECETTES
----------------------
-Modifier uniquement le fichier recipes.js.
-Structure :
+--------------------
 
-  nom_recette: {
-    title: 'Titre de la recette',
-    categories: ['Plats'],           // Apéro | Entrées | Plats | Desserts | Petits-déjeuners
-    seasons: ['Toutes saisons'],     // Printemps | Été | Automne | Hiver | Toutes saisons
-    difficulty: 'easy',             // easy | medium | hard
-    yield: '4 portions',            // (optionnel)
+Chemin recommande : http://127.0.0.1:8080/admin
+
+Le back-office permet :
+
+- creation, modification, duplication, suppression ;
+- categories, saisons, difficulte, rendement, tags, video ;
+- ingredients groupes, etapes, notes ;
+- upload local d'images vers assets/uploads/ ;
+- sauvegarde automatique de recipes.js dans backups/ avant chaque ecriture.
+
+Le fichier public reste recipes.js avec le schema :
+
+  recette_id: {
+    title: 'Titre',
+    categories: ['Plats'],
+    seasons: ['Toutes saisons'],
+    difficulty: 'easy',
+    yield: '4 portions',
     ingredients: [
-      { group: 'Groupe', items: ['100 g farine', '2 œufs'] }
+      { group: 'Base', items: ['100 g farine', '2 oeufs'] }
     ],
-    steps: ['Étape 1.', 'Étape 2.'],
-    notes: ['Astuce 1.'],
-    image: 'https://...',           // (optionnel)
-    video: 'https://...',           // (optionnel)
-    tags: ['rapide', 'végé'],       // (optionnel)
-  },
+    steps: ['Etape 1', 'Etape 2'],
+    notes: ['Astuce ou lien HTML data-goto'],
+    image: '/assets/uploads/photo.webp',
+    video: 'https://youtube.com/...',
+    tags: ['rapide', 'italien']
+  }
 
-ICÔNES PWA
------------
-Le manifest.json attend 4 fichiers icônes distincts :
-  icon-192.png          (192×192, fond transparent ou coloré)
-  icon-192-maskable.png (192×192, avec zone de sécurité pour masque Android)
-  icon-512.png          (512×512)
-  icon-512-maskable.png (512×512, maskable)
+FEATURES PUBLIQUES
+------------------
 
-Vous pouvez en générer avec : https://maskable.app/
+- theme officiel noir/dore avec une touche Mako discrete ;
+- saison courante automatique Europe/Paris ;
+- rangement par saison ;
+- recherche simple et recherche avancee ;
+- filtres actifs supprimables individuellement ;
+- favoris et recettes recentes ;
+- tags cliquables ;
+- fiches recettes avec checklist ingredients/etapes ;
+- undo/redo checklist avec Ctrl+Z / Ctrl+Y ;
+- quantites x1, x1.5, x2, x3 ;
+- liste de courses copiable ;
+- partage lien, WhatsApp, email, QR code ;
+- badge video et lien video ;
+- confettis quand toutes les etapes sont cochees ;
+- impression propre via le bouton Imprimer ;
+- PWA/offline pour les assets publics.
 
-CHANGEMENTS v3
---------------
-app.js
-  • Undo/Redo corrigé : utilisation de useRef pour éviter les
-    closures stale (l'état était parfois lu à une version obsolète)
-  • Barre de progression et parallax via mutation DOM directe
-    (ref) — aucun re-render React à chaque pixel défilé
-  • RECIPE_TAGS précalculé hors du composant (une seule fois
-    au chargement, pas à chaque frappe clavier)
-  • Thème automatique réactif : écoute l'événement OS change
-  • Chips "filtres actifs" visibles sous les saisons avec
-    bouton × pour retirer chaque filtre individuellement
-  • Badge rouge sur le bouton 🔍 indiquant le nombre de filtres actifs
-  • Modal Recherche avancée : bouton "Réinitialiser" + Entrée pour valider
-  • Partager / Courses : retour visuel "✅ Copié !" après clipboard
-  • Barre de progression des étapes (X/total) dans la vue recette
-  • ls helper centralisé pour le localStorage (moins de répétition)
+RACCOURCIS
+----------
 
-index.html
-  • Écran de chargement retiré proprement par React au montage
-    (via window.__gremoireReady) — plus de setTimeout hardcodé
-  • og:image ajouté pour l'aperçu lors du partage de liens
+Ctrl/Cmd + K : focus recherche
+H            : retour accueil
+Esc          : fermer modal ou revenir de fiche
+Fleches      : recette precedente/suivante en fiche
+Ctrl+Z/Y     : annuler/retablir checklist
 
-style.css
-  • Variables CSS consolidées
-  • Meilleure gestion mobile : la toolbar ne chevauche pas le contenu
-  • Section @media print améliorée pour l'impression des recettes
+VERIFICATION
+------------
 
-manifest.json
-  • Icônes déclarées correctement (4 fichiers, purpose séparé)
-  • "any maskable" remplacé par des entrées distinctes
-    (conformité PWA Lighthouse)
+   npm run check
 
-service-worker.js
-  • Ne met en cache que les réponses "basic" (même origine)
-  • N'intercepte plus les requêtes externes (CDN, Unsplash…)
-  • allSettled à l'installation : un asset manquant n'empêche
-    plus toute l'installation
+Puis tester :
 
-script.js
-  • Titres écrits via textContent (pas innerHTML) — sécurité XSS
-  • Garde contre window.RECIPES absent ou mal formé
+- http://127.0.0.1:8080
+- http://127.0.0.1:8080/admin
