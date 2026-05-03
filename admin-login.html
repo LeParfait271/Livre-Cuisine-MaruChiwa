@@ -1,52 +1,49 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin - MC Food</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="admin.css" />
-</head>
-<body class="admin-login-page">
-  <main class="login-card">
-    <div class="admin-brand">
-      <span>MC</span>
-      <div>
-        <strong>MC Food</strong>
-        <small>Back-office local</small>
-      </div>
-    </div>
-    <h1>Connexion admin</h1>
-    <p>Mot de passe local requis pour modifier les recettes.</p>
-    <form id="login-form">
-      <label>
-        Mot de passe
-        <input id="password" type="password" autocomplete="current-password" required autofocus />
-      </label>
-      <button type="submit">Entrer</button>
-      <output id="login-message" role="status"></output>
-    </form>
-  </main>
-  <script>
-    document.getElementById('login-form').addEventListener('submit', async event => {
-      event.preventDefault();
-      const message = document.getElementById('login-message');
-      message.textContent = 'Connexion...';
-      const password = document.getElementById('password').value;
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ password })
-      });
-      if (response.ok) {
-        window.location.href = '/admin';
-        return;
-      }
-      const data = await response.json().catch(() => ({}));
-      message.textContent = data.error || 'Connexion impossible';
-    });
-  </script>
-</body>
-</html>
+diff --git a/admin-login.html b/admin-login.html
+index a855d018dad4671f1350f112507a799ee0638ec5..d89f44af6d1c7e0d51d57bfe41188affd074717c 100644
+--- a/admin-login.html
++++ b/admin-login.html
+@@ -1,42 +1,42 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+-  <title>Admin - MC Food</title>
++  <title>Admin - Cook Note</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="admin.css" />
+ </head>
+ <body class="admin-login-page">
+   <main class="login-card">
+     <div class="admin-brand">
+       <span>MC</span>
+       <div>
+-        <strong>MC Food</strong>
++        <strong>Cook Note</strong>
+         <small>Back-office local</small>
+       </div>
+     </div>
+     <h1>Connexion admin</h1>
+     <p>Mot de passe local requis pour modifier les recettes.</p>
+     <form id="login-form">
+       <label>
+         Mot de passe
+         <input id="password" type="password" autocomplete="current-password" required autofocus />
+       </label>
+       <button type="submit">Entrer</button>
+       <output id="login-message" role="status"></output>
+     </form>
+   </main>
+   <script>
+     document.getElementById('login-form').addEventListener('submit', async event => {
+       event.preventDefault();
+       const message = document.getElementById('login-message');
+       message.textContent = 'Connexion...';
+       const password = document.getElementById('password').value;
+       const response = await fetch('/api/admin/login', {
+         method: 'POST',
+         headers: { 'content-type': 'application/json' },
+         body: JSON.stringify({ password })
+       });

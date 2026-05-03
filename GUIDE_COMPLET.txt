@@ -1,126 +1,39 @@
-GUIDE COMPLET - MC FOOD
-=======================
-
-OBJECTIF
---------
-
-MC Food est un site culinaire local pour MaruChiwa :
-
-- consultation rapide des recettes ;
-- classement saisonnier automatique ;
-- fiches cuisine utilisables pendant la preparation ;
-- back-office local pour ajouter et maintenir les recettes.
-
-ARCHITECTURE
-------------
-
-- index.html, app.js, style.css : site public React sans build.
-- recipes.js : source publique des recettes.
-- server.js : serveur Node local + API admin.
-- admin-login.html, admin.html, admin.js, admin.css : back-office.
-- assets/uploads/ : images ajoutees depuis l'admin.
-- backups/ : copies horodatees de recipes.js avant ecriture.
-
-LANCEMENT
----------
-
-   npm run dev
-
-URLS :
-
-   Public : http://127.0.0.1:8080
-   Admin  : http://127.0.0.1:8080/admin
-
-SECURITE ADMIN
---------------
-
-Definir le mot de passe avec une variable d'environnement :
-
-   MC_FOOD_ADMIN_PASSWORD
-
-ou avec un fichier local non commite :
-
-   admin.local.json
-
-Format :
-
-   { "password": "mot-de-passe" }
-
-En absence de configuration, le serveur accepte "changeme" pour faciliter le
-developpement local. A changer avant usage familial partage.
-
-SAISONS
--------
-
-La saison courante est calculee en Europe/Paris :
-
-- Printemps : mars, avril, mai
-- Ete       : juin, juillet, aout
-- Automne   : septembre, octobre, novembre
-- Hiver     : decembre, janvier, fevrier
-
-L'accueil affiche d'abord "En saison maintenant" :
-
-- recettes de la saison courante ;
-- recettes "Toutes saisons".
-
-BACK-OFFICE
------------
-
-Fonctions :
-
-- creer une recette ;
-- modifier une recette ;
-- dupliquer une recette ;
-- supprimer une recette ;
-- uploader une image locale jpg, jpeg, png ou webp jusqu'a 5 MB ;
-- sauvegarder automatiquement recipes.js avec backup.
-
-Validation :
-
-- slug unique ;
-- titre obligatoire ;
-- au moins une categorie ;
-- au moins une saison ;
-- difficulte easy, medium ou hard ;
-- au moins un groupe ingredients avec items ;
-- au moins une etape.
-
-SCHEMA RECETTE
---------------
-
-  {
-    title: string,
-    categories: string[],
-    seasons: string[],
-    difficulty: "easy" | "medium" | "hard",
-    yield?: string,
-    ingredients: { group: string, items: string[] }[],
-    steps: string[],
-    notes?: string[],
-    image?: string,
-    video?: string,
-    tags?: string[]
-  }
-
-PWA
----
-
-Le service worker cache les fichiers publics et les uploads locaux.
-Il ignore volontairement :
-
-- /admin
-- /api/*
-
-pour eviter de servir des donnees admin en cache.
-
-TESTS MANUELS
--------------
-
-1. npm run check
-2. Lancer npm run dev.
-3. Verifier l'accueil desktop/mobile.
-4. Verifier une fiche recette.
-5. Tester favoris, courses, partage, QR, print.
-6. Tester /admin avec login.
-7. Creer une recette test, verifier backup, puis supprimer la recette test.
+diff --git a/GUIDE_COMPLET.txt b/GUIDE_COMPLET.txt
+index 2307b5bbf87879d66b9eb942210454151a780eb7..39207036023c8c1bc942eeaa29c98ab4f148c9b2 100644
+--- a/GUIDE_COMPLET.txt
++++ b/GUIDE_COMPLET.txt
+@@ -1,32 +1,32 @@
+-GUIDE COMPLET - MC FOOD
++GUIDE COMPLET - Cook Note
+ =======================
+ 
+ OBJECTIF
+ --------
+ 
+-MC Food est un site culinaire local pour MaruChiwa :
++Cook Note est un site culinaire local pour Cook Note :
+ 
+ - consultation rapide des recettes ;
+ - classement saisonnier automatique ;
+ - fiches cuisine utilisables pendant la preparation ;
+ - back-office local pour ajouter et maintenir les recettes.
+ 
+ ARCHITECTURE
+ ------------
+ 
+ - index.html, app.js, style.css : site public React sans build.
+ - recipes.js : source publique des recettes.
+ - server.js : serveur Node local + API admin.
+ - admin-login.html, admin.html, admin.js, admin.css : back-office.
+ - assets/uploads/ : images ajoutees depuis l'admin.
+ - backups/ : copies horodatees de recipes.js avant ecriture.
+ 
+ LANCEMENT
+ ---------
+ 
+    npm run dev
+ 
+ URLS :
+ 
+    Public : http://127.0.0.1:8080
+    Admin  : http://127.0.0.1:8080/admin

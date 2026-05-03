@@ -1,106 +1,88 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Le Grimoire Culinaire de MaruChiwa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO -->
-  <meta name="description" content="Le Grimoire Culinaire de MaruChiwa — recettes organisées, modernes, avec recherche avancée, favoris et mode sombre." />
-  <meta name="author" content="MaruChiwa" />
-  <meta name="theme-color" content="#fbbf24" />
-
-  <!-- Open Graph -->
-  <meta property="og:title"       content="Le Grimoire Culinaire de MaruChiwa" />
-  <meta property="og:description" content="Recettes organisées, modernes, avec recherche avancée, favoris et mode sombre." />
-  <meta property="og:type"        content="website" />
-  <meta property="og:image"       content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80" />
-
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon"     href="favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
-
-  <!-- Fonts — préchargées pour éviter le FOUT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- React 18 production -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-  <!-- Confetti + QR code -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
-</head>
-<body>
-  <!-- Écran de chargement — caché par React au montage (voir app.js) -->
-  <div id="loading-screen" aria-hidden="true" style="
-    position:fixed; inset:0; background:#000;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    font-family:'Inter',system-ui,sans-serif; color:#fbbf24; z-index:99999;
-  ">
-    <div style="font-size:56px; margin-bottom:18px; animation:lsBounce 1s ease-in-out infinite">📖</div>
-    <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:6px;">
-      Le Grimoire Culinaire
-    </div>
-    <div style="font-size:14px; color:rgba(255,255,255,.45); margin-bottom:32px;">de MaruChiwa</div>
-    <div style="width:180px; height:3px; background:rgba(255,255,255,.1); border-radius:2px; overflow:hidden;">
-      <div style="height:100%; background:linear-gradient(90deg,#fbbf24,#f59e0b);
-        animation:lsBar 1.8s ease-in-out forwards; border-radius:2px; width:0;"></div>
-    </div>
-  </div>
-
-  <style>
-    @keyframes lsBar    { from { width:0 } to { width:100% } }
-    @keyframes lsBounce { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-8px) } }
-  </style>
-
-  <div id="root"></div>
-
-  <!-- recipes.js DOIT être chargé AVANT app.js -->
-  <script src="recipes.js"></script>
-
-  <!-- App React sans transpilation côté navigateur -->
-  <script src="app.js"></script>
-
-  <!-- Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js').catch(() => {});
-      });
-    }
-    // Cacher l'écran de chargement dès que React est monté
-    // app.js appelle window.__gremoireReady() après ReactDOM.createRoot
-    window.__gremoireReady = () => {
-      const ls = document.getElementById('loading-screen');
-      if (ls) {
-        ls.style.transition = 'opacity 0.4s ease';
-        ls.style.opacity = '0';
-        setTimeout(() => ls.remove(), 420);
-      }
-    };
-    // Fallback : si React ne monte pas dans 8s, on retire l'écran de chargement
-    // pour ne pas rester bloqué indéfiniment (erreur JS, réseau lent, etc.)
-    setTimeout(() => {
-      const ls = document.getElementById('loading-screen');
-      if (ls) {
-        ls.style.transition = 'opacity 0.6s ease';
-        ls.style.opacity = '0';
-        setTimeout(() => {
-          if (ls.parentNode) {
-            ls.innerHTML = '<div style="color:#ef4444;font-family:Inter,sans-serif;text-align:center;padding:20px"><p style="font-size:18px;font-weight:700">⚠️ Erreur de chargement</p><p style="font-size:13px;opacity:.7;margin-top:8px">Ouvrez la console (F12) pour voir le détail.</p><button onclick="location.reload()" style="margin-top:16px;padding:10px 20px;background:#fbbf24;border:none;border-radius:8px;cursor:pointer;font-weight:700">↺ Recharger</button></div>';
-            ls.style.opacity = '1';
-            ls.style.background = '#111';
-          }
-        }, 650);
-      }
-    }, 8000);
-  </script>
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 3eb240f25ba7b18ad54a2468d3f56c51ad4ae36f..b6501c76b7c4812e6f5bde7bc9fab0ad4d0269af 100644
+--- a/index.html
++++ b/index.html
+@@ -1,76 +1,73 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+-  <title>Le Grimoire Culinaire de MaruChiwa</title>
++  <title>Cook Note</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+   <!-- SEO -->
+-  <meta name="description" content="Le Grimoire Culinaire de MaruChiwa — recettes organisées, modernes, avec recherche avancée, favoris et mode sombre." />
+-  <meta name="author" content="MaruChiwa" />
++  <meta name="description" content="Cook Note — recettes organisées, modernes, avec recherche avancée, favoris et mode sombre." />
++  <meta name="author" content="Cook Note" />
+   <meta name="theme-color" content="#fbbf24" />
+ 
+   <!-- Open Graph -->
+-  <meta property="og:title"       content="Le Grimoire Culinaire de MaruChiwa" />
++  <meta property="og:title"       content="Cook Note" />
+   <meta property="og:description" content="Recettes organisées, modernes, avec recherche avancée, favoris et mode sombre." />
+   <meta property="og:type"        content="website" />
+   <meta property="og:image"       content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80" />
+ 
+   <!-- PWA -->
+   <link rel="manifest" href="manifest.json" />
+-  <link rel="icon"     href="favicon.png" type="image/png" />
+-  <link rel="apple-touch-icon" href="favicon.png" />
++  <link rel="icon"     href="/assets/cook-note-mark.svg" type="image/svg+xml" />
++  <link rel="apple-touch-icon" href="/assets/cook-note-mark.svg" />
+ 
+   <!-- Fonts — préchargées pour éviter le FOUT -->
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+ 
+   <!-- Styles -->
+   <link rel="stylesheet" href="style.css" />
+ 
+   <!-- React 18 production -->
+   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+ 
+   <!-- Confetti + QR code -->
+   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+ </head>
+ <body>
+   <!-- Écran de chargement — caché par React au montage (voir app.js) -->
+   <div id="loading-screen" aria-hidden="true" style="
+     position:fixed; inset:0; background:#000;
+     display:flex; flex-direction:column; align-items:center; justify-content:center;
+     font-family:'Inter',system-ui,sans-serif; color:#fbbf24; z-index:99999;
+   ">
+     <div style="font-size:56px; margin-bottom:18px; animation:lsBounce 1s ease-in-out infinite">📖</div>
+-    <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:6px;">
+-      Le Grimoire Culinaire
+-    </div>
+-    <div style="font-size:14px; color:rgba(255,255,255,.45); margin-bottom:32px;">de MaruChiwa</div>
++    <img src="/assets/cook-note-logo.svg" alt="Cook Note" style="width:min(420px,78vw); margin-bottom:22px; filter:drop-shadow(0 8px 24px rgba(255,255,255,.25));" />
+     <div style="width:180px; height:3px; background:rgba(255,255,255,.1); border-radius:2px; overflow:hidden;">
+       <div style="height:100%; background:linear-gradient(90deg,#fbbf24,#f59e0b);
+         animation:lsBar 1.8s ease-in-out forwards; border-radius:2px; width:0;"></div>
+     </div>
+   </div>
+ 
+   <style>
+     @keyframes lsBar    { from { width:0 } to { width:100% } }
+     @keyframes lsBounce { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-8px) } }
+   </style>
+ 
+   <div id="root"></div>
+ 
+   <!-- recipes.js DOIT être chargé AVANT app.js -->
+   <script src="recipes.js"></script>
+ 
+   <!-- App React sans transpilation côté navigateur -->
+   <script src="app.js"></script>
+ 
+   <!-- Service Worker -->
+   <script>
+     if ('serviceWorker' in navigator) {
+       window.addEventListener('load', () => {
+         navigator.serviceWorker.register('service-worker.js').catch(() => {});
+       });

@@ -1,13 +1,19 @@
-{
-  "name": "mc-food",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Le Grimoire Culinaire de MaruChiwa",
-  "scripts": {
-    "dev": "node server.js",
-    "check": "node --check server.js && node --check app.js && node --check admin.js && node --check recipe.js && node --check service-worker.js"
-  },
-  "engines": {
-    "node": ">=18"
-  }
-}
+diff --git a/package.json b/package.json
+index 5b962cb7fe17cc206bb54dc8731a34bb33347a23..280df963fc82effa2c4cec38373f13cd7d3bd930 100644
+--- a/package.json
++++ b/package.json
+@@ -1,13 +1,13 @@
+ {
+   "name": "mc-food",
+   "version": "1.0.0",
+   "private": true,
+-  "description": "Le Grimoire Culinaire de MaruChiwa",
++  "description": "Cook Note",
+   "scripts": {
+     "dev": "node server.js",
+     "check": "node --check server.js && node --check app.js && node --check admin.js && node --check recipe.js && node --check service-worker.js"
+   },
+   "engines": {
+     "node": ">=18"
+   }
+ }
