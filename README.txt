@@ -7,7 +7,7 @@ index 2fdce20af78ace9306a0695ecf2e83ea4adf1ce5..c774b9b22358eaf6fa559fc663f45572
 +Cook Note - LE GRIMOIRE CULINAIRE DE MARUCHIWA
  ============================================
  
- LANCER EN LOCAL
+ LANCER EN LOCAL 
  ---------------
  
  1. Installer Node.js 18+ si besoin.
