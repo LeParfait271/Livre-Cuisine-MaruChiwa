@@ -189,7 +189,17 @@ function normalizeRecipe(recipe) {
     ...(Array.isArray(recipe.notes) && recipe.notes.length ? { notes: recipe.notes.map(String).map(s => s.trim()).filter(Boolean) } : {}),
     ...(recipe.image ? { image: String(recipe.image).trim() } : {}),
     ...(recipe.video ? { video: String(recipe.video).trim() } : {}),
-    ...(Array.isArray(recipe.tags) && recipe.tags.length ? { tags: recipe.tags.map(String).map(s => s.trim()).filter(Boolean) } : {})
+    ...(Array.isArray(recipe.tags) && recipe.tags.length ? { tags: recipe.tags.map(String).map(s => s.trim()).filter(Boolean) } : {}),
+    ...(recipe.master ? { master: sanitizeId(recipe.master) } : {}),
+    ...(Array.isArray(recipe.variants) && recipe.variants.length ? {
+      variants: recipe.variants
+        .map(variant => ({
+          id: sanitizeId(variant.id),
+          ...(variant.label ? { label: String(variant.label).trim() } : {})
+        }))
+        .filter(variant => variant.id)
+    } : {}),
+    ...(recipe.masterType ? { masterType: String(recipe.masterType).trim() } : {})
   };
 }
 
@@ -298,6 +308,9 @@ async function handleApi(req, res, url) {
       if (req.method === 'PUT') {
         const body = await readJson(req);
         const recipe = normalizeRecipe(body.recipe || {});
+        if (recipes[id].master && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'master')) recipe.master = recipes[id].master;
+        if (recipes[id].masterType && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'masterType')) recipe.masterType = recipes[id].masterType;
+        if (recipes[id].variants && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'variants')) recipe.variants = recipes[id].variants;
         const errors = validateRecipe(id, recipe, recipes, 'update');
         if (errors.length) return sendJson(res, 400, { error: errors.join(' ') });
         recipes[id] = recipe;

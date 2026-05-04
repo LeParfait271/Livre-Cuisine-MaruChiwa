@@ -5,8 +5,95 @@
 
 window.RECIPES = {
 
+
+  // Fiches ma?tre
+  coulis_maitre: { title:'Coulis', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
+    masterType:'collection',
+    variants:[
+      {id:'coulis_guide', label:'Guide & formules'},
+      {id:'coulis_fraise', label:'Fraise'},
+      {id:'coulis_framboise', label:'Framboise'},
+      {id:'coulis_abricot_vanille', label:'Abricot-vanille'},
+      {id:'coulis_poire', label:'Poire'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner le coulis voulu dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher ses ingr?dients, ?tapes, notes et conservation.'],
+    notes:['Fiche ma?tre : toutes les recettes de coulis du carnet sont regroup?es ici.'],
+    tags:['coulis','fruit','dessert','base']
+  },
+
+  chantilly_maitre: { title:'Chantilly', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
+    masterType:'collection',
+    variants:[
+      {id:'chantilly_classique', label:'Classique'},
+      {id:'mascarpone', label:'Mascarpone'},
+      {id:'chantilly_gelatine', label:'Stabilis?e g?latine'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner la chantilly voulue dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher la m?thode adapt?e.'],
+    notes:['Fiche ma?tre : chantilly simple, riche ou stabilis?e.'],
+    tags:['chantilly','creme','dessert','base']
+  },
+
+  cremes_maitre: { title:'Cr?mes p?tissi?res et garnitures', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
+    masterType:'collection',
+    variants:[
+      {id:'creme_diplomate_vanille', label:'Diplomate vanille'},
+      {id:'creme_diplomate_cloud', label:'Diplomate donuts & choux'},
+      {id:'creme_patissiere_praline', label:'P?tissi?re pralin?'},
+      {id:'creme_praline', label:'Cr?me pralin?'},
+      {id:'creme_beurre_meringue_italienne', label:'Cr?me au beurre'},
+      {id:'creme_amande_', label:'Cr?me d?amandes'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner la cr?me ou garniture voulue dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher la recette compl?te.'],
+    notes:['Fiche ma?tre : toutes les cr?mes et garnitures de base du carnet.'],
+    tags:['creme','patisserie','garniture','base']
+  },
+
+  pates_bases_maitre: { title:'P?tes et bases p?tissi?res', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
+    masterType:'collection',
+    variants:[
+      {id:'pate_choux', label:'P?te ? choux'},
+      {id:'craquelin_cacao', label:'Craquelin cacao'},
+      {id:'pate_noisette', label:'P?te de noisette'},
+      {id:'choux_craquelin', label:'Choux au craquelin'},
+      {id:'paris_brest', label:'Paris-Brest'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner la base ou le montage voulu dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher la recette compl?te.'],
+    notes:['Fiche ma?tre : bases techniques et montages li?s.'],
+    tags:['pate','base','choux','patisserie']
+  },
+
+  sauces_assaisonnements_maitre: { title:'Sauces, pestos et assaisonnements', categories:['Entr?es','Ap?ro','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
+    masterType:'collection',
+    variants:[
+      {id:'vinaigrette', label:'Vinaigrette'},
+      {id:'pesto_variantes', label:'Pesto'},
+      {id:'balsamique_reduit', label:'Balsamique r?duit'},
+      {id:'huile_pimentee_pizza', label:'Huile piment?e'},
+      {id:'marinades_guide', label:'Marinades'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner la sauce ou l?assaisonnement voulu dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher la recette compl?te.'],
+    notes:['Fiche ma?tre : sauces froides, condiments, huiles et marinades.'],
+    tags:['sauce','pesto','marinade','assaisonnement']
+  },
+
+  tomates_maitre: { title:'Tomates pr?par?es', categories:['Entr?es','Ap?ro','Recettes de base'], seasons:['?t?','Automne'], difficulty:'easy',
+    masterType:'collection',
+    variants:[
+      {id:'tomates_variantes', label:'S?ch?es ou confites'}
+    ],
+    ingredients:[{group:'Choisir une variante',items:['S?lectionner la pr?paration de tomates voulue dans les boutons de la fiche.']}],
+    steps:['Choisir une variante pour afficher la recette compl?te.'],
+    notes:['Fiche ma?tre : pr?parations de tomates au four.'],
+    tags:['tomate','confit','seche','aperitif']
+  },
+
   // Entrées / Apéro
-  vinaigrette: { title:'Vinaigrette de chef (variantes)', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
+  vinaigrette: { title:'Vinaigrette de chef (variantes)', master:'sauces_assaisonnements_maitre', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['30 g moutarde de Dijon','45 g vinaigre de vin rouge ou Xérès','2 g sel fin, 1 g poivre','150 g huile (80 g neutre + 70 g olive)','5 g miel (option)']}],
     steps:['Fouetter moutarde + vinaigre + sel/poivre (et miel).','Verser les huiles en filet pour émulsionner.','Goûter et ajuster.'],
     notes:['Ratio huile:acide 3:1 à 4:1 selon la salade.','Variantes : citron, herbes, miso blanc, yaourt grec.',
@@ -15,7 +102,7 @@ window.RECIPES = {
       'Conservation : 5–7 j au froid.']
   },
 
-  pesto_variantes: { title:'Pesto (base + variantes)', categories:['Entrées','Apéro'], seasons:['Printemps','Été'], difficulty:'easy',
+  pesto_variantes: { title:'Pesto (base + variantes)', master:'sauces_assaisonnements_maitre', categories:['Entrées','Apéro'], seasons:['Printemps','Été'], difficulty:'easy',
     ingredients:[
       {group:'Version salade (citronnée)',items:["50 g basilic","40 g parmesan râpé","30 g pignons grillés","1 gousse d'ail","45 g huile d'olive","45 g huile neutre","10 g jus de citron","Sel, poivre"]},
       {group:'Version Genovese (traditionnelle)',items:["60 g basilic Genovese","30 g pignons","15 g Parmigiano Reggiano","15 g Pecorino","1 petite gousse d'ail","100–120 g huile d'olive EV","2–3 g sel"]}
@@ -30,13 +117,13 @@ window.RECIPES = {
     notes:["Zaatar + huile d'olive ; Citron confit + aneth ; Miel + piment d'Espelette ; Truffe : 1–2 % huile de truffe.","Conservation : 2–3 j au froid."]
   },
 
-  balsamique_reduit: { title:'Balsamique réduit (variantes)', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
+  balsamique_reduit: { title:'Balsamique réduit (variantes)', master:'sauces_assaisonnements_maitre', categories:['Entrées','Apéro'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:["250 g vinaigre balsamique IGP","25–50 g sucre (au goût)"]}],
     steps:["Mijoter 12–20 min à feu doux jusqu'à nappant (réduction 1/2–2/3)."],
     notes:["Variantes : zeste d'orange, vanille, cacao, espresso, figue (filtrer).","Conservation : 2–3 mois au froid."]
   },
 
-  tomates_variantes: { title:'Tomates au four (séchées ou confites)', categories:['Entrées','Apéro'], seasons:['Été','Automne'], difficulty:'easy',
+  tomates_variantes: { title:'Tomates au four (séchées ou confites)', master:'tomates_maitre', categories:['Entrées','Apéro'], seasons:['Été','Automne'], difficulty:'easy',
     ingredients:[
       {group:'Version séchées',items:["1 kg tomates Roma","Sel fin","Thym","Huile d'olive pour conservation"]},
       {group:'Version confites',items:["1 kg tomates cerises","6 g sel","3 g sucre","4 gousses d'ail","Branches de thym","Huile d'olive"]}
@@ -45,7 +132,7 @@ window.RECIPES = {
     notes:['Séchées : parfaites pour antipasti et salades.','Confites : idéales en bruschetta / pâtes.']
   },
 
-  huile_pimentee_pizza: { title:'Huile pimentée pour pizza (variantes)', categories:['Entrées','Plats'], seasons:['Toutes saisons'], difficulty:'easy',
+  huile_pimentee_pizza: { title:'Huile pimentée pour pizza (variantes)', master:'sauces_assaisonnements_maitre', categories:['Entrées','Plats'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:["250 g huile d'olive","4 piments secs","1 gousse d'ail écrasée","Zeste de 1/2 citron (option)"]}],
     steps:["Chauffer 60–70 °C 10 min avec piments + ail + zeste, couvrir et infuser 24 h.","Filtrer."],
     notes:['Variantes : poivre de Sichuan, origan, paprika fumé.','Conservation : 1 mois au froid.']
@@ -59,7 +146,7 @@ window.RECIPES = {
     notes:['Plaque préchauffée = croûte plus nette.','Conservation : 4 j au réfrigérateur.']
   },
 
-  marinades_guide: { title:'Marinades — 10 signatures', categories:['Entrées','Plats'], seasons:['Toutes saisons'], difficulty:'easy',
+  marinades_guide: { title:'Marinades — 10 signatures', master:'sauces_assaisonnements_maitre', categories:['Entrées','Plats'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[
       {group:'1) Méditerranéenne',items:["40 g huile d'olive","20 g jus de citron","2 g zeste","2 g origan","2 g ail râpé","Sel/poivre"]},
       {group:'2) Teriyaki rapide',items:['40 g sauce soja','20 g mirin','10 g sucre','10 g vinaigre de riz','2 g gingembre','1 g ail']},
@@ -107,7 +194,7 @@ window.RECIPES = {
   },
 
   // Desserts
-  chantilly_classique: { title:'Chantilly classique au fouet', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
+  chantilly_classique: { title:'Chantilly classique au fouet', master:'chantilly_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g crème 35 % très froide','20–30 g sucre glace']}],
     steps:["Bol + fouet au froid ; monter en bec d'oiseau ; sucrer en fin."],
     notes:['Parfums : vanille, cacao, café, coco (1–2 %).',
@@ -116,7 +203,7 @@ window.RECIPES = {
       'Conservation : 24 h au froid maximum.']
   },
 
-  mascarpone: { title:'Chantilly riche (mascarpone)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
+  mascarpone: { title:'Chantilly riche (mascarpone)', master:'chantilly_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g crème 35 % froide','125 g mascarpone','40 g sucre glace']}],
     steps:["Fouetter froid jusqu'à bec d'oiseau souple."],
     notes:['Aromatiser : vanille, cacao, coco (1–2 %).',
@@ -126,13 +213,13 @@ window.RECIPES = {
       'Conservation : 36 h au froid.']
   },
 
-  chantilly_gelatine: { title:'Chantilly stabilisée (gélatine)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
+  chantilly_gelatine: { title:'Chantilly stabilisée (gélatine)', master:'chantilly_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g crème 35 % très froide','25 g sucre glace','3 g gélatine']}],
     steps:['Hydrater gélatine 10 min ; fondre dans 30 g de crème chaude ; mélanger au reste froid ; refroidir 20–30 min.','Monter au fouet ; serrer au sucre en fin.'],
     notes:['Tenue 24–36 h en poche.']
   },
 
-  creme_diplomate_vanille: { title:'Crème diplomate vanille', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
+  creme_diplomate_vanille: { title:'Crème diplomate vanille', master:'cremes_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
     ingredients:[
       {group:'Crème pâtissière',items:['500 g lait entier','1 gousse de vanille','100 g sucre','80 g jaunes (4)','40 g maïzena','40 g beurre']},
       {group:'Gélification + Chantilly',items:['6 g gélatine','200 g crème 35 % montée souple']}
@@ -145,7 +232,7 @@ window.RECIPES = {
       'Conservation pâtissière seule : 48 h au froid. Assemblée avec chantilly : 24 h au froid.']
   },
 
-  choux_craquelin: { title:'Choux au craquelin', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
+  choux_craquelin: { title:'Choux au craquelin', master:'pates_bases_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
     yield:'18–22 choux',
     ingredients:[
       {group:'Craquelin',items:['50 g beurre','60 g cassonade','60 g farine']},
@@ -172,7 +259,7 @@ window.RECIPES = {
     notes:['Des blancs "vieillis" montent mieux.','Cuisson longue = meringues bien sèches et stables.','Stockage optimal : boîte hermétique, endroit sec, jamais au réfrigérateur.','Conservation : 2 semaines sans perte de texture.']
   },
 
-  coulis_fraise: { title:'Coulis de fraise', categories:['Desserts'], seasons:['Printemps'], difficulty:'easy',
+  coulis_fraise: { title:'Coulis de fraise', master:'coulis_maitre', categories:['Desserts'], seasons:['Printemps'], difficulty:'easy',
     ingredients:[{group:'Base',items:['400 g fraises','80 g sucre','10 g jus de citron']}],
     steps:['Mixer ; chauffer à frémissement 1–2 min ; refroidir.'],
     notes:['Texture coulis (burette) ; passer fin.',
@@ -181,25 +268,25 @@ window.RECIPES = {
       'Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
-  coulis_framboise: { title:'Coulis de framboise', categories:['Desserts'], seasons:['Été'], difficulty:'easy',
+  coulis_framboise: { title:'Coulis de framboise', master:'coulis_maitre', categories:['Desserts'], seasons:['Été'], difficulty:'easy',
     ingredients:[{group:'Base',items:['400 g framboises','90 g sucre','10 g jus de citron']}],
     steps:['Mixer ; chauffer ; passer fin pour enlever les pépins.'],
     notes:['Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
-  coulis_abricot_vanille: { title:'Coulis abricot-vanille', categories:['Desserts'], seasons:['Été'], difficulty:'easy',
+  coulis_abricot_vanille: { title:'Coulis abricot-vanille', master:'coulis_maitre', categories:['Desserts'], seasons:['Été'], difficulty:'easy',
     ingredients:[{group:'Base',items:['400 g abricots dénoyautés','70 g sucre','1/2 gousse de vanille','20 g eau']}],
     steps:['Cuire 5–8 min ; mixer lisse ; passer.'],
     notes:['Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
-  coulis_poire: { title:'Coulis de poire', categories:['Desserts'], seasons:['Automne','Hiver'], difficulty:'easy',
+  coulis_poire: { title:'Coulis de poire', master:'coulis_maitre', categories:['Desserts'], seasons:['Automne','Hiver'], difficulty:'easy',
     ingredients:[{group:'Base',items:['400 g poires mûres','60–80 g sucre (au goût)','10 g jus de citron']}],
     steps:['Cuire 3–5 min ; mixer lisse ; passer.'],
     notes:['Assaisonnement possible : vanille, poivre Timut.','Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
-  coulis_guide: { title:'Coulis — guide (formules & variantes)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
+  coulis_guide: { title:'Coulis — guide (formules & variantes)', master:'coulis_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[
       {group:'Base',items:["400 g fruit","60–100 g sucre (au goût et selon l'acidité)","10 g jus de citron"]},
       {group:'Fruits populaires',items:['Fraise, Framboise (passer), Mangue, Pêche, Poire, Cerise, Abricot-vanille']}
@@ -208,7 +295,7 @@ window.RECIPES = {
     notes:['Texture "burette" pour dressage : ajuster eau si besoin.','Conservation : 5 j au froid ; congélateur 2 mois.']
   },
 
-  creme_amande_: { title:"Crème d'amandes", categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
+  creme_amande_: { title:"Crème d'amandes", master:'cremes_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'easy',
     yield:'1 préparation (≈ tarte 22–24 cm)',
     ingredients:[{group:'Appareil',items:[
       '100 g beurre pommade','100 g sucre',"100 g poudre d'amande",
@@ -298,7 +385,7 @@ window.RECIPES = {
     ]
   },
 
-  creme_diplomate_cloud: { title:'Crème diplomate vanille (pour donuts & choux)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
+  creme_diplomate_cloud: { title:'Crème diplomate vanille (pour donuts & choux)', master:'cremes_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'medium',
     yield:'Garniture pour 12–14 donuts ou 18–22 choux',
     image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80',
     ingredients:[
@@ -340,7 +427,7 @@ window.RECIPES = {
     ]
   },
 
-  paris_brest: { title:'Paris-Brest (Cédric Grolet)', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'hard',
+  paris_brest: { title:'Paris-Brest (Cédric Grolet)', master:'pates_bases_maitre', categories:['Desserts'], seasons:['Toutes saisons'], difficulty:'hard',
     yield:'5 à 6 Paris-Brest individuels',
     ingredients:[
       {group:'Assemblage final',items:['5–6 couronnes de pâte à choux cuites avec craquelin','Crème au praliné','50 g noisettes torréfiées concassées','QS praliné noisette pur']},
@@ -357,31 +444,31 @@ window.RECIPES = {
     notes:['Recette adaptée de la version publiée sur iletaitungateau.com (article 30).','Sortir du réfrigérateur 30 à 40 min avant dégustation.']
   },
 
-  craquelin_cacao: { title:'Craquelin cacao (Paris-Brest)', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
+  craquelin_cacao: { title:'Craquelin cacao (Paris-Brest)', master:'pates_bases_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['40 g beurre pommade','45 g farine','50 g cassonade','6 g cacao non sucré','25 g blancs d’œufs','40 g noisettes concassées']}],
     steps:['Mélanger farine + cassonade + cacao, puis incorporer le beurre.','Étaler à 2 mm entre deux feuilles et congeler 30 min.','Découper des anneaux (Ø 8 cm, trou Ø 2 cm), badigeonner de blanc d’œuf, ajouter les noisettes puis recongeler jusqu’à usage.'],
     notes:['Composant pour : <span data-goto="paris_brest" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Paris-Brest (Cédric Grolet)</span>.']
   },
 
-  pate_choux: { title:'Pâte à choux (Paris-Brest)', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
+  pate_choux: { title:'Pâte à choux (Paris-Brest)', master:'pates_bases_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
     ingredients:[{group:'Base',items:['62 g lait','62 g eau','2 g sel','55 g beurre','75 g farine','100 g œufs (≈2)']}],
     steps:['Porter à ébullition eau + lait + sel + beurre.','Hors du feu, ajouter la farine en une fois puis dessécher sur feu doux.','Refroidir légèrement au robot (feuille), puis incorporer les œufs progressivement jusqu’à texture lisse.','Pocher des couronnes de 7 cm, poser le craquelin puis cuire à 170 °C pendant 40 à 45 min.'],
     notes:['Le test du sillon : il doit se refermer doucement quand la texture est correcte.']
   },
 
-  pate_noisette: { title:'Pâte de noisette maison', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
+  pate_noisette: { title:'Pâte de noisette maison', master:'pates_bases_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'easy',
     ingredients:[{group:'Base',items:['250 g noisettes torréfiées','13,5 g sucre glace','0,5 g fleur de sel']}],
     steps:['Mixer longuement tous les ingrédients jusqu’à obtention d’une pâte lisse et fluide.'],
     notes:['Composant utilisable dans crèmes, pralinés et ganaches.']
   },
 
-  creme_patissiere_praline: { title:'Crème pâtissière praliné (Paris-Brest)', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
+  creme_patissiere_praline: { title:'Crème pâtissière praliné (Paris-Brest)', master:'cremes_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
     ingredients:[{group:'Base',items:['3,5 g gélatine poudre + 16 g eau','150 g lait','32 g crème liquide','30 g sucre','9 g maïzena','9 g farine','30 g jaunes d’œufs','10 g beurre de cacao','17 g beurre','10 g mascarpone','30 g pâte de noisette','60 g praliné noisette']}],
     steps:['Réhydrater la gélatine dans l’eau froide.','Porter lait + crème à ébullition. Blanchir jaunes + sucre, puis ajouter maïzena et farine.','Verser le liquide chaud sur les jaunes, remettre en casserole et cuire jusqu’à épaississement.','Hors du feu, ajouter gélatine, beurre de cacao, beurre, mascarpone, pâte de noisette et praliné. Mixer, filmer au contact, refroidir.'],
     notes:['Ajuster le praliné/pâte de noisette selon l’intensité souhaitée.']
   },
 
-  creme_beurre_meringue_italienne: { title:'Crème au beurre (base crème anglaise + meringue italienne)', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'hard',
+  creme_beurre_meringue_italienne: { title:'Crème au beurre (base crème anglaise + meringue italienne)', master:'cremes_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'hard',
     ingredients:[
       {group:'Crème anglaise au beurre',items:['45 g lait','45 g sucre','35 g jaunes d’œufs','200 g beurre pommade']},
       {group:'Meringue italienne',items:['20 g eau','60 g sucre','30 g blancs d’œufs']}
@@ -390,7 +477,7 @@ window.RECIPES = {
     notes:['Base technique pour plusieurs entremets/pâtisseries classiques.']
   },
 
-  creme_praline: { title:'Crème praliné (montage Paris-Brest)', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
+  creme_praline: { title:'Crème praliné (montage Paris-Brest)', master:'cremes_maitre', categories:['Desserts','Recettes de base'], seasons:['Toutes saisons'], difficulty:'medium',
     ingredients:[{group:'Assemblage',items:['390 g crème pâtissière praliné (ou totalité préparée)','300 g crème au beurre (environ)']}],
     steps:['Détendre la crème pâtissière refroidie au fouet.','Incorporer délicatement la crème au beurre à la maryse.','Mettre en poche cannelée pour le montage des Paris-Brest.'],
     notes:['→ Utilisée dans : <span data-goto="paris_brest" style="color:#fbbf24;text-decoration:underline;cursor:pointer">Paris-Brest (Cédric Grolet)</span>.']
