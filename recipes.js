@@ -135,7 +135,7 @@ window.RECIPES = {
     ]
   },
   "cremes_maitre": {
-    "title": "Crèmes pâtissières et garnitures",
+    "title": "Toping et garniture",
     "image": "/assets/recipe-images/ricotta_fouettee.jpg",
     "categories": [
       "Desserts",
@@ -147,6 +147,14 @@ window.RECIPES = {
     "difficulty": "medium",
     "masterType": "collection",
     "variants": [
+      {
+        "id": "chantilly_maitre",
+        "label": "Chantilly"
+      },
+      {
+        "id": "coulis_maitre",
+        "label": "Coulis de fruits"
+      },
       {
         "id": "creme_diplomate_vanille",
         "label": "Diplomate vanille"
@@ -174,23 +182,27 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Choisir une variante",
+        "group": "Sous-fiches",
         "items": [
-          "Sélectionner la crème ou garniture voulue dans les boutons de la fiche."
+          "Choisir une sous-fiche ou une variante pour afficher la recette."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette complète."
+      "Choisir une sous-fiche ou une variante pour afficher les étapes."
     ],
     "notes": [
-      "Fiche maître : toutes les crèmes et garnitures de base du carnet."
+      "Cette fiche regroupe les toppings, garnitures, chantillys, coulis et crèmes du carnet.",
+      "Cliquer une sous-fiche pour ouvrir son propre groupe de recettes."
     ],
     "tags": [
       "creme",
       "patisserie",
       "garniture",
-      "base"
+      "base",
+      "toping",
+      "chantilly",
+      "coulis"
     ],
     "technical": [
       {

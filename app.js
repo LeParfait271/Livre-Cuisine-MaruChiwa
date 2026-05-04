@@ -254,18 +254,21 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
+function TopBar({ onHome, totalRecipeCount, ficheCount, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
   return h('header', { className: 'topbar' },
     h('button', { className: 'brand', type: 'button', onClick: onHome, 'aria-label': 'Retour à l’accueil' },
-      h('img', { className: 'brand-logo', src: '/assets/cook-note-mark.svg', alt: 'Cook Note' }),
+      h('span', { className: 'brand-logo-box' }, h('img', { className: 'brand-logo', src: '/assets/cook-note-logo.svg', alt: 'Cook Note' })),
       h('span', { className: 'brand-copy' },
         h('strong', null, 'Cook Note'),
         h('small', null, 'Carnet culinaire')
       )
     ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
+      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
+      h('span', { className: 'top-stat' }, h('strong', null, totalRecipeCount), ' recettes'),
+      h('span', { className: 'top-stat' }, h('strong', null, ficheCount), ' fiches'),
+      h('span', { className: 'top-stat' }, h('strong', null, favoriteCount), ' favoris'),
       h(Button, { variant: 'subtle', onClick: openAdvanced }, ['Recherche avancée', activeFilterCount ? h('span', { key: 'badge', className: 'filter-badge' }, activeFilterCount) : null]),
-      h(Button, { variant: 'subtle', onClick: showFavorites }, `${favoriteCount} favoris`),
       h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
       h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
     ),
@@ -273,7 +276,7 @@ function TopBar({ onHome, favoriteCount, shoppingCount, activeRecipe, openAdvanc
   );
 }
 
-function Hero({ total, filteredCount, favoriteCount, currentSeason, onShowFavorites }) {
+function Hero({ currentSeason }) {
   return h('section', {
     className: 'hero',
     style: {
@@ -282,17 +285,7 @@ function Hero({ total, filteredCount, favoriteCount, currentSeason, onShowFavori
   },
     h('div', { className: 'hero-inner' },
       h('p', { className: 'eyebrow' }, `Saison actuelle · ${currentSeason}`),
-      h('h1', null, 'Cook Note'),
-      h('p', { className: 'hero-lede' }, 'Recettes familiales, fiches cuisine, favoris, courses et rangement saisonnier dans une identité noir et or.'),
-      h('div', { className: 'hero-actions' },
-        h(Button, { variant: 'primary', onClick: onShowFavorites }, 'Voir les favoris'),
-        h('a', { className: 'btn btn-ghost', href: '#recettes' }, 'Parcourir les recettes')
-      ),
-      h('div', { className: 'stats-row' },
-        h('span', null, h('strong', null, total), ' recettes'),
-        h('span', null, h('strong', null, filteredCount), ' fiches'),
-        h('span', null, h('strong', null, favoriteCount), ' favoris')
-      )
+      h('img', { className: 'hero-logo', src: '/assets/cook-note-logo.svg', alt: 'Cook Note' })
     )
   );
 }
@@ -477,11 +470,7 @@ function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTa
 function HomeView(props) {
   return h('main', { className: 'home-view' },
     h(Hero, {
-      total: props.totalRecipeCount,
-      filteredCount: props.filteredRecipes.length,
-      favoriteCount: props.favorites.length,
-      currentSeason: props.currentSeason,
-      onShowFavorites: props.showFavorites
+      currentSeason: props.currentSeason
     }),
     h('div', { className: 'content-wrap' },
       h(FilterBar, props.filterProps),
@@ -569,7 +558,7 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
   );
 }
 
-function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect }) {
+function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect, openRecipe }) {
   if (!variantRefs.length) return null;
   return h('section', { className: 'recipe-panel variant-picker-panel' },
     h('div', { className: 'panel-heading' },
@@ -583,13 +572,14 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
       variantRefs.map(variant => {
         const item = recipesById[variant.id];
         if (!item) return null;
+        const nestedMaster = isMasterRecipe(item);
         const active = selectedVariantId === variant.id;
         const image = item.image || parent.image;
         return h('button', {
           key: variant.id,
           type: 'button',
           className: active ? 'variant-card active' : 'variant-card',
-          onClick: () => onSelect(variant.id)
+          onClick: () => nestedMaster ? openRecipe(item.id) : onSelect(variant.id)
         },
           h('span', {
             className: 'variant-card-media',
@@ -598,9 +588,11 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
           h('span', { className: 'variant-card-body' },
             h('strong', null, variant.label || item.title),
             h('small', null,
-              DIFFICULTY_LABELS[item.difficulty] || 'Recette',
-              item.yield ? ` · ${item.yield}` : '',
-              ` · ${countIngredients(item)} ingrédients`
+              nestedMaster
+                ? `${getVariantRefs(item).length} sous-fiches`
+                : DIFFICULTY_LABELS[item.difficulty] || 'Recette',
+              !nestedMaster && item.yield ? ` · ${item.yield}` : '',
+              !nestedMaster ? ` · ${countIngredients(item)} ingrédients` : ''
             )
           )
         );
@@ -744,7 +736,8 @@ function RecipeView({
       variantRefs,
       recipesById,
       selectedVariantId,
-      onSelect: chooseVariant
+      onSelect: chooseVariant,
+      openRecipe
     }),
     h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },
@@ -1169,6 +1162,8 @@ function App() {
   return h('div', { className: 'mc-shell' },
     h(TopBar, {
       onHome: goHome,
+      totalRecipeCount: contentRecipes.length,
+      ficheCount: catalogRecipes.length,
       favoriteCount: favorites.length,
       shoppingCount: shoppingRecipes.length,
       activeRecipe: Boolean(activeRecipe),
