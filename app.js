@@ -311,8 +311,17 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppingBasket, openAudit, query, setQuery, searchRef }) {
+function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
+    h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
+      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
+      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
+      h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
+      h('a', {
+        className: 'btn btn-subtle',
+        href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
+      }, 'Demander une recette')
+    ),
     h('div', { className: 'field top-search' },
       h('label', null, 'Recherche'),
       h('input', {
@@ -321,19 +330,7 @@ function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppi
         onChange: event => setQuery(event.target.value),
         placeholder: 'Rechercher une recette...'
       })
-    ),
-    h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
-      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
-      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
-      h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
-      h('a', {
-        className: 'btn btn-subtle',
-        href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
-      }, 'Demander une recette'),
-      h(Button, { variant: 'subtle', onClick: openAudit }, 'Audit'),
-      h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
-    ),
-    h('div', { className: 'topbar-status' }, activeRecipe ? 'Fiche ouverte' : 'Mode cuisine')
+    )
   );
 }
 
@@ -1292,10 +1289,8 @@ function App() {
     h(TopBar, {
       onHome: goHome,
       shoppingCount: shoppingRecipes.length,
-      activeRecipe: Boolean(activeRecipe),
       showFavorites,
       openShoppingBasket: () => setShoppingOpen(true),
-      openAudit: () => setAuditOpen(true),
       query,
       setQuery,
       searchRef
