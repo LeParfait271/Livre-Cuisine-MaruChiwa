@@ -85,7 +85,7 @@ a {
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(120px, 1fr);
   gap: 14px;
   align-items: center;
   padding: 12px clamp(16px, 4vw, 44px);
@@ -174,14 +174,19 @@ a {
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .topbar-status {
+  justify-self: end;
   color: var(--muted);
   font-size: 13px;
   font-weight: 850;
   white-space: nowrap;
+}
+
+.top-search {
+  width: min(320px, 100%);
 }
 
 .btn {
@@ -285,7 +290,7 @@ a {
 }
 
 .hero-logo {
-  width: min(760px, 90vw);
+  width: min(1180px, 96vw);
   height: auto;
 }
 
@@ -296,6 +301,10 @@ a {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 24px;
+}
+
+.detail-actions {
+  justify-content: flex-end;
 }
 
 .icon-square {
@@ -324,6 +333,10 @@ a {
   background: var(--surface);
   box-shadow: var(--shadow);
   backdrop-filter: blur(20px);
+}
+
+.filters-panel-compact {
+  grid-template-columns: repeat(3, minmax(150px, .7fr)) auto;
 }
 
 .advanced-modal .filters-panel {
@@ -1143,11 +1156,16 @@ a {
 
 @media (max-width: 1040px) {
   .topbar {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
   }
 
   .topbar-status {
     display: none;
+  }
+
+  .top-search {
+    justify-self: center;
+    width: min(520px, 100%);
   }
 
   .filters-panel {
@@ -1177,10 +1195,6 @@ a {
   .top-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-
-  .top-stat {
-    justify-content: center;
   }
 
   .top-actions .btn:first-child {

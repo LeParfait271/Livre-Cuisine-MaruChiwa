@@ -278,13 +278,20 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, totalRecipeCount, ficheCount, shoppingCount, activeRecipe, showFavorites, openShoppingBasket }) {
+function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
+    h('div', { className: 'field top-search' },
+      h('label', null, 'Recherche'),
+      h('input', {
+        ref: searchRef,
+        value: query,
+        onChange: event => setQuery(event.target.value),
+        placeholder: 'Rechercher une recette...'
+      })
+    ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
       h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
       h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
-      h('span', { className: 'top-stat' }, h('strong', null, totalRecipeCount), ' recettes'),
-      h('span', { className: 'top-stat' }, h('strong', null, ficheCount), ' fiches'),
       h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
       h('a', {
         className: 'btn btn-subtle',
@@ -311,8 +318,9 @@ function Hero({ currentSeason }) {
 }
 
 function FilterBar(props) {
-  return h('section', { className: 'filters-panel', 'aria-label': 'Filtres de recettes' },
-    h('div', { className: 'field wide' },
+  const showSearch = props.showSearch !== false;
+  return h('section', { className: showSearch ? 'filters-panel' : 'filters-panel filters-panel-compact', 'aria-label': 'Filtres de recettes' },
+    showSearch && h('div', { className: 'field wide' },
       h('label', null, 'Recherche'),
       h('input', {
         ref: props.searchRef,
@@ -512,7 +520,7 @@ function HomeView(props) {
       currentSeason: props.currentSeason
     }),
     h('div', { className: 'content-wrap' },
-      h(FilterBar, props.filterProps),
+      h(FilterBar, { ...props.filterProps, showSearch: false }),
       h(ActiveChips, { chips: props.activeChips }),
       h(SeasonSections, {
         sections: props.sections,
@@ -880,6 +888,7 @@ function App() {
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [shoppingOpen, setShoppingOpen] = useState(false);
   const searchRef = useRef(null);
+  const homeScrollRef = useRef(0);
   const historyRef = useRef([{}]);
   const historyIndexRef = useRef(0);
 
@@ -887,7 +896,7 @@ function App() {
   const shoppingRecipes = useMemo(() => shoppingIds.map(id => recipesById[id]).filter(Boolean), [shoppingIds, recipesById]);
 
   useEffect(() => {
-    if (!activeRecipe?.master) return;
+    if (!activeRecipe?.master || isMasterRecipe(activeRecipe)) return;
     setVariantSelection(prev => ({ ...prev, [activeRecipe.master]: activeRecipe.id }));
     setActiveId(activeRecipe.master);
   }, [activeRecipe?.id]);
@@ -993,8 +1002,9 @@ function App() {
   function openRecipe(id) {
     const target = recipesById[id];
     if (!target) return;
-    const parentId = target.master || id;
-    if (target.master) {
+    if (!activeRecipe) homeScrollRef.current = window.scrollY || 0;
+    const parentId = target.master && !isMasterRecipe(target) ? target.master : id;
+    if (target.master && !isMasterRecipe(target)) {
       setVariantSelection(prev => ({ ...prev, [parentId]: id }));
     } else {
       setVariantSelection(prev => {
@@ -1026,7 +1036,7 @@ function App() {
   function goHome() {
     setActiveId(null);
     history.pushState('', document.title, window.location.pathname + window.location.search);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    requestAnimationFrame(() => window.scrollTo({ top: homeScrollRef.current || 0, behavior: 'auto' }));
   }
 
   function resetFilters() {
@@ -1050,7 +1060,9 @@ function App() {
     const handleHash = () => {
       const recipe = getInitialHashRecipe();
       const variant = getInitialHashVariant();
+      if (recipe && !activeId) homeScrollRef.current = window.scrollY || homeScrollRef.current || 0;
       setActiveId(recipe);
+      if (!recipe) requestAnimationFrame(() => window.scrollTo({ top: homeScrollRef.current || 0, behavior: 'auto' }));
       if (recipe && variant) {
         setVariantSelection(prev => ({ ...prev, [recipe]: variant }));
       } else if (recipe) {
@@ -1063,7 +1075,7 @@ function App() {
     };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  }, [activeId]);
 
   useEffect(() => {
     const handleGoto = event => {
@@ -1150,12 +1162,13 @@ function App() {
   return h('div', { className: 'mc-shell' },
     h(TopBar, {
       onHome: goHome,
-      totalRecipeCount: contentRecipes.length,
-      ficheCount: catalogRecipes.length,
       shoppingCount: shoppingRecipes.length,
       activeRecipe: Boolean(activeRecipe),
       showFavorites,
-      openShoppingBasket: () => setShoppingOpen(true)
+      openShoppingBasket: () => setShoppingOpen(true),
+      query,
+      setQuery,
+      searchRef
     }),
     activeRecipe
       ? h(RecipeView, {
