@@ -71,7 +71,8 @@ window.RECIPES = {
         "label": "Service",
         "value": "Refroidir avant dressage pour garder une tenue precise."
       }
-    ]
+    ],
+    "master": "cremes_maitre"
   },
   "chantilly_maitre": {
     "title": "Chantilly",
@@ -89,10 +90,6 @@ window.RECIPES = {
       {
         "id": "chantilly_classique",
         "label": "Classique"
-      },
-      {
-        "id": "mascarpone",
-        "label": "Mascarpone"
       },
       {
         "id": "chantilly_gelatine",
@@ -132,7 +129,8 @@ window.RECIPES = {
         "label": "Sucre",
         "value": "Incorporer progressivement pour garder une bouche legere."
       }
-    ]
+    ],
+    "master": "cremes_maitre"
   },
   "cremes_maitre": {
     "title": "Toping et garniture",
@@ -178,6 +176,18 @@ window.RECIPES = {
       {
         "id": "creme_amande_",
         "label": "Crème d’amandes"
+      },
+      {
+        "id": "mascarpone",
+        "label": "Mascarpone vanille"
+      },
+      {
+        "id": "creme_kinder_nutella",
+        "label": "Kinder / Nutella"
+      },
+      {
+        "id": "creme_pistache",
+        "label": "Pistache"
       }
     ],
     "ingredients": [
@@ -217,7 +227,8 @@ window.RECIPES = {
         "label": "Usage",
         "value": "Detendre au fouet avant pochage ou montage."
       }
-    ]
+    ],
+    "master": "desserts_maitre"
   },
   "pates_bases_maitre": {
     "title": "Pâtes et bases pâtissières",
@@ -286,7 +297,8 @@ window.RECIPES = {
         "label": "Cuisson",
         "value": "Surveiller la coloration plutot que le minuteur seul."
       }
-    ]
+    ],
+    "master": "desserts_maitre"
   },
   "sauces_assaisonnements_maitre": {
     "title": "Sauces, pestos et assaisonnements",
@@ -356,7 +368,8 @@ window.RECIPES = {
         "label": "Conservation",
         "value": "Filmer ou couvrir au contact quand la sauce attend."
       }
-    ]
+    ],
+    "master": "entrees_maitre"
   },
   "tomates_maitre": {
     "title": "Tomates préparées",
@@ -411,7 +424,8 @@ window.RECIPES = {
         "label": "Usage",
         "value": "Adapter la coupe selon sauce, garniture ou dressage."
       }
-    ]
+    ],
+    "master": "entrees_maitre"
   },
   "biscuits_gouters_maitre": {
     "title": "Biscuits, cookies et meringues",
@@ -473,7 +487,8 @@ window.RECIPES = {
         "label": "Conservation",
         "value": "Stocker au sec apres refroidissement complet."
       }
-    ]
+    ],
+    "master": "desserts_maitre"
   },
   "petits_dejeuners_maitre": {
     "title": "Petits-déjeuners et boissons chaudes",
@@ -499,6 +514,10 @@ window.RECIPES = {
       {
         "id": "donuts_cloud",
         "label": "Donuts"
+      },
+      {
+        "id": "gaufre_bruxelles",
+        "label": "Gaufre de Bruxelles"
       }
     ],
     "ingredients": [
@@ -534,7 +553,8 @@ window.RECIPES = {
         "label": "Service",
         "value": "Servir aussitot pour conserver le contraste chaud, moelleux ou mousseux."
       }
-    ]
+    ],
+    "master": "petit_dejeuner_maitre"
   },
   "bases_salees_maitre": {
     "title": "Bases salées et accompagnements",
@@ -596,7 +616,8 @@ window.RECIPES = {
         "label": "Service",
         "value": "Garder les elements chauds separes si le dressage attend."
       }
-    ]
+    ],
+    "master": "entrees_maitre"
   },
   "vinaigrette": {
     "title": "Vinaigrette de chef (variantes)",
@@ -1017,7 +1038,7 @@ window.RECIPES = {
           "150 g farine",
           "75 g beurre doux mou",
           "1 œuf",
-          "1/2 c. à c. levure chimique",
+          "2 g levure chimique",
           "Sel, poivre"
         ]
       },
@@ -1026,7 +1047,7 @@ window.RECIPES = {
         "items": [
           "100 g jambon en dés",
           "100 g fromage râpé",
-          "1 c. à s. moutarde à l’ancienne (option)"
+          "15 g moutarde à l’ancienne (option)"
         ]
       },
       {
@@ -1167,8 +1188,8 @@ window.RECIPES = {
     ]
   },
   "mascarpone": {
-    "title": "Chantilly riche (mascarpone)",
-    "master": "chantilly_maitre",
+    "title": "Crème mascarpone vanille",
+    "master": "cremes_maitre",
     "image": "/assets/recipe-images/mascarpone.jpg",
     "categories": [
       "Desserts"
@@ -1177,25 +1198,34 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
+    "yield": "~500 g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "250 g crème 35 % froide",
-          "125 g mascarpone",
-          "40 g sucre glace"
+          "250 g mascarpone",
+          "200 g crème entière froide",
+          "60 g sucre glace",
+          "5 g vanille"
         ]
       }
     ],
     "steps": [
-      "Fouetter froid jusqu'à bec d'oiseau souple."
+      "Lisser mascarpone, sucre glace et vanille.",
+      "Ajouter la crème froide.",
+      "Fouetter jusqu’à pics fermes."
     ],
     "notes": [
-      "Aromatiser : vanille, cacao, coco (1–2 %).",
-      "→ Version avec tenue longue durée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée gélatine</span>",
-      "→ Parfait pour fourrer les <span data-goto=\"donuts_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Donuts Cloud-like</span>",
-      "Stockage optimal : en poche à douille ou boîte hermétique au réfrigérateur.",
-      "Conservation : 36 h au froid."
+      "Texture plus dense, très stable.",
+      "Idéal pour un fourrage rapide.",
+      "Dosage fourrage : 30–40 g par donut."
+    ],
+    "tags": [
+      "creme",
+      "mascarpone",
+      "vanille",
+      "rapide",
+      "stable"
     ]
   },
   "chantilly_gelatine": {
@@ -1238,36 +1268,43 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
+    "yield": "~700 g",
     "ingredients": [
       {
-        "group": "Crème pâtissière",
+        "group": "Pâtissière",
         "items": [
-          "500 g lait entier",
-          "1 gousse de vanille",
-          "100 g sucre",
-          "80 g jaunes (4)",
-          "40 g maïzena",
-          "40 g beurre"
+          "250 g lait",
+          "50 g jaunes d’œufs",
+          "60 g sucre",
+          "25 g Maïzena",
+          "25 g beurre",
+          "5 g vanille"
         ]
       },
       {
-        "group": "Gélification + Chantilly",
+        "group": "Chantilly",
         "items": [
-          "6 g gélatine",
-          "200 g crème 35 % montée souple"
+          "200 g crème 30–35 % froide",
+          "20 g sucre glace"
         ]
       }
     ],
     "steps": [
-      "Faire une pâtissière classique, incorporer beurre ; ajouter gélatine hydratée à chaud ; refroidir 25–30 °C.",
-      "Assouplir puis incorporer la chantilly en 2 fois."
+      "Cuire la pâtissière jusqu’à épaississement, ajouter le beurre, filmer au contact puis refroidir.",
+      "Monter la chantilly en texture souple.",
+      "Lisser la pâtissière froide, puis incorporer la chantilly délicatement."
     ],
     "notes": [
-      "Pour choux, fraisiers, tartes.",
-      "→ Utilisation : <span data-goto=\"choux_craquelin\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Choux au craquelin</span>",
-      "→ Fourrage donuts : <span data-goto=\"donuts_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Donuts Cloud-like</span>",
-      "Stockage optimal : boîte hermétique au froid, filmée au contact pour éviter le croûtage.",
-      "Conservation pâtissière seule : 48 h au froid. Assemblée avec chantilly : 24 h au froid."
+      "Dosage fourrage : 30–40 g par donut.",
+      "Texture attendue : légère, stable et propre.",
+      "Met à jour la recette existante de crème diplomate vanille."
+    ],
+    "tags": [
+      "creme",
+      "diplomate",
+      "vanille",
+      "fourrage",
+      "donut"
     ]
   },
   "choux_craquelin": {
@@ -1643,7 +1680,7 @@ window.RECIPES = {
     ]
   },
   "donuts_cloud": {
-    "title": "Donuts \"Cloud-like\" (pousse lente, levure fraîche)",
+    "title": "Beignets Cloud-like",
     "master": "petits_dejeuners_maitre",
     "categories": [
       "Petits-déjeuners",
@@ -1653,7 +1690,7 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "12–14 gros donuts (60–70 g)",
+    "yield": "12–14 beignets de 60–70 g",
     "image": "/assets/recipe-images/donuts_cloud.jpg",
     "ingredients": [
       {
@@ -1663,56 +1700,54 @@ window.RECIPES = {
           "25 g sucre",
           "3 g sel",
           "10–12 g levure fraîche",
-          "50 g œuf (≈ 1 œuf)",
-          "140 g lait entier",
-          "25 g beurre fondu ou mou (tiède)",
+          "50 g œuf",
+          "140 g lait",
+          "25 g beurre",
           "5 g vanille"
         ]
       },
       {
         "group": "Friture",
         "items": [
-          "Huile neutre en quantité suffisante (160–165 °C)"
+          "Huile neutre à 160–165 °C"
         ]
       },
       {
-        "group": "Finition — Option 1 (classique)",
+        "group": "Finition",
         "items": [
-          "120 g sucre semoule"
+          "120 g sucre semoule ou sucre glace",
+          "30–40 g crème par pièce si fourré"
         ]
       },
       {
-        "group": "Finition — Option 2 (fourré)",
+        "group": "Conversion levure",
         "items": [
-          "30–40 g de crème par donut"
+          "1 g levure sèche équivaut à environ 3 g levure fraîche",
+          "8–10 g levure sèche équivalent à 24–30 g levure fraîche"
         ]
       }
     ],
     "steps": [
-      "— VEILLE AU SOIR —",
-      "Activer la levure : prélever 40 g de lait sur les 140 g, chauffer à 25–30 °C. Émietter la levure fraîche dedans et mélanger.",
-      "Dans un bol, mélanger farine + sucre + sel + vanille. Ajouter l'œuf, le reste du lait froid, puis le mélange levure. Incorporer enfin le beurre tiède.",
-      "Pétrir 8–10 min jusqu'à pâte lisse, souple et légèrement collante. Repos 15 min.",
-      "Former une boule, placer dans un bol huilé. Laisser 30–45 min à température ambiante, puis couvrir hermétiquement et réfrigérer 12–18 h.",
-      "— LE LENDEMAIN —",
-      "Sortir la pâte 1 h avant pour la remettre à température ambiante.",
-      "Diviser en boules de 60–70 g en serrant bien ('bouler' pour une belle mie). Apprêt 1 h à 1 h 30 à couvert : la pâte doit être gonflée, légère et trembler légèrement.",
-      "— CUISSON —",
-      "Chauffer l'huile à 160–165 °C (thermomètre recommandé). Frire 2 min 30 à 3 min par face (5–6 min total). ⚠️ Maximum 2–3 donuts à la fois pour maintenir la température de l'huile.",
-      "Égoutter sur papier absorbant.",
-      "— FINITION —",
-      "Option 1 : rouler dans le sucre semoule immédiatement à la sortie du bain (colle parfaitement quand chaud).",
-      "Option 2 : laisser tiédir, percer un petit trou sur le côté, pocher 30–40 g de crème à la douille longue jusqu'à sentir le donut s'alourdir légèrement."
+      "La veille : prélever 40 g de lait, tiédir à 25–30 °C, dissoudre la levure fraîche.",
+      "Mélanger farine, sucre, sel et vanille. Ajouter œuf, reste du lait, mélange levure et beurre fondu tiède ou mou.",
+      "Pétrir 8–10 min jusqu’à pâte lisse, souple et légèrement collante. Couvrir 15 min.",
+      "Bouler, placer en bol légèrement huilé, laisser 30–45 min à température ambiante.",
+      "Couvrir et mettre au froid 12–18 h.",
+      "Le lendemain : sortir 1 h avant.",
+      "Dégazer légèrement, bouler à 60–70 g avec une surface bien tendue.",
+      "Apprêt 1 h à 1 h 30. L’empreinte du doigt doit remonter lentement.",
+      "Frire à 160–165 °C, 2 min 30 à 3 min par face, 2–3 pièces maximum à la fois.",
+      "Rouler dans le sucre à chaud, saupoudrer de sucre glace tiède ou froid, ou fourrer quand les beignets sont tièdes ou froids."
     ],
     "notes": [
-      "⚠️ Température huile trop haute = intérieur cru. Trop basse = donuts gras et compacts.",
-      "Pâte pas assez levée = beignets denses. Trop levée = ils retombent à la cuisson.",
-      "Résultat attendu : extérieur doré uniforme, anneau clair visible au centre, mie très aérée et filante ('cloud-like'), intérieur 100% cuit sans être sec.",
-      "→ Garnissage recommandé : <span data-goto='creme_diplomate_cloud' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Crème diplomate vanille (version donuts)</span>",
-      "→ Garnissage rapide : <span data-goto='mascarpone' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Chantilly mascarpone</span> (prêt en 3 min, très stable)",
-      "→ Recette de base similaire : donuts levés au sucre classiques.",
-      "Stockage optimal : à température ambiante, boîte semi-ouverte (boîte hermétique = condensation). Ne pas mettre au frigo sans crème.",
-      "Conservation : nature — 24 h max à T° ambiante. Fourrés crème — 12 h au froid (sortir 15 min avant dégust.)."
+      "Ne jamais fourrer chaud.",
+      "Trou sur le côté, douille longue, 30–40 g de crème.",
+      "Stopper quand le beignet devient légèrement gonflé et lourd.",
+      "Huile trop chaude : extérieur foncé et cœur insuffisamment cuit.",
+      "Huile trop froide : beignets gras.",
+      "Apprêt insuffisant : mie dense.",
+      "Sur-apprêt : beignets qui retombent.",
+      "Résultat attendu : mie aérée et filante, extérieur finement doré, cuisson à cœur sans sécheresse."
     ]
   },
   "creme_diplomate_cloud": {
@@ -2034,6 +2069,602 @@ window.RECIPES = {
     ],
     "notes": [
       "→ Utilisée dans : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>."
+    ]
+  },
+  "petit_dejeuner_maitre": {
+    "title": "Petit-déjeuner",
+    "image": "/assets/recipe-images/petits_dejeuners_maitre.jpg",
+    "categories": [
+      "Petits-déjeuners"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été",
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "masterType": "collection",
+    "variants": [
+      {
+        "id": "petits_dejeuners_maitre",
+        "label": "Petits-déjeuners et boissons chaudes"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Sous-fiches",
+        "items": [
+          "Choisir une sous-fiche pour afficher les recettes."
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+    ],
+    "notes": [
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+    ],
+    "tags": [
+      "petits-déjeuners",
+      "fiche-parent"
+    ]
+  },
+  "entrees_maitre": {
+    "title": "Entrées",
+    "image": "/assets/recipe-images/bases_salees_maitre.jpg",
+    "categories": [
+      "Entrées"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été",
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "masterType": "collection",
+    "variants": [
+      {
+        "id": "bases_salees_maitre",
+        "label": "Bases salées et accompagnements"
+      },
+      {
+        "id": "sauces_assaisonnements_maitre",
+        "label": "Sauces, pestos et assaisonnements"
+      },
+      {
+        "id": "tomates_maitre",
+        "label": "Tomates préparées"
+      },
+      {
+        "id": "cake_sale_lardon",
+        "label": "Cake salé lardon"
+      },
+      {
+        "id": "oignons_rotis_thym_miel",
+        "label": "Oignons rôtis thym miel"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Sous-fiches",
+        "items": [
+          "Choisir une sous-fiche pour afficher les recettes."
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+    ],
+    "notes": [
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+    ],
+    "tags": [
+      "entrées",
+      "fiche-parent"
+    ]
+  },
+  "plats_maitre": {
+    "title": "Plats",
+    "image": "/assets/recipe-images/legumes_rotis.jpg",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été",
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "masterType": "collection",
+    "variants": [
+      {
+        "id": "cochon_confit_biere_erable",
+        "label": "Cochon confit bière érable"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Sous-fiches",
+        "items": [
+          "Choisir une sous-fiche pour afficher les recettes."
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+    ],
+    "notes": [
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+    ],
+    "tags": [
+      "plats",
+      "fiche-parent"
+    ]
+  },
+  "desserts_maitre": {
+    "title": "Desserts",
+    "image": "/assets/recipe-images/cremes_maitre.jpg",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été",
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "masterType": "collection",
+    "variants": [
+      {
+        "id": "cremes_maitre",
+        "label": "Toping et garniture"
+      },
+      {
+        "id": "pates_bases_maitre",
+        "label": "Pâtes et bases pâtissières"
+      },
+      {
+        "id": "biscuits_gouters_maitre",
+        "label": "Biscuits, cookies et meringues"
+      },
+      {
+        "id": "tarte_citron_meringuee",
+        "label": "Tarte citron meringuée"
+      },
+      {
+        "id": "tiramisu_speculoos",
+        "label": "Tiramisu spéculoos"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Sous-fiches",
+        "items": [
+          "Choisir une sous-fiche pour afficher les recettes."
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+    ],
+    "notes": [
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+    ],
+    "tags": [
+      "desserts",
+      "fiche-parent"
+    ]
+  },
+  "creme_kinder_nutella": {
+    "title": "Crème Kinder / Nutella stable",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "~500 g",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "250 g mascarpone",
+          "150 g crème entière froide",
+          "120 g pâte à tartiner chocolat-noisette",
+          "20 g sucre glace"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger mascarpone et pâte à tartiner.",
+      "Ajouter crème froide et sucre glace.",
+      "Fouetter jusqu’à texture épaisse et stable."
+    ],
+    "notes": [
+      "Texture crèmeuse mais stable en fourrage.",
+      "Goût intense, ne détrempe pas le donut."
+    ],
+    "tags": [
+      "creme",
+      "nutella",
+      "kinder",
+      "fourrage",
+      "stable"
+    ]
+  },
+  "creme_pistache": {
+    "title": "Crème pistache stable",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "~500 g",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "250 g mascarpone",
+          "180 g crème entière froide",
+          "80 g pâte de pistache",
+          "30 g sucre glace"
+        ]
+      }
+    ],
+    "steps": [
+      "Lisser mascarpone, pâte de pistache et sucre glace.",
+      "Ajouter la crème froide.",
+      "Monter au fouet jusqu’à texture ferme."
+    ],
+    "notes": [
+      "Résultat attendu : crèmeux, parfumé et stable."
+    ],
+    "tags": [
+      "creme",
+      "pistache",
+      "fourrage",
+      "stable"
+    ]
+  },
+  "gaufre_bruxelles": {
+    "title": "Gaufre de Bruxelles traditionnelle",
+    "master": "petits_dejeuners_maitre",
+    "image": "/assets/recipe-images/pancakes_variantes.jpg",
+    "categories": [
+      "Petits-déjeuners",
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "8–10 gaufres",
+    "ingredients": [
+      {
+        "group": "Pâte levée",
+        "items": [
+          "250 g farine",
+          "370 g lait tiède",
+          "15 g levure fraîche",
+          "150 g œufs entiers (3 œufs)",
+          "100 g beurre fondu",
+          "10 g sucre",
+          "2 g sel",
+          "5 g vanille optionnelle"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger levure et lait tiède, attendre 10 min.",
+      "Mélanger farine, sucre, sel, jaunes d’œufs, lait et levure jusqu’à pâte lisse.",
+      "Ajouter le beurre fondu.",
+      "Laisser lever 1 h.",
+      "Monter les blancs en neige et incorporer délicatement.",
+      "Cuire dans un gaufrier très chaud 3–4 min."
+    ],
+    "notes": [
+      "Vraie gaufre de Bruxelles : pâte levée, blancs montés, gros trous, texture légère et croustillante.",
+      "Pour plus de croustillant, remplacer 50 g de lait par 50 g de bière."
+    ],
+    "tags": [
+      "gaufre",
+      "bruxelles",
+      "petit-dejeuner"
+    ]
+  },
+  "tarte_citron_meringuee": {
+    "title": "Tarte citron meringuée",
+    "master": "desserts_maitre",
+    "image": "/assets/recipe-images/pate_choux.jpg",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été"
+    ],
+    "difficulty": "hard",
+    "yield": "1 tarte",
+    "ingredients": [
+      {
+        "group": "Pâte sucrée",
+        "items": [
+          "100 g farine",
+          "50 g beurre mou",
+          "40 g sucre",
+          "25 g œuf"
+        ]
+      },
+      {
+        "group": "Crème d’amande",
+        "items": [
+          "75 g beurre mou",
+          "75 g sucre",
+          "50 g œuf",
+          "75 g poudre d’amande",
+          "10 g fécule",
+          "2 g zeste de citron"
+        ]
+      },
+      {
+        "group": "Crème citron",
+        "items": [
+          "80 g jus de citron",
+          "180 g jaunes d’œufs",
+          "130 g sucre",
+          "10 g fécule",
+          "100 g beurre"
+        ]
+      },
+      {
+        "group": "Compotée citron optionnelle",
+        "items": [
+          "3 citrons",
+          "50 g sucre"
+        ]
+      },
+      {
+        "group": "Meringue italienne",
+        "items": [
+          "60 g blancs d’œufs",
+          "100 g sucre",
+          "30 g eau",
+          "2 g sel",
+          "2 g jus de citron"
+        ]
+      }
+    ],
+    "steps": [
+      "Pâte sucrée : mélanger beurre et sucre, ajouter œuf puis farine. Former une boule et refroidir 30 min.",
+      "Étaler à 3–4 mm, foncer, piquer et cuire 10 min à 180 °C.",
+      "Crème d’amande : mélanger beurre et sucre, ajouter œuf, poudre d’amande, fécule et zeste. Étaler 5 mm dans la tarte et cuire 20–25 min à 180 °C.",
+      "Crème citron : chauffer le jus, fouetter jaunes et sucre, ajouter fécule, verser le jus chaud, cuire jusqu’à épaississement, ajouter beurre, filmer au contact et refroidir.",
+      "Compotée optionnelle : cuire citron et sucre, mixer, puis Étaler une fine couche sur le fond.",
+      "Montage : fond cuit, compotée optionnelle, crème citron sur 1–2 cm, lisser.",
+      "Meringue italienne : cuire sucre, eau et citron à 118–120 °C, verser en filet sur blancs mousseux, fouetter 5–10 min jusqu’à refroidissement.",
+      "Pocher la meringue, finir au chalumeau ou sous grill, puis reposer 1 h minimum au froid."
+    ],
+    "notes": [
+      "Points critiques : beurre pommade non liquide, sirop à 118–120 °C, verser lentement, fouetter jusqu’à refroidissement complet.",
+      "Résultat attendu : pâte croustillante, crème d’amande moelleuse, crème citron fondante, meringue légère et stable."
+    ],
+    "tags": [
+      "tarte",
+      "citron",
+      "meringue",
+      "dessert"
+    ]
+  },
+  "tiramisu_speculoos": {
+    "title": "Tiramisu spéculoos rapide",
+    "master": "desserts_maitre",
+    "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "6 portions",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "250 g mascarpone",
+          "100 g œufs (2 œufs)",
+          "80 g sucre",
+          "200 g spéculoos",
+          "100 g jus d’orange",
+          "30–45 g Grand Marnier"
+        ]
+      }
+    ],
+    "steps": [
+      "Fouetter jaunes et sucre.",
+      "Ajouter mascarpone.",
+      "Monter les blancs et incorporer délicatement.",
+      "Tremper les spéculoos dans jus d’orange et Grand Marnier.",
+      "Monter en couches.",
+      "Réfrigérer 4 h minimum."
+    ],
+    "notes": [
+      "Toujours tout peser avant.",
+      "Respecter les textures : pommade, mousse, bec d’oiseau.",
+      "Ne jamais précipiter la meringue ou les mélanges mousseux."
+    ],
+    "tags": [
+      "tiramisu",
+      "speculoos",
+      "rapide"
+    ]
+  },
+  "cake_sale_lardon": {
+    "title": "Cake salé lardon",
+    "master": "entrees_maitre",
+    "image": "/assets/recipe-images/cookies_sales_variantes.jpg",
+    "categories": [
+      "Entrées",
+      "Apéro"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "6 personnes",
+    "ingredients": [
+      {
+        "group": "Garniture",
+        "items": [
+          "200 g lardons fumés",
+          "80 g oignon",
+          "4 g ail",
+          "10 g huile d’olive",
+          "50 g vin blanc pour déglacer"
+        ]
+      },
+      {
+        "group": "Appareil à cake",
+        "items": [
+          "75 g beurre",
+          "200 g farine",
+          "11 g levure chimique",
+          "200 g œufs (4 œufs)",
+          "100 g lait",
+          "150 g emmental râpé",
+          "2 g sel",
+          "1 g poivre"
+        ]
+      }
+    ],
+    "steps": [
+      "Faire griller les lardons.",
+      "Ajouter oignon et ail coupés très petit.",
+      "Déglacer au vin blanc et laisser évaporer l’alcool.",
+      "Mélanger tous les ingrédients de l’appareil avec la garniture.",
+      "Beurrer et fariner le moule.",
+      "Enfourner à 180 °C pendant 35 à 50 min selon le moule et l’épaisseur du cake."
+    ],
+    "notes": [
+      "Le cake est prêt quand la lame ressort sèche et que le dessus est bien doré."
+    ],
+    "tags": [
+      "cake",
+      "sale",
+      "lardon",
+      "apero"
+    ]
+  },
+  "oignons_rotis_thym_miel": {
+    "title": "Oignons rôtis au thym et au miel",
+    "master": "entrees_maitre",
+    "image": "/assets/recipe-images/legumes_rotis.jpg",
+    "categories": [
+      "Entrées",
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "yield": "4 personnes",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "6 oignons jaunes",
+          "42 g miel",
+          "40 g huile d’olive",
+          "2 branches de thym frais",
+          "3 g sel",
+          "1 g poivre"
+        ]
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180 °C.",
+      "Éplucher les oignons et les couper en deux dans la largeur.",
+      "Disposer côté coupé vers le haut sur plaque.",
+      "Arroser d’huile d’olive, répartir le miel, saler, poivrer et parsemer de thym.",
+      "Rôtir environ 30 min jusqu’à coloration et caramélisation.",
+      "Arroser avec le jus de cuisson pendant la cuisson."
+    ],
+    "notes": [
+      "Source fournie : recettes.memeswing.com.",
+      "Accompagnement pour viande grillée, poisson, purée ou gratin de légumes.",
+      "Conservation : 3–4 jours au froid en boîte hermétique."
+    ],
+    "tags": [
+      "oignon",
+      "thym",
+      "miel",
+      "accompagnement"
+    ]
+  },
+  "cochon_confit_biere_erable": {
+    "title": "Cochon confit à la bière et au sirop d’érable",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/marinades_guide.jpg",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "medium",
+    "yield": "6–8 personnes",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "1,5 kg porc (épaule ou poitrine désossée)",
+          "28 g huile végétale neutre",
+          "2 oignons jaunes émincés",
+          "3 gousses d’ail hachées",
+          "330 g bière blonde ou ambrée",
+          "133 g sirop d’érable pur",
+          "15 g moutarde de Dijon",
+          "2 branches de thym frais",
+          "1 feuille de laurier",
+          "5 g sel fin",
+          "2 g poivre noir",
+          "15 g vinaigre de cidre optionnel",
+          "40 g sirop d’érable optionnel pour ajuster"
+        ]
+      }
+    ],
+    "steps": [
+      "Saler et poivrer le porc.",
+      "Chauffer l’huile en cocotte et dorer la viande sur toutes ses faces.",
+      "Ajouter les oignons et l’ail, faire revenir.",
+      "Déglacer avec la bière en grattant les sucs.",
+      "Ajouter sirop d’érable, moutarde, thym, laurier et vinaigre si utilisé.",
+      "Couvrir et cuire lentement au four ou à feu doux jusqu’à viande très fondante.",
+      "Réduire la sauce si besoin et napper la viande."
+    ],
+    "notes": [
+      "Source fournie : ertova.com.",
+      "Cuisson lente indispensable pour une texture fondante.",
+      "Conservation : 3–4 jours au froid, réchauffage doux avec un peu de sauce."
+    ],
+    "tags": [
+      "porc",
+      "biere",
+      "erable",
+      "mijote"
     ]
   }
 };

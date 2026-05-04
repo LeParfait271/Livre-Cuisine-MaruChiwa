@@ -11,9 +11,9 @@
   "categories": ["food", "lifestyle"],
   "icons": [
     {
-      "src": "assets/cook-note-mark.svg",
+      "src": "assets/cook-note.png",
       "sizes": "128x128",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     }
   ],
@@ -23,7 +23,7 @@
       "short_name": "Favoris",
       "url": "/?view=__favs__",
       "description": "Voir mes recettes favorites",
-      "icons": [{ "src": "assets/cook-note-mark.svg", "sizes": "128x128", "type": "image/svg+xml" }]
+      "icons": [{ "src": "assets/cook-note.png", "sizes": "128x128", "type": "image/png" }]
     }
   ],
   "screenshots": []

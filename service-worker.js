@@ -1,10 +1,10 @@
 // ============================================================
-//  Cook Note — Service Worker PWA v6
+//  Cook Note - Service Worker PWA v7
 //  Cache-first pour assets statiques
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'cook-note-v6';
+const CACHE_NAME = 'cook-note-v7';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -14,23 +14,22 @@ const STATIC_ASSETS = [
   '/recipe.html',
   '/recipe.js',
   '/manifest.json',
-  '/assets/cook-note-mark.svg',
-  '/assets/cook-note-logo.svg',
+  '/assets/cook-note.png',
 ];
 
-// ── Installation ─────────────────────────────────────────────
+// Installation
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v6] Assets statiques mis en cache.');
+        console.log('[SW v7] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
 });
 
-// ── Activation — purge des anciens caches ────────────────────
+// Activation - purge des anciens caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -38,13 +37,13 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-        console.log('[SW v6] Anciens caches supprimés.');
+        console.log('[SW v7] Anciens caches supprimés.');
     })
   );
   self.clients.claim();
 });
 
-// ── Fetch ─────────────────────────────────────────────────────
+// Fetch
 self.addEventListener('fetch', (event) => {
   // Ignorer les requêtes non-GET
   if (event.request.method !== 'GET') return;

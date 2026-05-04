@@ -4,6 +4,7 @@ const { useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
 
 const HERO_IMAGE = '/assets/recipe-images/biscuits_gouters_maitre.jpg';
+const COOK_NOTE_LOGO = '/assets/cook-note.png';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver', 'Toutes saisons'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
@@ -15,6 +16,12 @@ const CATEGORY_ACCENTS = {
   'Desserts': '#f472b6',
   'Petits-déjeuners': '#60a5fa',
   'Recettes de base': '#a78bfa'
+};
+const HOME_CARD_ORDER = {
+  petit_dejeuner_maitre: 1,
+  entrees_maitre: 2,
+  plats_maitre: 3,
+  desserts_maitre: 4
 };
 const STORAGE_KEYS = {
   favorites: 'cook_note_favorites',
@@ -79,6 +86,10 @@ function primaryCategory(recipe) {
 
 function getCategoryColor(recipe) {
   return CATEGORY_ACCENTS[primaryCategory(recipe)] || '#fbbf24';
+}
+
+function homeCardOrder(recipe) {
+  return HOME_CARD_ORDER[recipe.id] || 99;
 }
 
 function countIngredients(recipe) {
@@ -257,7 +268,7 @@ function Button(props) {
 function TopBar({ onHome, totalRecipeCount, ficheCount, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
   return h('header', { className: 'topbar' },
     h('button', { className: 'brand', type: 'button', onClick: onHome, 'aria-label': 'Retour à l’accueil' },
-      h('span', { className: 'brand-logo-box' }, h('img', { className: 'brand-logo', src: '/assets/cook-note-logo.svg', alt: 'Cook Note' })),
+      h('span', { className: 'brand-logo-box' }, h('img', { className: 'brand-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' })),
       h('span', { className: 'brand-copy' },
         h('strong', null, 'Cook Note'),
         h('small', null, 'Carnet culinaire')
@@ -285,7 +296,7 @@ function Hero({ currentSeason }) {
   },
     h('div', { className: 'hero-inner' },
       h('p', { className: 'eyebrow' }, `Saison actuelle · ${currentSeason}`),
-      h('img', { className: 'hero-logo', src: '/assets/cook-note-logo.svg', alt: 'Cook Note' })
+      h('img', { className: 'hero-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' })
     )
   );
 }
@@ -933,6 +944,8 @@ function App() {
     });
 
     list = [...list].sort((a, b) => {
+      const order = homeCardOrder(a) - homeCardOrder(b);
+      if (order) return order;
       if (sort === 'difficulty') return (DIFFICULTY_ORDER[a.difficulty] || 99) - (DIFFICULTY_ORDER[b.difficulty] || 99) || a.title.localeCompare(b.title, 'fr');
       if (sort === 'ingredients') return countIngredients(a) - countIngredients(b) || a.title.localeCompare(b.title, 'fr');
       if (sort === 'season') return (a.seasons || ['']).join(',').localeCompare((b.seasons || ['']).join(','), 'fr') || a.title.localeCompare(b.title, 'fr');
@@ -948,22 +961,24 @@ function App() {
     if (onlyFavorites) {
       return [{ key: 'favorites', kicker: 'Favoris', title: 'Recettes sauvegardées', recipes: filteredRecipes }];
     }
-    const nowRecipes = filteredRecipes.filter(recipe => (recipe.seasons || []).includes(currentSeason) || (recipe.seasons || []).includes('Toutes saisons'));
-    const seasonSections = SEASONS
-      .filter(item => item !== 'Toutes saisons')
-      .map(item => ({
+    const baseSeasons = SEASONS.filter(item => item !== 'Toutes saisons');
+    const start = Math.max(0, baseSeasons.indexOf(currentSeason));
+    const orderedSeasons = [...baseSeasons.slice(start), ...baseSeasons.slice(0, start)];
+    const assigned = new Set();
+    return orderedSeasons.map((item, index) => {
+      const recipesForSeason = filteredRecipes.filter(recipe => {
+        if (assigned.has(recipe.id)) return false;
+        const recipeSeasons = recipe.seasons || [];
+        return recipeSeasons.includes(item) || (index === 0 && recipeSeasons.includes('Toutes saisons'));
+      });
+      recipesForSeason.forEach(recipe => assigned.add(recipe.id));
+      return {
         key: item,
-        kicker: 'Saison',
-        title: item,
-        recipes: filteredRecipes.filter(recipe => (recipe.seasons || []).includes(item))
-      }))
-      .filter(section => section.recipes.length);
-    const allYear = filteredRecipes.filter(recipe => (recipe.seasons || []).includes('Toutes saisons'));
-    return [
-      { key: 'now', kicker: 'Automatique', title: `En saison maintenant · ${currentSeason}`, recipes: nowRecipes },
-      ...seasonSections,
-      ...(allYear.length ? [{ key: 'all-year', kicker: 'Permanent', title: 'Toutes saisons', recipes: allYear }] : [])
-    ].filter(section => section.recipes.length);
+        kicker: index === 0 ? 'Saison actuelle' : 'Saison',
+        title: index === 0 ? `En saison maintenant · ${item}` : item,
+        recipes: recipesForSeason
+      };
+    }).filter(section => section.recipes.length);
   }, [currentSeason, filteredRecipes, onlyFavorites, season]);
 
   const activeFilterCount = [query, category, season, difficulty, tagFilter, onlyFavorites ? 'favorites' : ''].filter(Boolean).length;
