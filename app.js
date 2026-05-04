@@ -311,7 +311,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
+function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppingBasket, openAudit, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'field top-search' },
       h('label', null, 'Recherche'),
@@ -330,9 +330,95 @@ function TopBar({ onHome, shoppingCount, activeRecipe, showFavorites, openShoppi
         className: 'btn btn-subtle',
         href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
       }, 'Demander une recette'),
+      h(Button, { variant: 'subtle', onClick: openAudit }, 'Audit'),
       h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
     ),
     h('div', { className: 'topbar-status' }, activeRecipe ? 'Fiche ouverte' : 'Mode cuisine')
+  );
+}
+
+function buildAuditReport(recipes) {
+  const imageMap = new Map();
+  const masterIds = new Set(recipes.filter(isMasterRecipe).map(recipe => recipe.id));
+  const ids = new Set(recipes.map(recipe => recipe.id));
+  const issues = [];
+
+  recipes.forEach(recipe => {
+    if (recipe.image) {
+      const list = imageMap.get(recipe.image) || [];
+      list.push(recipe);
+      imageMap.set(recipe.image, list);
+    } else {
+      issues.push({ type: 'Image', recipe: recipe.title, detail: 'Image manquante' });
+    }
+
+    const notes = (recipe.notes || []).join(' ').toLowerCase();
+    if (!isMasterRecipe(recipe) && !notes.includes('stockage') && !notes.includes('conservation') && !notes.includes('péremption')) {
+      issues.push({ type: 'Conservation', recipe: recipe.title, detail: 'Méthode de stockage absente ou trop faible' });
+    }
+
+    (recipe.variants || []).forEach(variant => {
+      if (!ids.has(variant.id)) issues.push({ type: 'Lien fiche', recipe: recipe.title, detail: `Variante introuvable : ${variant.id}` });
+      if (masterIds.has(variant.id)) issues.push({ type: 'Structure', recipe: recipe.title, detail: `Fiche parent imbriquée : ${variant.id}` });
+    });
+
+    const text = JSON.stringify(recipe);
+    if (text.includes('?')) issues.push({ type: 'Texte', recipe: recipe.title, detail: 'Caractère ? suspect' });
+    (recipe.tags || []).forEach(tag => {
+      if (/^\d|signature|1tarte/i.test(tag)) issues.push({ type: 'Tag', recipe: recipe.title, detail: `Tag suspect : ${tag}` });
+    });
+  });
+
+  imageMap.forEach((list, image) => {
+    if (list.length > 1) {
+      issues.push({
+        type: 'Image doublon',
+        recipe: list.map(item => item.title).join(', '),
+        detail: image
+      });
+    }
+  });
+
+  return {
+    total: recipes.length,
+    recipes: recipes.filter(recipe => !isMasterRecipe(recipe)).length,
+    masters: recipes.filter(isMasterRecipe).length,
+    issues
+  };
+}
+
+function AuditPanel({ open, onClose, recipes }) {
+  const report = useMemo(() => buildAuditReport(recipes), [recipes]);
+  if (!open) return null;
+  const visibleIssues = report.issues.slice(0, 80);
+  return h('div', { className: 'modal-backdrop', onMouseDown: onClose },
+    h('section', { className: 'modal-panel audit-modal', role: 'dialog', 'aria-modal': 'true', onMouseDown: event => event.stopPropagation() },
+      h('div', { className: 'modal-head' },
+        h('div', null,
+          h('p', { className: 'eyebrow' }, 'Contrôle qualité'),
+          h('h2', null, report.issues.length ? `${report.issues.length} point${report.issues.length > 1 ? 's' : ''} à vérifier` : 'Carnet propre')
+        ),
+        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
+      ),
+      h('div', { className: 'audit-summary' },
+        h('span', null, h('strong', null, report.recipes), ' recettes'),
+        h('span', null, h('strong', null, report.masters), ' fiches parents'),
+        h('span', null, h('strong', null, report.total), ' fiches totales')
+      ),
+      report.issues.length
+        ? h('div', { className: 'audit-list' },
+          visibleIssues.map((issue, index) => h('article', { key: `${issue.type}:${issue.recipe}:${index}` },
+            h('strong', null, issue.type),
+            h('span', null, issue.recipe),
+            h('p', null, issue.detail)
+          )),
+          report.issues.length > visibleIssues.length && h('p', { className: 'muted' }, `${report.issues.length - visibleIssues.length} autres points masqués.`)
+        )
+        : h('p', { className: 'empty-line' }, 'Aucun problème bloquant détecté sur les images, liens, tags et conservations.'),
+      h('div', { className: 'modal-actions' },
+        h(Button, { variant: 'primary', onClick: onClose }, 'Fermer')
+      )
+    )
   );
 }
 
@@ -929,6 +1015,7 @@ function App() {
   const [historyVersion, setHistoryVersion] = useState(0);
   const [advancedOpen, setAdvancedOpen] = useState(false);
   const [shoppingOpen, setShoppingOpen] = useState(false);
+  const [auditOpen, setAuditOpen] = useState(false);
   const searchRef = useRef(null);
   const homeScrollRef = useRef(0);
   const historyRef = useRef([{}]);
@@ -1208,6 +1295,7 @@ function App() {
       activeRecipe: Boolean(activeRecipe),
       showFavorites,
       openShoppingBasket: () => setShoppingOpen(true),
+      openAudit: () => setAuditOpen(true),
       query,
       setQuery,
       searchRef
@@ -1262,6 +1350,11 @@ function App() {
       recipes: shoppingRecipes,
       removeRecipe: removeShopping,
       clearShopping
+    }),
+    h(AuditPanel, {
+      open: auditOpen,
+      onClose: () => setAuditOpen(false),
+      recipes
     })
   );
 }
