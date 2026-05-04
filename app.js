@@ -19,9 +19,10 @@ const CATEGORY_ACCENTS = {
 };
 const HOME_CARD_ORDER = {
   petit_dejeuner_maitre: 1,
-  entrees_maitre: 2,
-  plats_maitre: 3,
-  desserts_maitre: 4
+  apero_maitre: 2,
+  entrees_maitre: 3,
+  plats_maitre: 4,
+  desserts_maitre: 5
 };
 const STORAGE_KEYS = {
   favorites: 'cook_note_favorites',
@@ -94,6 +95,12 @@ function homeCardOrder(recipe) {
 
 function countIngredients(recipe) {
   return (recipe.ingredients || []).reduce((sum, group) => sum + (group.items || []).length, 0);
+}
+
+function difficultyText(recipe) {
+  return Number.isFinite(recipe?.difficultyScore)
+    ? `Difficulté ${recipe.difficultyScore}/10`
+    : (DIFFICULTY_LABELS[recipe?.difficulty] || 'Recette');
 }
 
 function getVariantRefs(recipe) {
@@ -419,9 +426,12 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
       h('div', { className: 'tag-line' }, categories.slice(0, 2).map(cat => h('span', { key: cat }, cat))),
       h('h3', null, recipe.title),
       h('p', { className: 'card-meta' },
-        h('span', null, DIFFICULTY_LABELS[recipe.difficulty] || 'Recette'),
-        master && h('span', null, `${getVariantRefs(recipe).length} variantes`),
-        !master && h('span', null, `${countIngredients(recipe)} ingrédients`)
+        master
+          ? h('span', null, `${getVariantRefs(recipe).length} sous-fiche${getVariantRefs(recipe).length > 1 ? 's' : ''}`)
+          : [
+            h('span', { key: 'difficulty' }, difficultyText(recipe)),
+            h('span', { key: 'ingredients' }, `${countIngredients(recipe)} ingr?dients`)
+          ]
       ),
       h('div', { className: 'season-line' }, seasons.slice(0, 3).map(item => h('span', { key: item }, item))),
       h('div', { className: 'mini-tags' },
@@ -621,13 +631,7 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
           }),
           h('span', { className: 'variant-card-body' },
             h('strong', null, variant.label || item.title),
-            h('small', null,
-              nestedMaster
-                ? `${getVariantRefs(item).length} sous-fiches`
-                : DIFFICULTY_LABELS[item.difficulty] || 'Recette',
-              !nestedMaster && item.yield ? ` · ${item.yield}` : '',
-              !nestedMaster ? ` · ${countIngredients(item)} ingrédients` : ''
-            )
+            h('small', null, nestedMaster ? `${getVariantRefs(item).length} sous-fiches` : 'Recette')
           )
         );
       })
@@ -726,26 +730,15 @@ function RecipeView({
         h('button', { type: 'button', className: 'back-link', onClick: goHome }, 'Retour aux recettes'),
         h('p', { className: 'eyebrow' }, primaryCategory(recipe)),
         h('h1', null, recipe.title),
-        showVariants && h('div', { className: 'variant-switcher', 'aria-label': 'Choisir une recette de cette fiche' },
-          variantRefs.map(variant => {
-            const variantRecipe = recipesById[variant.id];
-            const label = variant.label || variantRecipe?.title || variant.id;
-            return h('button', {
-              key: variant.id,
-              type: 'button',
-              className: selectedVariantId === variant.id ? 'active' : '',
-              onClick: () => chooseVariant(variant.id)
-            }, label);
-          })
-        ),
         h('div', { className: 'detail-meta' },
-          h('span', null, DIFFICULTY_LABELS[selectedRecipe.difficulty] || DIFFICULTY_LABELS[recipe.difficulty] || 'Recette'),
-          selectedRecipe.yield && h('span', null, selectedRecipe.yield),
-          showVariants && hasSelectedVariant && h('span', null, selectedRecipe.title),
-          hasSelectedVariant
-            ? h('span', null, `${countIngredients(selectedRecipe)} ingrédients`)
-            : h('span', null, `${variantRefs.length} variantes`),
-          hasSelectedVariant && h('span', null, `${stepTotal} étapes`)
+          showVariants && !hasSelectedVariant
+            ? h('span', null, `${variantRefs.length} sous-fiche${variantRefs.length > 1 ? 's' : ''}`)
+            : [
+              h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
+              selectedRecipe.yield && h('span', { key: 'yield' }, selectedRecipe.yield),
+              h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingr?dients`),
+              h('span', { key: 'steps' }, `${stepTotal} ?tapes`)
+            ]
         ),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: 'primary', className: 'icon-square', onClick: () => toggleFavorite(recipe.id), title: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris', ariaLabel: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }, isFavorite ? '\u2605' : '\u2606'),

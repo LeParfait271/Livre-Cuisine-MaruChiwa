@@ -33,7 +33,7 @@ if (!recipes || typeof recipes !== 'object') {
         if (!variant?.id || !ids.has(variant.id)) errors.push(`${id}: variante introuvable (${variant?.id || 'vide'}).`);
         const variantRecipe = recipes[variant?.id];
         const isNestedMaster = variantRecipe && masterIds.has(variant.id);
-        if (variant?.id && variantRecipe?.master !== id && !isNestedMaster) {
+        if (variant?.id && variantRecipe?.master !== id && !isNestedMaster && !Array.isArray(variantRecipe?.additionalMasters)?.includes(id)) {
           errors.push(`${id}: variante ${variant.id} non rattachee au parent.`);
         }
       });
