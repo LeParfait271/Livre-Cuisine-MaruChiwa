@@ -146,24 +146,44 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "chantilly_maitre",
-        "label": "Chantilly"
+        "id": "chantilly_classique",
+        "label": "Chantilly classique au fouet"
       },
       {
-        "id": "coulis_maitre",
-        "label": "Coulis de fruits"
+        "id": "chantilly_gelatine",
+        "label": "Chantilly stabilisée (gélatine)"
+      },
+      {
+        "id": "coulis_guide",
+        "label": "Coulis — guide (formules & variantes)"
+      },
+      {
+        "id": "coulis_fraise",
+        "label": "Coulis de fraise"
+      },
+      {
+        "id": "coulis_framboise",
+        "label": "Coulis de framboise"
+      },
+      {
+        "id": "coulis_abricot_vanille",
+        "label": "Coulis abricot-vanille"
+      },
+      {
+        "id": "coulis_poire",
+        "label": "Coulis de poire"
       },
       {
         "id": "creme_diplomate_vanille",
-        "label": "Diplomate vanille"
+        "label": "Crème diplomate vanille"
       },
       {
         "id": "creme_diplomate_cloud",
-        "label": "Diplomate donuts & choux"
+        "label": "Crème diplomate vanille (pour donuts & choux)"
       },
       {
         "id": "creme_patissiere_praline",
-        "label": "Pâtissière praliné"
+        "label": "Crème pâtissière praliné"
       },
       {
         "id": "creme_praline",
@@ -171,39 +191,39 @@ window.RECIPES = {
       },
       {
         "id": "creme_beurre_meringue_italienne",
-        "label": "Crème au beurre"
+        "label": "Crème au beurre (base crème anglaise + meringue italienne)"
       },
       {
         "id": "creme_amande_",
-        "label": "Crème d’amandes"
+        "label": "Crème d'amandes"
       },
       {
         "id": "mascarpone",
-        "label": "Mascarpone vanille"
+        "label": "Crème mascarpone vanille"
       },
       {
         "id": "creme_kinder_nutella",
-        "label": "Kinder / Nutella"
+        "label": "Crème Kinder / Nutella stable"
       },
       {
         "id": "creme_pistache",
-        "label": "Pistache"
+        "label": "Crème pistache stable"
       },
       {
         "id": "creme_patissiere_vanille",
-        "label": "P?tissi?re vanille"
+        "label": "Crème pâtissière vanille"
       },
       {
         "id": "creme_citron_lemon_curd",
-        "label": "Cr?me citron"
+        "label": "Crème citron (lemon curd)"
       },
       {
         "id": "creme_amande_citron",
-        "label": "Cr?me d?amande citron"
+        "label": "Crème d’amande citron"
       },
       {
         "id": "compotee_citron",
-        "label": "Compot?e citron"
+        "label": "Compotée citron"
       },
       {
         "id": "meringue_italienne",
@@ -273,7 +293,7 @@ window.RECIPES = {
       },
       {
         "id": "pate_noisette",
-        "label": "Pâte de noisette"
+        "label": "Pâte de noisette maison"
       },
       {
         "id": "choux_craquelin",
@@ -285,7 +305,7 @@ window.RECIPES = {
       },
       {
         "id": "pate_sucree",
-        "label": "P?te sucr?e"
+        "label": "Pâte sucrée"
       }
     ],
     "ingredients": [
@@ -467,7 +487,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "cookies_sales_variantes",
-        "label": "Cookies salés"
+        "label": "Cookies salés (base + variantes)"
       },
       {
         "id": "cookies",
@@ -678,7 +698,7 @@ window.RECIPES = {
       "→ Voir aussi : <span data-goto=\"pesto_variantes\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Pesto (variantes)</span>",
       "Stockage optimal : flacon avec couvercle au réfrigérateur ; secouer avant usage.",
       "Conservation : 5–7 j au froid.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -729,7 +749,7 @@ window.RECIPES = {
     "notes": [
       "Même fiche, 2 styles : citronné (salades) ou traditionnel (pâtes/gnocchi).",
       "Conservation : 2–4 j au froid, film au contact + fine couche d’huile.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -761,7 +781,7 @@ window.RECIPES = {
     "notes": [
       "Zaatar + huile d'olive ; Citron confit + aneth ; Miel + piment d'Espelette ; Truffe : 1–2 % huile de truffe.",
       "Conservation : 2–3 j au froid.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 3
   },
@@ -792,7 +812,7 @@ window.RECIPES = {
     "notes": [
       "Variantes : zeste d'orange, vanille, cacao, espresso, figue (filtrer).",
       "Conservation : 2–3 mois au froid.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 3
   },
@@ -839,7 +859,7 @@ window.RECIPES = {
     "notes": [
       "Séchées : parfaites pour antipasti et salades.",
       "Confites : idéales en bruschetta / pâtes.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 6
   },
@@ -873,7 +893,7 @@ window.RECIPES = {
     "notes": [
       "Variantes : poivre de Sichuan, origan, paprika fumé.",
       "Conservation : 1 mois au froid.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 3
   },
@@ -922,7 +942,7 @@ window.RECIPES = {
     "notes": [
       "Plaque préchauffée = croûte plus nette.",
       "Conservation : 4 j au réfrigérateur.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 3
   },
@@ -1054,7 +1074,7 @@ window.RECIPES = {
     "notes": [
       "Ne pas réutiliser la marinade crue ; porter à ébullition si sauce.",
       "Conservation : marinades prêtes 7 j au froid.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 3
   },
@@ -1105,7 +1125,7 @@ window.RECIPES = {
     "notes": [
       "Variante 1 : jambon-fromage ; Variante 2 : comté seul.",
       "Conservation : 3 j boîte hermétique.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 4
   },
@@ -1164,7 +1184,7 @@ window.RECIPES = {
     "notes": [
       "Pour la version babeurre maison : préparer le babeurre 10 min avant.",
       "Conservation : pâte 4 h au froid ; pancakes cuits 2 j filmés.",
-      "Stockage : id?alement le jour m?me. P?remption : 24?48 h en bo?te herm?tique; r?chauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "difficultyScore": 7
   },
@@ -1199,7 +1219,7 @@ window.RECIPES = {
     "notes": [
       "Épaissir : 5–8 g maïzena diluée.",
       "Conservation : 2 j au froid.",
-      "Stockage : id?alement le jour m?me. P?remption : 24?48 h en bo?te herm?tique; r?chauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "difficultyScore": 3
   },
@@ -1231,7 +1251,7 @@ window.RECIPES = {
       "→ Version plus stable : <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly mascarpone</span> ou <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly gélatine</span>",
       "Stockage optimal : dans un bol filmé ou en poche à douille au réfrigérateur.",
       "Conservation : 24 h au froid maximum.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 3
   },
@@ -1267,7 +1287,7 @@ window.RECIPES = {
       "Texture plus dense, très stable.",
       "Idéal pour un fourrage rapide.",
       "Dosage fourrage : 30–40 g par donut.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -1305,7 +1325,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Tenue 24–36 h en poche.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 3
   },
@@ -1352,7 +1372,7 @@ window.RECIPES = {
       "Dosage fourrage : 30–40 g par donut.",
       "Texture attendue : légère, stable et propre.",
       "Met à jour la recette existante de crème diplomate vanille.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -1412,7 +1432,7 @@ window.RECIPES = {
       "Conservation : coques 3 j à température ambiante dans boîte hermétique ; garnis 24 h au froid.",
       "→ Recette de garnissage : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span>",
       "→ Version allégée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 7
   },
@@ -1452,7 +1472,7 @@ window.RECIPES = {
     "notes": [
       "Repos au froid conseillé ; cuire selon taille.",
       "Conservation : 3 j boîte hermétique ; pâte crue congélée 1 mois.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 4
   },
@@ -1491,7 +1511,7 @@ window.RECIPES = {
       "Cuisson longue = meringues bien sèches et stables.",
       "Stockage optimal : boîte hermétique, endroit sec, jamais au réfrigérateur.",
       "Conservation : 2 semaines sans perte de texture.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 4
   },
@@ -1524,7 +1544,7 @@ window.RECIPES = {
       "→ Guide complet : <span data-goto=\"coulis_guide\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Coulis — guide & variantes</span>",
       "Stockage optimal : flacon souple (burette) ou pot hermétique au réfrigérateur.",
       "Conservation : 5 j au froid ; congélateur 2 mois.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -1554,7 +1574,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Conservation : 5 j au froid ; congélateur 2 mois.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -1585,7 +1605,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Conservation : 5 j au froid ; congélateur 2 mois.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -1617,7 +1637,7 @@ window.RECIPES = {
     "notes": [
       "Assaisonnement possible : vanille, poivre Timut.",
       "Conservation : 5 j au froid ; congélateur 2 mois.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -1654,7 +1674,7 @@ window.RECIPES = {
     "notes": [
       "Texture \"burette\" pour dressage : ajuster eau si besoin.",
       "Conservation : 5 j au froid ; congélateur 2 mois.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 4
   },
@@ -1695,7 +1715,7 @@ window.RECIPES = {
       "Ne pas trop fouetter pour éviter qu'elle gonfle à la cuisson.",
       "Stockage optimal : boîte hermétique au réfrigérateur.",
       "Conservation : 48 h au froid ; congélateur 1 mois.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 3
   },
@@ -1751,7 +1771,7 @@ window.RECIPES = {
       "Base possible pour des plats mijotés, sauces et pochages aromatiques.",
       "Stockage optimal : boîte hermétique ou pot en verre au réfrigérateur.",
       "Conservation : 3–4 j au froid ; se congèle très bien 2–3 mois (en portions de 250 ml).",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 3
   },
@@ -1824,7 +1844,7 @@ window.RECIPES = {
       "Apprêt insuffisant : mie dense.",
       "Sur-apprêt : beignets qui retombent.",
       "Résultat attendu : mie aérée et filante, extérieur finement doré, cuisson à cœur sans sécheresse.",
-      "Stockage : id?alement le jour m?me. P?remption : 24?48 h en bo?te herm?tique; r?chauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "difficultyScore": 7
   },
@@ -1895,7 +1915,7 @@ window.RECIPES = {
       "Stockage optimal pâtissière : filmée au contact dans boîte hermétique au réfrigérateur.",
       "Conservation pâtissière seule : 48 h au froid. Diplomate assemblée : 24 h au froid. Mascarpone : 36–48 h au froid.",
       "Congélation : possible pour la pâtissière seule (avant incorporation chantilly) — 1 mois. Fouetter à nouveau après décongélation.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 7
   },
@@ -1942,7 +1962,7 @@ window.RECIPES = {
     "notes": [
       "Montage en couronnes de pâte à choux, crème praliné et noisettes.",
       "Sortir du réfrigérateur 30 à 40 min avant dégustation.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 7
   },
@@ -1978,7 +1998,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Composant pour : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 3
   },
@@ -2015,7 +2035,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Le test du sillon : il doit se refermer doucement quand la texture est correcte.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 7
   },
@@ -2046,7 +2066,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Composant utilisable dans crèmes, pralinés et ganaches.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 3
   },
@@ -2089,7 +2109,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Ajuster le praliné/pâte de noisette selon l’intensité souhaitée.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 7
   },
@@ -2132,7 +2152,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Base technique pour plusieurs entremets/pâtisseries classiques.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "difficultyScore": 7
   },
@@ -2164,7 +2184,7 @@ window.RECIPES = {
     ],
     "notes": [
       "→ Utilisée dans : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 7
   },
@@ -2184,8 +2204,20 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "petits_dejeuners_maitre",
-        "label": "Petits-déjeuners et boissons chaudes"
+        "id": "pancakes_variantes",
+        "label": "Pancakes (lait ou babeurre + base babeurre maison)"
+      },
+      {
+        "id": "chocolat_ancien",
+        "label": "Chocolat chaud à l'ancienne"
+      },
+      {
+        "id": "donuts_cloud",
+        "label": "Beignets Cloud-like"
+      },
+      {
+        "id": "gaufre_bruxelles",
+        "label": "Gaufre de Bruxelles traditionnelle"
       }
     ],
     "ingredients": [
@@ -2223,32 +2255,52 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "bases_salees_maitre",
-        "label": "Bases salées et accompagnements"
+        "id": "crudites_maitre",
+        "label": "Crudités et salades fraîches"
       },
       {
-        "id": "sauces_assaisonnements_maitre",
-        "label": "Sauces, pestos et assaisonnements"
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouettée (assaisonnements)"
       },
       {
-        "id": "tomates_maitre",
-        "label": "Tomates préparées"
+        "id": "legumes_rotis",
+        "label": "Légumes rôtis au four"
+      },
+      {
+        "id": "court_bouillon",
+        "label": "Court-bouillon"
+      },
+      {
+        "id": "vinaigrette",
+        "label": "Vinaigrette de chef (variantes)"
+      },
+      {
+        "id": "pesto_variantes",
+        "label": "Pesto (base + variantes)"
+      },
+      {
+        "id": "balsamique_reduit",
+        "label": "Balsamique réduit (variantes)"
+      },
+      {
+        "id": "huile_pimentee_pizza",
+        "label": "Huile pimentée pour pizza (variantes)"
+      },
+      {
+        "id": "marinades_guide",
+        "label": "Marinades — 10 signatures"
+      },
+      {
+        "id": "tomates_variantes",
+        "label": "Tomates au four (séchées ou confites)"
+      },
+      {
+        "id": "oignons_rotis_thym_miel",
+        "label": "Oignons rôtis au thym et au miel"
       },
       {
         "id": "cake_sale_lardon",
         "label": "Cake salé lardon"
-      },
-      {
-        "id": "oignons_rotis_thym_miel",
-        "label": "Oignons rôtis thym miel"
-      },
-      {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat ?uf ?pinards"
-      },
-      {
-        "id": "apero_maitre",
-        "label": "Ap?ro"
       }
     ],
     "ingredients": [
@@ -2287,7 +2339,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "cochon_confit_biere_erable",
-        "label": "Cochon confit bière érable"
+        "label": "Cochon confit à la bière et au sirop d’érable"
       }
     ],
     "ingredients": [
@@ -2325,24 +2377,132 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "cremes_maitre",
-        "label": "Toping et garniture"
+        "id": "chantilly_classique",
+        "label": "Chantilly classique au fouet"
       },
       {
-        "id": "pates_bases_maitre",
-        "label": "Pâtes et bases pâtissières"
+        "id": "chantilly_gelatine",
+        "label": "Chantilly stabilisée (gélatine)"
       },
       {
-        "id": "biscuits_gouters_maitre",
-        "label": "Biscuits, cookies et meringues"
+        "id": "coulis_guide",
+        "label": "Coulis — guide (formules & variantes)"
       },
       {
-        "id": "desserts_cuillere_maitre",
-        "label": "Desserts ? la cuill?re"
+        "id": "coulis_fraise",
+        "label": "Coulis de fraise"
       },
       {
-        "id": "tartes_maitre",
-        "label": "Tartes"
+        "id": "coulis_framboise",
+        "label": "Coulis de framboise"
+      },
+      {
+        "id": "coulis_abricot_vanille",
+        "label": "Coulis abricot-vanille"
+      },
+      {
+        "id": "coulis_poire",
+        "label": "Coulis de poire"
+      },
+      {
+        "id": "creme_diplomate_vanille",
+        "label": "Crème diplomate vanille"
+      },
+      {
+        "id": "creme_diplomate_cloud",
+        "label": "Crème diplomate vanille (pour donuts & choux)"
+      },
+      {
+        "id": "creme_patissiere_praline",
+        "label": "Crème pâtissière praliné"
+      },
+      {
+        "id": "creme_praline",
+        "label": "Crème praliné"
+      },
+      {
+        "id": "creme_beurre_meringue_italienne",
+        "label": "Crème au beurre (base crème anglaise + meringue italienne)"
+      },
+      {
+        "id": "creme_amande_",
+        "label": "Crème d'amandes"
+      },
+      {
+        "id": "mascarpone",
+        "label": "Crème mascarpone vanille"
+      },
+      {
+        "id": "creme_kinder_nutella",
+        "label": "Crème Kinder / Nutella stable"
+      },
+      {
+        "id": "creme_pistache",
+        "label": "Crème pistache stable"
+      },
+      {
+        "id": "creme_patissiere_vanille",
+        "label": "Crème pâtissière vanille"
+      },
+      {
+        "id": "creme_citron_lemon_curd",
+        "label": "Crème citron (lemon curd)"
+      },
+      {
+        "id": "creme_amande_citron",
+        "label": "Crème d’amande citron"
+      },
+      {
+        "id": "compotee_citron",
+        "label": "Compotée citron"
+      },
+      {
+        "id": "meringue_italienne",
+        "label": "Meringue italienne"
+      },
+      {
+        "id": "pate_choux",
+        "label": "Pâte à choux"
+      },
+      {
+        "id": "craquelin_cacao",
+        "label": "Craquelin cacao"
+      },
+      {
+        "id": "pate_noisette",
+        "label": "Pâte de noisette maison"
+      },
+      {
+        "id": "choux_craquelin",
+        "label": "Choux au craquelin"
+      },
+      {
+        "id": "paris_brest",
+        "label": "Paris-Brest"
+      },
+      {
+        "id": "pate_sucree",
+        "label": "Pâte sucrée"
+      },
+      {
+        "id": "cookies_sales_variantes",
+        "label": "Cookies salés (base + variantes)"
+      },
+      {
+        "id": "cookies",
+        "label": "Cookies américains"
+      },
+      {
+        "id": "meringues",
+        "label": "Meringues"
+      },
+      {
+        "id": "tiramisu_speculoos",
+        "label": "Tiramisu spéculoos rapide"
+      },
+      {
+        "id": "tarte_citron_meringuee",
+        "label": "Tarte citron meringuée"
       }
     ],
     "ingredients": [
@@ -2395,7 +2555,7 @@ window.RECIPES = {
     "notes": [
       "Texture crèmeuse mais stable en fourrage.",
       "Goût intense, ne détrempe pas le donut.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2436,7 +2596,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Résultat attendu : crèmeux, parfumé et stable.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2485,7 +2645,7 @@ window.RECIPES = {
     "notes": [
       "Vraie gaufre de Bruxelles : pâte levée, blancs montés, gros trous, texture légère et croustillante.",
       "Pour plus de croustillant, remplacer 50 g de lait par 50 g de bière.",
-      "Stockage : id?alement le jour m?me. P?remption : 24?48 h en bo?te herm?tique; r?chauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "tags": [
       "gaufre",
@@ -2574,7 +2734,7 @@ window.RECIPES = {
     "notes": [
       "Points critiques : beurre pommade non liquide, sirop à 118–120 °C, verser lentement, fouetter jusqu’à refroidissement complet.",
       "Résultat attendu : pâte croustillante, crème d’amande moelleuse, crème citron fondante, meringue légère et stable.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "tarte",
@@ -2621,7 +2781,7 @@ window.RECIPES = {
       "Toujours tout peser avant.",
       "Respecter les textures : pommade, mousse, bec d’oiseau.",
       "Ne jamais précipiter la meringue ou les mélanges mousseux.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "tiramisu",
@@ -2678,7 +2838,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Le cake est prêt quand la lame ressort sèche et que le dessus est bien doré.",
-      "Stockage : refroidir rapidement puis conserver au r?frig?rateur en bo?te herm?tique. P?remption : 3?4 jours."
+      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours."
     ],
     "tags": [
       "cake",
@@ -2727,7 +2887,7 @@ window.RECIPES = {
       "Source fournie : recettes.memeswing.com.",
       "Accompagnement pour viande grillée, poisson, purée ou gratin de légumes.",
       "Conservation : 3–4 jours au froid en boîte hermétique.",
-      "Stockage : bocal ou bo?te herm?tique au r?frig?rateur. P?remption : 3?5 jours; v?rifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "tags": [
       "oignon",
@@ -2783,7 +2943,7 @@ window.RECIPES = {
       "Source fournie : ertova.com.",
       "Cuisson lente indispensable pour une texture fondante.",
       "Conservation : 3–4 jours au froid, réchauffage doux avec un peu de sauce.",
-      "Stockage : refroidir rapidement puis conserver au r?frig?rateur en bo?te herm?tique. P?remption : 3?4 jours."
+      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours."
     ],
     "tags": [
       "porc",
@@ -2794,7 +2954,7 @@ window.RECIPES = {
     "difficultyScore": 6
   },
   "pate_sucree": {
-    "title": "P?te sucr?e",
+    "title": "Pâte sucrée",
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pates_bases_maitre.jpg",
     "categories": [
@@ -2813,20 +2973,20 @@ window.RECIPES = {
           "100 g farine",
           "50 g beurre mou",
           "40 g sucre",
-          "25 g ?uf"
+          "25 g œuf"
         ]
       }
     ],
     "steps": [
-      "M?langer beurre et sucre sans faire fondre le beurre.",
-      "Ajouter l??uf puis la farine.",
+      "Mélanger beurre et sucre sans faire fondre le beurre.",
+      "Ajouter l’œuf puis la farine.",
       "Former une boule, filmer et refroidir 30 min.",
-      "?taler ? 3?4 mm, foncer le moule, piquer puis cuire selon la recette finale."
+      "Étaler à 3–4 mm, foncer le moule, piquer puis cuire selon la recette finale."
     ],
     "notes": [
-      "Base utilis?e dans la tarte citron meringu?e.",
+      "Base utilisée dans la tarte citron meringuée.",
       "Beurre pommade, jamais liquide.",
-      "Stockage : bo?te herm?tique adapt?e, au r?frig?rateur si la recette contient ?ufs, cr?me, viande ou garniture humide. P?remption : 2?3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "tags": [
       "pate",
@@ -2837,7 +2997,7 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "creme_amande_citron": {
-    "title": "Cr?me d?amande citron",
+    "title": "Crème d’amande citron",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_amande_.jpg",
     "categories": [
@@ -2855,22 +3015,22 @@ window.RECIPES = {
         "items": [
           "75 g beurre mou",
           "75 g sucre",
-          "50 g ?uf",
-          "75 g poudre d?amande",
-          "10 g f?cule",
+          "50 g œuf",
+          "75 g poudre d’amande",
+          "10 g fécule",
           "2 g zeste de citron"
         ]
       }
     ],
     "steps": [
-      "Cr?mer beurre et sucre.",
-      "Ajouter l??uf.",
-      "Incorporer poudre d?amande, f?cule et zeste.",
-      "?taler environ 5 mm dans le fond de tarte et cuire jusqu?? coloration moelleuse."
+      "Crèmer beurre et sucre.",
+      "Ajouter l’œuf.",
+      "Incorporer poudre d’amande, fécule et zeste.",
+      "Étaler environ 5 mm dans le fond de tarte et cuire jusqu’à coloration moelleuse."
     ],
     "notes": [
       "Base moelleuse pour tartes aux fruits ou citron.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2881,7 +3041,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "creme_citron_lemon_curd": {
-    "title": "Cr?me citron (lemon curd)",
+    "title": "Crème citron (lemon curd)",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/coulis_guide.jpg",
     "categories": [
@@ -2890,7 +3050,7 @@ window.RECIPES = {
     ],
     "seasons": [
       "Printemps",
-      "?t?",
+      "Été",
       "Toutes saisons"
     ],
     "difficulty": "medium",
@@ -2900,24 +3060,24 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "80 g jus de citron",
-          "180 g jaunes d??ufs",
+          "180 g jaunes d’œufs",
           "130 g sucre",
-          "10 g f?cule",
+          "10 g fécule",
           "100 g beurre"
         ]
       }
     ],
     "steps": [
       "Chauffer le jus de citron.",
-      "Fouetter jaunes et sucre, puis ajouter la f?cule.",
-      "Verser le jus chaud sur le m?lange.",
-      "Cuire jusqu?? ?paississement.",
+      "Fouetter jaunes et sucre, puis ajouter la fécule.",
+      "Verser le jus chaud sur le mélange.",
+      "Cuire jusqu’à épaississement.",
       "Ajouter le beurre, mixer si besoin, filmer au contact et refroidir."
     ],
     "notes": [
       "Texture fondante pour tarte citron, verrines ou fourrage.",
       "Refroidir avant montage pour une tenue nette.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2928,7 +3088,7 @@ window.RECIPES = {
     "difficultyScore": 6
   },
   "compotee_citron": {
-    "title": "Compot?e citron",
+    "title": "Compotée citron",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/coulis_abricot_vanille.jpg",
     "categories": [
@@ -2937,7 +3097,7 @@ window.RECIPES = {
     ],
     "seasons": [
       "Printemps",
-      "?t?",
+      "Été",
       "Toutes saisons"
     ],
     "difficulty": "easy",
@@ -2952,15 +3112,15 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Couper les citrons finement en retirant les p?pins.",
+      "Couper les citrons finement en retirant les pépins.",
       "Cuire doucement avec le sucre.",
       "Mixer finement.",
-      "?taler en couche fine sur un fond de tarte cuit."
+      "Étaler en couche fine sur un fond de tarte cuit."
     ],
     "notes": [
-      "Optionnelle dans la tarte citron meringu?e.",
-      "? utiliser en petite quantit? pour ?viter l?amertume.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Optionnelle dans la tarte citron meringuée.",
+      "À utiliser en petite quantité pour éviter l’amertume.",
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "citron",
@@ -2982,12 +3142,12 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "D?cor pour 1 tarte",
+    "yield": "Décor pour 1 tarte",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "60 g blancs d??ufs",
+          "60 g blancs d’œufs",
           "100 g sucre",
           "30 g eau",
           "1 g sel",
@@ -2996,15 +3156,15 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Cuire sucre, eau et jus de citron ? 118?120 ?C.",
+      "Cuire sucre, eau et jus de citron à 118–120 °C.",
       "Monter les blancs mousseux avec le sel.",
       "Verser le sirop en filet sur les blancs.",
-      "Fouetter 5?10 min jusqu?? refroidissement, texture lisse, brillante et ferme."
+      "Fouetter 5–10 min jusqu’à refroidissement, texture lisse, brillante et ferme."
     ],
     "notes": [
       "Verser le sirop lentement.",
-      "Fouetter jusqu?? refroidissement complet pour une bonne stabilit?.",
-      "Stockage : bo?te herm?tique au sec, ? temp?rature ambiante. P?remption : 5?14 jours selon humidit?; garder loin du r?frig?rateur sauf garniture fragile."
+      "Fouetter jusqu’à refroidissement complet pour une bonne stabilité.",
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
     "tags": [
       "meringue",
@@ -3015,7 +3175,7 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "creme_patissiere_vanille": {
-    "title": "Cr?me p?tissi?re vanille",
+    "title": "Crème pâtissière vanille",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
     "categories": [
@@ -3032,9 +3192,9 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "250 g lait",
-          "50 g jaunes d??ufs",
+          "50 g jaunes d’œufs",
           "60 g sucre",
-          "25 g Ma?zena",
+          "25 g Maïzena",
           "25 g beurre",
           "5 g vanille"
         ]
@@ -3042,15 +3202,15 @@ window.RECIPES = {
     ],
     "steps": [
       "Chauffer le lait avec la vanille.",
-      "Fouetter jaunes, sucre et Ma?zena.",
-      "Verser le lait chaud sur le m?lange.",
-      "Cuire jusqu?? ?paississement.",
+      "Fouetter jaunes, sucre et Maïzena.",
+      "Verser le lait chaud sur le mélange.",
+      "Cuire jusqu’à épaississement.",
       "Ajouter le beurre, filmer au contact et refroidir."
     ],
     "notes": [
-      "Base de la cr?me diplomate vanille.",
-      "Lisser au fouet apr?s refroidissement avant incorporation.",
-      "Stockage : au r?frig?rateur ? 0?4 ?C, film? ou en bo?te herm?tique. P?remption : 24?48 h selon fra?cheur des produits laitiers et des ?ufs."
+      "Base de la crème diplomate vanille.",
+      "Lisser au fouet après refroidissement avant incorporation.",
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -3061,16 +3221,16 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "salade_avocat_oeuf_epinards": {
-    "title": "Salade avocat, ?uf et ?pinards",
-    "master": "entrees_maitre",
+    "title": "Salade avocat, œuf et épinards",
+    "master": "crudites_maitre",
     "image": "/assets/recipe-images/bases_salees_maitre.jpg",
     "categories": [
-      "Entr?es",
+      "Entrées",
       "Plats"
     ],
     "seasons": [
       "Printemps",
-      "?t?",
+      "Été",
       "Toutes saisons"
     ],
     "difficulty": "easy",
@@ -3079,10 +3239,10 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "200 g avocat m?r en d?s",
-          "100 g ?ufs durs ?cal?s et tranch?s",
-          "60 g pousses d??pinards lav?es et s?ch?es",
-          "14 g huile d?olive",
+          "200 g avocat mûr en dés",
+          "100 g œufs durs écalés et tranchés",
+          "60 g pousses d’épinards lavées et séchées",
+          "14 g huile d’olive",
           "15 g jus de citron",
           "2 g sel fin",
           "1 g poivre noir"
@@ -3093,21 +3253,21 @@ window.RECIPES = {
         "items": [
           "120 g tomates cerises",
           "30 g noix",
-          "40 g fromage en d?s"
+          "40 g fromage en dés"
         ]
       }
     ],
     "steps": [
-      "Cuire les ?ufs durs, refroidir, ?caler et trancher.",
-      "Couper l?avocat en d?s.",
-      "M?langer pousses d??pinards, avocat et ?ufs.",
-      "Assaisonner avec huile d?olive, jus de citron, sel et poivre.",
-      "Ajouter les options au moment du service si souhait?."
+      "Cuire les œufs durs, refroidir, écaler et trancher.",
+      "Couper l’avocat en dés.",
+      "Mélanger pousses d’épinards, avocat et œufs.",
+      "Assaisonner avec huile d’olive, jus de citron, sel et poivre.",
+      "Ajouter les options au moment du service si souhaité."
     ],
     "notes": [
-      "Recette ajout?e depuis l?image fournie.",
-      "Servir rapidement apr?s d?coupe de l?avocat.",
-      "Stockage : bo?te herm?tique au r?frig?rateur. P?remption : 24 h, ? assaisonner au dernier moment."
+      "Recette ajoutée depuis l’image fournie.",
+      "Servir rapidement après découpe de l’avocat.",
+      "Stockage : boîte hermétique au réfrigérateur. Péremption : 24 h, à assaisonner au dernier moment."
     ],
     "tags": [
       "salade",
@@ -3116,54 +3276,82 @@ window.RECIPES = {
       "epinards",
       "entree"
     ],
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "additionalMasters": [
+      "entrees_maitre",
+      "apero_maitre"
+    ]
   },
   "apero_maitre": {
-    "title": "Ap?ro",
+    "title": "Apéro",
     "image": "/assets/recipe-images/sauces_assaisonnements_maitre.jpg",
     "categories": [
-      "Ap?ro"
+      "Apéro"
     ],
     "seasons": [
       "Printemps",
-      "?t?",
+      "Été",
       "Automne",
       "Hiver"
     ],
     "variants": [
       {
-        "id": "bases_salees_maitre",
-        "label": "Bases sal?es"
+        "id": "crudites_maitre",
+        "label": "Crudités et salades fraîches"
       },
       {
-        "id": "sauces_assaisonnements_maitre",
-        "label": "Sauces et assaisonnements"
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouettée (assaisonnements)"
+      },
+      {
+        "id": "legumes_rotis",
+        "label": "Légumes rôtis au four"
+      },
+      {
+        "id": "court_bouillon",
+        "label": "Court-bouillon"
+      },
+      {
+        "id": "vinaigrette",
+        "label": "Vinaigrette de chef (variantes)"
+      },
+      {
+        "id": "pesto_variantes",
+        "label": "Pesto (base + variantes)"
+      },
+      {
+        "id": "balsamique_reduit",
+        "label": "Balsamique réduit (variantes)"
+      },
+      {
+        "id": "huile_pimentee_pizza",
+        "label": "Huile pimentée pour pizza (variantes)"
+      },
+      {
+        "id": "marinades_guide",
+        "label": "Marinades — 10 signatures"
       },
       {
         "id": "cake_sale_lardon",
-        "label": "Cake sal? lardon"
+        "label": "Cake salé lardon"
       },
       {
         "id": "cookies_sales_variantes",
-        "label": "Cookies sal?s"
+        "label": "Cookies salés (base + variantes)"
       },
       {
-        "id": "tomates_maitre",
-        "label": "Tomates pr?par?es"
+        "id": "tomates_variantes",
+        "label": "Tomates au four (séchées ou confites)"
       },
       {
         "id": "oignons_rotis_thym_miel",
-        "label": "Oignons r?tis"
-      },
-      {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat ?uf ?pinards"
+        "label": "Oignons rôtis au thym et au miel"
       }
     ],
     "technical": [
       {
         "label": "Organisation",
-        "value": "Regroupe les recettes faciles ? partager avant le repas."
+        "value": "Regroupe les recettes faciles à partager avant le repas."
       }
     ],
     "difficulty": "easy",
@@ -3173,7 +3361,7 @@ window.RECIPES = {
     "tags": []
   },
   "desserts_cuillere_maitre": {
-    "title": "Desserts ? la cuill?re",
+    "title": "Desserts à la cuillère",
     "master": "desserts_maitre",
     "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
     "categories": [
@@ -3185,13 +3373,13 @@ window.RECIPES = {
     "variants": [
       {
         "id": "tiramisu_speculoos",
-        "label": "Tiramisu sp?culoos"
+        "label": "Tiramisu spéculoos rapide"
       }
     ],
     "technical": [
       {
         "label": "Service",
-        "value": "Desserts servis froids ou cr?meux, dress?s en verrine, plat ou coupe."
+        "value": "Desserts servis froids ou crèmeux, dressés en verrine, plat ou coupe."
       }
     ],
     "difficulty": "easy",
@@ -3209,14 +3397,14 @@ window.RECIPES = {
     ],
     "seasons": [
       "Printemps",
-      "?t?",
+      "Été",
       "Automne",
       "Hiver"
     ],
     "variants": [
       {
         "id": "tarte_citron_meringuee",
-        "label": "Tarte citron meringu?e"
+        "label": "Tarte citron meringuée"
       }
     ],
     "technical": [
@@ -3230,5 +3418,40 @@ window.RECIPES = {
     "steps": [],
     "notes": [],
     "tags": []
+  },
+  "crudites_maitre": {
+    "title": "Crudités et salades fraîches",
+    "master": "entrees_maitre",
+    "image": "/assets/recipe-images/bases_salees_maitre.jpg",
+    "categories": [
+      "Entrées",
+      "Apéro"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été",
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "variants": [
+      {
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat, œuf et épinards"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Sous-fiches",
+        "items": [
+          "Choisir une recette dans cette fiche."
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une recette pour afficher le détail."
+    ],
+    "notes": [
+      "Fiche parent de rangement."
+    ]
   }
 };

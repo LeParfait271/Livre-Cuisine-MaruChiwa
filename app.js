@@ -9,6 +9,7 @@ const COOK_NOTE_LOGO = '/assets/cook-note.png';
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver', 'Toutes saisons'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
 const DIFFICULTY_ORDER = { easy: 1, medium: 2, hard: 3 };
+const DIFFICULTY_SCORES = Array.from({ length: 10 }, (_, index) => index + 1);
 const CATEGORY_ACCENTS = {
   'Apéro': '#ff8a3d',
   'Entrées': '#22c55e',
@@ -282,7 +283,7 @@ function TopBar({ onHome, totalRecipeCount, ficheCount, shoppingCount, activeRec
       h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
       h('a', {
         className: 'btn btn-subtle',
-        href: 'mailto:?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
+        href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
       }, 'Demander une recette'),
       h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
     ),
@@ -326,7 +327,7 @@ function FilterBar(props) {
       h('label', null, 'Difficulté'),
       h('select', { value: props.difficulty, onChange: event => props.setDifficulty(event.target.value) },
         h('option', { value: '' }, 'Toutes'),
-        Object.entries(DIFFICULTY_LABELS).map(([key, label]) => h('option', { key, value: key }, label))
+        DIFFICULTY_SCORES.map(value => h('option', { key: value, value: String(value) }, `${value}/10`))
       )
     ),
     h('div', { className: 'field' },
@@ -430,7 +431,7 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
           ? h('span', null, `${getVariantRefs(recipe).length} sous-fiche${getVariantRefs(recipe).length > 1 ? 's' : ''}`)
           : [
             h('span', { key: 'difficulty' }, difficultyText(recipe)),
-            h('span', { key: 'ingredients' }, `${countIngredients(recipe)} ingr?dients`)
+            h('span', { key: 'ingredients' }, `${countIngredients(recipe)} ingrédients`)
           ]
       ),
       h('div', { className: 'season-line' }, seasons.slice(0, 3).map(item => h('span', { key: item }, item))),
@@ -736,8 +737,8 @@ function RecipeView({
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
               selectedRecipe.yield && h('span', { key: 'yield' }, selectedRecipe.yield),
-              h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingr?dients`),
-              h('span', { key: 'steps' }, `${stepTotal} ?tapes`)
+              h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingrédients`),
+              h('span', { key: 'steps' }, `${stepTotal} étapes`)
             ]
         ),
         h('div', { className: 'detail-actions' },
@@ -946,7 +947,7 @@ function App() {
       if (needle && !recipe.searchText.includes(needle)) return false;
       if (category && !(recipe.categories || []).includes(category)) return false;
       if (season && !(recipe.seasons || []).includes(season)) return false;
-      if (difficulty && recipe.difficulty !== difficulty) return false;
+      if (difficulty && Number(recipe.difficultyScore) !== Number(difficulty)) return false;
       if (tagFilter && !(recipe.tagsExtracted || []).includes(tagFilter)) return false;
       if (onlyFavorites && !favorites.includes(recipe.id)) return false;
       return true;
@@ -955,7 +956,7 @@ function App() {
     list = [...list].sort((a, b) => {
       const order = homeCardOrder(a) - homeCardOrder(b);
       if (order) return order;
-      if (sort === 'difficulty') return (DIFFICULTY_ORDER[a.difficulty] || 99) - (DIFFICULTY_ORDER[b.difficulty] || 99) || a.title.localeCompare(b.title, 'fr');
+      if (sort === 'difficulty') return (Number(a.difficultyScore) || 99) - (Number(b.difficultyScore) || 99) || a.title.localeCompare(b.title, 'fr');
       if (sort === 'ingredients') return countIngredients(a) - countIngredients(b) || a.title.localeCompare(b.title, 'fr');
       if (sort === 'season') return (a.seasons || ['']).join(',').localeCompare((b.seasons || ['']).join(','), 'fr') || a.title.localeCompare(b.title, 'fr');
       return a.title.localeCompare(b.title, 'fr');
@@ -976,7 +977,7 @@ function App() {
     query && { key: 'query', label: `Recherche: ${query}`, clear: () => setQuery('') },
     category && { key: 'category', label: category, clear: () => setCategory('') },
     season && { key: 'season', label: season, clear: () => setSeason('') },
-    difficulty && { key: 'difficulty', label: DIFFICULTY_LABELS[difficulty], clear: () => setDifficulty('') },
+    difficulty && { key: 'difficulty', label: `Difficulté ${difficulty}/10`, clear: () => setDifficulty('') },
     tagFilter && { key: 'tag', label: `Tag: ${tagFilter}`, clear: () => setTagFilter('') },
     onlyFavorites && { key: 'favorites', label: 'Favoris', clear: () => setOnlyFavorites(false) }
   ].filter(Boolean);

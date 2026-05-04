@@ -21,9 +21,10 @@ if (!recipes || typeof recipes !== 'object') {
     .map(([id]) => id));
 
   for (const [id, recipe] of Object.entries(recipes)) {
+    const isMaster = masterIds.has(id);
     if (!recipe.title) errors.push(`${id}: titre manquant.`);
-    if (!Array.isArray(recipe.ingredients) || !recipe.ingredients.length) errors.push(`${id}: ingredients manquants.`);
-    if (!Array.isArray(recipe.steps) || !recipe.steps.length) errors.push(`${id}: etapes manquantes.`);
+    if (!isMaster && (!Array.isArray(recipe.ingredients) || !recipe.ingredients.length)) errors.push(`${id}: ingredients manquants.`);
+    if (!isMaster && (!Array.isArray(recipe.steps) || !recipe.steps.length)) errors.push(`${id}: etapes manquantes.`);
 
     if (recipe.master && !ids.has(recipe.master)) errors.push(`${id}: fiche parent introuvable (${recipe.master}).`);
     if (!masterIds.has(id) && !recipe.master) errors.push(`${id}: recette sans fiche parent.`);
@@ -33,9 +34,8 @@ if (!recipes || typeof recipes !== 'object') {
         if (!variant?.id || !ids.has(variant.id)) errors.push(`${id}: variante introuvable (${variant?.id || 'vide'}).`);
         const variantRecipe = recipes[variant?.id];
         const isNestedMaster = variantRecipe && masterIds.has(variant.id);
-        if (variant?.id && variantRecipe?.master !== id && !isNestedMaster && !Array.isArray(variantRecipe?.additionalMasters)?.includes(id)) {
-          errors.push(`${id}: variante ${variant.id} non rattachee au parent.`);
-        }
+        const isAdditionalParent = Array.isArray(variantRecipe?.additionalMasters) && variantRecipe.additionalMasters.includes(id);
+        if (variant?.id && !variantRecipe?.master && !isNestedMaster && !isAdditionalParent) errors.push(`${id}: variante ${variant.id} sans fiche parent.`);
       });
     }
 
