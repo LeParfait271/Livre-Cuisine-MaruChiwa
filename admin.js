@@ -16,9 +16,12 @@ const fields = {
   tags: $('#field-tags'),
   video: $('#field-video'),
   image: $('#field-image'),
+  master: $('#field-master'),
+  variants: $('#field-variants'),
   ingredients: $('#field-ingredients'),
   steps: $('#field-steps'),
-  notes: $('#field-notes')
+  notes: $('#field-notes'),
+  technical: $('#field-technical')
 };
 
 function message(text, isError = false) {
@@ -142,6 +145,34 @@ function csvToArray(text) {
   return String(text || '').split(',').map(item => item.trim()).filter(Boolean);
 }
 
+function variantsToText(items = []) {
+  return items.map(item => [item.id, item.label].filter(Boolean).join(' | ')).join('\n');
+}
+
+function textToVariants(text) {
+  return linesToArray(text).map(line => {
+    const [rawId, ...rawLabel] = line.split('|');
+    const id = slugify(rawId);
+    const label = rawLabel.join('|').trim();
+    return { id, ...(label ? { label } : {}) };
+  }).filter(item => item.id);
+}
+
+function technicalToText(items = []) {
+  return items.map(item => `${item.label || item.title || 'Point clé'}: ${item.value || item.text || ''}`).join('\n');
+}
+
+function textToTechnical(text) {
+  return linesToArray(text).map(line => {
+    const separator = line.indexOf(':');
+    if (separator === -1) return { label: 'Point clé', value: line };
+    return {
+      label: line.slice(0, separator).trim() || 'Point clé',
+      value: line.slice(separator + 1).trim()
+    };
+  }).filter(item => item.value);
+}
+
 function selectRecipe(id) {
   activeId = id;
   mode = 'edit';
@@ -155,9 +186,12 @@ function selectRecipe(id) {
   fields.tags.value = (recipe.tags || []).join(', ');
   fields.video.value = recipe.video || '';
   fields.image.value = recipe.image || '';
+  fields.master.value = recipe.master || '';
+  fields.variants.value = variantsToText(recipe.variants || []);
   fields.ingredients.value = ingredientsToText(recipe.ingredients || []);
   fields.steps.value = arrayToLines(recipe.steps || []);
   fields.notes.value = arrayToLines(recipe.notes || []);
+  fields.technical.value = technicalToText(recipe.technical || []);
   setChecked('category', recipe.categories || []);
   setChecked('season', recipe.seasons || []);
   updatePreview();
@@ -177,9 +211,12 @@ function newRecipe() {
   fields.tags.value = '';
   fields.video.value = '';
   fields.image.value = '';
+  fields.master.value = '';
+  fields.variants.value = '';
   fields.ingredients.value = 'Base\n- ';
   fields.steps.value = '';
   fields.notes.value = '';
+  fields.technical.value = '';
   setChecked('category', []);
   setChecked('season', ['Toutes saisons']);
   updatePreview();
@@ -188,6 +225,7 @@ function newRecipe() {
 }
 
 function collectRecipe() {
+  const variants = textToVariants(fields.variants.value);
   return {
     title: fields.title.value.trim(),
     categories: getChecked('category'),
@@ -199,7 +237,11 @@ function collectRecipe() {
     notes: linesToArray(fields.notes.value),
     image: fields.image.value.trim(),
     video: fields.video.value.trim(),
-    tags: csvToArray(fields.tags.value)
+    tags: csvToArray(fields.tags.value),
+    master: slugify(fields.master.value),
+    variants,
+    masterType: variants.length ? 'collection' : '',
+    technical: textToTechnical(fields.technical.value)
   };
 }
 
@@ -213,6 +255,10 @@ function validateLocal(id, recipe) {
   if (!recipe.seasons.length) errors.push('Choisir au moins une saison.');
   if (!recipe.ingredients.length) errors.push('Ajouter au moins un groupe ingrédients avec items.');
   if (!recipe.steps.length) errors.push('Ajouter au moins une étape.');
+  if (recipe.master && recipe.variants.length) errors.push('Une fiche ne peut pas etre parent et variante en meme temps.');
+  recipe.variants.forEach(variant => {
+    if (!recipes[variant.id]) errors.push(`Variante introuvable: ${variant.id}.`);
+  });
   return errors;
 }
 
@@ -260,9 +306,12 @@ function duplicateRecipe() {
   fields.tags.value = (source.tags || []).join(', ');
   fields.video.value = source.video || '';
   fields.image.value = source.image || '';
+  fields.master.value = source.master || '';
+  fields.variants.value = variantsToText(source.variants || []);
   fields.ingredients.value = ingredientsToText(source.ingredients || []);
   fields.steps.value = arrayToLines(source.steps || []);
   fields.notes.value = arrayToLines(source.notes || []);
+  fields.technical.value = technicalToText(source.technical || []);
   setChecked('category', source.categories || []);
   setChecked('season', source.seasons || []);
   updatePreview();

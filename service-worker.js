@@ -55,7 +55,7 @@ self.addEventListener('fetch', (event) => {
   // Elles ne doivent pas bloquer l'app hors-ligne
   if (url.origin !== self.location.origin) return;
 
-  // Ne jamais mettre en cache l'admin ni l'API locale.
+  // Ne jamais mettre en cache l'admin ni l'API.
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) return;
 
   // Pour les assets locaux : cache-first, réseau en fallback

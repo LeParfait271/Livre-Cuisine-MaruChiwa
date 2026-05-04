@@ -1,116 +1,82 @@
 Cook Note
 =========
 
-LANCER EN LOCAL
----------------
+SITE PUBLIC
+-----------
 
-1. Installer Node.js 18+ si besoin.
-2. Depuis ce dossier :
+Cook Note est un carnet culinaire web avec :
 
-   npm run dev
+- fiches parents pour regrouper les variantes d'une meme famille ;
+- recettes consultables par saison, categorie, tags et recherche avancee ;
+- panier de courses combine entre plusieurs recettes cochees ;
+- mode cuisine avec checklist, progression et minuteurs d'etapes ;
+- fiches techniques sur les familles importantes ;
+- images servies depuis le projet dans assets/recipe-images/ ou assets/uploads/.
 
-3. Ouvrir :
+ADMIN
+-----
 
-   Site public : http://127.0.0.1:8080
-   Admin       : http://127.0.0.1:8080/admin
+Le back-office est disponible sur :
 
-Le serveur Node remplace Mongoose pour le mode dev/admin.
-Mongoose peut toujours servir les fichiers statiques, mais il ne permet pas
-d'ecrire les recettes depuis le back-office.
+   /admin
 
-MOT DE PASSE ADMIN
-------------------
-
-Option recommandee :
-
-1. Copier admin.local.example.json vers admin.local.json.
-2. Mettre le mot de passe voulu :
-
-   {
-     "password": "mon-mot-de-passe"
-   }
-
-admin.local.json est ignore par Git.
-
-Alternative :
-
-   set COOK_NOTE_ADMIN_PASSWORD=mon-mot-de-passe
-   npm run dev
-
-Ancienne variable encore acceptee pour compatibilite :
-
-   MC_FOOD_ADMIN_PASSWORD
-
-Si rien n'est configure, le mot de passe dev temporaire est :
-
-   changeme
-
-AJOUTER DES RECETTES
---------------------
-
-Chemin recommande : http://127.0.0.1:8080/admin
-
-Le back-office permet :
+Il permet :
 
 - creation, modification, duplication, suppression ;
 - categories, saisons, difficulte, rendement, tags, video ;
-- ingredients groupes, etapes, notes ;
-- upload local d'images vers assets/uploads/ ;
+- fiche parent et variantes ;
+- ingredients groupes, etapes, notes et fiche technique ;
+- import d'images vers assets/uploads/ ;
 - sauvegarde automatique de recipes.js dans backups/ avant chaque ecriture.
 
-Le fichier public reste recipes.js avec le schema :
+Configurer le mot de passe avec :
+
+   COOK_NOTE_ADMIN_PASSWORD
+
+La variable historique MC_FOOD_ADMIN_PASSWORD reste acceptee.
+
+Pour un environnement de developpement, admin.local.json peut aussi contenir :
+
+   { "password": "mon-mot-de-passe" }
+
+SCHEMA RECETTE
+--------------
 
   recette_id: {
     title: 'Titre',
-    categories: ['Plats'],
+    categories: ['Desserts'],
     seasons: ['Toutes saisons'],
     difficulty: 'easy',
     yield: '4 portions',
+    master: 'chantilly_maitre',
+    variants: [{ id: 'chantilly_classique', label: 'Chantilly classique' }],
+    masterType: 'collection',
     ingredients: [
       { group: 'Base', items: ['100 g farine', '2 oeufs'] }
     ],
     steps: ['Etape 1', 'Etape 2'],
     notes: ['Astuce ou lien HTML data-goto'],
-    image: '/assets/uploads/photo.webp',
+    technical: [{ label: 'Texture', value: 'Point technique' }],
+    image: '/assets/recipe-images/recette_id.jpg',
     video: 'https://youtube.com/...',
-    tags: ['rapide', 'italien']
+    tags: ['rapide', 'base']
   }
 
-FEATURES PUBLIQUES
-------------------
+DEVELOPPEMENT
+-------------
 
-- theme noir/dore Cook Note ;
-- saison courante automatique Europe/Paris ;
-- rangement par saison ;
-- recherche simple et recherche avancee ;
-- filtres actifs supprimables individuellement ;
-- favoris et recettes recentes ;
-- tags cliquables ;
-- fiches recettes avec checklist ingredients/etapes ;
-- undo/redo checklist avec Ctrl+Z / Ctrl+Y ;
-- quantites x1, x1.5, x2, x3 ;
-- liste de courses copiable ;
-- partage lien, WhatsApp, email, QR code ;
-- badge video et lien video ;
-- confettis quand toutes les etapes sont cochees ;
-- impression propre via le bouton Imprimer ;
-- PWA/offline pour les assets publics.
+   npm run dev
 
-RACCOURCIS
-----------
+Par defaut, le serveur ecoute sur :
 
-Ctrl/Cmd + K : focus recherche
-H            : retour accueil
-Esc          : fermer modal ou revenir de fiche
-Fleches      : recette precedente/suivante en fiche
-Ctrl+Z/Y     : annuler/retablir checklist
+   http://127.0.0.1:8080
+
+Cette URL sert uniquement au test et au back-office pendant le developpement.
 
 VERIFICATION
 ------------
 
    npm run check
 
-Puis tester :
-
-- http://127.0.0.1:8080
-- http://127.0.0.1:8080/admin
+La verification controle la syntaxe JavaScript, les fiches parents, les variantes,
+les liens internes data-goto et la presence des images locales.

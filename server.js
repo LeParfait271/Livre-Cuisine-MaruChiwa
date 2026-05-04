@@ -41,7 +41,7 @@ function loadAdminPassword() {
       console.warn('[admin] admin.local.json invalide:', error.message);
     }
   }
-  console.warn('[admin] Aucun mot de passe configure. Mot de passe dev temporaire: changeme');
+  console.warn('[admin] Aucun mot de passe configure. Mot de passe temporaire: changeme');
   return 'changeme';
 }
 
@@ -153,7 +153,7 @@ function writeRecipes(recipes) {
   const header = [
     '// ============================================================',
     '//  Cook Note - recipes.js',
-    '//  Genere par le back-office local. Modifier via /admin.',
+    '//  Genere par le back-office Cook Note. Modifier via /admin.',
     '// ============================================================',
     '',
     `window.RECIPES = ${JSON.stringify(recipes, null, 2)};`,
@@ -187,6 +187,14 @@ function normalizeRecipe(recipe) {
       : [],
     steps: Array.isArray(recipe.steps) ? recipe.steps.map(String).map(s => s.trim()).filter(Boolean) : [],
     ...(Array.isArray(recipe.notes) && recipe.notes.length ? { notes: recipe.notes.map(String).map(s => s.trim()).filter(Boolean) } : {}),
+    ...(Array.isArray(recipe.technical) && recipe.technical.length ? {
+      technical: recipe.technical
+        .map(item => ({
+          label: String(item.label || item.title || '').trim() || 'Point cle',
+          value: String(item.value || item.text || '').trim()
+        }))
+        .filter(item => item.value)
+    } : {}),
     ...(recipe.image ? { image: String(recipe.image).trim() } : {}),
     ...(recipe.video ? { video: String(recipe.video).trim() } : {}),
     ...(Array.isArray(recipe.tags) && recipe.tags.length ? { tags: recipe.tags.map(String).map(s => s.trim()).filter(Boolean) } : {}),
@@ -311,6 +319,7 @@ async function handleApi(req, res, url) {
         if (recipes[id].master && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'master')) recipe.master = recipes[id].master;
         if (recipes[id].masterType && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'masterType')) recipe.masterType = recipes[id].masterType;
         if (recipes[id].variants && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'variants')) recipe.variants = recipes[id].variants;
+        if (recipes[id].technical && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'technical')) recipe.technical = recipes[id].technical;
         const errors = validateRecipe(id, recipe, recipes, 'update');
         if (errors.length) return sendJson(res, 400, { error: errors.join(' ') });
         recipes[id] = recipe;
@@ -380,6 +389,6 @@ function route(req, res) {
 
 const server = http.createServer(route);
 server.listen(PORT, HOST, () => {
-  console.log(`Cook Note dev server: http://${HOST}:${PORT}`);
+  console.log(`Cook Note server: http://${HOST}:${PORT}`);
   console.log(`Admin: http://${HOST}:${PORT}/admin`);
 });

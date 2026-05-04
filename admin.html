@@ -16,7 +16,7 @@
         <img src="/assets/cook-note-mark.svg" alt="" />
         <div>
           <strong>Cook Note Admin</strong>
-          <small>Recettes locales</small>
+          <small>Catalogue en ligne</small>
         </div>
       </a>
       <div class="admin-top-actions">
@@ -83,7 +83,16 @@
               Vidéo
               <input id="field-video" placeholder="https://youtube.com/..." />
             </label>
+            <label>
+              Fiche parent
+              <input id="field-master" placeholder="chantilly_maitre" />
+            </label>
           </div>
+
+          <label>
+            Variantes de fiche parent
+            <textarea id="field-variants" rows="4" spellcheck="false" placeholder="chantilly_classique | Chantilly classique&#10;chantilly_mascarpone | Chantilly mascarpone"></textarea>
+          </label>
 
           <fieldset>
             <legend>Catégories</legend>
@@ -102,7 +111,7 @@
                 <input id="field-image" placeholder="/assets/uploads/image.webp ou https://..." />
               </label>
               <label class="file-field">
-                Upload local
+                Importer une image
                 <input id="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" />
               </label>
             </div>
@@ -122,6 +131,10 @@
           <label>
             Notes
             <textarea id="field-notes" rows="7" spellcheck="false" placeholder="Une note par ligne. HTML data-goto autorisé."></textarea>
+          </label>
+          <label>
+            Fiche technique
+            <textarea id="field-technical" rows="5" spellcheck="false" placeholder="Ratio: 400 g fruit / 80 g sucre&#10;Point de vigilance: mixer puis tamiser"></textarea>
           </label>
         </form>
       </section>

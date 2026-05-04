@@ -23,6 +23,7 @@ const CATEGORY_ACCENTS = {
 const STORAGE_KEYS = {
   favorites: 'cook_note_favorites',
   recents: 'cook_note_recents',
+  shopping: 'cook_note_shopping_basket',
   legacyFavorites: ['mc_food_favorites', 'cuisine_favs'],
   legacyRecents: ['mc_food_recents', 'cuisine_recents']
 };
@@ -126,6 +127,37 @@ function scaleIngredient(text, factor) {
   return `${formatNumber(first * factor)}${match[4]}`;
 }
 
+function recipeShoppingLines(recipe, factor = 1) {
+  return (recipe.ingredients || []).flatMap(group => [
+    group.group ? `# ${group.group}` : '# Base',
+    ...(group.items || []).map(item => `- ${scaleIngredient(item, factor)}`)
+  ]);
+}
+
+function shoppingListText(recipes, factorById = {}) {
+  const blocks = recipes.map(recipe => [
+    `## ${recipe.title}`,
+    ...recipeShoppingLines(recipe, factorById[recipe.id] || 1)
+  ].join('\n'));
+  return ['Liste de courses Cook Note', '', ...blocks].join('\n\n');
+}
+
+function getStepMinutes(step) {
+  const text = normalizeText(step);
+  const hourMatch = text.match(/(\d+(?:[.,]\d+)?)\s*h/);
+  if (hourMatch) return Math.round(parseAmount(hourMatch[1]) * 60);
+  const minuteMatch = text.match(/(\d+(?:[.,]\d+)?)\s*(?:min|minute)/);
+  if (minuteMatch) return Math.round(parseAmount(minuteMatch[1]));
+  return 0;
+}
+
+function formatRemaining(ms) {
+  const seconds = Math.max(0, Math.ceil(ms / 1000));
+  const minutes = Math.floor(seconds / 60);
+  const rest = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
+}
+
 function getRecipeSearchText(recipe, tags) {
   const ingredients = (recipe.ingredients || [])
     .flatMap(group => [group.group, ...(group.items || [])])
@@ -160,8 +192,13 @@ function extractTags(recipe) {
 }
 
 function getInitialHashRecipe() {
-  const match = window.location.hash.match(/^#recipe=(.+)$/);
-  return match ? decodeURIComponent(match[1]) : null;
+  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  return params.get('recipe');
+}
+
+function getInitialHashVariant() {
+  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  return params.get('variant');
 }
 
 function isTypingTarget(target) {
@@ -221,7 +258,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ query, setQuery, onHome, favoriteCount, activeRecipe, searchRef, openAdvanced, activeFilterCount, showFavorites }) {
+function TopBar({ onHome, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
   return h('header', { className: 'topbar' },
     h('button', { className: 'brand', type: 'button', onClick: onHome, 'aria-label': 'Retour à l’accueil' },
       h('img', { className: 'brand-logo', src: '/assets/cook-note-mark.svg', alt: 'Cook Note' }),
@@ -230,19 +267,10 @@ function TopBar({ query, setQuery, onHome, favoriteCount, activeRecipe, searchRe
         h('small', null, 'Carnet culinaire')
       )
     ),
-    h('label', { className: 'top-search' },
-      h('span', null, 'Recherche'),
-      h('input', {
-        ref: searchRef,
-        value: query,
-        onChange: event => setQuery(event.target.value),
-        placeholder: 'Nom, ingrédient, catégorie...',
-        autoComplete: 'off'
-      })
-    ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
       h(Button, { variant: 'subtle', onClick: openAdvanced }, ['Recherche avancée', activeFilterCount ? h('span', { key: 'badge', className: 'filter-badge' }, activeFilterCount) : null]),
       h(Button, { variant: 'subtle', onClick: showFavorites }, `${favoriteCount} favoris`),
+      h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
       h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
     ),
     h('div', { className: 'topbar-status' }, activeRecipe ? 'Fiche ouverte' : 'Mode cuisine')
@@ -272,7 +300,7 @@ function Hero({ total, filteredCount, favoriteCount, currentSeason, onShowFavori
       ),
       h('div', { className: 'stats-row' },
         h('span', null, h('strong', null, total), ' recettes'),
-        h('span', null, h('strong', null, filteredCount), ' affichées'),
+        h('span', null, h('strong', null, filteredCount), ' fiches'),
         h('span', null, h('strong', null, favoriteCount), ' favoris')
       )
     )
@@ -284,6 +312,7 @@ function FilterBar(props) {
     h('div', { className: 'field wide' },
       h('label', null, 'Recherche'),
       h('input', {
+        ref: props.searchRef,
         value: props.query,
         onChange: event => props.setQuery(event.target.value),
         placeholder: 'Carbonara, citron, dessert, four...'
@@ -361,6 +390,7 @@ function AdvancedSearchModal({ open, onClose, allTags, props }) {
 }
 
 function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilter }) {
+  const master = isMasterRecipe(recipe);
   const color = getCategoryColor(recipe);
   const categories = recipe.categories || [];
   const seasons = recipe.seasons || [];
@@ -400,8 +430,8 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
       h('h3', null, recipe.title),
       h('p', { className: 'card-meta' },
         h('span', null, DIFFICULTY_LABELS[recipe.difficulty] || 'Recette'),
-        isMasterRecipe(recipe) && h('span', null, `${getVariantRefs(recipe).length} variantes`),
-        h('span', null, `${countIngredients(recipe)} ingrédients`)
+        master && h('span', null, `${getVariantRefs(recipe).length} variantes`),
+        !master && h('span', null, `${countIngredients(recipe)} ingrédients`)
       ),
       h('div', { className: 'season-line' }, seasons.slice(0, 3).map(item => h('span', { key: item }, item))),
       h('div', { className: 'mini-tags' },
@@ -457,7 +487,7 @@ function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTa
 function HomeView(props) {
   return h('main', { className: 'home-view' },
     h(Hero, {
-      total: props.recipes.length,
+      total: props.totalRecipeCount,
       filteredCount: props.filteredRecipes.length,
       favoriteCount: props.favorites.length,
       currentSeason: props.currentSeason,
@@ -514,10 +544,7 @@ function SharePanel({ open, onClose, recipe }) {
 
 function CartPanel({ open, onClose, recipe, factor }) {
   const [copied, setCopied] = useState(false);
-  const lines = (recipe.ingredients || []).flatMap(group => [
-    group.group ? `# ${group.group}` : '# Base',
-    ...(group.items || []).map(item => `- ${scaleIngredient(item, factor)}`)
-  ]);
+  const lines = recipeShoppingLines(recipe, factor);
   const text = [`Courses - ${recipe.title}`, '', ...lines].join('\n');
 
   if (!open) return null;
@@ -535,10 +562,50 @@ function CartPanel({ open, onClose, recipe, factor }) {
   );
 }
 
+function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShopping }) {
+  const [copied, setCopied] = useState(false);
+  const text = recipes.length ? shoppingListText(recipes) : 'Liste de courses Cook Note\n\nAucune recette cochée.';
+
+  useEffect(() => {
+    if (open) setCopied(false);
+  }, [open, recipes.length]);
+
+  if (!open) return null;
+  return h('div', { className: 'modal-backdrop', onMouseDown: onClose },
+    h('section', { className: 'modal-panel shopping-modal', role: 'dialog', 'aria-modal': 'true', onMouseDown: event => event.stopPropagation() },
+      h('div', { className: 'modal-head' },
+        h('div', null,
+          h('p', { className: 'eyebrow' }, 'Panier courses'),
+          h('h2', null, recipes.length ? `${recipes.length} recette${recipes.length > 1 ? 's' : ''} cochée${recipes.length > 1 ? 's' : ''}` : 'Aucune recette')
+        ),
+        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
+      ),
+      recipes.length
+        ? h('div', { className: 'shopping-picked' },
+            recipes.map(recipe => h('button', {
+              key: recipe.id,
+              type: 'button',
+              onClick: () => removeRecipe(recipe.id),
+              title: 'Retirer du panier courses'
+            }, recipe.title, h('span', null, '×')))
+          )
+        : h('p', { className: 'muted' }, 'Ajoute une recette depuis sa fiche pour construire une liste groupée.'),
+      h('pre', { className: 'cart-output combined-cart' }, text),
+      h('div', { className: 'modal-actions' },
+        h(Button, { variant: 'primary', disabled: !recipes.length, onClick: () => copyText(text).then(() => setCopied(true)) }, copied ? 'Copié' : 'Copier la liste complète'),
+        h(Button, { variant: 'subtle', disabled: !recipes.length, onClick: clearShopping }, 'Vider le panier')
+      )
+    )
+  );
+}
+
 function RecipeView({
   recipe,
   isFavorite,
   toggleFavorite,
+  shoppingIds,
+  toggleShopping,
+  openShoppingBasket,
   goHome,
   openRecipe,
   recipes,
@@ -549,20 +616,28 @@ function RecipeView({
   canRedo,
   undo,
   redo,
-  setTagFilter
+  setTagFilter,
+  selectedVariantId: initialSelectedVariantId,
+  onVariantChange
 }) {
   const [factor, setFactor] = useState(1);
   const variantRefs = getVariantRefs(recipe);
-  const [selectedVariantId, setSelectedVariantId] = useState(() => variantRefs[0]?.id || recipe.id);
+  const [selectedVariantId, setSelectedVariantId] = useState(() => initialSelectedVariantId || variantRefs[0]?.id || recipe.id);
   const selectedRecipe = recipesById[selectedVariantId] || recipe;
   const detailKey = selectedRecipe.id;
   const showVariants = variantRefs.length > 0;
   const [shareOpen, setShareOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [cookMode, setCookMode] = useState(false);
+  const [timerEnd, setTimerEnd] = useState(0);
+  const [timerLabel, setTimerLabel] = useState('');
+  const [now, setNow] = useState(Date.now());
   const completedRef = useRef('');
   const stepTotal = (selectedRecipe.steps || []).length;
   const doneSteps = Object.keys(checked).filter(key => key.startsWith(`${detailKey}:step:`) && checked[key]).length;
   const progress = stepTotal ? Math.round((doneSteps / stepTotal) * 100) : 0;
+  const isInShopping = shoppingIds.includes(detailKey);
+  const remainingMs = timerEnd ? timerEnd - now : 0;
 
   useEffect(() => {
     setFactor(1);
@@ -570,8 +645,21 @@ function RecipeView({
   }, [recipe.id]);
 
   useEffect(() => {
-    setSelectedVariantId(variantRefs[0]?.id || recipe.id);
-  }, [recipe.id]);
+    if (!timerEnd) return undefined;
+    const interval = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, [timerEnd]);
+
+  useEffect(() => {
+    if (timerEnd && timerEnd <= now) {
+      setTimerEnd(0);
+      setTimerLabel('');
+    }
+  }, [timerEnd, now]);
+
+  useEffect(() => {
+    setSelectedVariantId(initialSelectedVariantId || variantRefs[0]?.id || recipe.id);
+  }, [initialSelectedVariantId, recipe.id]);
 
   useEffect(() => {
     if (!stepTotal || doneSteps !== stepTotal || completedRef.current === detailKey) return;
@@ -587,7 +675,7 @@ function RecipeView({
     setCheckedWithHistory(prev => ({ ...prev, [key]: !prev[key] }));
   }
 
-  return h('main', { className: 'recipe-view' },
+  return h('main', { className: cookMode ? 'recipe-view cook-mode' : 'recipe-view' },
     h('section', {
       className: recipe.image ? 'recipe-detail-hero has-photo' : 'recipe-detail-hero',
       style: (selectedRecipe.image || recipe.image) ? { backgroundImage: `linear-gradient(90deg, rgba(4,4,5,.92), rgba(4,4,5,.50)), url("${selectedRecipe.image || recipe.image}")` } : {}
@@ -604,7 +692,10 @@ function RecipeView({
               key: variant.id,
               type: 'button',
               className: selectedVariantId === variant.id ? 'active' : '',
-              onClick: () => setSelectedVariantId(variant.id)
+              onClick: () => {
+                setSelectedVariantId(variant.id);
+                onVariantChange?.(recipe.id, variant.id);
+              }
             }, label);
           })
         ),
@@ -617,12 +708,22 @@ function RecipeView({
         ),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: 'primary', onClick: () => toggleFavorite(recipe.id) }, isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'),
-          h(Button, { variant: 'ghost', onClick: () => setCartOpen(true) }, 'Courses'),
+          h(Button, { variant: isInShopping ? 'primary' : 'ghost', onClick: () => toggleShopping(detailKey) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
+          h(Button, { variant: 'ghost', onClick: openShoppingBasket }, 'Panier courses'),
+          h(Button, { variant: cookMode ? 'primary' : 'ghost', onClick: () => setCookMode(value => !value), pressed: cookMode }, 'Mode cuisine'),
+          h(Button, { variant: 'ghost', onClick: () => setCartOpen(true) }, 'Courses recette'),
           h(Button, { variant: 'ghost', onClick: () => setShareOpen(true) }, 'Partager'),
           selectedRecipe.video && h('a', { className: 'btn btn-ghost', href: selectedRecipe.video, target: '_blank', rel: 'noreferrer' }, 'Voir la vidéo'),
           h(Button, { variant: 'ghost', onClick: () => window.print() }, 'Imprimer')
         )
       )
+    ),
+    cookMode && h('div', { className: 'cook-mode-bar' },
+      h('strong', null, 'Mode cuisine'),
+      h('span', null, `${doneSteps}/${stepTotal} étapes cochées`),
+      timerEnd && remainingMs > 0
+        ? h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
+        : h('span', null, 'Aucun minuteur actif')
     ),
     h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },
@@ -665,12 +766,22 @@ function RecipeView({
         h('ol', { className: 'step-list' },
           (selectedRecipe.steps || []).map((step, index) => {
             const key = `${detailKey}:step:${index}`;
+            const minutes = getStepMinutes(step);
             return h('li', { key, className: checked[key] ? 'done' : '' },
               h('label', null,
                 h('input', { type: 'checkbox', checked: Boolean(checked[key]), onChange: () => toggle(key) }),
                 h('span', { className: 'step-number' }, String(index + 1).padStart(2, '0')),
                 h('span', { className: 'step-text' }, step)
-              )
+              ),
+              minutes > 0 && h('button', {
+                type: 'button',
+                className: 'step-timer',
+                onClick: () => {
+                  setNow(Date.now());
+                  setTimerEnd(Date.now() + minutes * 60000);
+                  setTimerLabel(`Étape ${index + 1}`);
+                }
+              }, `${minutes} min`)
             );
           })
         )
@@ -681,6 +792,15 @@ function RecipeView({
         (selectedRecipe.notes || []).length
           ? h('ul', null, selectedRecipe.notes.map((note, index) => h('li', { key: `${detailKey}:note:${index}`, dangerouslySetInnerHTML: { __html: sanitizeNoteHtml(note) } })))
           : h('p', null, 'Aucune note pour cette recette.'),
+        (selectedRecipe.technical || recipe.technical || []).length > 0 && h('div', { className: 'technical-card' },
+          h('p', { className: 'eyebrow' }, 'Fiche technique'),
+          h('dl', null, (selectedRecipe.technical || recipe.technical || []).map((item, index) =>
+            h(React.Fragment, { key: `${detailKey}:technical:${index}` },
+              h('dt', null, item.label || item.title || 'Point clé'),
+              h('dd', null, item.value || item.text || '')
+            )
+          ))
+        ),
         h('div', { className: 'tag-cloud compact' },
           h('p', { className: 'eyebrow' }, 'Tags'),
           (selectedRecipe.tagsExtracted || recipe.tagsExtracted || []).slice(0, 12).map(tag => h('button', { key: tag, type: 'button', className: 'chip', onClick: () => { setTagFilter(tag); goHome(); } }, tag))
@@ -712,6 +832,7 @@ function App() {
     return { id, tagsExtracted, searchText: getRecipeSearchText(recipe, tagsExtracted), ...recipe };
   }).sort((a, b) => a.title.localeCompare(b.title, 'fr')), []);
   const recipesById = useMemo(() => Object.fromEntries(recipes.map(recipe => [recipe.id, recipe])), [recipes]);
+  const contentRecipes = useMemo(() => recipes.filter(recipe => !isMasterRecipe(recipe)), [recipes]);
   const catalogRecipes = useMemo(() => recipes.filter(recipe => !recipe.master), [recipes]);
   const categories = useMemo(() => uniq(catalogRecipes.flatMap(recipe => recipe.categories || [])), [catalogRecipes]);
   const allSeasons = useMemo(() => uniq([...SEASONS, ...catalogRecipes.flatMap(recipe => recipe.seasons || [])]), [catalogRecipes]);
@@ -726,16 +847,30 @@ function App() {
   const [tagFilter, setTagFilter] = useState('');
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [activeId, setActiveId] = useState(() => getInitialHashRecipe());
+  const [variantSelection, setVariantSelection] = useState(() => {
+    const recipe = getInitialHashRecipe();
+    const variant = getInitialHashVariant();
+    return recipe && variant ? { [recipe]: variant } : {};
+  });
   const [favorites, setFavorites] = useState(() => readStoredList(STORAGE_KEYS.favorites, STORAGE_KEYS.legacyFavorites));
   const [recents, setRecents] = useState(() => readStoredList(STORAGE_KEYS.recents, STORAGE_KEYS.legacyRecents));
+  const [shoppingIds, setShoppingIds] = useState(() => readStoredList(STORAGE_KEYS.shopping, []));
   const [checked, setChecked] = useState({});
   const [historyVersion, setHistoryVersion] = useState(0);
   const [advancedOpen, setAdvancedOpen] = useState(false);
+  const [shoppingOpen, setShoppingOpen] = useState(false);
   const searchRef = useRef(null);
   const historyRef = useRef([{}]);
   const historyIndexRef = useRef(0);
 
   const activeRecipe = activeId ? recipesById[activeId] : null;
+  const shoppingRecipes = useMemo(() => shoppingIds.map(id => recipesById[id]).filter(Boolean), [shoppingIds, recipesById]);
+
+  useEffect(() => {
+    if (!activeRecipe?.master) return;
+    setVariantSelection(prev => ({ ...prev, [activeRecipe.master]: activeRecipe.id }));
+    setActiveId(activeRecipe.master);
+  }, [activeRecipe?.id]);
 
   function setCheckedWithHistory(next) {
     setChecked(prev => {
@@ -829,17 +964,46 @@ function App() {
     persistFavorites(favorites.includes(id) ? favorites.filter(item => item !== id) : [id, ...favorites]);
   }
 
+  function persistShopping(next) {
+    setShoppingIds(next);
+    writeJson(STORAGE_KEYS.shopping, next);
+  }
+
+  function toggleShopping(id) {
+    persistShopping(shoppingIds.includes(id) ? shoppingIds.filter(item => item !== id) : [id, ...shoppingIds]);
+  }
+
+  function removeShopping(id) {
+    persistShopping(shoppingIds.filter(item => item !== id));
+  }
+
+  function clearShopping() {
+    persistShopping([]);
+  }
+
   function openRecipe(id) {
-    if (!recipesById[id]) return;
-    setActiveId(id);
+    const target = recipesById[id];
+    if (!target) return;
+    const parentId = target.master || id;
+    if (target.master) setVariantSelection(prev => ({ ...prev, [parentId]: id }));
+    setActiveId(parentId);
     setOnlyFavorites(false);
-    const nextRecents = [id, ...recents.filter(item => item !== id)].slice(0, 12);
+    const nextRecents = [parentId, ...recents.filter(item => item !== parentId)].slice(0, 12);
     setRecents(nextRecents);
     writeJson(STORAGE_KEYS.recents, nextRecents);
-    if (window.location.hash !== `#recipe=${encodeURIComponent(id)}`) {
-      window.location.hash = `recipe=${encodeURIComponent(id)}`;
+    const nextHash = target.master
+      ? `#recipe=${encodeURIComponent(parentId)}&variant=${encodeURIComponent(id)}`
+      : `#recipe=${encodeURIComponent(parentId)}`;
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash.slice(1);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function selectVariant(parentId, variantId) {
+    setVariantSelection(prev => ({ ...prev, [parentId]: variantId }));
+    const nextHash = `#recipe=${encodeURIComponent(parentId)}&variant=${encodeURIComponent(variantId)}`;
+    if (window.location.hash !== nextHash) window.location.hash = nextHash.slice(1);
   }
 
   function goHome() {
@@ -866,7 +1030,12 @@ function App() {
   }
 
   useEffect(() => {
-    const handleHash = () => setActiveId(getInitialHashRecipe());
+    const handleHash = () => {
+      const recipe = getInitialHashRecipe();
+      const variant = getInitialHashVariant();
+      setActiveId(recipe);
+      if (recipe && variant) setVariantSelection(prev => ({ ...prev, [recipe]: variant }));
+    };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
@@ -949,26 +1118,29 @@ function App() {
     setQuery,
     tagFilter,
     setTagFilter,
+    searchRef,
     onReset: resetFilters
   };
 
   return h('div', { className: 'mc-shell' },
     h(TopBar, {
-      query,
-      setQuery,
       onHome: goHome,
       favoriteCount: favorites.length,
+      shoppingCount: shoppingRecipes.length,
       activeRecipe: Boolean(activeRecipe),
-      searchRef,
       openAdvanced: () => setAdvancedOpen(true),
       activeFilterCount,
-      showFavorites
+      showFavorites,
+      openShoppingBasket: () => setShoppingOpen(true)
     }),
     activeRecipe
       ? h(RecipeView, {
           recipe: activeRecipe,
           isFavorite: favorites.includes(activeRecipe.id),
           toggleFavorite,
+          shoppingIds,
+          toggleShopping,
+          openShoppingBasket: () => setShoppingOpen(true),
           goHome,
           openRecipe,
           recipes,
@@ -979,10 +1151,13 @@ function App() {
           canRedo,
           undo,
           redo,
-          setTagFilter
+          setTagFilter,
+          selectedVariantId: variantSelection[activeRecipe.id],
+          onVariantChange: selectVariant
         })
       : h(HomeView, {
           recipes: catalogRecipes,
+          totalRecipeCount: contentRecipes.length,
           filteredRecipes,
           favorites,
           currentSeason,
@@ -1001,6 +1176,13 @@ function App() {
       onClose: () => setAdvancedOpen(false),
       allTags,
       props: filterProps
+    }),
+    h(ShoppingBasketPanel, {
+      open: shoppingOpen,
+      onClose: () => setShoppingOpen(false),
+      recipes: shoppingRecipes,
+      removeRecipe: removeShopping,
+      clearShopping
     })
   );
 }
