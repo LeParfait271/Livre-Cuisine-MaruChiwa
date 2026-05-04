@@ -232,18 +232,18 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
-          "Choisir une sous-fiche ou une variante pour afficher la recette."
+          "Choisir une variante pour afficher la recette."
         ]
       }
     ],
     "steps": [
-      "Choisir une sous-fiche ou une variante pour afficher les étapes."
+      "Choisir une variante pour afficher les étapes."
     ],
     "notes": [
       "Cette fiche regroupe les toppings, garnitures, chantillys, coulis et crèmes du carnet.",
-      "Cliquer une sous-fiche pour ouvrir son propre groupe de recettes."
+      "Cliquer une variante pour afficher sa recette."
     ],
     "tags": [
       "creme",
@@ -947,7 +947,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "marinades_guide": {
-    "title": "Marinades — 10 signatures",
+    "title": "Marinades",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/marinades_guide.jpg",
     "categories": [
@@ -2190,7 +2190,7 @@ window.RECIPES = {
   },
   "petit_dejeuner_maitre": {
     "title": "Petit-déjeuner",
-    "image": "/assets/recipe-images/petits_dejeuners_maitre.jpg",
+    "image": "/assets/recipe-images/parent_petit_dejeuner.jpg",
     "categories": [
       "Petits-déjeuners"
     ],
@@ -2222,17 +2222,17 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
-          "Choisir une sous-fiche pour afficher les recettes."
+          "Choisir une variante pour afficher les recettes."
         ]
       }
     ],
     "steps": [
-      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+      "Choisir une variante pour afficher les ingrédients et les étapes."
     ],
     "notes": [
-      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
     ],
     "tags": [
       "petits-déjeuners",
@@ -2241,7 +2241,7 @@ window.RECIPES = {
   },
   "entrees_maitre": {
     "title": "Entrées",
-    "image": "/assets/recipe-images/bases_salees_maitre.jpg",
+    "image": "/assets/recipe-images/parent_entrees.jpg",
     "categories": [
       "Entrées"
     ],
@@ -2255,8 +2255,8 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "crudites_maitre",
-        "label": "Crudités et salades fraîches"
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat, œuf et épinards"
       },
       {
         "id": "ricotta_fouettee",
@@ -2288,7 +2288,7 @@ window.RECIPES = {
       },
       {
         "id": "marinades_guide",
-        "label": "Marinades — 10 signatures"
+        "label": "Marinades"
       },
       {
         "id": "tomates_variantes",
@@ -2305,17 +2305,17 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
-          "Choisir une sous-fiche pour afficher les recettes."
+          "Choisir une variante pour afficher les recettes."
         ]
       }
     ],
     "steps": [
-      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+      "Choisir une variante pour afficher les ingrédients et les étapes."
     ],
     "notes": [
-      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
     ],
     "tags": [
       "entrées",
@@ -2324,7 +2324,7 @@ window.RECIPES = {
   },
   "plats_maitre": {
     "title": "Plats",
-    "image": "/assets/recipe-images/legumes_rotis.jpg",
+    "image": "/assets/recipe-images/parent_plats.jpg",
     "categories": [
       "Plats"
     ],
@@ -2344,17 +2344,17 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
-          "Choisir une sous-fiche pour afficher les recettes."
+          "Choisir une variante pour afficher les recettes."
         ]
       }
     ],
     "steps": [
-      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+      "Choisir une variante pour afficher les ingrédients et les étapes."
     ],
     "notes": [
-      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
     ],
     "tags": [
       "plats",
@@ -2363,7 +2363,7 @@ window.RECIPES = {
   },
   "desserts_maitre": {
     "title": "Desserts",
-    "image": "/assets/recipe-images/cremes_maitre.jpg",
+    "image": "/assets/recipe-images/parent_desserts.jpg",
     "categories": [
       "Desserts"
     ],
@@ -2507,17 +2507,17 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
-          "Choisir une sous-fiche pour afficher les recettes."
+          "Choisir une variante pour afficher les recettes."
         ]
       }
     ],
     "steps": [
-      "Choisir une sous-fiche pour afficher les ingrédients et les étapes."
+      "Choisir une variante pour afficher les ingrédients et les étapes."
     ],
     "notes": [
-      "Fiche parent de navigation. Les recettes restent conservées dans leurs sous-fiches."
+      "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
     ],
     "tags": [
       "desserts",
@@ -3222,7 +3222,7 @@ window.RECIPES = {
   },
   "salade_avocat_oeuf_epinards": {
     "title": "Salade avocat, œuf et épinards",
-    "master": "crudites_maitre",
+    "master": "entrees_maitre",
     "image": "/assets/recipe-images/bases_salees_maitre.jpg",
     "categories": [
       "Entrées",
@@ -3278,13 +3278,12 @@ window.RECIPES = {
     ],
     "difficultyScore": 4,
     "additionalMasters": [
-      "entrees_maitre",
       "apero_maitre"
     ]
   },
   "apero_maitre": {
     "title": "Apéro",
-    "image": "/assets/recipe-images/sauces_assaisonnements_maitre.jpg",
+    "image": "/assets/recipe-images/parent_apero.jpg",
     "categories": [
       "Apéro"
     ],
@@ -3296,8 +3295,8 @@ window.RECIPES = {
     ],
     "variants": [
       {
-        "id": "crudites_maitre",
-        "label": "Crudités et salades fraîches"
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat, œuf et épinards"
       },
       {
         "id": "ricotta_fouettee",
@@ -3329,7 +3328,7 @@ window.RECIPES = {
       },
       {
         "id": "marinades_guide",
-        "label": "Marinades — 10 signatures"
+        "label": "Marinades"
       },
       {
         "id": "cake_sale_lardon",
@@ -3441,7 +3440,7 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "Sous-fiches",
+        "group": "Variantes",
         "items": [
           "Choisir une recette dans cette fiche."
         ]
