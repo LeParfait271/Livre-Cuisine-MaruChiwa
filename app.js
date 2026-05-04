@@ -267,14 +267,8 @@ function Button(props) {
 
 function TopBar({ onHome, totalRecipeCount, ficheCount, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
   return h('header', { className: 'topbar' },
-    h('button', { className: 'brand', type: 'button', onClick: onHome, 'aria-label': 'Retour à l’accueil' },
-      h('span', { className: 'brand-logo-box' }, h('img', { className: 'brand-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' })),
-      h('span', { className: 'brand-copy' },
-        h('strong', null, 'Cook Note'),
-        h('small', null, 'Carnet culinaire')
-      )
-    ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
+      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
       h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
       h('span', { className: 'top-stat' }, h('strong', null, totalRecipeCount), ' recettes'),
       h('span', { className: 'top-stat' }, h('strong', null, ficheCount), ' fiches'),
@@ -461,12 +455,28 @@ function RecipeGrid({ recipes, favorites, toggleFavorite, openRecipe, setTagFilt
   );
 }
 
-function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTagFilter, onlyFavorites, clearFavoriteView }) {
+function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTagFilter, onlyFavorites, clearFavoriteView, selectedSeason, setSeason }) {
+  const seasonOptions = ['Toutes saisons', ...SEASONS.filter(item => item !== 'Toutes saisons')];
   return h('section', { className: 'season-sections', id: 'recettes' },
     h('div', { className: 'section-title list-title' },
-      h('p', { className: 'eyebrow' }, onlyFavorites ? 'Favoris' : 'Rangement saisonnier'),
-      h('h2', null, onlyFavorites ? 'Mes recettes favorites' : 'Recettes par saison'),
-      onlyFavorites && h('button', { type: 'button', onClick: clearFavoriteView }, 'Quitter les favoris')
+      h('div', null,
+        h('p', { className: 'eyebrow' }, onlyFavorites ? 'Favoris' : 'Rangement saisonnier'),
+        h('h2', null, onlyFavorites ? 'Mes recettes favorites' : 'Recettes par saison')
+      ),
+      onlyFavorites
+        ? h('button', { type: 'button', onClick: clearFavoriteView }, 'Quitter les favoris')
+        : h('div', { className: 'season-tabs', 'aria-label': 'Filtrer par saison' },
+          seasonOptions.map(item => {
+            const value = item === 'Toutes saisons' ? '' : item;
+            const active = selectedSeason === value;
+            return h('button', {
+              key: item,
+              type: 'button',
+              className: active ? 'active' : '',
+              onClick: () => setSeason(value)
+            }, item);
+          })
+        )
     ),
     sections.map(section => h('section', { key: section.key, className: 'season-block' },
       h('div', { className: 'season-block-head' },
@@ -493,7 +503,9 @@ function HomeView(props) {
         openRecipe: props.openRecipe,
         setTagFilter: props.setTagFilter,
         onlyFavorites: props.onlyFavorites,
-        clearFavoriteView: props.clearFavoriteView
+        clearFavoriteView: props.clearFavoriteView,
+        selectedSeason: props.filterProps.season,
+        setSeason: props.filterProps.setSeason
       })
     )
   );
@@ -750,7 +762,7 @@ function RecipeView({
       onSelect: chooseVariant,
       openRecipe
     }),
-    h('div', { className: 'recipe-detail-grid' },
+    hasSelectedVariant && h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
@@ -763,11 +775,7 @@ function RecipeView({
             }, `${String(value).replace('.', ',')}x`))
           )
         ),
-        !hasSelectedVariant && h('div', { className: 'choice-empty-state' },
-          h('strong', null, 'Choisis une variante pour afficher la recette.'),
-          h('p', null, 'Les ingrédients et les quantités apparaîtront ici après sélection d’une sous-fiche.')
-        ),
-        hasSelectedVariant && (selectedRecipe.ingredients || []).map((group, groupIndex) =>
+        (selectedRecipe.ingredients || []).map((group, groupIndex) =>
           h('div', { className: 'ingredient-group', key: `${detailKey}:group:${groupIndex}` },
             h('h3', null, group.group || 'Base'),
             h('ul', null, (group.items || []).map((item, itemIndex) => {
@@ -792,11 +800,7 @@ function RecipeView({
           )
         ),
         hasSelectedVariant && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
-        !hasSelectedVariant && h('div', { className: 'choice-empty-state' },
-          h('strong', null, 'Aucune variante sélectionnée.'),
-          h('p', null, 'Clique une sous-recette dans la zone au-dessus pour afficher les étapes.')
-        ),
-        hasSelectedVariant && h('ol', { className: 'step-list' },
+        h('ol', { className: 'step-list' },
           (selectedRecipe.steps || []).map((step, index) => {
             const key = `${detailKey}:step:${index}`;
             const minutes = getStepMinutes(step);
@@ -955,30 +959,13 @@ function App() {
   }, [catalogRecipes, query, category, season, difficulty, sort, tagFilter, onlyFavorites, favorites]);
 
   const sections = useMemo(() => {
-    if (season) {
-      return [{ key: `season-${season}`, kicker: 'Filtre actif', title: season, recipes: filteredRecipes }];
-    }
     if (onlyFavorites) {
       return [{ key: 'favorites', kicker: 'Favoris', title: 'Recettes sauvegardées', recipes: filteredRecipes }];
     }
-    const baseSeasons = SEASONS.filter(item => item !== 'Toutes saisons');
-    const start = Math.max(0, baseSeasons.indexOf(currentSeason));
-    const orderedSeasons = [...baseSeasons.slice(start), ...baseSeasons.slice(0, start)];
-    const assigned = new Set();
-    return orderedSeasons.map((item, index) => {
-      const recipesForSeason = filteredRecipes.filter(recipe => {
-        if (assigned.has(recipe.id)) return false;
-        const recipeSeasons = recipe.seasons || [];
-        return recipeSeasons.includes(item) || (index === 0 && recipeSeasons.includes('Toutes saisons'));
-      });
-      recipesForSeason.forEach(recipe => assigned.add(recipe.id));
-      return {
-        key: item,
-        kicker: index === 0 ? 'Saison actuelle' : 'Saison',
-        title: index === 0 ? `En saison maintenant · ${item}` : item,
-        recipes: recipesForSeason
-      };
-    }).filter(section => section.recipes.length);
+    if (season) {
+      return [{ key: `season-${season}`, kicker: season === currentSeason ? 'Saison actuelle' : 'Saison', title: season, recipes: filteredRecipes }];
+    }
+    return [{ key: 'all-seasons', kicker: 'Toutes saisons', title: 'Toutes les saisons', recipes: filteredRecipes }];
   }, [currentSeason, filteredRecipes, onlyFavorites, season]);
 
   const activeFilterCount = [query, category, season, difficulty, tagFilter, onlyFavorites ? 'favorites' : ''].filter(Boolean).length;

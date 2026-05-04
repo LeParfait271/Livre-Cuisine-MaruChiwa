@@ -85,7 +85,7 @@ a {
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: minmax(180px, auto) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 14px;
   align-items: center;
   padding: 12px clamp(16px, 4vw, 44px);
@@ -174,7 +174,7 @@ a {
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
 }
 
 .topbar-status {
@@ -385,12 +385,7 @@ a {
   align-items: end;
 }
 
-.list-title .eyebrow,
-.list-title h2 {
-  grid-column: 1;
-}
-
-.list-title button {
+.list-title > button {
   grid-row: 1 / span 2;
   grid-column: 2;
   min-height: 38px;
@@ -400,6 +395,30 @@ a {
   color: var(--text);
   padding: 0 12px;
   font-weight: 850;
+}
+
+.season-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 8px;
+  max-width: min(620px, 52vw);
+}
+
+.season-tabs button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--text);
+  padding: 0 12px;
+  font-weight: 850;
+}
+
+.season-tabs button.active {
+  border-color: color-mix(in srgb, var(--accent) 72%, transparent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #111;
 }
 
 .season-block,
@@ -1203,10 +1222,15 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .list-title button {
+  .list-title > button {
     grid-column: 1;
     grid-row: auto;
     justify-self: start;
+  }
+
+  .season-tabs {
+    justify-content: start;
+    max-width: 100%;
   }
 
   .panel-heading,
