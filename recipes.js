@@ -42,15 +42,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner le coulis voulu dans les boutons de la fiche."
+          "Sélectionner le coulis voulu dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher ses ingr?dients, ?tapes, notes et conservation."
+      "Choisir une variante pour afficher ses ingrédients, étapes, notes et conservation."
     ],
     "notes": [
-      "Fiche ma?tre : toutes les recettes de coulis du carnet sont regroup?es ici."
+      "Fiche maître : toutes les recettes de coulis du carnet sont regroupées ici."
     ],
     "tags": [
       "coulis",
@@ -75,7 +75,7 @@ window.RECIPES = {
   },
   "chantilly_maitre": {
     "title": "Chantilly",
-    "image": "/assets/recipe-images/chantilly_maitre.jpg",
+    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
     "categories": [
       "Desserts",
       "Recettes de base"
@@ -96,22 +96,22 @@ window.RECIPES = {
       },
       {
         "id": "chantilly_gelatine",
-        "label": "Stabilis?e g?latine"
+        "label": "Stabilisée gélatine"
       }
     ],
     "ingredients": [
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la chantilly voulue dans les boutons de la fiche."
+          "Sélectionner la chantilly voulue dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la m?thode adapt?e."
+      "Choisir une variante pour afficher la méthode adaptée."
     ],
     "notes": [
-      "Fiche ma?tre : chantilly simple, riche ou stabilis?e."
+      "Fiche maître : chantilly simple, riche ou stabilisée."
     ],
     "tags": [
       "chantilly",
@@ -135,8 +135,8 @@ window.RECIPES = {
     ]
   },
   "cremes_maitre": {
-    "title": "Cr?mes p?tissi?res et garnitures",
-    "image": "/assets/recipe-images/cremes_maitre.jpg",
+    "title": "Crèmes pâtissières et garnitures",
+    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
     "categories": [
       "Desserts",
       "Recettes de base"
@@ -157,34 +157,34 @@ window.RECIPES = {
       },
       {
         "id": "creme_patissiere_praline",
-        "label": "P?tissi?re pralin?"
+        "label": "Pâtissière praliné"
       },
       {
         "id": "creme_praline",
-        "label": "Cr?me pralin?"
+        "label": "Crème praliné"
       },
       {
         "id": "creme_beurre_meringue_italienne",
-        "label": "Cr?me au beurre"
+        "label": "Crème au beurre"
       },
       {
         "id": "creme_amande_",
-        "label": "Cr?me d?amandes"
+        "label": "Crème d’amandes"
       }
     ],
     "ingredients": [
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la cr?me ou garniture voulue dans les boutons de la fiche."
+          "Sélectionner la crème ou garniture voulue dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : toutes les cr?mes et garnitures de base du carnet."
+      "Fiche maître : toutes les crèmes et garnitures de base du carnet."
     ],
     "tags": [
       "creme",
@@ -208,8 +208,8 @@ window.RECIPES = {
     ]
   },
   "pates_bases_maitre": {
-    "title": "P?tes et bases p?tissi?res",
-    "image": "/assets/recipe-images/pates_bases_maitre.jpg",
+    "title": "Pâtes et bases pâtissières",
+    "image": "/assets/recipe-images/pate_choux.jpg",
     "categories": [
       "Desserts",
       "Recettes de base"
@@ -222,7 +222,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "pate_choux",
-        "label": "P?te ? choux"
+        "label": "Pâte à choux"
       },
       {
         "id": "craquelin_cacao",
@@ -230,7 +230,7 @@ window.RECIPES = {
       },
       {
         "id": "pate_noisette",
-        "label": "P?te de noisette"
+        "label": "Pâte de noisette"
       },
       {
         "id": "choux_craquelin",
@@ -245,15 +245,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la base ou le montage voulu dans les boutons de la fiche."
+          "Sélectionner la base ou le montage voulu dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : bases techniques et montages li?s."
+      "Fiche maître : bases techniques et montages liés."
     ],
     "tags": [
       "pate",
@@ -280,8 +280,8 @@ window.RECIPES = {
     "title": "Sauces, pestos et assaisonnements",
     "image": "/assets/recipe-images/sauces_assaisonnements_maitre.jpg",
     "categories": [
-      "Entr?es",
-      "Ap?ro",
+      "Entrées",
+      "Apéro",
       "Recettes de base"
     ],
     "seasons": [
@@ -300,11 +300,11 @@ window.RECIPES = {
       },
       {
         "id": "balsamique_reduit",
-        "label": "Balsamique r?duit"
+        "label": "Balsamique réduit"
       },
       {
         "id": "huile_pimentee_pizza",
-        "label": "Huile piment?e"
+        "label": "Huile pimentée"
       },
       {
         "id": "marinades_guide",
@@ -315,15 +315,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la sauce ou l?assaisonnement voulu dans les boutons de la fiche."
+          "Sélectionner la sauce ou l’assaisonnement voulu dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : sauces froides, condiments, huiles et marinades."
+      "Fiche maître : sauces froides, condiments, huiles et marinades."
     ],
     "tags": [
       "sauce",
@@ -347,15 +347,15 @@ window.RECIPES = {
     ]
   },
   "tomates_maitre": {
-    "title": "Tomates pr?par?es",
-    "image": "/assets/recipe-images/tomates_maitre.jpg",
+    "title": "Tomates préparées",
+    "image": "/assets/recipe-images/tomates_variantes.jpg",
     "categories": [
-      "Entr?es",
-      "Ap?ro",
+      "Entrées",
+      "Apéro",
       "Recettes de base"
     ],
     "seasons": [
-      "?t?",
+      "Été",
       "Automne"
     ],
     "difficulty": "easy",
@@ -363,22 +363,22 @@ window.RECIPES = {
     "variants": [
       {
         "id": "tomates_variantes",
-        "label": "S?ch?es ou confites"
+        "label": "Séchées ou confites"
       }
     ],
     "ingredients": [
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la pr?paration de tomates voulue dans les boutons de la fiche."
+          "Sélectionner la préparation de tomates voulue dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : pr?parations de tomates au four."
+      "Fiche maître : préparations de tomates au four."
     ],
     "tags": [
       "tomate",
@@ -403,10 +403,10 @@ window.RECIPES = {
   },
   "biscuits_gouters_maitre": {
     "title": "Biscuits, cookies et meringues",
-    "image": "/assets/recipe-images/biscuits_gouters_maitre.jpg",
+    "image": "/assets/recipe-images/cookies.jpg",
     "categories": [
       "Desserts",
-      "Ap?ro",
+      "Apéro",
       "Recettes de base"
     ],
     "seasons": [
@@ -417,11 +417,11 @@ window.RECIPES = {
     "variants": [
       {
         "id": "cookies_sales_variantes",
-        "label": "Cookies sal?s"
+        "label": "Cookies salés"
       },
       {
         "id": "cookies",
-        "label": "Cookies am?ricains"
+        "label": "Cookies américains"
       },
       {
         "id": "meringues",
@@ -432,15 +432,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner le biscuit ou go?ter voulu dans les boutons de la fiche."
+          "Sélectionner le biscuit ou goûter voulu dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : biscuits, cookies et petites pr?parations sucr?es ou sal?es."
+      "Fiche maître : biscuits, cookies et petites préparations sucrées ou salées."
     ],
     "tags": [
       "cookies",
@@ -464,10 +464,10 @@ window.RECIPES = {
     ]
   },
   "petits_dejeuners_maitre": {
-    "title": "Petits-d?jeuners et boissons chaudes",
+    "title": "Petits-déjeuners et boissons chaudes",
     "image": "/assets/recipe-images/petits_dejeuners_maitre.jpg",
     "categories": [
-      "Petits-d?jeuners",
+      "Petits-déjeuners",
       "Desserts"
     ],
     "seasons": [
@@ -493,15 +493,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la recette de petit-d?jeuner voulue dans les boutons de la fiche."
+          "Sélectionner la recette de petit-déjeuner voulue dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : recettes du matin, go?ter et boissons chaudes."
+      "Fiche maître : recettes du matin, goûter et boissons chaudes."
     ],
     "tags": [
       "petit-dejeuner",
@@ -525,10 +525,10 @@ window.RECIPES = {
     ]
   },
   "bases_salees_maitre": {
-    "title": "Bases sal?es et accompagnements",
+    "title": "Bases salées et accompagnements",
     "image": "/assets/recipe-images/bases_salees_maitre.jpg",
     "categories": [
-      "Entr?es",
+      "Entrées",
       "Plats",
       "Recettes de base"
     ],
@@ -540,11 +540,11 @@ window.RECIPES = {
     "variants": [
       {
         "id": "ricotta_fouettee",
-        "label": "Ricotta fouett?e"
+        "label": "Ricotta fouettée"
       },
       {
         "id": "legumes_rotis",
-        "label": "L?gumes r?tis"
+        "label": "Légumes rôtis"
       },
       {
         "id": "court_bouillon",
@@ -555,15 +555,15 @@ window.RECIPES = {
       {
         "group": "Choisir une variante",
         "items": [
-          "S?lectionner la base sal?e ou l?accompagnement voulu dans les boutons de la fiche."
+          "Sélectionner la base salée ou l’accompagnement voulu dans les boutons de la fiche."
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher la recette compl?te."
+      "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche ma?tre : bases sal?es, accompagnements et pr?parations de service."
+      "Fiche maître : bases salées, accompagnements et préparations de service."
     ],
     "tags": [
       "base",

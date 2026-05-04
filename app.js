@@ -477,7 +477,7 @@ function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTa
     sections.map(section => h('section', { key: section.key, className: 'season-block' },
       h('div', { className: 'season-block-head' },
         h('div', null, h('p', { className: 'eyebrow' }, section.kicker), h('h3', null, section.title)),
-        h('span', null, `${section.recipes.length} recette${section.recipes.length > 1 ? 's' : ''}`)
+        h('span', null, `${section.recipes.length} fiche${section.recipes.length > 1 ? 's' : ''}`)
       ),
       h(RecipeGrid, { recipes: section.recipes, favorites, toggleFavorite, openRecipe, setTagFilter })
     ))
