@@ -198,17 +198,50 @@ function getRecipeSearchText(recipe, tags) {
 
 function extractTags(recipe) {
   const tags = new Set((recipe.tags || []).map(tag => normalizeText(tag)).filter(Boolean));
+  const blocked = new Set([
+    'avec', 'sans', 'pour', 'dans', 'base', 'sel', 'poivre', 'repos', 'entier', 'entiere',
+    'fondu', 'fondue', 'chimique', 'minutes', 'minute', 'grammes', 'gramme', 'cuisson',
+    'froid', 'froide', 'chaud', 'chaude', 'recette', 'preparation'
+  ]);
   (recipe.ingredients || []).forEach(group => {
     (group.items || []).forEach(item => {
       normalizeText(item).split(/\s+/).forEach(word => {
         const clean = word.replace(/[^a-z0-9]/g, '');
-        if (clean.length > 3 && !['avec', 'sans', 'pour', 'dans', 'base', 'sel', 'poivre'].includes(clean)) {
+        if (clean.length > 3 && !/^\d/.test(clean) && !blocked.has(clean)) {
           tags.add(clean);
         }
       });
     });
   });
   return Array.from(tags).slice(0, 18);
+}
+
+function buildInlineRecipeTargets(recipes) {
+  const aliases = [];
+  const add = (term, id) => {
+    const normalized = normalizeText(term).trim();
+    if (normalized.length >= 4 && id) aliases.push({ term, normalized, id });
+  };
+  recipes.forEach(recipe => {
+    if (isMasterRecipe(recipe)) return;
+    add(recipe.title, recipe.id);
+    (recipe.aliases || []).forEach(alias => add(alias, recipe.id));
+  });
+  return aliases.sort((a, b) => b.normalized.length - a.normalized.length);
+}
+
+function renderLinkedText(text, targets, openRecipe) {
+  const value = String(text || '');
+  const normalized = normalizeText(value);
+  const target = targets.find(item => normalized.includes(item.normalized));
+  if (!target) return value;
+  const index = normalized.indexOf(target.normalized);
+  const label = value.slice(index, index + target.term.length) || target.term;
+  return h(React.Fragment, null,
+    value.slice(0, index),
+    h('button', { type: 'button', className: 'inline-recipe-link', onClick: () => openRecipe(target.id) }, label),
+    value.slice(index + label.length)
+  );
 }
 
 function getInitialHashRecipe() {
@@ -434,7 +467,7 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
           toggleFavorite(recipe.id);
         },
         'aria-label': isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'
-      }, 'Favori')
+      }, isFavorite ? '\u2665' : '\u2661')
     ),
     h('div', { className: 'card-body' },
       h('div', { className: 'tag-line' }, categories.slice(0, 2).map(cat => h('span', { key: cat }, cat))),
@@ -616,6 +649,41 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
   );
 }
 
+function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect }) {
+  if (!variantRefs.length) return null;
+  return h('section', { className: 'recipe-panel variant-picker-panel' },
+    h('div', { className: 'panel-heading' },
+      h('div', null,
+        h('p', { className: 'eyebrow' }, 'Recettes'),
+        h('h2', null, 'Choisir une variante')
+      ),
+      h('span', { className: 'progress-label' }, `${variantRefs.length} variante${variantRefs.length > 1 ? 's' : ''}`)
+    ),
+    h('div', { className: 'variant-card-grid' },
+      variantRefs.map(variant => {
+        const item = recipesById[variant.id];
+        if (!item) return null;
+        const image = item.image || parent.image;
+        return h('button', {
+          key: variant.id,
+          type: 'button',
+          className: selectedVariantId === variant.id ? 'variant-card active' : 'variant-card',
+          onClick: () => onSelect(variant.id)
+        },
+          h('span', {
+            className: 'variant-card-media',
+            style: image ? { backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.52)), url("${image}")` } : {}
+          }),
+          h('span', { className: 'variant-card-body' },
+            h('strong', null, variant.label || item.title),
+            h('small', null, difficultyText(item))
+          )
+        );
+      })
+    )
+  );
+}
+
 function RecipeView({
   recipe,
   isFavorite,
@@ -644,6 +712,7 @@ function RecipeView({
   const selectedVariantRecipe = selectedVariantId ? recipesById[selectedVariantId] : null;
   const hasSelectedVariant = !showVariants || Boolean(selectedVariantRecipe);
   const selectedRecipe = showVariants ? (selectedVariantRecipe || recipe) : recipe;
+  const inlineTargets = useMemo(() => buildInlineRecipeTargets(recipes), [recipes]);
   const detailKey = hasSelectedVariant ? selectedRecipe.id : recipe.id;
   const [shareOpen, setShareOpen] = useState(false);
   const [cookMode, setCookMode] = useState(false);
@@ -719,12 +788,12 @@ function RecipeView({
             ]
         ),
         h('div', { className: 'detail-actions' },
-          canFavorite && h(Button, { variant: 'primary', className: 'icon-square', onClick: () => toggleFavorite(detailKey), title: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris', ariaLabel: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }, isFavorite ? '\u2605' : '\u2606'),
           h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
           h(Button, { variant: cookMode ? 'primary' : 'ghost', onClick: () => setCookMode(value => !value), pressed: cookMode }, 'Mode cuisine'),
           h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => setShareOpen(true), title: 'Partager', ariaLabel: 'Partager' }, '\u2197'),
           selectedRecipe.video && h('a', { className: 'btn btn-ghost', href: selectedRecipe.video, target: '_blank', rel: 'noreferrer' }, 'Voir la vidéo'),
-          h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => window.print(), title: 'Imprimer', ariaLabel: 'Imprimer' }, '\u2399')
+          h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => window.print(), title: 'Imprimer', ariaLabel: 'Imprimer' }, '\u2399'),
+          canFavorite && h(Button, { variant: 'ghost', className: isFavorite ? 'icon-square favorite-action active' : 'icon-square favorite-action', onClick: () => toggleFavorite(detailKey), title: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris', ariaLabel: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }, isFavorite ? '\u2665' : '\u2661')
         )
       )
     ),
@@ -735,12 +804,19 @@ function RecipeView({
         ? h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
         : h('span', null, 'Aucun minuteur actif')
     ),
-    h('div', { className: 'recipe-detail-grid' },
+    showVariants && h(VariantPickerPanel, {
+      parent: recipe,
+      variantRefs,
+      recipesById,
+      selectedVariantId,
+      onSelect: chooseVariant
+    }),
+    hasSelectedVariant && h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },
         h('div', { className: 'panel-heading' },
-          h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, showVariants ? 'Variantes' : 'Ingrédients')),
+          h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
           hasSelectedVariant && h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
-            [1, 1.5, 2, 3].map(value => h('button', {
+            [0.25, 0.5, 1, 2, 4].map(value => h('button', {
               key: value,
               type: 'button',
               className: factor === value ? 'active' : '',
@@ -748,23 +824,6 @@ function RecipeView({
             }, `${String(value).replace('.', ',')}x`))
           )
         ),
-        showVariants && h('div', { className: 'mise-variant-list', 'aria-label': 'Choisir une variante' },
-          variantRefs.map(variant => {
-            const item = recipesById[variant.id];
-            if (!item) return null;
-            return h('button', {
-              key: variant.id,
-              type: 'button',
-              className: selectedVariantId === variant.id ? 'active' : '',
-              onClick: () => chooseVariant(variant.id)
-            },
-              h('span', null, variant.label || item.title),
-              h('small', null, difficultyText(item))
-            );
-          })
-        ),
-        showVariants && hasSelectedVariant && h('div', { className: 'mise-separator' }),
-        showVariants && hasSelectedVariant && h('h2', { className: 'ingredients-subtitle' }, 'Ingrédients'),
         (selectedRecipe.ingredients || []).map((group, groupIndex) =>
           h('div', { className: 'ingredient-group', key: `${detailKey}:group:${groupIndex}` },
             group.recipeId && recipesById[group.recipeId]
@@ -775,7 +834,7 @@ function RecipeView({
               return h('li', { key },
                 h('label', null,
                   h('input', { type: 'checkbox', checked: Boolean(checked[key]), onChange: () => toggle(key) }),
-                  h('span', null, scaleIngredient(item, factor))
+                  h('span', null, renderLinkedText(scaleIngredient(item, factor), inlineTargets, openRecipe))
                 )
               );
             }))
@@ -829,27 +888,10 @@ function RecipeView({
               h('dd', null, item.value || item.text || '')
             )
           ))
-        ),
-        h('div', { className: 'tag-cloud compact' },
-          h('p', { className: 'eyebrow' }, 'Tags'),
-          (selectedRecipe.tagsExtracted || recipe.tagsExtracted || []).slice(0, 12).map(tag => h('button', { key: tag, type: 'button', className: 'chip', onClick: () => { setTagFilter(tag); goHome(); } }, tag))
-        ),
-        h(RelatedLinks, { recipe: selectedRecipe, recipes, openRecipe })
+        )
       )
     ),
     h(SharePanel, { open: shareOpen, onClose: () => setShareOpen(false), recipe: selectedRecipe })
-  );
-}
-
-function RelatedLinks({ recipe, recipes, openRecipe }) {
-  const categories = recipe.categories || [];
-  const related = recipes
-    .filter(item => item.id !== recipe.id && (item.categories || []).some(cat => categories.includes(cat)))
-    .slice(0, 4);
-  if (!related.length) return null;
-  return h('div', { className: 'related-links' },
-    h('h3', null, 'Dans le même esprit'),
-    related.map(item => h('button', { key: item.id, type: 'button', onClick: () => openRecipe(item.id) }, item.title))
   );
 }
 

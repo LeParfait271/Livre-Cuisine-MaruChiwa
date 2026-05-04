@@ -307,6 +307,16 @@ a {
   justify-content: flex-end;
 }
 
+.favorite-action {
+  color: #ff8fbd;
+}
+
+.favorite-action.active {
+  border-color: color-mix(in srgb, #ff4fa3 74%, white);
+  background: color-mix(in srgb, #ff4fa3 22%, var(--surface-soft));
+  color: #ff4fa3;
+}
+
 .icon-square {
   width: 44px;
   min-width: 44px;
@@ -547,9 +557,9 @@ a {
 }
 
 .fav-btn.active {
-  border-color: transparent;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: var(--accent-ink);
+  border-color: color-mix(in srgb, #ff4fa3 72%, white);
+  background: color-mix(in srgb, #ff4fa3 26%, rgba(0, 0, 0, .62));
+  color: #ff4fa3;
 }
 
 .video-badge {
@@ -718,42 +728,84 @@ a {
   backdrop-filter: blur(18px);
 }
 
+.variant-picker-panel {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 32px));
+  margin: -34px auto 16px;
+}
+
+.variant-picker-panel + .recipe-detail-grid {
+  margin-top: 0;
+}
+
+.variant-card-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 280px);
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.variant-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  min-height: 104px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
+  color: var(--text);
+  padding: 0;
+  text-align: left;
+}
+
+.variant-card.active {
+  border-color: color-mix(in srgb, var(--accent) 72%, white);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 48%, transparent);
+}
+
+.variant-card-media {
+  min-height: 104px;
+  background: var(--surface-soft);
+  background-position: center;
+  background-size: cover;
+}
+
+.variant-card-body {
+  display: grid;
+  gap: 6px;
+  align-content: center;
+  padding: 12px;
+}
+
+.variant-card-body strong {
+  line-height: 1.14;
+}
+
+.variant-card-body small {
+  color: var(--muted);
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .ingredients-panel {
   max-height: min(760px, calc(100vh - 150px));
   overflow-y: auto;
 }
 
-.mise-variant-list {
-  display: grid;
-  gap: 8px;
-  max-height: 320px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-.mise-variant-list button {
-  display: grid;
-  gap: 4px;
-  width: 100%;
-  min-height: 58px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
-  color: var(--text);
-  padding: 10px 12px;
-  text-align: left;
+.inline-recipe-link {
+  display: inline;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 0;
+  font: inherit;
   font-weight: 900;
-}
-
-.mise-variant-list button.active {
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 16%, var(--surface-soft));
-}
-
-.mise-variant-list small {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
 .mise-separator {
@@ -839,8 +891,7 @@ a {
   line-height: 1.45;
 }
 
-.ingredient-group h3,
-.related-links h3 {
+.ingredient-group h3 {
   margin: 0 0 10px;
   font-size: 15px;
 }
@@ -975,6 +1026,9 @@ a {
 .notes-panel [data-goto] {
   color: var(--accent) !important;
   font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
 }
 
 .tag-cloud {
@@ -983,11 +1037,6 @@ a {
 
 .tag-cloud .eyebrow {
   width: 100%;
-}
-
-.tag-cloud.compact {
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
 }
 
 .technical-card {
@@ -1013,25 +1062,6 @@ a {
   margin: -4px 0 8px;
   color: var(--text);
   line-height: 1.45;
-}
-
-.related-links {
-  display: grid;
-  gap: 8px;
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.related-links button {
-  min-height: 38px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
-  color: var(--text);
-  padding: 0 10px;
-  text-align: left;
-  font-weight: 850;
 }
 
 .modal-backdrop {
@@ -1251,7 +1281,6 @@ a {
   .back-link,
   .factor-control,
   .history-actions,
-  .related-links,
   .modal-backdrop {
     display: none !important;
   }

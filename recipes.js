@@ -5,7 +5,7 @@
 
 window.RECIPES = {
   "coulis_maitre": {
-    "title": "Coulis de fruits",
+    "title": "Coulis",
     "image": "/assets/recipe-images/coulis_maitre.jpg",
     "categories": [
       "Desserts",
@@ -15,42 +15,50 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "masterType": "collection",
-    "variants": [
-      {
-        "id": "coulis_guide",
-        "label": "Guide & formules"
-      },
-      {
-        "id": "coulis_fraise",
-        "label": "Fraise"
-      },
-      {
-        "id": "coulis_framboise",
-        "label": "Framboise"
-      },
-      {
-        "id": "coulis_abricot_vanille",
-        "label": "Abricot-vanille"
-      },
-      {
-        "id": "coulis_poire",
-        "label": "Poire"
-      }
-    ],
     "ingredients": [
       {
-        "group": "Choisir une variante",
+        "group": "Coulis abricot-vanille",
         "items": [
-          "Sélectionner le coulis voulu dans les boutons de la fiche."
+          "400 g abricots dénoyautés",
+          "70 g sucre",
+          "1/2 gousse de vanille",
+          "20 g eau"
+        ]
+      },
+      {
+        "group": "Coulis de fraise",
+        "items": [
+          "400 g fraises",
+          "80 g sucre",
+          "10 g jus de citron"
+        ]
+      },
+      {
+        "group": "Coulis de framboise",
+        "items": [
+          "400 g framboises",
+          "90 g sucre",
+          "10 g jus de citron"
+        ]
+      },
+      {
+        "group": "Coulis de poire",
+        "items": [
+          "400 g poires mûres",
+          "60–80 g sucre (au goût)",
+          "10 g jus de citron"
         ]
       }
     ],
     "steps": [
-      "Choisir une variante pour afficher ses ingrédients, étapes, notes et conservation."
+      "Choisir le bloc du fruit voulu.",
+      "Mixer les fruits avec le sucre et le citron.",
+      "Chauffer quelques minutes si la recette le demande, puis passer finement.",
+      "Refroidir avant utilisation."
     ],
     "notes": [
-      "Fiche maître : toutes les recettes de coulis du carnet sont regroupées ici."
+      "Les coulis sont regroupés ici pour éviter les fiches identiques dispersées.",
+      "Stockage : bocal ou flacon propre au réfrigérateur. Péremption : 3–5 jours; congélation possible environ 2 mois."
     ],
     "tags": [
       "coulis",
@@ -72,7 +80,9 @@ window.RECIPES = {
         "value": "Refroidir avant dressage pour garder une tenue precise."
       }
     ],
-    "master": "cremes_maitre"
+    "master": "desserts_maitre",
+    "yield": "4 recettes de coulis",
+    "difficultyScore": 4
   },
   "chantilly_maitre": {
     "title": "Chantilly",
@@ -154,26 +164,6 @@ window.RECIPES = {
         "label": "Chantilly stabilisée (gélatine)"
       },
       {
-        "id": "coulis_guide",
-        "label": "Coulis — guide (formules & variantes)"
-      },
-      {
-        "id": "coulis_fraise",
-        "label": "Coulis de fraise"
-      },
-      {
-        "id": "coulis_framboise",
-        "label": "Coulis de framboise"
-      },
-      {
-        "id": "coulis_abricot_vanille",
-        "label": "Coulis abricot-vanille"
-      },
-      {
-        "id": "coulis_poire",
-        "label": "Coulis de poire"
-      },
-      {
         "id": "creme_diplomate_vanille",
         "label": "Crème diplomate vanille"
       },
@@ -219,15 +209,19 @@ window.RECIPES = {
       },
       {
         "id": "creme_amande_citron",
-        "label": "Crème d’amande citron"
+        "label": "Crème d’amande"
       },
       {
         "id": "compotee_citron",
-        "label": "Compotée citron"
+        "label": "Marmelade citron"
       },
       {
         "id": "meringue_italienne",
         "label": "Meringue italienne"
+      },
+      {
+        "id": "coulis_maitre",
+        "label": "Coulis"
       }
     ],
     "ingredients": [
@@ -1173,7 +1167,8 @@ window.RECIPES = {
           "250 g lait entier",
           "10 g jus de citron ou vinaigre",
           "Repos 10 min"
-        ]
+        ],
+        "recipeId": "babeurre_maison"
       }
     ],
     "steps": [
@@ -1182,11 +1177,15 @@ window.RECIPES = {
       "Repos 10 min puis cuisson en petites louches sur poêle beurrée."
     ],
     "notes": [
-      "Pour la version babeurre maison : préparer le babeurre 10 min avant.",
+      "Pour la version babeurre maison : préparer le <span data-goto=\"babeurre_maison\">babeurre maison</span> 10 min avant.",
       "Conservation : pâte 4 h au froid ; pancakes cuits 2 j filmés.",
       "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 7,
+    "aliases": [
+      "pancakes",
+      "babeurre"
+    ]
   },
   "chocolat_ancien": {
     "title": "Chocolat chaud à l'ancienne",
@@ -2018,8 +2017,8 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "62 g lait",
-          "62 g eau",
+          "60 g lait",
+          "60 g eau",
           "2 g sel",
           "55 g beurre",
           "75 g farine",
@@ -2056,7 +2055,7 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "250 g noisettes torréfiées",
-          "13,5 g sucre glace",
+          "14 g sucre glace",
           "0,5 g fleur de sel"
         ]
       }
@@ -2086,9 +2085,9 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "3,5 g gélatine poudre + 16 g eau",
+          "4 g gélatine poudre + 16 g eau",
           "150 g lait",
-          "32 g crème liquide",
+          "30 g crème liquide",
           "30 g sucre",
           "9 g maïzena",
           "9 g farine",
@@ -2206,6 +2205,10 @@ window.RECIPES = {
       {
         "id": "pancakes_variantes",
         "label": "Pancakes (lait ou babeurre + base babeurre maison)"
+      },
+      {
+        "id": "babeurre_maison",
+        "label": "Babeurre maison"
       },
       {
         "id": "chocolat_ancien",
@@ -2385,26 +2388,6 @@ window.RECIPES = {
         "label": "Chantilly stabilisée (gélatine)"
       },
       {
-        "id": "coulis_guide",
-        "label": "Coulis — guide (formules & variantes)"
-      },
-      {
-        "id": "coulis_fraise",
-        "label": "Coulis de fraise"
-      },
-      {
-        "id": "coulis_framboise",
-        "label": "Coulis de framboise"
-      },
-      {
-        "id": "coulis_abricot_vanille",
-        "label": "Coulis abricot-vanille"
-      },
-      {
-        "id": "coulis_poire",
-        "label": "Coulis de poire"
-      },
-      {
         "id": "creme_diplomate_vanille",
         "label": "Crème diplomate vanille"
       },
@@ -2450,11 +2433,11 @@ window.RECIPES = {
       },
       {
         "id": "creme_amande_citron",
-        "label": "Crème d’amande citron"
+        "label": "Crème d’amande"
       },
       {
         "id": "compotee_citron",
-        "label": "Compotée citron"
+        "label": "Marmelade citron"
       },
       {
         "id": "meringue_italienne",
@@ -2503,6 +2486,10 @@ window.RECIPES = {
       {
         "id": "tarte_citron_meringuee",
         "label": "Tarte citron meringuée"
+      },
+      {
+        "id": "coulis_maitre",
+        "label": "Coulis"
       }
     ],
     "ingredients": [
@@ -2702,7 +2689,7 @@ window.RECIPES = {
         "recipeId": "creme_citron_lemon_curd"
       },
       {
-        "group": "Compotée citron optionnelle",
+        "group": "Marmelade citron optionnelle",
         "items": [
           "3 citrons",
           "50 g sucre"
@@ -2867,7 +2854,7 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "6 oignons jaunes",
-          "42 g miel",
+          "40 g miel",
           "40 g huile d’olive",
           "2 branches de thym frais",
           "3 g sel",
@@ -2915,11 +2902,11 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "1,5 kg porc (épaule ou poitrine désossée)",
-          "28 g huile végétale neutre",
+          "30 g huile végétale neutre",
           "2 oignons jaunes émincés",
           "3 gousses d’ail hachées",
           "330 g bière blonde ou ambrée",
-          "133 g sirop d’érable pur",
+          "130 g sirop d’érable pur",
           "15 g moutarde de Dijon",
           "2 branches de thym frais",
           "1 feuille de laurier",
@@ -2997,7 +2984,7 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "creme_amande_citron": {
-    "title": "Crème d’amande citron",
+    "title": "Crème d’amande",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_amande_.jpg",
     "categories": [
@@ -3035,10 +3022,13 @@ window.RECIPES = {
     "tags": [
       "creme",
       "amande",
-      "citron",
       "garniture"
     ],
-    "difficultyScore": 3
+    "difficultyScore": 3,
+    "aliases": [
+      "crème d’amande",
+      "creme amande"
+    ]
   },
   "creme_citron_lemon_curd": {
     "title": "Crème citron (lemon curd)",
@@ -3088,7 +3078,7 @@ window.RECIPES = {
     "difficultyScore": 6
   },
   "compotee_citron": {
-    "title": "Compotée citron",
+    "title": "Marmelade citron",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/coulis_abricot_vanille.jpg",
     "categories": [
@@ -3124,11 +3114,15 @@ window.RECIPES = {
     ],
     "tags": [
       "citron",
-      "compotee",
+      "marmelade",
       "tarte",
       "garniture"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 7,
+    "aliases": [
+      "marmelade citron",
+      "compotée citron"
+    ]
   },
   "meringue_italienne": {
     "title": "Meringue italienne",
@@ -3452,5 +3446,48 @@ window.RECIPES = {
     "notes": [
       "Fiche parent de rangement."
     ]
+  },
+  "babeurre_maison": {
+    "title": "Babeurre maison",
+    "master": "petit_dejeuner_maitre",
+    "image": "/assets/recipe-images/pancakes_variantes.jpg",
+    "categories": [
+      "Petits-déjeuners",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "260 g environ",
+    "aliases": [
+      "babeurre",
+      "babeurre maison",
+      "buttermilk"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "250 g lait entier",
+          "10 g jus de citron ou vinaigre"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger le lait et le jus de citron ou le vinaigre.",
+      "Laisser reposer 10 min  à température ambiante.",
+      "Utiliser dès que le lait a légèrement épaissi."
+    ],
+    "notes": [
+      "À utiliser dans les pancakes, gaufres ou pâtes levées moelleuses.",
+      "Stockage : au réfrigérateur en contenant propre. Péremption : 24 h."
+    ],
+    "tags": [
+      "babeurre",
+      "lait",
+      "base"
+    ],
+    "difficultyScore": 1
   }
 };
