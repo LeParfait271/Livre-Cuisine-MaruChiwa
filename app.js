@@ -3,11 +3,7 @@
 const { useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
 
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80',
-  'https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=1920&q=80',
-  'https://images.unsplash.com/photo-1543362906-acfc16c67564?w=1920&q=80'
-];
+const HERO_IMAGE = '/assets/recipe-images/biscuits_gouters_maitre.jpg';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver', 'Toutes saisons'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
@@ -278,16 +274,10 @@ function TopBar({ onHome, favoriteCount, shoppingCount, activeRecipe, openAdvanc
 }
 
 function Hero({ total, filteredCount, favoriteCount, currentSeason, onShowFavorites }) {
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => setSlide(value => (value + 1) % HERO_IMAGES.length), 6000);
-    return () => clearInterval(timer);
-  }, []);
-
   return h('section', {
     className: 'hero',
     style: {
-      backgroundImage: `linear-gradient(110deg, rgba(4,4,5,.92), rgba(4,4,5,.54) 48%, rgba(4,4,5,.84)), url("${HERO_IMAGES[slide]}")`
+      backgroundImage: `linear-gradient(110deg, rgba(4,4,5,.92), rgba(4,4,5,.54) 48%, rgba(4,4,5,.84)), url("${HERO_IMAGE}")`
     }
   },
     h('div', { className: 'hero-inner' },
@@ -542,26 +532,6 @@ function SharePanel({ open, onClose, recipe }) {
   );
 }
 
-function CartPanel({ open, onClose, recipe, factor }) {
-  const [copied, setCopied] = useState(false);
-  const lines = recipeShoppingLines(recipe, factor);
-  const text = [`Courses - ${recipe.title}`, '', ...lines].join('\n');
-
-  if (!open) return null;
-  return h('div', { className: 'modal-backdrop', onMouseDown: onClose },
-    h('section', { className: 'modal-panel', role: 'dialog', 'aria-modal': 'true', onMouseDown: event => event.stopPropagation() },
-      h('div', { className: 'modal-head' },
-        h('div', null, h('p', { className: 'eyebrow' }, 'Liste de courses'), h('h2', null, recipe.title)),
-        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
-      ),
-      h('pre', { className: 'cart-output' }, text),
-      h('div', { className: 'modal-actions' },
-        h(Button, { variant: 'primary', onClick: () => copyText(text).then(() => setCopied(true)) }, copied ? 'Copié' : 'Copier les courses')
-      )
-    )
-  );
-}
-
 function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShopping }) {
   const [copied, setCopied] = useState(false);
   const text = recipes.length ? shoppingListText(recipes) : 'Liste de courses Cook Note\n\nAucune recette cochée.';
@@ -599,6 +569,46 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
   );
 }
 
+function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect }) {
+  if (!variantRefs.length) return null;
+  return h('section', { className: 'recipe-panel variant-picker-panel' },
+    h('div', { className: 'panel-heading' },
+      h('div', null,
+        h('p', { className: 'eyebrow' }, 'Sous-recettes'),
+        h('h2', null, 'Choisir une variante')
+      ),
+      h('span', { className: 'progress-label' }, `${variantRefs.length} fiches`)
+    ),
+    h('div', { className: 'variant-card-grid' },
+      variantRefs.map(variant => {
+        const item = recipesById[variant.id];
+        if (!item) return null;
+        const active = selectedVariantId === variant.id;
+        const image = item.image || parent.image;
+        return h('button', {
+          key: variant.id,
+          type: 'button',
+          className: active ? 'variant-card active' : 'variant-card',
+          onClick: () => onSelect(variant.id)
+        },
+          h('span', {
+            className: 'variant-card-media',
+            style: image ? { backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.52)), url("${image}")` } : {}
+          }),
+          h('span', { className: 'variant-card-body' },
+            h('strong', null, variant.label || item.title),
+            h('small', null,
+              DIFFICULTY_LABELS[item.difficulty] || 'Recette',
+              item.yield ? ` · ${item.yield}` : '',
+              ` · ${countIngredients(item)} ingrédients`
+            )
+          )
+        );
+      })
+    )
+  );
+}
+
 function RecipeView({
   recipe,
   isFavorite,
@@ -622,27 +632,28 @@ function RecipeView({
 }) {
   const [factor, setFactor] = useState(1);
   const variantRefs = getVariantRefs(recipe);
-  const [selectedVariantId, setSelectedVariantId] = useState(() => initialSelectedVariantId || variantRefs[0]?.id || recipe.id);
-  const selectedRecipe = recipesById[selectedVariantId] || recipe;
-  const detailKey = selectedRecipe.id;
   const showVariants = variantRefs.length > 0;
+  const [selectedVariantId, setSelectedVariantId] = useState(() => initialSelectedVariantId || (showVariants ? '' : recipe.id));
+  const selectedVariantRecipe = selectedVariantId ? recipesById[selectedVariantId] : null;
+  const hasSelectedVariant = !showVariants || Boolean(selectedVariantRecipe);
+  const selectedRecipe = showVariants ? (selectedVariantRecipe || recipe) : recipe;
+  const detailKey = hasSelectedVariant ? selectedRecipe.id : recipe.id;
   const [shareOpen, setShareOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const [cookMode, setCookMode] = useState(false);
   const [timerEnd, setTimerEnd] = useState(0);
   const [timerLabel, setTimerLabel] = useState('');
   const [now, setNow] = useState(Date.now());
   const completedRef = useRef('');
-  const stepTotal = (selectedRecipe.steps || []).length;
+  const stepTotal = hasSelectedVariant ? (selectedRecipe.steps || []).length : 0;
   const doneSteps = Object.keys(checked).filter(key => key.startsWith(`${detailKey}:step:`) && checked[key]).length;
   const progress = stepTotal ? Math.round((doneSteps / stepTotal) * 100) : 0;
-  const isInShopping = shoppingIds.includes(detailKey);
+  const isInShopping = hasSelectedVariant && shoppingIds.includes(detailKey);
   const remainingMs = timerEnd ? timerEnd - now : 0;
 
   useEffect(() => {
     setFactor(1);
     completedRef.current = '';
-  }, [recipe.id]);
+  }, [recipe.id, selectedVariantId]);
 
   useEffect(() => {
     if (!timerEnd) return undefined;
@@ -658,7 +669,7 @@ function RecipeView({
   }, [timerEnd, now]);
 
   useEffect(() => {
-    setSelectedVariantId(initialSelectedVariantId || variantRefs[0]?.id || recipe.id);
+    setSelectedVariantId(initialSelectedVariantId || (showVariants ? '' : recipe.id));
   }, [initialSelectedVariantId, recipe.id]);
 
   useEffect(() => {
@@ -673,6 +684,11 @@ function RecipeView({
 
   function toggle(key) {
     setCheckedWithHistory(prev => ({ ...prev, [key]: !prev[key] }));
+  }
+
+  function chooseVariant(variantId) {
+    setSelectedVariantId(variantId);
+    onVariantChange?.(recipe.id, variantId);
   }
 
   return h('main', { className: cookMode ? 'recipe-view cook-mode' : 'recipe-view' },
@@ -692,26 +708,24 @@ function RecipeView({
               key: variant.id,
               type: 'button',
               className: selectedVariantId === variant.id ? 'active' : '',
-              onClick: () => {
-                setSelectedVariantId(variant.id);
-                onVariantChange?.(recipe.id, variant.id);
-              }
+              onClick: () => chooseVariant(variant.id)
             }, label);
           })
         ),
         h('div', { className: 'detail-meta' },
           h('span', null, DIFFICULTY_LABELS[selectedRecipe.difficulty] || DIFFICULTY_LABELS[recipe.difficulty] || 'Recette'),
           selectedRecipe.yield && h('span', null, selectedRecipe.yield),
-          showVariants && h('span', null, selectedRecipe.title),
-          h('span', null, `${countIngredients(selectedRecipe)} ingrédients`),
-          h('span', null, `${stepTotal} étapes`)
+          showVariants && hasSelectedVariant && h('span', null, selectedRecipe.title),
+          hasSelectedVariant
+            ? h('span', null, `${countIngredients(selectedRecipe)} ingrédients`)
+            : h('span', null, `${variantRefs.length} variantes`),
+          hasSelectedVariant && h('span', null, `${stepTotal} étapes`)
         ),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: 'primary', onClick: () => toggleFavorite(recipe.id) }, isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'),
-          h(Button, { variant: isInShopping ? 'primary' : 'ghost', onClick: () => toggleShopping(detailKey) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
+          h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
           h(Button, { variant: 'ghost', onClick: openShoppingBasket }, 'Panier courses'),
           h(Button, { variant: cookMode ? 'primary' : 'ghost', onClick: () => setCookMode(value => !value), pressed: cookMode }, 'Mode cuisine'),
-          h(Button, { variant: 'ghost', onClick: () => setCartOpen(true) }, 'Courses recette'),
           h(Button, { variant: 'ghost', onClick: () => setShareOpen(true) }, 'Partager'),
           selectedRecipe.video && h('a', { className: 'btn btn-ghost', href: selectedRecipe.video, target: '_blank', rel: 'noreferrer' }, 'Voir la vidéo'),
           h(Button, { variant: 'ghost', onClick: () => window.print() }, 'Imprimer')
@@ -725,11 +739,18 @@ function RecipeView({
         ? h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
         : h('span', null, 'Aucun minuteur actif')
     ),
+    showVariants && h(VariantPickerPanel, {
+      parent: recipe,
+      variantRefs,
+      recipesById,
+      selectedVariantId,
+      onSelect: chooseVariant
+    }),
     h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
-          h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
+          hasSelectedVariant && h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
             [1, 1.5, 2, 3].map(value => h('button', {
               key: value,
               type: 'button',
@@ -738,7 +759,11 @@ function RecipeView({
             }, `${String(value).replace('.', ',')}x`))
           )
         ),
-        (selectedRecipe.ingredients || []).map((group, groupIndex) =>
+        !hasSelectedVariant && h('div', { className: 'choice-empty-state' },
+          h('strong', null, 'Choisis une variante pour afficher la recette.'),
+          h('p', null, 'Les ingrédients et les quantités apparaîtront ici après sélection d’une sous-fiche.')
+        ),
+        hasSelectedVariant && (selectedRecipe.ingredients || []).map((group, groupIndex) =>
           h('div', { className: 'ingredient-group', key: `${detailKey}:group:${groupIndex}` },
             h('h3', null, group.group || 'Base'),
             h('ul', null, (group.items || []).map((item, itemIndex) => {
@@ -756,14 +781,18 @@ function RecipeView({
       h('section', { className: 'recipe-panel steps-panel' },
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Exécution'), h('h2', null, 'Étapes')),
-          h('div', { className: 'history-actions' },
+          hasSelectedVariant && h('div', { className: 'history-actions' },
             h('button', { type: 'button', onClick: undo, disabled: !canUndo, title: 'Ctrl+Z' }, 'Annuler'),
             h('button', { type: 'button', onClick: redo, disabled: !canRedo, title: 'Ctrl+Y' }, 'Rétablir'),
             h('span', { className: 'progress-label' }, `${doneSteps}/${stepTotal}`)
           )
         ),
-        h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
-        h('ol', { className: 'step-list' },
+        hasSelectedVariant && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
+        !hasSelectedVariant && h('div', { className: 'choice-empty-state' },
+          h('strong', null, 'Aucune variante sélectionnée.'),
+          h('p', null, 'Clique une sous-recette dans la zone au-dessus pour afficher les étapes.')
+        ),
+        hasSelectedVariant && h('ol', { className: 'step-list' },
           (selectedRecipe.steps || []).map((step, index) => {
             const key = `${detailKey}:step:${index}`;
             const minutes = getStepMinutes(step);
@@ -808,8 +837,7 @@ function RecipeView({
         h(RelatedLinks, { recipe: selectedRecipe, recipes, openRecipe })
       )
     ),
-    h(SharePanel, { open: shareOpen, onClose: () => setShareOpen(false), recipe: selectedRecipe }),
-    h(CartPanel, { open: cartOpen, onClose: () => setCartOpen(false), recipe: selectedRecipe, factor })
+    h(SharePanel, { open: shareOpen, onClose: () => setShareOpen(false), recipe: selectedRecipe })
   );
 }
 
@@ -985,7 +1013,15 @@ function App() {
     const target = recipesById[id];
     if (!target) return;
     const parentId = target.master || id;
-    if (target.master) setVariantSelection(prev => ({ ...prev, [parentId]: id }));
+    if (target.master) {
+      setVariantSelection(prev => ({ ...prev, [parentId]: id }));
+    } else {
+      setVariantSelection(prev => {
+        const next = { ...prev };
+        delete next[parentId];
+        return next;
+      });
+    }
     setActiveId(parentId);
     setOnlyFavorites(false);
     const nextRecents = [parentId, ...recents.filter(item => item !== parentId)].slice(0, 12);
@@ -1034,7 +1070,15 @@ function App() {
       const recipe = getInitialHashRecipe();
       const variant = getInitialHashVariant();
       setActiveId(recipe);
-      if (recipe && variant) setVariantSelection(prev => ({ ...prev, [recipe]: variant }));
+      if (recipe && variant) {
+        setVariantSelection(prev => ({ ...prev, [recipe]: variant }));
+      } else if (recipe) {
+        setVariantSelection(prev => {
+          const next = { ...prev };
+          delete next[recipe];
+          return next;
+        });
+      }
     };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);

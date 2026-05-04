@@ -5,7 +5,7 @@
 
 window.RECIPES = {
   "coulis_maitre": {
-    "title": "Coulis",
+    "title": "Coulis de fruits",
     "image": "/assets/recipe-images/coulis_maitre.jpg",
     "categories": [
       "Desserts",
