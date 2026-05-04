@@ -188,6 +188,26 @@ window.RECIPES = {
       {
         "id": "creme_pistache",
         "label": "Pistache"
+      },
+      {
+        "id": "creme_patissiere_vanille",
+        "label": "P?tissi?re vanille"
+      },
+      {
+        "id": "creme_citron_lemon_curd",
+        "label": "Cr?me citron"
+      },
+      {
+        "id": "creme_amande_citron",
+        "label": "Cr?me d?amande citron"
+      },
+      {
+        "id": "compotee_citron",
+        "label": "Compot?e citron"
+      },
+      {
+        "id": "meringue_italienne",
+        "label": "Meringue italienne"
       }
     ],
     "ingredients": [
@@ -262,6 +282,10 @@ window.RECIPES = {
       {
         "id": "paris_brest",
         "label": "Paris-Brest"
+      },
+      {
+        "id": "pate_sucree",
+        "label": "P?te sucr?e"
       }
     ],
     "ingredients": [
@@ -1279,14 +1303,16 @@ window.RECIPES = {
           "25 g Maïzena",
           "25 g beurre",
           "5 g vanille"
-        ]
+        ],
+        "recipeId": "creme_patissiere_vanille"
       },
       {
         "group": "Chantilly",
         "items": [
           "200 g crème 30–35 % froide",
           "20 g sucre glace"
-        ]
+        ],
+        "recipeId": "chantilly_classique"
       }
     ],
     "steps": [
@@ -1772,14 +1798,16 @@ window.RECIPES = {
           "25 g maïzena",
           "25 g beurre doux",
           "5 g vanille (ou 1 gousse)"
-        ]
+        ],
+        "recipeId": "creme_patissiere_vanille"
       },
       {
         "group": "Chantilly",
         "items": [
           "200 g crème liquide entière (30–35 %) très froide",
           "20 g sucre glace"
-        ]
+        ],
+        "recipeId": "chantilly_classique"
       },
       {
         "group": "Variante mascarpone (rapide)",
@@ -2029,7 +2057,8 @@ window.RECIPES = {
           "20 g eau",
           "60 g sucre",
           "30 g blancs d’œufs"
-        ]
+        ],
+        "recipeId": "meringue_italienne"
       }
     ],
     "steps": [
@@ -2144,6 +2173,10 @@ window.RECIPES = {
       {
         "id": "oignons_rotis_thym_miel",
         "label": "Oignons rôtis thym miel"
+      },
+      {
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat ?uf ?pinards"
       }
     ],
     "ingredients": [
@@ -2262,7 +2295,7 @@ window.RECIPES = {
   "creme_kinder_nutella": {
     "title": "Crème Kinder / Nutella stable",
     "master": "cremes_maitre",
-    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
+    "image": "/assets/recipe-images/creme_praline.jpg",
     "categories": [
       "Desserts"
     ],
@@ -2302,7 +2335,7 @@ window.RECIPES = {
   "creme_pistache": {
     "title": "Crème pistache stable",
     "master": "cremes_maitre",
-    "image": "/assets/recipe-images/ricotta_fouettee.jpg",
+    "image": "/assets/recipe-images/pate_noisette.jpg",
     "categories": [
       "Desserts"
     ],
@@ -2386,7 +2419,7 @@ window.RECIPES = {
   "tarte_citron_meringuee": {
     "title": "Tarte citron meringuée",
     "master": "desserts_maitre",
-    "image": "/assets/recipe-images/pate_choux.jpg",
+    "image": "/assets/recipe-images/coulis_guide.jpg",
     "categories": [
       "Desserts"
     ],
@@ -2404,7 +2437,8 @@ window.RECIPES = {
           "50 g beurre mou",
           "40 g sucre",
           "25 g œuf"
-        ]
+        ],
+        "recipeId": "pate_sucree"
       },
       {
         "group": "Crème d’amande",
@@ -2415,7 +2449,8 @@ window.RECIPES = {
           "75 g poudre d’amande",
           "10 g fécule",
           "2 g zeste de citron"
-        ]
+        ],
+        "recipeId": "creme_amande_citron"
       },
       {
         "group": "Crème citron",
@@ -2425,14 +2460,16 @@ window.RECIPES = {
           "130 g sucre",
           "10 g fécule",
           "100 g beurre"
-        ]
+        ],
+        "recipeId": "creme_citron_lemon_curd"
       },
       {
         "group": "Compotée citron optionnelle",
         "items": [
           "3 citrons",
           "50 g sucre"
-        ]
+        ],
+        "recipeId": "compotee_citron"
       },
       {
         "group": "Meringue italienne",
@@ -2442,7 +2479,8 @@ window.RECIPES = {
           "30 g eau",
           "2 g sel",
           "2 g jus de citron"
-        ]
+        ],
+        "recipeId": "meringue_italienne"
       }
     ],
     "steps": [
@@ -2469,7 +2507,7 @@ window.RECIPES = {
   "tiramisu_speculoos": {
     "title": "Tiramisu spéculoos rapide",
     "master": "desserts_maitre",
-    "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
+    "image": "/assets/recipe-images/biscuits_gouters_maitre.jpg",
     "categories": [
       "Desserts"
     ],
@@ -2665,6 +2703,317 @@ window.RECIPES = {
       "biere",
       "erable",
       "mijote"
+    ]
+  },
+  "pate_sucree": {
+    "title": "P?te sucr?e",
+    "master": "pates_bases_maitre",
+    "image": "/assets/recipe-images/pates_bases_maitre.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "1 fond de tarte",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "100 g farine",
+          "50 g beurre mou",
+          "40 g sucre",
+          "25 g ?uf"
+        ]
+      }
+    ],
+    "steps": [
+      "M?langer beurre et sucre sans faire fondre le beurre.",
+      "Ajouter l??uf puis la farine.",
+      "Former une boule, filmer et refroidir 30 min.",
+      "?taler ? 3?4 mm, foncer le moule, piquer puis cuire selon la recette finale."
+    ],
+    "notes": [
+      "Base utilis?e dans la tarte citron meringu?e.",
+      "Beurre pommade, jamais liquide."
+    ],
+    "tags": [
+      "pate",
+      "tarte",
+      "base",
+      "patisserie"
+    ]
+  },
+  "creme_amande_citron": {
+    "title": "Cr?me d?amande citron",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/creme_amande_.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "1 insert fin de tarte",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "75 g beurre mou",
+          "75 g sucre",
+          "50 g ?uf",
+          "75 g poudre d?amande",
+          "10 g f?cule",
+          "2 g zeste de citron"
+        ]
+      }
+    ],
+    "steps": [
+      "Cr?mer beurre et sucre.",
+      "Ajouter l??uf.",
+      "Incorporer poudre d?amande, f?cule et zeste.",
+      "?taler environ 5 mm dans le fond de tarte et cuire jusqu?? coloration moelleuse."
+    ],
+    "notes": [
+      "Base moelleuse pour tartes aux fruits ou citron."
+    ],
+    "tags": [
+      "creme",
+      "amande",
+      "citron",
+      "garniture"
+    ]
+  },
+  "creme_citron_lemon_curd": {
+    "title": "Cr?me citron (lemon curd)",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/coulis_guide.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Printemps",
+      "?t?",
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "Environ 500 g",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "80 g jus de citron",
+          "180 g jaunes d??ufs",
+          "130 g sucre",
+          "10 g f?cule",
+          "100 g beurre"
+        ]
+      }
+    ],
+    "steps": [
+      "Chauffer le jus de citron.",
+      "Fouetter jaunes et sucre, puis ajouter la f?cule.",
+      "Verser le jus chaud sur le m?lange.",
+      "Cuire jusqu?? ?paississement.",
+      "Ajouter le beurre, mixer si besoin, filmer au contact et refroidir."
+    ],
+    "notes": [
+      "Texture fondante pour tarte citron, verrines ou fourrage.",
+      "Refroidir avant montage pour une tenue nette."
+    ],
+    "tags": [
+      "creme",
+      "citron",
+      "lemon-curd",
+      "garniture"
+    ]
+  },
+  "compotee_citron": {
+    "title": "Compot?e citron",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/coulis_abricot_vanille.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Printemps",
+      "?t?",
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "Fine couche pour 1 tarte",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "3 citrons",
+          "50 g sucre"
+        ]
+      }
+    ],
+    "steps": [
+      "Couper les citrons finement en retirant les p?pins.",
+      "Cuire doucement avec le sucre.",
+      "Mixer finement.",
+      "?taler en couche fine sur un fond de tarte cuit."
+    ],
+    "notes": [
+      "Optionnelle dans la tarte citron meringu?e.",
+      "? utiliser en petite quantit? pour ?viter l?amertume."
+    ],
+    "tags": [
+      "citron",
+      "compotee",
+      "tarte",
+      "garniture"
+    ]
+  },
+  "meringue_italienne": {
+    "title": "Meringue italienne",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/meringues.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "D?cor pour 1 tarte",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "60 g blancs d??ufs",
+          "100 g sucre",
+          "30 g eau",
+          "1 g sel",
+          "2 g jus de citron"
+        ]
+      }
+    ],
+    "steps": [
+      "Cuire sucre, eau et jus de citron ? 118?120 ?C.",
+      "Monter les blancs mousseux avec le sel.",
+      "Verser le sirop en filet sur les blancs.",
+      "Fouetter 5?10 min jusqu?? refroidissement, texture lisse, brillante et ferme."
+    ],
+    "notes": [
+      "Verser le sirop lentement.",
+      "Fouetter jusqu?? refroidissement complet pour une bonne stabilit?."
+    ],
+    "tags": [
+      "meringue",
+      "italienne",
+      "base",
+      "patisserie"
+    ]
+  },
+  "creme_patissiere_vanille": {
+    "title": "Cr?me p?tissi?re vanille",
+    "master": "cremes_maitre",
+    "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
+    "categories": [
+      "Desserts",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "Environ 400 g",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "250 g lait",
+          "50 g jaunes d??ufs",
+          "60 g sucre",
+          "25 g Ma?zena",
+          "25 g beurre",
+          "5 g vanille"
+        ]
+      }
+    ],
+    "steps": [
+      "Chauffer le lait avec la vanille.",
+      "Fouetter jaunes, sucre et Ma?zena.",
+      "Verser le lait chaud sur le m?lange.",
+      "Cuire jusqu?? ?paississement.",
+      "Ajouter le beurre, filmer au contact et refroidir."
+    ],
+    "notes": [
+      "Base de la cr?me diplomate vanille.",
+      "Lisser au fouet apr?s refroidissement avant incorporation."
+    ],
+    "tags": [
+      "creme",
+      "patissiere",
+      "vanille",
+      "base"
+    ]
+  },
+  "salade_avocat_oeuf_epinards": {
+    "title": "Salade avocat, ?uf et ?pinards",
+    "master": "entrees_maitre",
+    "image": "/assets/recipe-images/bases_salees_maitre.jpg",
+    "categories": [
+      "Entr?es",
+      "Plats"
+    ],
+    "seasons": [
+      "Printemps",
+      "?t?",
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "2 personnes",
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "200 g avocat m?r en d?s",
+          "100 g ?ufs durs ?cal?s et tranch?s",
+          "60 g pousses d??pinards lav?es et s?ch?es",
+          "14 g huile d?olive",
+          "15 g jus de citron",
+          "2 g sel fin",
+          "1 g poivre noir"
+        ]
+      },
+      {
+        "group": "Option",
+        "items": [
+          "120 g tomates cerises",
+          "30 g noix",
+          "40 g fromage en d?s"
+        ]
+      }
+    ],
+    "steps": [
+      "Cuire les ?ufs durs, refroidir, ?caler et trancher.",
+      "Couper l?avocat en d?s.",
+      "M?langer pousses d??pinards, avocat et ?ufs.",
+      "Assaisonner avec huile d?olive, jus de citron, sel et poivre.",
+      "Ajouter les options au moment du service si souhait?."
+    ],
+    "notes": [
+      "Recette ajout?e depuis l?image fournie.",
+      "Servir rapidement apr?s d?coupe de l?avocat."
+    ],
+    "tags": [
+      "salade",
+      "avocat",
+      "oeuf",
+      "epinards",
+      "entree"
     ]
   }
 };

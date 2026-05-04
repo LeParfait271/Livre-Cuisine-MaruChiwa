@@ -265,16 +265,18 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, totalRecipeCount, ficheCount, favoriteCount, shoppingCount, activeRecipe, openAdvanced, activeFilterCount, showFavorites, openShoppingBasket }) {
+function TopBar({ onHome, totalRecipeCount, ficheCount, shoppingCount, activeRecipe, showFavorites, openShoppingBasket }) {
   return h('header', { className: 'topbar' },
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
       h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
       h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
       h('span', { className: 'top-stat' }, h('strong', null, totalRecipeCount), ' recettes'),
       h('span', { className: 'top-stat' }, h('strong', null, ficheCount), ' fiches'),
-      h('span', { className: 'top-stat' }, h('strong', null, favoriteCount), ' favoris'),
-      h(Button, { variant: 'subtle', onClick: openAdvanced }, ['Recherche avancée', activeFilterCount ? h('span', { key: 'badge', className: 'filter-badge' }, activeFilterCount) : null]),
       h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
+      h('a', {
+        className: 'btn btn-subtle',
+        href: 'mailto:?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
+      }, 'Demander une recette'),
       h('a', { className: 'btn btn-subtle', href: '/admin' }, 'Admin')
     ),
     h('div', { className: 'topbar-status' }, activeRecipe ? 'Fiche ouverte' : 'Mode cuisine')
@@ -547,6 +549,13 @@ function SharePanel({ open, onClose, recipe }) {
 function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShopping }) {
   const [copied, setCopied] = useState(false);
   const text = recipes.length ? shoppingListText(recipes) : 'Liste de courses Cook Note\n\nAucune recette cochée.';
+  const shareText = () => {
+    if (navigator.share) {
+      navigator.share({ title: 'Liste de courses Cook Note', text }).catch(() => {});
+    } else {
+      copyText(text).then(() => setCopied(true));
+    }
+  };
 
   useEffect(() => {
     if (open) setCopied(false);
@@ -575,6 +584,8 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
       h('pre', { className: 'cart-output combined-cart' }, text),
       h('div', { className: 'modal-actions' },
         h(Button, { variant: 'primary', disabled: !recipes.length, onClick: () => copyText(text).then(() => setCopied(true)) }, copied ? 'Copié' : 'Copier la liste complète'),
+        h(Button, { variant: 'ghost', className: 'icon-square', disabled: !recipes.length, onClick: shareText, title: 'Partager la liste', ariaLabel: 'Partager la liste' }, '\u2197'),
+        h(Button, { variant: 'ghost', className: 'icon-square', disabled: !recipes.length, onClick: () => window.print(), title: 'Imprimer la liste', ariaLabel: 'Imprimer la liste' }, '\u2399'),
         h(Button, { variant: 'subtle', disabled: !recipes.length, onClick: clearShopping }, 'Vider le panier')
       )
     )
@@ -737,13 +748,12 @@ function RecipeView({
           hasSelectedVariant && h('span', null, `${stepTotal} étapes`)
         ),
         h('div', { className: 'detail-actions' },
-          h(Button, { variant: 'primary', onClick: () => toggleFavorite(recipe.id) }, isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'),
+          h(Button, { variant: 'primary', className: 'icon-square', onClick: () => toggleFavorite(recipe.id), title: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris', ariaLabel: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }, isFavorite ? '\u2605' : '\u2606'),
           h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
-          h(Button, { variant: 'ghost', onClick: openShoppingBasket }, 'Panier courses'),
           h(Button, { variant: cookMode ? 'primary' : 'ghost', onClick: () => setCookMode(value => !value), pressed: cookMode }, 'Mode cuisine'),
-          h(Button, { variant: 'ghost', onClick: () => setShareOpen(true) }, 'Partager'),
+          h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => setShareOpen(true), title: 'Partager', ariaLabel: 'Partager' }, '\u2197'),
           selectedRecipe.video && h('a', { className: 'btn btn-ghost', href: selectedRecipe.video, target: '_blank', rel: 'noreferrer' }, 'Voir la vidéo'),
-          h(Button, { variant: 'ghost', onClick: () => window.print() }, 'Imprimer')
+          h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => window.print(), title: 'Imprimer', ariaLabel: 'Imprimer' }, '\u2399')
         )
       )
     ),
@@ -777,7 +787,9 @@ function RecipeView({
         ),
         (selectedRecipe.ingredients || []).map((group, groupIndex) =>
           h('div', { className: 'ingredient-group', key: `${detailKey}:group:${groupIndex}` },
-            h('h3', null, group.group || 'Base'),
+            group.recipeId && recipesById[group.recipeId]
+              ? h('button', { type: 'button', className: 'ingredient-group-link', onClick: () => openRecipe(group.recipeId) }, group.group || recipesById[group.recipeId].title)
+              : h('h3', null, group.group || 'Base'),
             h('ul', null, (group.items || []).map((item, itemIndex) => {
               const key = `${detailKey}:ingredient:${groupIndex}:${itemIndex}`;
               return h('li', { key },
@@ -967,8 +979,6 @@ function App() {
     }
     return [{ key: 'all-seasons', kicker: 'Toutes saisons', title: 'Toutes les saisons', recipes: filteredRecipes }];
   }, [currentSeason, filteredRecipes, onlyFavorites, season]);
-
-  const activeFilterCount = [query, category, season, difficulty, tagFilter, onlyFavorites ? 'favorites' : ''].filter(Boolean).length;
   const activeChips = [
     query && { key: 'query', label: `Recherche: ${query}`, clear: () => setQuery('') },
     category && { key: 'category', label: category, clear: () => setCategory('') },
@@ -1166,11 +1176,8 @@ function App() {
       onHome: goHome,
       totalRecipeCount: contentRecipes.length,
       ficheCount: catalogRecipes.length,
-      favoriteCount: favorites.length,
       shoppingCount: shoppingRecipes.length,
       activeRecipe: Boolean(activeRecipe),
-      openAdvanced: () => setAdvancedOpen(true),
-      activeFilterCount,
       showFavorites,
       openShoppingBasket: () => setShoppingOpen(true)
     }),
