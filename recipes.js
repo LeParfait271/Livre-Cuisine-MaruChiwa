@@ -1,8 +1,3 @@
-// ============================================================
-//  Cook Note - recipes.js
-//  Source publique des recettes et fiches parents.
-// ============================================================
-
 window.RECIPES = {
   "coulis_maitre": {
     "title": "Coulis",
@@ -400,6 +395,10 @@ window.RECIPES = {
       {
         "id": "tomates_variantes",
         "label": "Séchées ou confites"
+      },
+      {
+        "id": "tomates_provencales",
+        "label": "Tomates proven?ales"
       }
     ],
     "ingredients": [
@@ -457,6 +456,18 @@ window.RECIPES = {
       {
         "id": "meringues",
         "label": "Meringues"
+      },
+      {
+        "id": "cookies_chocolat_blanc_cranberry",
+        "label": "Cookies chocolat blanc cranberry"
+      },
+      {
+        "id": "macaron_ourea_pierre_herme",
+        "label": "Macaron Our?a fa?on Pierre Herm?"
+      },
+      {
+        "id": "churros_maison",
+        "label": "Churros maison"
       }
     ],
     "ingredients": [
@@ -574,6 +585,10 @@ window.RECIPES = {
       {
         "id": "court_bouillon",
         "label": "Court-bouillon"
+      },
+      {
+        "id": "tortillas_mexicaines",
+        "label": "Tortillas mexicaines"
       }
     ],
     "ingredients": [
@@ -2284,6 +2299,14 @@ window.RECIPES = {
       {
         "id": "cochon_confit_biere_erable",
         "label": "Cochon confit à la bière et au sirop d’érable"
+      },
+      {
+        "id": "tomates_provencales",
+        "label": "Tomates proven?ales"
+      },
+      {
+        "id": "tortillas_mexicaines",
+        "label": "Tortillas mexicaines"
       }
     ],
     "ingredients": [
@@ -2427,6 +2450,22 @@ window.RECIPES = {
       {
         "id": "coulis_maitre",
         "label": "Coulis"
+      },
+      {
+        "id": "mi_cuits_chocolat",
+        "label": "Mi-cuits au chocolat"
+      },
+      {
+        "id": "cookies_chocolat_blanc_cranberry",
+        "label": "Cookies chocolat blanc cranberry"
+      },
+      {
+        "id": "macaron_ourea_pierre_herme",
+        "label": "Macaron Our?a fa?on Pierre Herm?"
+      },
+      {
+        "id": "churros_maison",
+        "label": "Churros maison"
       }
     ],
     "ingredients": [
@@ -3299,6 +3338,10 @@ window.RECIPES = {
       {
         "id": "tiramisu_speculoos",
         "label": "Tiramisu spéculoos rapide"
+      },
+      {
+        "id": "mi_cuits_chocolat",
+        "label": "Mi-cuits au chocolat"
       }
     ],
     "technical": [
@@ -3419,5 +3462,372 @@ window.RECIPES = {
       "base"
     ],
     "difficultyScore": 1
+  },
+  "tomates_provencales": {
+    "title": "Tomates proven?ales",
+    "master": "tomates_maitre",
+    "image": "/assets/recipe-images/tomates_provencales_spooky.png",
+    "categories": [
+      "Entr?es",
+      "Plats"
+    ],
+    "seasons": [
+      "?t?"
+    ],
+    "difficulty": "easy",
+    "yield": "4 personnes",
+    "aliases": [
+      "tomates proven?ales",
+      "tomates ? la proven?ale"
+    ],
+    "ingredients": [
+      {
+        "group": "Tomates",
+        "items": [
+          "4 tomates m?res",
+          "25 g chapelure",
+          "15 g parmesan r?p?",
+          "10 g persil hach?",
+          "1 gousse d?ail hach?e",
+          "20 g huile d?olive",
+          "2 g sel fin",
+          "1 g poivre"
+        ]
+      }
+    ],
+    "steps": [
+      "Pr?chauffer le four ? 180 ?C.",
+      "Couper les tomates en deux, les saler l?g?rement et les poser dans un plat huil?.",
+      "M?langer chapelure, parmesan, ail, persil, poivre et un filet d?huile d?olive.",
+      "R?partir la persillade sur les tomates.",
+      "Cuire 25 ? 35 min, jusqu?? obtenir des tomates fondantes et un dessus dor?."
+    ],
+    "notes": [
+      "Source : <a href=\"https://www.meilleurduchef.com/fr/recette/tomate-provencale.html\" target=\"_blank\" rel=\"noreferrer\">Meilleur du Chef</a>.",
+      "Servir chaud, ti?de ou en accompagnement d?une viande grill?e.",
+      "Stockage : 2 jours au r?frig?rateur, r?chauffer au four doux."
+    ],
+    "tags": [
+      "tomate",
+      "provencale",
+      "ail",
+      "persil",
+      "four"
+    ],
+    "difficultyScore": 2,
+    "additionalMasters": [
+      "plats_maitre"
+    ]
+  },
+  "tortillas_mexicaines": {
+    "title": "Tortillas mexicaines",
+    "master": "bases_salees_maitre",
+    "image": "/assets/recipe-images/tortillas_mexicaines_spooky.png",
+    "categories": [
+      "Plats",
+      "Recettes de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "8 tortillas",
+    "aliases": [
+      "tortilla mexicaine",
+      "tortillas de bl?",
+      "wraps maison"
+    ],
+    "ingredients": [
+      {
+        "group": "P?te",
+        "items": [
+          "300 g farine de bl?",
+          "5 g sel fin",
+          "6 g levure chimique",
+          "45 g huile neutre ou huile d?olive",
+          "160 g eau ti?de"
+        ]
+      }
+    ],
+    "steps": [
+      "M?langer farine, sel et levure chimique.",
+      "Ajouter l?huile puis l?eau ti?de progressivement et p?trir jusqu?? obtenir une p?te souple.",
+      "Diviser en 8 p?tons, bouler et laisser reposer 20 ? 30 min sous un linge.",
+      "?taler chaque p?ton tr?s finement sur un plan l?g?rement farin?.",
+      "Cuire ? la po?le chaude 45 ? 60 s par face, sans trop colorer.",
+      "Empiler dans un torchon propre pour garder les tortillas souples."
+    ],
+    "notes": [
+      "Source : <a href=\"https://www.maspatule.com/blog/2022/06/06/recette-tortilla-mexicaine/\" target=\"_blank\" rel=\"noreferrer\">MaSpatule</a>.",
+      "Si elles s?chent, les r?chauffer quelques secondes sous cloche ou dans un torchon humide.",
+      "Stockage : 2 jours bien emball?es, ou cong?lation s?par?es par papier cuisson."
+    ],
+    "tags": [
+      "tortilla",
+      "mexicaine",
+      "wrap",
+      "base",
+      "farine"
+    ],
+    "difficultyScore": 4,
+    "additionalMasters": [
+      "plats_maitre"
+    ]
+  },
+  "mi_cuits_chocolat": {
+    "title": "Mi-cuits au chocolat",
+    "master": "desserts_cuillere_maitre",
+    "image": "/assets/recipe-images/mi_cuits_chocolat_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "6 portions",
+    "aliases": [
+      "mi-cuit chocolat",
+      "fondant chocolat",
+      "coulant chocolat"
+    ],
+    "ingredients": [
+      {
+        "group": "Appareil chocolat",
+        "items": [
+          "200 g chocolat noir",
+          "120 g beurre",
+          "3 ?ufs",
+          "90 g sucre",
+          "45 g farine",
+          "1 g fleur de sel"
+        ]
+      },
+      {
+        "group": "Moules",
+        "items": [
+          "10 g beurre pommade",
+          "10 g cacao ou farine pour chemiser"
+        ]
+      }
+    ],
+    "steps": [
+      "Beurrer et chemiser les moules, puis r?server au froid.",
+      "Faire fondre doucement le chocolat avec le beurre.",
+      "Fouetter les ?ufs avec le sucre sans trop blanchir.",
+      "Incorporer le m?lange chocolat-beurre, puis la farine et la fleur de sel.",
+      "Remplir les moules aux trois quarts et r?server au froid au moins 1 h.",
+      "Cuire ? four chaud 7 ? 10 min selon la taille des moules : les bords doivent ?tre pris et le centre tremblotant.",
+      "Attendre 1 min, d?mouler d?licatement et servir aussit?t."
+    ],
+    "notes": [
+      "Source : <a href=\"https://www.aureliencohen.fr/2020/05/04/mi-cuits-au-chocolat/\" target=\"_blank\" rel=\"noreferrer\">Aur?lien Cohen</a>.",
+      "Le temps de cuisson est le point cl? : tester un moule avant une s?rie.",
+      "Stockage : appareil cru 24 h au r?frig?rateur, cuisson minute recommand?e."
+    ],
+    "tags": [
+      "chocolat",
+      "mi-cuit",
+      "fondant",
+      "coulant"
+    ],
+    "difficultyScore": 6,
+    "additionalMasters": [
+      "desserts_maitre"
+    ]
+  },
+  "cookies_chocolat_blanc_cranberry": {
+    "title": "Cookies chocolat blanc cranberry",
+    "master": "biscuits_gouters_maitre",
+    "image": "/assets/recipe-images/cookies_chocolat_blanc_cranberry_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver",
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "18 cookies",
+    "aliases": [
+      "white chocolate cranberry cookies",
+      "cookies cranberry chocolat blanc"
+    ],
+    "ingredients": [
+      {
+        "group": "P?te",
+        "items": [
+          "115 g beurre mou",
+          "90 g sucre cassonade",
+          "60 g sucre blanc",
+          "1 ?uf",
+          "5 g extrait de vanille",
+          "180 g farine",
+          "3 g bicarbonate",
+          "2 g sel fin"
+        ]
+      },
+      {
+        "group": "Garniture",
+        "items": [
+          "120 g chocolat blanc concass?",
+          "90 g cranberries s?ch?es"
+        ]
+      }
+    ],
+    "steps": [
+      "Cr?mer le beurre mou avec les sucres.",
+      "Ajouter l??uf et la vanille, puis m?langer jusqu?? homog?n?it?.",
+      "Incorporer farine, bicarbonate et sel sans trop travailler.",
+      "Ajouter chocolat blanc et cranberries.",
+      "Former des boules et laisser reposer au froid au moins 30 min.",
+      "Cuire 10 ? 12 min ? 175 ?C, jusqu?? bords pris et centre encore moelleux.",
+      "Laisser figer quelques minutes sur plaque avant de d?placer."
+    ],
+    "notes": [
+      "Source : <a href=\"https://cookedbymomy.com/white-chocolate-cranberry-cookies/?utm_source=Pinterest&utm_medium=organic\" target=\"_blank\" rel=\"noreferrer\">Cooked by Momy</a>.",
+      "Pour des cookies ?pais, cuire la p?te bien froide.",
+      "Stockage : 4 jours en bo?te herm?tique."
+    ],
+    "tags": [
+      "cookies",
+      "chocolat blanc",
+      "cranberry",
+      "gouter"
+    ],
+    "difficultyScore": 3,
+    "additionalMasters": [
+      "desserts_maitre"
+    ]
+  },
+  "macaron_ourea_pierre_herme": {
+    "title": "Macaron Our?a fa?on Pierre Herm?",
+    "master": "biscuits_gouters_maitre",
+    "image": "/assets/recipe-images/macaron_ourea_pierre_herme_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "hard",
+    "yield": "20 macarons",
+    "aliases": [
+      "macaron our?a",
+      "macaron pierre herm?",
+      "macarons noisette yuzu"
+    ],
+    "ingredients": [
+      {
+        "group": "Coques",
+        "items": [
+          "150 g poudre d?amande",
+          "150 g sucre glace",
+          "55 g blancs d??ufs",
+          "150 g sucre semoule",
+          "38 g eau",
+          "55 g blancs d??ufs pour meringue"
+        ]
+      },
+      {
+        "group": "Garniture",
+        "items": [
+          "180 g chocolat blanc",
+          "90 g cr?me liquide",
+          "35 g pralin? noisette",
+          "20 g jus de yuzu ou citron",
+          "25 g noisettes torr?fi?es concass?es"
+        ]
+      }
+    ],
+    "steps": [
+      "Mixer puis tamiser poudre d?amande et sucre glace.",
+      "M?langer une premi?re pes?e de blancs d??ufs avec les poudres pour former une p?te d?amande.",
+      "Cuire eau et sucre ? 118 ?C, verser sur les blancs mont?s et fouetter en meringue italienne ti?de.",
+      "Macaronner la meringue dans la p?te d?amande jusqu?? obtenir un ruban souple.",
+      "Pocher les coques, laisser cro?ter si n?cessaire, puis cuire ? 150 ?C environ 12 ? 14 min.",
+      "Verser la cr?me chaude sur le chocolat blanc, lisser, puis ajouter pralin? et yuzu.",
+      "Garnir les coques refroidies, ajouter quelques noisettes, assembler et maturer 24 h au frais."
+    ],
+    "notes": [
+      "Source : <a href=\"https://maison-kayser.com/cours/la-recette-du-macaron-ourea-de-pierre-herme/\" target=\"_blank\" rel=\"noreferrer\">Maison Kayser</a>.",
+      "Recette technique : pes?es pr?cises, blancs ? temp?rature ambiante et cuisson r?guli?re.",
+      "Stockage : 3 jours au r?frig?rateur, sortir 15 min avant d?gustation."
+    ],
+    "tags": [
+      "macaron",
+      "ourea",
+      "noisette",
+      "yuzu",
+      "pierre herme"
+    ],
+    "difficultyScore": 9,
+    "additionalMasters": [
+      "desserts_maitre"
+    ]
+  },
+  "churros_maison": {
+    "title": "Churros maison",
+    "master": "biscuits_gouters_maitre",
+    "image": "/assets/recipe-images/churros_maison_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "yield": "25 churros",
+    "aliases": [
+      "churros",
+      "churros maison"
+    ],
+    "ingredients": [
+      {
+        "group": "P?te ? churros",
+        "items": [
+          "245 g farine",
+          "3 ?ufs",
+          "2 g sel",
+          "25 g sucre",
+          "30 g huile neutre",
+          "250 g eau"
+        ]
+      },
+      {
+        "group": "Friture et finition",
+        "items": [
+          "1 casserole d?huile neutre pour friture",
+          "1 bol de sucre en poudre"
+        ]
+      }
+    ],
+    "steps": [
+      "Porter ? ?bullition l?eau, l?huile, le sucre et le sel.",
+      "Hors du feu, incorporer la farine ? la maryse.",
+      "Remettre sur feu doux environ 3 min pour dess?cher la p?te, jusqu?? former une fine pellicule au fond de la casserole.",
+      "Transf?rer dans un bol et travailler quelques minutes pour faire redescendre la temp?rature.",
+      "Ajouter les ?ufs battus en 2 fois, en m?langeant jusqu?? obtenir une p?te lisse et souple.",
+      "Mettre en poche munie d?une douille ?toile.",
+      "Chauffer l?huile ? 170 ?C.",
+      "Presser des boudins de p?te au-dessus de l?huile et couper des tron?ons d?environ 15 cm.",
+      "Cuire environ 2 min de chaque c?t?, ?goutter sur papier absorbant, puis rouler dans le sucre."
+    ],
+    "notes": [
+      "Source : fiche image fournie par l?utilisateur, L?atelier de Roxane.",
+      "La p?te doit ?tre assez souple pour ?tre poch?e mais garder les stries de la douille.",
+      "Stockage : meilleur minute, possible 24 h mais perd du croustillant."
+    ],
+    "tags": [
+      "churros",
+      "friture",
+      "gouter",
+      "sucre"
+    ],
+    "difficultyScore": 5,
+    "additionalMasters": [
+      "desserts_maitre"
+    ]
   }
 };

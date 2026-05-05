@@ -140,6 +140,45 @@ function scaleIngredient(text, factor) {
   return `${formatNumber(first * factor)}${match[4]}`;
 }
 
+function scaleYield(text, factor) {
+  const value = String(text || '');
+  if (factor === 1 || !value) return value;
+  let scaledCount = 0;
+  return value.replace(/(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[–-]|à|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?/gi, (match, firstRaw, rangeSep, secondRaw, offset, fullText) => {
+    const after = fullText.slice(offset + match.length).trimStart().toLowerCase();
+    const isDetailAmount = scaledCount > 0 && /^(?:g|kg|mg|ml|cl|cm|mm)\b/.test(after);
+    if (isDetailAmount) return match;
+    const first = parseAmount(firstRaw);
+    const second = secondRaw ? parseAmount(secondRaw) : null;
+    if (!Number.isFinite(first)) return match;
+    scaledCount += 1;
+    if (second !== null && Number.isFinite(second)) {
+      return `${formatNumber(first * factor)}${rangeSep}${formatNumber(second * factor)}`;
+    }
+    return formatNumber(first * factor);
+  });
+}
+
+function scaleYieldDisplay(text, factor) {
+  const value = String(text || '');
+  if (factor === 1 || !value) return value;
+  const quantityPattern = /(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[\u2013\u2014-]|\u00e0|a|â€“|Ã )\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?/gi;
+  const detailUnitPattern = /^(?:\D*\d+(?:[.,]\d+)?(?:\/\d+)?\s*)?(?:g|kg|mg|ml|cl|cm|mm)\b/;
+  let scaledCount = 0;
+  return value.replace(quantityPattern, (match, firstRaw, rangeSep, secondRaw, offset, fullText) => {
+    const after = fullText.slice(offset + match.length).trimStart().toLowerCase();
+    if (scaledCount > 0 && detailUnitPattern.test(after)) return match;
+    const first = parseAmount(firstRaw);
+    const second = secondRaw ? parseAmount(secondRaw) : null;
+    if (!Number.isFinite(first)) return match;
+    scaledCount += 1;
+    if (second !== null && Number.isFinite(second)) {
+      return `${formatNumber(first * factor)}${rangeSep}${formatNumber(second * factor)}`;
+    }
+    return formatNumber(first * factor);
+  });
+}
+
 function recipeShoppingLines(recipe, factor = 1) {
   return (recipe.ingredients || []).flatMap(group => [
     group.group ? `# ${group.group}` : '# Base',
@@ -573,7 +612,7 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
   );
 }
 
-function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect }) {
+function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect, factor = 1 }) {
   if (!variantRefs.length) return null;
   const selectedVariant = selectedVariantId ? variantRefs.find(variant => variant.id === selectedVariantId) : null;
   const selectedRecipe = selectedVariant ? recipesById[selectedVariant.id] : null;
@@ -599,7 +638,7 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
         h('span', { className: 'variant-card-body' },
           h('strong', null, selectedVariant.label || selectedRecipe.title),
           h('small', null, difficultyText(selectedRecipe)),
-          selectedRecipe.yield && h('small', null, selectedRecipe.yield)
+          selectedRecipe.yield && h('small', null, scaleYieldDisplay(selectedRecipe.yield, factor))
         )
       )
     );
@@ -735,7 +774,7 @@ function RecipeView({
             ? h('span', null, `${variantRefs.length} variante${variantRefs.length > 1 ? 's' : ''}`)
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
-              selectedRecipe.yield && h('span', { key: 'yield' }, selectedRecipe.yield),
+              selectedRecipe.yield && h('span', { key: 'yield' }, scaleYieldDisplay(selectedRecipe.yield, factor)),
               h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingrédients`),
               h('span', { key: 'steps' }, `${stepTotal} étapes`)
             ]
@@ -762,7 +801,8 @@ function RecipeView({
       variantRefs,
       recipesById,
       selectedVariantId,
-      onSelect: chooseVariant
+      onSelect: chooseVariant,
+      factor
     }),
     hasSelectedVariant && h('div', { className: 'recipe-detail-grid' },
       h('section', { className: 'recipe-panel ingredients-panel' },

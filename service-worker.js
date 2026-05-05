@@ -4,7 +4,7 @@
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'cook-note-v14';
+const CACHE_NAME = 'cook-note-v16';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -23,7 +23,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v14] Assets statiques mis en cache.');
+        console.log('[SW v16] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
@@ -37,7 +37,7 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-        console.log('[SW v14] Anciens caches supprimés.');
+        console.log('[SW v16] Anciens caches supprimés.');
     })
   );
   self.clients.claim();
