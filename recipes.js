@@ -2138,7 +2138,7 @@ window.RECIPES = {
   },
   "petit_dejeuner_maitre": {
     "title": "Petit-déjeuner",
-    "image": "/assets/recipe-images/parent_petit_dejeuner.jpg",
+    "image": "/assets/recipe-images/parent_petit_dejeuner.png",
     "categories": [
       "Petits-déjeuners"
     ],
@@ -2189,7 +2189,7 @@ window.RECIPES = {
   },
   "entrees_maitre": {
     "title": "Entrées",
-    "image": "/assets/recipe-images/parent_entrees.jpg",
+    "image": "/assets/recipe-images/parent_entrees.png",
     "categories": [
       "Entrées"
     ],
@@ -2268,7 +2268,7 @@ window.RECIPES = {
   },
   "plats_maitre": {
     "title": "Plats",
-    "image": "/assets/recipe-images/parent_plats.jpg",
+    "image": "/assets/recipe-images/parent_plats.png",
     "categories": [
       "Plats"
     ],
@@ -2303,7 +2303,7 @@ window.RECIPES = {
   },
   "desserts_maitre": {
     "title": "Desserts",
-    "image": "/assets/recipe-images/parent_desserts.jpg",
+    "image": "/assets/recipe-images/parent_desserts.png",
     "categories": [
       "Desserts"
     ],
@@ -3210,7 +3210,7 @@ window.RECIPES = {
   },
   "apero_maitre": {
     "title": "Apéro",
-    "image": "/assets/recipe-images/parent_apero.jpg",
+    "image": "/assets/recipe-images/parent_apero.png",
     "categories": [
       "Apéro"
     ],

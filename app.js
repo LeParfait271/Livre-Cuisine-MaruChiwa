@@ -311,7 +311,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
+function TopBar({ onHome, shoppingCount, activeFilterCount, showFavorites, openAdvancedSearch, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
       h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil')
@@ -321,7 +321,14 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
         className: 'btn btn-subtle',
         href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
       }, 'Demander une recette'),
-      h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, '\u{1F6D2}')
+      h(Button, { variant: 'subtle', className: 'filter-trigger', onClick: openAdvancedSearch, title: 'Ouvrir les filtres avances' }, [
+        'Filtres',
+        activeFilterCount > 0 && h('span', { className: 'filter-badge', key: 'count' }, activeFilterCount)
+      ]),
+      h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, [
+        '\u{1F6D2}',
+        shoppingCount > 0 && h('span', { className: 'cart-count', key: 'count' }, shoppingCount)
+      ])
     ),
     h('div', { className: 'top-right' },
       h(Button, {
@@ -1336,7 +1343,9 @@ function App() {
     h(TopBar, {
       onHome: goHome,
       shoppingCount: shoppingRecipes.length,
+      activeFilterCount: activeChips.length,
       showFavorites,
+      openAdvancedSearch: () => setAdvancedOpen(true),
       openShoppingBasket: () => setShoppingOpen(true),
       query,
       setQuery,

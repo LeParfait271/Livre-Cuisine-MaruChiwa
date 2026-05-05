@@ -232,7 +232,28 @@ a {
 }
 
 .cart-icon-btn {
+  position: relative;
   font-size: 18px;
+}
+
+.filter-trigger {
+  min-width: 104px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border: 2px solid var(--surface-strong);
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
 }
 
 .btn {
