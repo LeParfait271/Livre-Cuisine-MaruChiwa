@@ -170,10 +170,12 @@ function scaleYield(text, factor) {
 function scaleYieldDisplay(text, factor) {
   const value = String(text || '');
   if (factor === 1 || !value) return value;
-  const quantityPattern = /(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[\u2013\u2014-]|\u00e0|a|â€“|Ã )\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?/gi;
+  const amountPattern = String.raw`\d+(?:[.,]\d+)?(?:\/\d+)?`;
+  const rangeSeparatorPattern = String.raw`\s*(?:[\u2013\u2014-]|\u00e0|a)\s*`;
+  const quantityPattern = new RegExp(String.raw`(^|pour\s+|ou\s+)(${amountPattern})(${rangeSeparatorPattern}(${amountPattern}))?`, 'gi');
   const detailUnitPattern = /^(?:\D*\d+(?:[.,]\d+)?(?:\/\d+)?\s*)?(?:g|kg|mg|ml|cl|cm|mm)\b/;
   let scaledCount = 0;
-  return value.replace(quantityPattern, (match, firstRaw, rangeSep, secondRaw, offset, fullText) => {
+  return value.replace(quantityPattern, (match, prefix, firstRaw, rangeFull, secondRaw, offset, fullText) => {
     const after = fullText.slice(offset + match.length).trimStart().toLowerCase();
     if (scaledCount > 0 && detailUnitPattern.test(after)) return match;
     const first = parseAmount(firstRaw);
@@ -181,9 +183,10 @@ function scaleYieldDisplay(text, factor) {
     if (!Number.isFinite(first)) return match;
     scaledCount += 1;
     if (second !== null && Number.isFinite(second)) {
-      return `${formatNumber(first * factor)}${rangeSep}${formatNumber(second * factor)}`;
+      const separator = rangeFull.slice(0, rangeFull.length - secondRaw.length);
+      return `${prefix}${formatNumber(first * factor)}${separator}${formatNumber(second * factor)}`;
     }
-    return formatNumber(first * factor);
+    return `${prefix}${formatNumber(first * factor)}`;
   });
 }
 
@@ -663,13 +666,10 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
           className: selectedVariantId === variant.id ? 'variant-card active' : 'variant-card',
           onClick: () => onSelect(variant.id)
         },
-          h('span', {
-            className: 'variant-card-media',
-            style: image ? { backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.52)), url("${image}")` } : {}
-          }),
+          image && h('span', { className: 'variant-card-bg', style: { backgroundImage: `url("${image}")` } }),
           h('span', { className: 'variant-card-body' },
             h('strong', null, variant.label || item.title),
-            h('small', null, difficultyText(item))
+            h('small', { className: 'variant-card-difficulty' }, difficultyText(item))
           )
         );
       })
@@ -761,13 +761,24 @@ function RecipeView({
     onVariantChange?.(recipe.id, variantId);
   }
 
+  const heroUsesHomeImage = showVariants;
+  const heroImage = heroUsesHomeImage ? HERO_IMAGE : (selectedRecipe.image || recipe.image);
+  const heroStyle = heroImage
+    ? {
+      backgroundImage: heroUsesHomeImage
+        ? `linear-gradient(110deg, rgba(4,4,5,.92), rgba(4,4,5,.54) 48%, rgba(4,4,5,.84)), url("${heroImage}")`
+        : `linear-gradient(90deg, rgba(4,4,5,.92), rgba(4,4,5,.50)), url("${heroImage}")`
+    }
+    : {};
+
   return h('main', { className: cookMode ? 'recipe-view cook-mode' : 'recipe-view' },
     h('section', {
-      className: recipe.image ? 'recipe-detail-hero has-photo' : 'recipe-detail-hero',
-      style: (selectedRecipe.image || recipe.image) ? { backgroundImage: `linear-gradient(90deg, rgba(4,4,5,.92), rgba(4,4,5,.50)), url("${selectedRecipe.image || recipe.image}")` } : {}
+      className: heroImage ? (heroUsesHomeImage ? 'recipe-detail-hero has-photo parent-hero' : 'recipe-detail-hero has-photo') : 'recipe-detail-hero',
+      style: heroStyle
     },
       h('div', { className: 'detail-hero-copy' },
         h('button', { type: 'button', className: 'back-link', onClick: goHome }, 'Retour aux recettes'),
+        heroUsesHomeImage && h('img', { className: 'detail-hero-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' }),
         h('p', { className: 'eyebrow' }, primaryCategory(recipe)),
         h('h1', null, recipe.title),
         h('div', { className: 'detail-meta' },

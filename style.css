@@ -691,6 +691,23 @@ a {
   padding: 78px 0 44px;
 }
 
+.parent-hero {
+  min-height: 430px;
+}
+
+.parent-hero .detail-hero-copy {
+  display: grid;
+  justify-items: start;
+  gap: 0;
+}
+
+.detail-hero-logo {
+  width: min(520px, 72vw);
+  height: auto;
+  margin: 0 0 22px;
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .52));
+}
+
 .back-link {
   min-height: 36px;
   margin-bottom: 24px;
@@ -776,16 +793,25 @@ a {
 }
 
 .variant-card {
+  position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 115px 1fr;
-  min-height: 130px;
+  display: block;
+  min-height: 172px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
   color: var(--text);
   padding: 0;
-  text-align: left;
+  text-align: center;
+}
+
+.variant-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(0, 0, 0, .08), rgba(0, 0, 0, .45) 62%),
+    linear-gradient(180deg, rgba(0, 0, 0, .10), rgba(0, 0, 0, .74));
 }
 
 .variant-card.active {
@@ -798,6 +824,20 @@ a {
   text-align: left;
 }
 
+.variant-card-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.01);
+  transition: transform var(--speed);
+}
+
+.variant-card:hover .variant-card-bg,
+.variant-card:focus-visible .variant-card-bg {
+  transform: scale(1.06);
+}
+
 .variant-card-media {
   min-height: 130px;
   background: var(--surface-soft);
@@ -806,21 +846,42 @@ a {
 }
 
 .variant-card-body {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   display: grid;
-  gap: 7px;
-  align-content: center;
-  padding: 15px;
+  place-items: center;
+  padding: 18px;
 }
 
 .variant-card-body strong {
+  max-width: 92%;
   font-size: 18px;
   line-height: 1.14;
+  text-wrap: balance;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
 }
 
 .variant-card-body small {
   color: var(--muted);
   font-weight: 850;
   line-height: 1.35;
+}
+
+.variant-card-difficulty {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, .56);
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 12px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .7);
 }
 
 .ingredients-panel {
