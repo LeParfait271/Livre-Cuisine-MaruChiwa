@@ -120,12 +120,6 @@ window.RECIPES = {
     "notes": [
       "Fiche maître : chantilly simple, riche ou stabilisée."
     ],
-    "tags": [
-      "chantilly",
-      "creme",
-      "dessert",
-      "base"
-    ],
     "technical": [
       {
         "label": "Froid",
@@ -239,15 +233,6 @@ window.RECIPES = {
       "Cette fiche regroupe les toppings, garnitures, chantillys, coulis et crèmes du carnet.",
       "Cliquer une variante pour afficher sa recette."
     ],
-    "tags": [
-      "creme",
-      "patisserie",
-      "garniture",
-      "base",
-      "toping",
-      "chantilly",
-      "coulis"
-    ],
     "technical": [
       {
         "label": "Cuisson",
@@ -316,12 +301,6 @@ window.RECIPES = {
     "notes": [
       "Fiche maître : bases techniques et montages liés."
     ],
-    "tags": [
-      "pate",
-      "base",
-      "choux",
-      "patisserie"
-    ],
     "technical": [
       {
         "label": "Temperature",
@@ -387,12 +366,6 @@ window.RECIPES = {
     "notes": [
       "Fiche maître : sauces froides, condiments, huiles et marinades."
     ],
-    "tags": [
-      "sauce",
-      "pesto",
-      "marinade",
-      "assaisonnement"
-    ],
     "technical": [
       {
         "label": "Equilibre",
@@ -442,12 +415,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche maître : préparations de tomates au four."
-    ],
-    "tags": [
-      "tomate",
-      "confit",
-      "seche",
-      "aperitif"
     ],
     "technical": [
       {
@@ -505,12 +472,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche maître : biscuits, cookies et petites préparations sucrées ou salées."
-    ],
-    "tags": [
-      "cookies",
-      "biscuits",
-      "meringue",
-      "gouter"
     ],
     "technical": [
       {
@@ -572,12 +533,6 @@ window.RECIPES = {
     "notes": [
       "Fiche maître : recettes du matin, goûter et boissons chaudes."
     ],
-    "tags": [
-      "petit-dejeuner",
-      "pancakes",
-      "donuts",
-      "chocolat"
-    ],
     "technical": [
       {
         "label": "Organisation",
@@ -634,12 +589,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche maître : bases salées, accompagnements et préparations de service."
-    ],
-    "tags": [
-      "base",
-      "accompagnement",
-      "sale",
-      "legumes"
     ],
     "technical": [
       {
@@ -2236,10 +2185,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
-    ],
-    "tags": [
-      "petits-déjeuners",
-      "fiche-parent"
     ]
   },
   "entrees_maitre": {
@@ -2319,10 +2264,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
-    ],
-    "tags": [
-      "entrées",
-      "fiche-parent"
     ]
   },
   "plats_maitre": {
@@ -2358,10 +2299,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
-    ],
-    "tags": [
-      "plats",
-      "fiche-parent"
     ]
   },
   "desserts_maitre": {
@@ -2505,10 +2442,6 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
-    ],
-    "tags": [
-      "desserts",
-      "fiche-parent"
     ]
   },
   "creme_kinder_nutella": {
@@ -3350,8 +3283,7 @@ window.RECIPES = {
     "difficulty": "easy",
     "ingredients": [],
     "steps": [],
-    "notes": [],
-    "tags": []
+    "notes": []
   },
   "desserts_cuillere_maitre": {
     "title": "Desserts à la cuillère",
@@ -3378,8 +3310,7 @@ window.RECIPES = {
     "difficulty": "easy",
     "ingredients": [],
     "steps": [],
-    "notes": [],
-    "tags": []
+    "notes": []
   },
   "tartes_maitre": {
     "title": "Tartes",
@@ -3409,8 +3340,7 @@ window.RECIPES = {
     "difficulty": "easy",
     "ingredients": [],
     "steps": [],
-    "notes": [],
-    "tags": []
+    "notes": []
   },
   "crudites_maitre": {
     "title": "Crudités et salades fraîches",

@@ -313,23 +313,27 @@ function Button(props) {
 
 function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
+    h('div', { className: 'top-left' },
+      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil')
+    ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
-      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil'),
-      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
-      h(Button, { variant: 'subtle', onClick: openShoppingBasket }, `${shoppingCount} courses`),
       h('a', {
         className: 'btn btn-subtle',
         href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
-      }, 'Demander une recette')
+      }, 'Demander une recette'),
+      h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, '\u{1F6D2}')
     ),
-    h('div', { className: 'field top-search' },
-      h('label', null, 'Recherche'),
-      h('input', {
-        ref: searchRef,
-        value: query,
-        onChange: event => setQuery(event.target.value),
-        placeholder: 'Rechercher une recette...'
-      })
+    h('div', { className: 'top-right' },
+      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
+      h('div', { className: 'field top-search' },
+        h('label', null, 'Recherche'),
+        h('input', {
+          ref: searchRef,
+          value: query,
+          onChange: event => setQuery(event.target.value),
+          placeholder: 'Rechercher une recette...'
+        })
+      )
     )
   );
 }
@@ -427,7 +431,6 @@ function Hero({ currentSeason }) {
     }
   },
     h('div', { className: 'hero-inner' },
-      h('p', { className: 'eyebrow' }, `Saison actuelle · ${currentSeason}`),
       h('img', { className: 'hero-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' })
     )
   );
@@ -738,7 +741,7 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
     h('div', { className: 'panel-heading' },
       h('div', null,
         h('p', { className: 'eyebrow' }, 'Recettes'),
-        h('h2', null, 'Choisir une variante')
+        h('h2', null, 'Choisir une recette')
       ),
       h('span', { className: 'progress-label' }, `${variantRefs.length} variante${variantRefs.length > 1 ? 's' : ''}`)
     ),
