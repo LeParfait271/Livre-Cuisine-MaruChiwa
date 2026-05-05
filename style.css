@@ -744,6 +744,35 @@ a {
 .variant-picker-panel-selected {
   display: grid;
   gap: 12px;
+  min-height: 210px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.variant-picker-panel-selected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 22rem),
+    linear-gradient(180deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .42));
+}
+
+.variant-picker-panel-selected > * {
+  position: relative;
+  z-index: 1;
+}
+
+.variant-picker-panel-selected .panel-heading {
+  align-items: start;
+}
+
+.selected-recipe-meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-weight: 850;
 }
 
 .variant-card {
@@ -1178,7 +1207,11 @@ a {
 
 @media (max-width: 1040px) {
   .topbar {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "home actions actions"
+      "search search fav";
+    align-items: stretch;
   }
 
   .topbar-status {
@@ -1186,14 +1219,31 @@ a {
   }
 
   .top-search {
-    justify-self: center;
-    width: min(520px, 100%);
+    width: 100%;
   }
 
-  .top-left,
-  .top-right,
+  .top-left {
+    grid-area: home;
+    justify-self: start;
+  }
+
   .top-actions {
-    justify-self: center;
+    grid-area: actions;
+    justify-self: end;
+    justify-content: end;
+  }
+
+  .top-right {
+    display: contents;
+  }
+
+  .top-fav-btn {
+    grid-area: fav;
+    justify-self: end;
+  }
+
+  .top-right .top-search {
+    grid-area: search;
   }
 
   .recipe-detail-grid {
@@ -1203,23 +1253,26 @@ a {
 
 @media (max-width: 700px) {
   .topbar {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "home fav"
+      "actions actions"
+      "search search";
     gap: 8px;
   }
 
   .top-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .top-right {
-    display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 44px;
     width: 100%;
   }
 
-  .top-actions .btn:first-child {
-    grid-column: 1 / -1;
+  .top-actions .btn {
+    width: 100%;
+  }
+
+  .top-left .btn {
+    min-width: 0;
   }
 
   .hero {

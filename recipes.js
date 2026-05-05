@@ -398,7 +398,7 @@ window.RECIPES = {
       },
       {
         "id": "tomates_provencales",
-        "label": "Tomates proven?ales"
+        "label": "Tomates provençales"
       }
     ],
     "ingredients": [
@@ -463,7 +463,7 @@ window.RECIPES = {
       },
       {
         "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Our?a fa?on Pierre Herm?"
+        "label": "Macaron Ouréa façon Pierre Hermé"
       },
       {
         "id": "churros_maison",
@@ -2302,7 +2302,7 @@ window.RECIPES = {
       },
       {
         "id": "tomates_provencales",
-        "label": "Tomates proven?ales"
+        "label": "Tomates provençales"
       },
       {
         "id": "tortillas_mexicaines",
@@ -2461,7 +2461,7 @@ window.RECIPES = {
       },
       {
         "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Our?a fa?on Pierre Herm?"
+        "label": "Macaron Ouréa façon Pierre Hermé"
       },
       {
         "id": "churros_maison",
@@ -3464,48 +3464,48 @@ window.RECIPES = {
     "difficultyScore": 1
   },
   "tomates_provencales": {
-    "title": "Tomates proven?ales",
+    "title": "Tomates provençales",
     "master": "tomates_maitre",
     "image": "/assets/recipe-images/tomates_provencales_spooky.png",
     "categories": [
-      "Entr?es",
+      "Entrées",
       "Plats"
     ],
     "seasons": [
-      "?t?"
+      "Été"
     ],
     "difficulty": "easy",
     "yield": "4 personnes",
     "aliases": [
-      "tomates proven?ales",
-      "tomates ? la proven?ale"
+      "tomates provençales",
+      "tomates à la provençale"
     ],
     "ingredients": [
       {
         "group": "Tomates",
         "items": [
-          "4 tomates m?res",
+          "4 tomates mûres",
           "25 g chapelure",
-          "15 g parmesan r?p?",
-          "10 g persil hach?",
-          "1 gousse d?ail hach?e",
-          "20 g huile d?olive",
+          "15 g parmesan râpé",
+          "10 g persil haché",
+          "1 gousse d’ail hachée",
+          "20 g huile d’olive",
           "2 g sel fin",
           "1 g poivre"
         ]
       }
     ],
     "steps": [
-      "Pr?chauffer le four ? 180 ?C.",
-      "Couper les tomates en deux, les saler l?g?rement et les poser dans un plat huil?.",
-      "M?langer chapelure, parmesan, ail, persil, poivre et un filet d?huile d?olive.",
-      "R?partir la persillade sur les tomates.",
-      "Cuire 25 ? 35 min, jusqu?? obtenir des tomates fondantes et un dessus dor?."
+      "Préchauffer le four à 180 °C.",
+      "Couper les tomates en deux, les saler légèrement et les poser dans un plat huilé.",
+      "Mélanger chapelure, parmesan, ail, persil, poivre et un filet d’huile d’olive.",
+      "Répartir la persillade sur les tomates.",
+      "Cuire 25 à 35 min, jusqu’à obtenir des tomates fondantes et un dessus doré."
     ],
     "notes": [
       "Source : <a href=\"https://www.meilleurduchef.com/fr/recette/tomate-provencale.html\" target=\"_blank\" rel=\"noreferrer\">Meilleur du Chef</a>.",
-      "Servir chaud, ti?de ou en accompagnement d?une viande grill?e.",
-      "Stockage : 2 jours au r?frig?rateur, r?chauffer au four doux."
+      "Servir chaud, tiède ou en accompagnement d’une viande grillée.",
+      "Stockage : 2 jours au réfrigérateur, réchauffer au four doux."
     ],
     "tags": [
       "tomate",
@@ -3534,33 +3534,33 @@ window.RECIPES = {
     "yield": "8 tortillas",
     "aliases": [
       "tortilla mexicaine",
-      "tortillas de bl?",
+      "tortillas de blé",
       "wraps maison"
     ],
     "ingredients": [
       {
-        "group": "P?te",
+        "group": "Pâte",
         "items": [
-          "300 g farine de bl?",
+          "300 g farine de blé",
           "5 g sel fin",
           "6 g levure chimique",
-          "45 g huile neutre ou huile d?olive",
-          "160 g eau ti?de"
+          "45 g huile neutre ou huile d’olive",
+          "160 g eau tiède"
         ]
       }
     ],
     "steps": [
-      "M?langer farine, sel et levure chimique.",
-      "Ajouter l?huile puis l?eau ti?de progressivement et p?trir jusqu?? obtenir une p?te souple.",
-      "Diviser en 8 p?tons, bouler et laisser reposer 20 ? 30 min sous un linge.",
-      "?taler chaque p?ton tr?s finement sur un plan l?g?rement farin?.",
-      "Cuire ? la po?le chaude 45 ? 60 s par face, sans trop colorer.",
+      "Mélanger farine, sel et levure chimique.",
+      "Ajouter l’huile puis l’eau tiède progressivement et pétrir jusqu’à obtenir une pâte souple.",
+      "Diviser en 8 pâtons, bouler et laisser reposer 20 à 30 min sous un linge.",
+      "Étaler chaque pâton très finement sur un plan légèrement fariné.",
+      "Cuire à la poêle chaude 45 à 60 s par face, sans trop colorer.",
       "Empiler dans un torchon propre pour garder les tortillas souples."
     ],
     "notes": [
       "Source : <a href=\"https://www.maspatule.com/blog/2022/06/06/recette-tortilla-mexicaine/\" target=\"_blank\" rel=\"noreferrer\">MaSpatule</a>.",
-      "Si elles s?chent, les r?chauffer quelques secondes sous cloche ou dans un torchon humide.",
-      "Stockage : 2 jours bien emball?es, ou cong?lation s?par?es par papier cuisson."
+      "Si elles sèchent, les réchauffer quelques secondes sous cloche ou dans un torchon humide.",
+      "Stockage : 2 jours bien emballées, ou congélation séparées par papier cuisson."
     ],
     "tags": [
       "tortilla",
@@ -3597,7 +3597,7 @@ window.RECIPES = {
         "items": [
           "200 g chocolat noir",
           "120 g beurre",
-          "3 ?ufs",
+          "3 œufs",
           "90 g sucre",
           "45 g farine",
           "1 g fleur de sel"
@@ -3612,18 +3612,18 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Beurrer et chemiser les moules, puis r?server au froid.",
+      "Beurrer et chemiser les moules, puis réserver au froid.",
       "Faire fondre doucement le chocolat avec le beurre.",
-      "Fouetter les ?ufs avec le sucre sans trop blanchir.",
-      "Incorporer le m?lange chocolat-beurre, puis la farine et la fleur de sel.",
-      "Remplir les moules aux trois quarts et r?server au froid au moins 1 h.",
-      "Cuire ? four chaud 7 ? 10 min selon la taille des moules : les bords doivent ?tre pris et le centre tremblotant.",
-      "Attendre 1 min, d?mouler d?licatement et servir aussit?t."
+      "Fouetter les œufs avec le sucre sans trop blanchir.",
+      "Incorporer le mélange chocolat-beurre, puis la farine et la fleur de sel.",
+      "Remplir les moules aux trois quarts et réserver au froid au moins 1 h.",
+      "Cuire à four chaud 7 à 10 min selon la taille des moules : les bords doivent être pris et le centre tremblotant.",
+      "Attendre 1 min, démouler délicatement et servir aussitôt."
     ],
     "notes": [
-      "Source : <a href=\"https://www.aureliencohen.fr/2020/05/04/mi-cuits-au-chocolat/\" target=\"_blank\" rel=\"noreferrer\">Aur?lien Cohen</a>.",
-      "Le temps de cuisson est le point cl? : tester un moule avant une s?rie.",
-      "Stockage : appareil cru 24 h au r?frig?rateur, cuisson minute recommand?e."
+      "Source : <a href=\"https://www.aureliencohen.fr/2020/05/04/mi-cuits-au-chocolat/\" target=\"_blank\" rel=\"noreferrer\">Aurélien Cohen</a>.",
+      "Le temps de cuisson est le point clé : tester un moule avant une série.",
+      "Stockage : appareil cru 24 h au réfrigérateur, cuisson minute recommandée."
     ],
     "tags": [
       "chocolat",
@@ -3656,12 +3656,12 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "P?te",
+        "group": "Pâte",
         "items": [
           "115 g beurre mou",
           "90 g sucre cassonade",
           "60 g sucre blanc",
-          "1 ?uf",
+          "1 œuf",
           "5 g extrait de vanille",
           "180 g farine",
           "3 g bicarbonate",
@@ -3671,24 +3671,24 @@ window.RECIPES = {
       {
         "group": "Garniture",
         "items": [
-          "120 g chocolat blanc concass?",
-          "90 g cranberries s?ch?es"
+          "120 g chocolat blanc concassé",
+          "90 g cranberries séchées"
         ]
       }
     ],
     "steps": [
-      "Cr?mer le beurre mou avec les sucres.",
-      "Ajouter l??uf et la vanille, puis m?langer jusqu?? homog?n?it?.",
+      "Crémer le beurre mou avec les sucres.",
+      "Ajouter l’œuf et la vanille, puis mélanger jusqu’à homogénéité.",
       "Incorporer farine, bicarbonate et sel sans trop travailler.",
       "Ajouter chocolat blanc et cranberries.",
       "Former des boules et laisser reposer au froid au moins 30 min.",
-      "Cuire 10 ? 12 min ? 175 ?C, jusqu?? bords pris et centre encore moelleux.",
-      "Laisser figer quelques minutes sur plaque avant de d?placer."
+      "Cuire 10 à 12 min à 175 °C, jusqu’à bords pris et centre encore moelleux.",
+      "Laisser figer quelques minutes sur plaque avant de déplacer."
     ],
     "notes": [
-      "Source : <a href=\"https://cookedbymomy.com/white-chocolate-cranberry-cookies/?utm_source=Pinterest&utm_medium=organic\" target=\"_blank\" rel=\"noreferrer\">Cooked by Momy</a>.",
-      "Pour des cookies ?pais, cuire la p?te bien froide.",
-      "Stockage : 4 jours en bo?te herm?tique."
+      "Source : <a href=\"https://cookedbymomy.com/white-chocolate-cranberry-cookies/\" target=\"_blank\" rel=\"noreferrer\">Cooked by Momy</a>.",
+      "Pour des cookies épais, cuire la pâte bien froide.",
+      "Stockage : 4 jours en boîte hermétique."
     ],
     "tags": [
       "cookies",
@@ -3702,7 +3702,7 @@ window.RECIPES = {
     ]
   },
   "macaron_ourea_pierre_herme": {
-    "title": "Macaron Our?a fa?on Pierre Herm?",
+    "title": "Macaron Ouréa façon Pierre Hermé",
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/macaron_ourea_pierre_herme_spooky.png",
     "categories": [
@@ -3714,46 +3714,46 @@ window.RECIPES = {
     "difficulty": "hard",
     "yield": "20 macarons",
     "aliases": [
-      "macaron our?a",
-      "macaron pierre herm?",
+      "macaron ouréa",
+      "macaron pierre hermé",
       "macarons noisette yuzu"
     ],
     "ingredients": [
       {
         "group": "Coques",
         "items": [
-          "150 g poudre d?amande",
+          "150 g poudre d’amande",
           "150 g sucre glace",
-          "55 g blancs d??ufs",
+          "55 g blancs d’œufs",
           "150 g sucre semoule",
           "38 g eau",
-          "55 g blancs d??ufs pour meringue"
+          "55 g blancs d’œufs pour meringue"
         ]
       },
       {
         "group": "Garniture",
         "items": [
           "180 g chocolat blanc",
-          "90 g cr?me liquide",
-          "35 g pralin? noisette",
+          "90 g crème liquide",
+          "35 g praliné noisette",
           "20 g jus de yuzu ou citron",
-          "25 g noisettes torr?fi?es concass?es"
+          "25 g noisettes torréfiées concassées"
         ]
       }
     ],
     "steps": [
-      "Mixer puis tamiser poudre d?amande et sucre glace.",
-      "M?langer une premi?re pes?e de blancs d??ufs avec les poudres pour former une p?te d?amande.",
-      "Cuire eau et sucre ? 118 ?C, verser sur les blancs mont?s et fouetter en meringue italienne ti?de.",
-      "Macaronner la meringue dans la p?te d?amande jusqu?? obtenir un ruban souple.",
-      "Pocher les coques, laisser cro?ter si n?cessaire, puis cuire ? 150 ?C environ 12 ? 14 min.",
-      "Verser la cr?me chaude sur le chocolat blanc, lisser, puis ajouter pralin? et yuzu.",
+      "Mixer puis tamiser poudre d’amande et sucre glace.",
+      "Mélanger une première pesée de blancs d’œufs avec les poudres pour former une pâte d’amande.",
+      "Cuire eau et sucre à 118 °C, verser sur les blancs montés et fouetter en meringue italienne tiède.",
+      "Macaronner la meringue dans la pâte d’amande jusqu’à obtenir un ruban souple.",
+      "Pocher les coques, laisser croûter si nécessaire, puis cuire à 150 °C environ 12 à 14 min.",
+      "Verser la crème chaude sur le chocolat blanc, lisser, puis ajouter praliné et yuzu.",
       "Garnir les coques refroidies, ajouter quelques noisettes, assembler et maturer 24 h au frais."
     ],
     "notes": [
       "Source : <a href=\"https://maison-kayser.com/cours/la-recette-du-macaron-ourea-de-pierre-herme/\" target=\"_blank\" rel=\"noreferrer\">Maison Kayser</a>.",
-      "Recette technique : pes?es pr?cises, blancs ? temp?rature ambiante et cuisson r?guli?re.",
-      "Stockage : 3 jours au r?frig?rateur, sortir 15 min avant d?gustation."
+      "Recette technique : pesées précises, blancs à température ambiante et cuisson régulière.",
+      "Stockage : 3 jours au réfrigérateur, sortir 15 min avant dégustation."
     ],
     "tags": [
       "macaron",
@@ -3785,10 +3785,10 @@ window.RECIPES = {
     ],
     "ingredients": [
       {
-        "group": "P?te ? churros",
+        "group": "Pâte à churros",
         "items": [
           "245 g farine",
-          "3 ?ufs",
+          "3 œufs",
           "2 g sel",
           "25 g sucre",
           "30 g huile neutre",
@@ -3798,25 +3798,25 @@ window.RECIPES = {
       {
         "group": "Friture et finition",
         "items": [
-          "1 casserole d?huile neutre pour friture",
+          "1 casserole d’huile neutre pour friture",
           "1 bol de sucre en poudre"
         ]
       }
     ],
     "steps": [
-      "Porter ? ?bullition l?eau, l?huile, le sucre et le sel.",
-      "Hors du feu, incorporer la farine ? la maryse.",
-      "Remettre sur feu doux environ 3 min pour dess?cher la p?te, jusqu?? former une fine pellicule au fond de la casserole.",
-      "Transf?rer dans un bol et travailler quelques minutes pour faire redescendre la temp?rature.",
-      "Ajouter les ?ufs battus en 2 fois, en m?langeant jusqu?? obtenir une p?te lisse et souple.",
-      "Mettre en poche munie d?une douille ?toile.",
-      "Chauffer l?huile ? 170 ?C.",
-      "Presser des boudins de p?te au-dessus de l?huile et couper des tron?ons d?environ 15 cm.",
-      "Cuire environ 2 min de chaque c?t?, ?goutter sur papier absorbant, puis rouler dans le sucre."
+      "Porter à ébullition l’eau, l’huile, le sucre et le sel.",
+      "Hors du feu, incorporer la farine à la maryse.",
+      "Remettre sur feu doux environ 3 min pour dessécher la pâte, jusqu’à former une fine pellicule au fond de la casserole.",
+      "Transférer dans un bol et travailler quelques minutes pour faire redescendre la température.",
+      "Ajouter les œufs battus en 2 fois, en mélangeant jusqu’à obtenir une pâte lisse et souple.",
+      "Mettre en poche munie d’une douille étoile.",
+      "Chauffer l’huile à 170 °C.",
+      "Presser des boudins de pâte au-dessus de l’huile et couper des tronçons d’environ 15 cm.",
+      "Cuire environ 2 min de chaque côté, égoutter sur papier absorbant, puis rouler dans le sucre."
     ],
     "notes": [
-      "Source : fiche image fournie par l?utilisateur, L?atelier de Roxane.",
-      "La p?te doit ?tre assez souple pour ?tre poch?e mais garder les stries de la douille.",
+      "Source : fiche image fournie par l’utilisateur, L’atelier de Roxane.",
+      "La pâte doit être assez souple pour être pochée mais garder les stries de la douille.",
       "Stockage : meilleur minute, possible 24 h mais perd du croustillant."
     ],
     "tags": [

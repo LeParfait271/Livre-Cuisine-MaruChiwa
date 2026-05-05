@@ -12,9 +12,27 @@ vm.runInContext(code, context, { filename: recipesPath });
 const recipes = context.window.RECIPES;
 const errors = [];
 
+function checkTextEncoding(value, location) {
+  if (typeof value === 'string') {
+    if (/[�]/.test(value) || /\?/.test(value)) {
+      errors.push(`${location}: caractere suspect detecte (${value}).`);
+    }
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => checkTextEncoding(item, `${location}[${index}]`));
+    return;
+  }
+  if (value && typeof value === 'object') {
+    Object.entries(value).forEach(([key, item]) => checkTextEncoding(item, `${location}.${key}`));
+  }
+}
+
 if (!recipes || typeof recipes !== 'object') {
   errors.push('window.RECIPES est introuvable.');
 } else {
+  checkTextEncoding(recipes, 'window.RECIPES');
+
   const ids = new Set(Object.keys(recipes));
   const masterIds = new Set(Object.entries(recipes)
     .filter(([, recipe]) => Array.isArray(recipe.variants) && recipe.variants.length)

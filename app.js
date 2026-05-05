@@ -106,6 +106,14 @@ function getVariantRefs(recipe) {
   return Array.isArray(recipe.variants) ? recipe.variants.filter(variant => variant && variant.id) : [];
 }
 
+function sortVariantRefs(variantRefs, recipesById = {}) {
+  return [...variantRefs].sort((a, b) => {
+    const left = a.label || recipesById[a.id]?.title || a.id;
+    const right = b.label || recipesById[b.id]?.title || b.id;
+    return left.localeCompare(right, 'fr', { sensitivity: 'base' });
+  });
+}
+
 function isMasterRecipe(recipe) {
   return getVariantRefs(recipe).length > 0;
 }
@@ -613,33 +621,26 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
 }
 
 function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect, factor = 1 }) {
-  if (!variantRefs.length) return null;
-  const selectedVariant = selectedVariantId ? variantRefs.find(variant => variant.id === selectedVariantId) : null;
+  const sortedVariantRefs = sortVariantRefs(variantRefs, recipesById);
+  if (!sortedVariantRefs.length) return null;
+  const selectedVariant = selectedVariantId ? sortedVariantRefs.find(variant => variant.id === selectedVariantId) : null;
   const selectedRecipe = selectedVariant ? recipesById[selectedVariant.id] : null;
   if (selectedVariant && selectedRecipe) {
     const image = selectedRecipe.image || parent.image;
-    return h('section', { className: 'recipe-panel variant-picker-panel variant-picker-panel-selected' },
+    const panelStyle = image
+      ? { backgroundImage: `linear-gradient(90deg, rgba(4,4,5,.86), rgba(4,4,5,.58) 48%, rgba(4,4,5,.30)), url("${image}")` }
+      : {};
+    return h('section', { className: 'recipe-panel variant-picker-panel variant-picker-panel-selected', style: panelStyle },
       h('div', { className: 'panel-heading' },
         h('div', null,
           h('p', { className: 'eyebrow' }, 'Recette sélectionnée'),
-          h('h2', null, selectedVariant.label || selectedRecipe.title)
+          h('h2', null, selectedVariant.label || selectedRecipe.title),
+          h('p', { className: 'selected-recipe-meta' },
+            difficultyText(selectedRecipe),
+            selectedRecipe.yield && h(React.Fragment, null, ' · ', scaleYieldDisplay(selectedRecipe.yield, factor))
+          )
         ),
         h(Button, { variant: 'subtle', onClick: () => onSelect('') }, 'Changer de recette')
-      ),
-      h('button', {
-        type: 'button',
-        className: 'variant-card active selected-variant-card',
-        onClick: () => onSelect('')
-      },
-        h('span', {
-          className: 'variant-card-media',
-          style: image ? { backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.52)), url("${image}")` } : {}
-        }),
-        h('span', { className: 'variant-card-body' },
-          h('strong', null, selectedVariant.label || selectedRecipe.title),
-          h('small', null, difficultyText(selectedRecipe)),
-          selectedRecipe.yield && h('small', null, scaleYieldDisplay(selectedRecipe.yield, factor))
-        )
       )
     );
   }
@@ -649,10 +650,10 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
         h('p', { className: 'eyebrow' }, 'Recettes'),
         h('h2', null, 'Choisir une recette')
       ),
-      h('span', { className: 'progress-label' }, `${variantRefs.length} variante${variantRefs.length > 1 ? 's' : ''}`)
+      h('span', { className: 'progress-label' }, `${sortedVariantRefs.length} variante${sortedVariantRefs.length > 1 ? 's' : ''}`)
     ),
     h('div', { className: 'variant-card-grid' },
-      variantRefs.map(variant => {
+      sortedVariantRefs.map(variant => {
         const item = recipesById[variant.id];
         if (!item) return null;
         const image = item.image || parent.image;
@@ -698,7 +699,7 @@ function RecipeView({
   onVariantChange
 }) {
   const [factor, setFactor] = useState(1);
-  const variantRefs = getVariantRefs(recipe);
+  const variantRefs = useMemo(() => sortVariantRefs(getVariantRefs(recipe), recipesById), [recipe.id, recipesById]);
   const showVariants = variantRefs.length > 0;
   const [selectedVariantId, setSelectedVariantId] = useState(() => initialSelectedVariantId || (showVariants ? '' : recipe.id));
   const selectedVariantRecipe = selectedVariantId ? recipesById[selectedVariantId] : null;
@@ -809,7 +810,7 @@ function RecipeView({
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
           hasSelectedVariant && h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
-            [0.25, 0.5, 1, 2, 4].map(value => h('button', {
+            [0.25, 0.5, 1, 2].map(value => h('button', {
               key: value,
               type: 'button',
               className: factor === value ? 'active' : '',
@@ -917,6 +918,7 @@ function App() {
   const [shoppingOpen, setShoppingOpen] = useState(false);
   const searchRef = useRef(null);
   const homeScrollRef = useRef(0);
+  const restoreHomeScrollRef = useRef(false);
   const historyRef = useRef([{}]);
   const historyIndexRef = useRef(0);
 
@@ -1061,9 +1063,9 @@ function App() {
   }
 
   function goHome() {
+    restoreHomeScrollRef.current = Boolean(activeRecipe);
     setActiveId(null);
     history.pushState('', document.title, window.location.pathname + window.location.search);
-    requestAnimationFrame(() => window.scrollTo({ top: homeScrollRef.current || 0, behavior: 'auto' }));
   }
 
   function showFavorites() {
@@ -1079,7 +1081,7 @@ function App() {
       const variant = getInitialHashVariant();
       if (recipe && !activeId) homeScrollRef.current = window.scrollY || homeScrollRef.current || 0;
       setActiveId(recipe);
-      if (!recipe) requestAnimationFrame(() => window.scrollTo({ top: homeScrollRef.current || 0, behavior: 'auto' }));
+      if (!recipe) restoreHomeScrollRef.current = true;
       if (recipe && variant) {
         setVariantSelection(prev => ({ ...prev, [recipe]: variant }));
       } else if (recipe) {
@@ -1093,6 +1095,13 @@ function App() {
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, [activeId]);
+
+  useEffect(() => {
+    if (activeRecipe || !restoreHomeScrollRef.current) return;
+    restoreHomeScrollRef.current = false;
+    const top = homeScrollRef.current || 0;
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top, behavior: 'auto' })));
+  }, [activeRecipe]);
 
   useEffect(() => {
     const handleGoto = event => {
