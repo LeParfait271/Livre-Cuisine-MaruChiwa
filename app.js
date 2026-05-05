@@ -742,6 +742,35 @@ function ShoppingBasketPanel({ open, onClose, recipes, removeRecipe, clearShoppi
 
 function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantId, onSelect }) {
   if (!variantRefs.length) return null;
+  const selectedVariant = selectedVariantId ? variantRefs.find(variant => variant.id === selectedVariantId) : null;
+  const selectedRecipe = selectedVariant ? recipesById[selectedVariant.id] : null;
+  if (selectedVariant && selectedRecipe) {
+    const image = selectedRecipe.image || parent.image;
+    return h('section', { className: 'recipe-panel variant-picker-panel variant-picker-panel-selected' },
+      h('div', { className: 'panel-heading' },
+        h('div', null,
+          h('p', { className: 'eyebrow' }, 'Recette sélectionnée'),
+          h('h2', null, selectedVariant.label || selectedRecipe.title)
+        ),
+        h(Button, { variant: 'subtle', onClick: () => onSelect('') }, 'Changer de recette')
+      ),
+      h('button', {
+        type: 'button',
+        className: 'variant-card active selected-variant-card',
+        onClick: () => onSelect('')
+      },
+        h('span', {
+          className: 'variant-card-media',
+          style: image ? { backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.52)), url("${image}")` } : {}
+        }),
+        h('span', { className: 'variant-card-body' },
+          h('strong', null, selectedVariant.label || selectedRecipe.title),
+          h('small', null, difficultyText(selectedRecipe)),
+          selectedRecipe.yield && h('small', null, selectedRecipe.yield)
+        )
+      )
+    );
+  }
   return h('section', { className: 'recipe-panel variant-picker-panel' },
     h('div', { className: 'panel-heading' },
       h('div', null,
@@ -1162,6 +1191,16 @@ function App() {
   }
 
   function selectVariant(parentId, variantId) {
+    if (!variantId) {
+      setVariantSelection(prev => {
+        const next = { ...prev };
+        delete next[parentId];
+        return next;
+      });
+      const parentHash = `#recipe=${encodeURIComponent(parentId)}`;
+      if (window.location.hash !== parentHash) window.location.hash = parentHash.slice(1);
+      return;
+    }
     setVariantSelection(prev => ({ ...prev, [parentId]: variantId }));
     const nextHash = `#recipe=${encodeURIComponent(parentId)}&variant=${encodeURIComponent(variantId)}`;
     if (window.location.hash !== nextHash) window.location.hash = nextHash.slice(1);

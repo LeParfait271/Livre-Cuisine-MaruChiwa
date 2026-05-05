@@ -791,6 +791,11 @@ a {
   gap: 10px;
 }
 
+.variant-picker-panel-selected {
+  display: grid;
+  gap: 12px;
+}
+
 .variant-card {
   overflow: hidden;
   display: grid;
@@ -807,6 +812,11 @@ a {
 .variant-card.active {
   border-color: color-mix(in srgb, var(--accent) 72%, white);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 48%, transparent);
+}
+
+.selected-variant-card {
+  width: min(520px, 100%);
+  text-align: left;
 }
 
 .variant-card-media {
