@@ -94,11 +94,11 @@ window.RECIPES = {
     "variants": [
       {
         "id": "chantilly_classique",
-        "label": "Classique"
+        "label": "Chantilly classique"
       },
       {
         "id": "chantilly_gelatine",
-        "label": "Stabilisée gélatine"
+        "label": "Chantilly stabilis?e"
       }
     ],
     "ingredients": [
@@ -132,7 +132,7 @@ window.RECIPES = {
     "master": "cremes_maitre"
   },
   "cremes_maitre": {
-    "title": "Toping et garniture",
+    "title": "Toppings et garnitures",
     "image": "/assets/recipe-images/cremes_maitre_spooky.png",
     "categories": [
       "Desserts",
@@ -146,59 +146,63 @@ window.RECIPES = {
     "variants": [
       {
         "id": "chantilly_classique",
-        "label": "Chantilly classique au fouet"
+        "label": "Chantilly classique"
       },
       {
         "id": "chantilly_gelatine",
-        "label": "Chantilly stabilisée (gélatine)"
+        "label": "Chantilly stabilis?e"
       },
       {
-        "id": "creme_diplomate_vanille",
-        "label": "Crème diplomate vanille"
-      },
-      {
-        "id": "creme_diplomate_cloud",
-        "label": "Crème diplomate vanille (pour donuts & choux)"
-      },
-      {
-        "id": "creme_patissiere_praline",
-        "label": "Crème pâtissière praliné"
-      },
-      {
-        "id": "creme_praline",
-        "label": "Crème praliné"
+        "id": "coulis_maitre",
+        "label": "Coulis"
       },
       {
         "id": "creme_beurre_meringue_italienne",
-        "label": "Crème au beurre (base crème anglaise + meringue italienne)"
+        "label": "Cr?me au beurre meringue italienne"
+      },
+      {
+        "id": "creme_citron_lemon_curd",
+        "label": "Cr?me citron"
+      },
+      {
+        "id": "creme_diplomate_cloud",
+        "label": "Cr?me diplomate vanille ? garnir"
+      },
+      {
+        "id": "creme_praline",
+        "label": "Cr?me pralin?"
+      },
+      {
+        "id": "creme_amande_citron",
+        "label": "Crème d’amande"
       },
       {
         "id": "creme_amande_",
         "label": "Crème d'amandes"
       },
       {
-        "id": "mascarpone",
-        "label": "Crème mascarpone vanille"
+        "id": "creme_diplomate_vanille",
+        "label": "Crème diplomate vanille"
       },
       {
         "id": "creme_kinder_nutella",
         "label": "Crème Kinder / Nutella stable"
       },
       {
-        "id": "creme_pistache",
-        "label": "Crème pistache stable"
+        "id": "mascarpone",
+        "label": "Crème mascarpone vanille"
+      },
+      {
+        "id": "creme_patissiere_praline",
+        "label": "Crème pâtissière praliné"
       },
       {
         "id": "creme_patissiere_vanille",
         "label": "Crème pâtissière vanille"
       },
       {
-        "id": "creme_citron_lemon_curd",
-        "label": "Crème citron (lemon curd)"
-      },
-      {
-        "id": "creme_amande_citron",
-        "label": "Crème d’amande"
+        "id": "creme_pistache",
+        "label": "Crème pistache stable"
       },
       {
         "id": "compotee_citron",
@@ -207,10 +211,6 @@ window.RECIPES = {
       {
         "id": "meringue_italienne",
         "label": "Meringue italienne"
-      },
-      {
-        "id": "coulis_maitre",
-        "label": "Coulis"
       }
     ],
     "ingredients": [
@@ -258,28 +258,28 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "pate_choux",
-        "label": "Pâte à choux"
+        "id": "choux_craquelin",
+        "label": "Choux au craquelin"
       },
       {
         "id": "craquelin_cacao",
         "label": "Craquelin cacao"
       },
       {
-        "id": "pate_noisette",
-        "label": "Pâte de noisette maison"
-      },
-      {
-        "id": "choux_craquelin",
-        "label": "Choux au craquelin"
+        "id": "pate_sucree",
+        "label": "P?te sucr?e"
       },
       {
         "id": "paris_brest",
         "label": "Paris-Brest"
       },
       {
-        "id": "pate_sucree",
-        "label": "Pâte sucrée"
+        "id": "pate_choux",
+        "label": "Pâte à choux"
+      },
+      {
+        "id": "pate_noisette",
+        "label": "Pâte de noisette maison"
       }
     ],
     "ingredients": [
@@ -327,24 +327,24 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "vinaigrette",
-        "label": "Vinaigrette"
+        "id": "balsamique_reduit",
+        "label": "Balsamique r?duit"
+      },
+      {
+        "id": "huile_pimentee_pizza",
+        "label": "Huile piment?e pour pizza"
+      },
+      {
+        "id": "marinades_guide",
+        "label": "Marinades"
       },
       {
         "id": "pesto_variantes",
         "label": "Pesto"
       },
       {
-        "id": "balsamique_reduit",
-        "label": "Balsamique réduit"
-      },
-      {
-        "id": "huile_pimentee_pizza",
-        "label": "Huile pimentée"
-      },
-      {
-        "id": "marinades_guide",
-        "label": "Marinades"
+        "id": "vinaigrette",
+        "label": "Vinaigrette de chef"
       }
     ],
     "ingredients": [
@@ -394,7 +394,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "tomates_variantes",
-        "label": "Séchées ou confites"
+        "label": "Tomates au four"
       },
       {
         "id": "tomates_provencales",
@@ -446,28 +446,28 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "cookies_sales_variantes",
-        "label": "Cookies salés (base + variantes)"
+        "id": "churros_maison",
+        "label": "Churros"
       },
       {
         "id": "cookies",
         "label": "Cookies américains"
       },
       {
-        "id": "meringues",
-        "label": "Meringues"
-      },
-      {
         "id": "cookies_chocolat_blanc_cranberry",
         "label": "Cookies chocolat blanc cranberry"
       },
       {
-        "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Ouréa façon Pierre Hermé"
+        "id": "cookies_sales_variantes",
+        "label": "Cookies sal?s"
       },
       {
-        "id": "churros_maison",
-        "label": "Churros maison"
+        "id": "macaron_ourea_pierre_herme",
+        "label": "Macaron Our?a"
+      },
+      {
+        "id": "meringues",
+        "label": "Meringues"
       }
     ],
     "ingredients": [
@@ -514,20 +514,20 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "pancakes_variantes",
-        "label": "Pancakes"
+        "id": "donuts_cloud",
+        "label": "Beignets Cloud"
       },
       {
         "id": "chocolat_ancien",
-        "label": "Chocolat chaud"
-      },
-      {
-        "id": "donuts_cloud",
-        "label": "Donuts"
+        "label": "Chocolat chaud à l'ancienne"
       },
       {
         "id": "gaufre_bruxelles",
-        "label": "Gaufre de Bruxelles"
+        "label": "Gaufres de Bruxelles"
+      },
+      {
+        "id": "pancakes_variantes",
+        "label": "Pancakes"
       }
     ],
     "ingredients": [
@@ -575,16 +575,16 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouettée"
+        "id": "court_bouillon",
+        "label": "Court-bouillon"
       },
       {
         "id": "legumes_rotis",
-        "label": "Légumes rôtis"
+        "label": "Légumes rôtis au four"
       },
       {
-        "id": "court_bouillon",
-        "label": "Court-bouillon"
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouett?e"
       },
       {
         "id": "tortillas_mexicaines",
@@ -622,7 +622,7 @@ window.RECIPES = {
     "master": "entrees_maitre"
   },
   "vinaigrette": {
-    "title": "Vinaigrette de chef (variantes)",
+    "title": "Vinaigrette de chef",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/vinaigrette_spooky.png",
     "categories": [
@@ -658,10 +658,10 @@ window.RECIPES = {
       "Conservation : 5–7 j au froid.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "pesto_variantes": {
-    "title": "Pesto (base + variantes)",
+    "title": "Pesto",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/pesto_variantes_spooky.png",
     "categories": [
@@ -709,10 +709,10 @@ window.RECIPES = {
       "Conservation : 2–4 j au froid, film au contact + fine couche d’huile.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 3
   },
   "ricotta_fouettee": {
-    "title": "Ricotta fouettée (assaisonnements)",
+    "title": "Ricotta fouett?e",
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/ricotta_fouettee_spooky.png",
     "categories": [
@@ -741,10 +741,10 @@ window.RECIPES = {
       "Conservation : 2–3 j au froid.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "balsamique_reduit": {
-    "title": "Balsamique réduit (variantes)",
+    "title": "Balsamique r?duit",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/balsamique_reduit_spooky.png",
     "categories": [
@@ -772,10 +772,10 @@ window.RECIPES = {
       "Conservation : 2–3 mois au froid.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "tomates_variantes": {
-    "title": "Tomates au four (séchées ou confites)",
+    "title": "Tomates au four",
     "master": "tomates_maitre",
     "image": "/assets/recipe-images/tomates_variantes_spooky.png",
     "categories": [
@@ -819,10 +819,10 @@ window.RECIPES = {
       "Confites : idéales en bruschetta / pâtes.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 6
+    "difficultyScore": 4
   },
   "huile_pimentee_pizza": {
-    "title": "Huile pimentée pour pizza (variantes)",
+    "title": "Huile piment?e pour pizza",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/huile_pimentee_pizza_spooky.png",
     "categories": [
@@ -853,7 +853,7 @@ window.RECIPES = {
       "Conservation : 1 mois au froid.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "legumes_rotis": {
     "title": "Légumes rôtis au four",
@@ -1037,7 +1037,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "cookies_sales_variantes": {
-    "title": "Cookies salés (base + variantes)",
+    "title": "Cookies sal?s",
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/cookies_sales_variantes_spooky.png",
     "categories": [
@@ -1088,7 +1088,7 @@ window.RECIPES = {
     "difficultyScore": 4
   },
   "pancakes_variantes": {
-    "title": "Pancakes (lait ou babeurre + base babeurre maison)",
+    "title": "Pancakes",
     "master": "petits_dejeuners_maitre",
     "image": "/assets/recipe-images/pancakes_variantes_spooky.png",
     "categories": [
@@ -1145,7 +1145,7 @@ window.RECIPES = {
       "Conservation : pâte 4 h au froid ; pancakes cuits 2 j filmés.",
       "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
-    "difficultyScore": 7,
+    "difficultyScore": 3,
     "aliases": [
       "pancakes",
       "babeurre"
@@ -1187,7 +1187,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "chantilly_classique": {
-    "title": "Chantilly classique au fouet",
+    "title": "Chantilly classique",
     "master": "chantilly_maitre",
     "image": "/assets/recipe-images/chantilly_classique_spooky.png",
     "categories": [
@@ -1262,7 +1262,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "chantilly_gelatine": {
-    "title": "Chantilly stabilisée (gélatine)",
+    "title": "Chantilly stabilis?e",
     "master": "chantilly_maitre",
     "image": "/assets/recipe-images/chantilly_gelatine_spooky.png",
     "categories": [
@@ -1290,7 +1290,7 @@ window.RECIPES = {
       "Tenue 24–36 h en poche.",
       "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 4
   },
   "creme_diplomate_vanille": {
     "title": "Crème diplomate vanille",
@@ -1344,7 +1344,7 @@ window.RECIPES = {
       "fourrage",
       "donut"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 6
   },
   "choux_craquelin": {
     "title": "Choux au craquelin",
@@ -1437,7 +1437,7 @@ window.RECIPES = {
       "Conservation : 3 j boîte hermétique ; pâte crue congélée 1 mois.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 3
   },
   "meringues": {
     "title": "Meringues",
@@ -1509,7 +1509,7 @@ window.RECIPES = {
       "Conservation : 5 j au froid ; congélateur 2 mois.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "coulis_framboise": {
     "title": "Coulis de framboise",
@@ -1539,7 +1539,7 @@ window.RECIPES = {
       "Conservation : 5 j au froid ; congélateur 2 mois.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "coulis_abricot_vanille": {
     "title": "Coulis abricot-vanille",
@@ -1570,7 +1570,7 @@ window.RECIPES = {
       "Conservation : 5 j au froid ; congélateur 2 mois.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "coulis_poire": {
     "title": "Coulis de poire",
@@ -1602,10 +1602,10 @@ window.RECIPES = {
       "Conservation : 5 j au froid ; congélateur 2 mois.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "coulis_guide": {
-    "title": "Coulis — guide (formules & variantes)",
+    "title": "Guide des coulis",
     "master": "coulis_maitre",
     "image": "/assets/recipe-images/coulis_guide_spooky.png",
     "categories": [
@@ -1639,7 +1639,7 @@ window.RECIPES = {
       "Conservation : 5 j au froid ; congélateur 2 mois.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 2
   },
   "creme_amande_": {
     "title": "Crème d'amandes",
@@ -1736,10 +1736,10 @@ window.RECIPES = {
       "Conservation : 3–4 j au froid ; se congèle très bien 2–3 mois (en portions de 250 ml).",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "donuts_cloud": {
-    "title": "Beignets Cloud-like",
+    "title": "Beignets Cloud",
     "master": "petits_dejeuners_maitre",
     "categories": [
       "Petits-déjeuners",
@@ -1812,7 +1812,7 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "creme_diplomate_cloud": {
-    "title": "Crème diplomate vanille (pour donuts & choux)",
+    "title": "Cr?me diplomate vanille ? garnir",
     "master": "cremes_maitre",
     "categories": [
       "Desserts"
@@ -1880,7 +1880,7 @@ window.RECIPES = {
       "Congélation : possible pour la pâtissière seule (avant incorporation chantilly) — 1 mois. Fouetter à nouveau après décongélation.",
       "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 6
   },
   "paris_brest": {
     "title": "Paris-Brest",
@@ -1927,7 +1927,7 @@ window.RECIPES = {
       "Sortir du réfrigérateur 30 à 40 min avant dégustation.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 8
   },
   "craquelin_cacao": {
     "title": "Craquelin cacao",
@@ -1963,7 +1963,7 @@ window.RECIPES = {
       "Composant pour : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "pate_choux": {
     "title": "Pâte à choux",
@@ -2031,7 +2031,7 @@ window.RECIPES = {
       "Composant utilisable dans crèmes, pralinés et ganaches.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "creme_patissiere_praline": {
     "title": "Crème pâtissière praliné",
@@ -2074,10 +2074,10 @@ window.RECIPES = {
       "Ajuster le praliné/pâte de noisette selon l’intensité souhaitée.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 6
   },
   "creme_beurre_meringue_italienne": {
-    "title": "Crème au beurre (base crème anglaise + meringue italienne)",
+    "title": "Cr?me au beurre meringue italienne",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_beurre_meringue_italienne_spooky.png",
     "categories": [
@@ -2117,10 +2117,10 @@ window.RECIPES = {
       "Base technique pour plusieurs entremets/pâtisseries classiques.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 8
   },
   "creme_praline": {
-    "title": "Crème praliné",
+    "title": "Cr?me pralin?",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_praline_spooky.png",
     "categories": [
@@ -2149,7 +2149,7 @@ window.RECIPES = {
       "→ Utilisée dans : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 5
   },
   "petit_dejeuner_maitre": {
     "title": "Petit-déjeuner",
@@ -2167,24 +2167,24 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "pancakes_variantes",
-        "label": "Pancakes (lait ou babeurre + base babeurre maison)"
-      },
-      {
         "id": "babeurre_maison",
         "label": "Babeurre maison"
+      },
+      {
+        "id": "donuts_cloud",
+        "label": "Beignets Cloud"
       },
       {
         "id": "chocolat_ancien",
         "label": "Chocolat chaud à l'ancienne"
       },
       {
-        "id": "donuts_cloud",
-        "label": "Beignets Cloud-like"
+        "id": "gaufre_bruxelles",
+        "label": "Gaufres de Bruxelles"
       },
       {
-        "id": "gaufre_bruxelles",
-        "label": "Gaufre de Bruxelles traditionnelle"
+        "id": "pancakes_variantes",
+        "label": "Pancakes"
       }
     ],
     "ingredients": [
@@ -2218,52 +2218,52 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat, œuf et épinards"
+        "id": "balsamique_reduit",
+        "label": "Balsamique r?duit"
       },
       {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouettée (assaisonnements)"
-      },
-      {
-        "id": "legumes_rotis",
-        "label": "Légumes rôtis au four"
+        "id": "cake_sale_lardon",
+        "label": "Cake sal? aux lardons"
       },
       {
         "id": "court_bouillon",
         "label": "Court-bouillon"
       },
       {
-        "id": "vinaigrette",
-        "label": "Vinaigrette de chef (variantes)"
-      },
-      {
-        "id": "pesto_variantes",
-        "label": "Pesto (base + variantes)"
-      },
-      {
-        "id": "balsamique_reduit",
-        "label": "Balsamique réduit (variantes)"
-      },
-      {
         "id": "huile_pimentee_pizza",
-        "label": "Huile pimentée pour pizza (variantes)"
+        "label": "Huile piment?e pour pizza"
+      },
+      {
+        "id": "legumes_rotis",
+        "label": "Légumes rôtis au four"
       },
       {
         "id": "marinades_guide",
         "label": "Marinades"
       },
       {
-        "id": "tomates_variantes",
-        "label": "Tomates au four (séchées ou confites)"
-      },
-      {
         "id": "oignons_rotis_thym_miel",
         "label": "Oignons rôtis au thym et au miel"
       },
       {
-        "id": "cake_sale_lardon",
-        "label": "Cake salé lardon"
+        "id": "pesto_variantes",
+        "label": "Pesto"
+      },
+      {
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouett?e"
+      },
+      {
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat, œuf et épinards"
+      },
+      {
+        "id": "tomates_variantes",
+        "label": "Tomates au four"
+      },
+      {
+        "id": "vinaigrette",
+        "label": "Vinaigrette de chef"
       }
     ],
     "ingredients": [
@@ -2341,59 +2341,91 @@ window.RECIPES = {
     "variants": [
       {
         "id": "chantilly_classique",
-        "label": "Chantilly classique au fouet"
+        "label": "Chantilly classique"
       },
       {
         "id": "chantilly_gelatine",
-        "label": "Chantilly stabilisée (gélatine)"
+        "label": "Chantilly stabilis?e"
       },
       {
-        "id": "creme_diplomate_vanille",
-        "label": "Crème diplomate vanille"
+        "id": "choux_craquelin",
+        "label": "Choux au craquelin"
       },
       {
-        "id": "creme_diplomate_cloud",
-        "label": "Crème diplomate vanille (pour donuts & choux)"
+        "id": "churros_maison",
+        "label": "Churros"
       },
       {
-        "id": "creme_patissiere_praline",
-        "label": "Crème pâtissière praliné"
+        "id": "cookies",
+        "label": "Cookies américains"
       },
       {
-        "id": "creme_praline",
-        "label": "Crème praliné"
+        "id": "cookies_chocolat_blanc_cranberry",
+        "label": "Cookies chocolat blanc cranberry"
+      },
+      {
+        "id": "cookies_sales_variantes",
+        "label": "Cookies sal?s"
+      },
+      {
+        "id": "coulis_maitre",
+        "label": "Coulis"
       },
       {
         "id": "creme_beurre_meringue_italienne",
-        "label": "Crème au beurre (base crème anglaise + meringue italienne)"
+        "label": "Cr?me au beurre meringue italienne"
+      },
+      {
+        "id": "creme_citron_lemon_curd",
+        "label": "Cr?me citron"
+      },
+      {
+        "id": "creme_diplomate_cloud",
+        "label": "Cr?me diplomate vanille ? garnir"
+      },
+      {
+        "id": "creme_praline",
+        "label": "Cr?me pralin?"
+      },
+      {
+        "id": "craquelin_cacao",
+        "label": "Craquelin cacao"
+      },
+      {
+        "id": "creme_amande_citron",
+        "label": "Crème d’amande"
       },
       {
         "id": "creme_amande_",
         "label": "Crème d'amandes"
       },
       {
-        "id": "mascarpone",
-        "label": "Crème mascarpone vanille"
+        "id": "creme_diplomate_vanille",
+        "label": "Crème diplomate vanille"
       },
       {
         "id": "creme_kinder_nutella",
         "label": "Crème Kinder / Nutella stable"
       },
       {
-        "id": "creme_pistache",
-        "label": "Crème pistache stable"
+        "id": "mascarpone",
+        "label": "Crème mascarpone vanille"
+      },
+      {
+        "id": "creme_patissiere_praline",
+        "label": "Crème pâtissière praliné"
       },
       {
         "id": "creme_patissiere_vanille",
         "label": "Crème pâtissière vanille"
       },
       {
-        "id": "creme_citron_lemon_curd",
-        "label": "Crème citron (lemon curd)"
+        "id": "creme_pistache",
+        "label": "Crème pistache stable"
       },
       {
-        "id": "creme_amande_citron",
-        "label": "Crème d’amande"
+        "id": "macaron_ourea_pierre_herme",
+        "label": "Macaron Our?a"
       },
       {
         "id": "compotee_citron",
@@ -2404,68 +2436,36 @@ window.RECIPES = {
         "label": "Meringue italienne"
       },
       {
-        "id": "pate_choux",
-        "label": "Pâte à choux"
-      },
-      {
-        "id": "craquelin_cacao",
-        "label": "Craquelin cacao"
-      },
-      {
-        "id": "pate_noisette",
-        "label": "Pâte de noisette maison"
-      },
-      {
-        "id": "choux_craquelin",
-        "label": "Choux au craquelin"
-      },
-      {
-        "id": "paris_brest",
-        "label": "Paris-Brest"
-      },
-      {
-        "id": "pate_sucree",
-        "label": "Pâte sucrée"
-      },
-      {
-        "id": "cookies_sales_variantes",
-        "label": "Cookies salés (base + variantes)"
-      },
-      {
-        "id": "cookies",
-        "label": "Cookies américains"
-      },
-      {
         "id": "meringues",
         "label": "Meringues"
-      },
-      {
-        "id": "tiramisu_speculoos",
-        "label": "Tiramisu spéculoos rapide"
-      },
-      {
-        "id": "tarte_citron_meringuee",
-        "label": "Tarte citron meringuée"
-      },
-      {
-        "id": "coulis_maitre",
-        "label": "Coulis"
       },
       {
         "id": "mi_cuits_chocolat",
         "label": "Mi-cuits au chocolat"
       },
       {
-        "id": "cookies_chocolat_blanc_cranberry",
-        "label": "Cookies chocolat blanc cranberry"
+        "id": "pate_sucree",
+        "label": "P?te sucr?e"
       },
       {
-        "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Ouréa façon Pierre Hermé"
+        "id": "paris_brest",
+        "label": "Paris-Brest"
       },
       {
-        "id": "churros_maison",
-        "label": "Churros maison"
+        "id": "pate_choux",
+        "label": "Pâte à choux"
+      },
+      {
+        "id": "pate_noisette",
+        "label": "Pâte de noisette maison"
+      },
+      {
+        "id": "tarte_citron_meringuee",
+        "label": "Tarte citron meringuée"
+      },
+      {
+        "id": "tiramisu_speculoos",
+        "label": "Tiramisu sp?culoos"
       }
     ],
     "ingredients": [
@@ -2566,7 +2566,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "gaufre_bruxelles": {
-    "title": "Gaufre de Bruxelles traditionnelle",
+    "title": "Gaufres de Bruxelles",
     "master": "petits_dejeuners_maitre",
     "image": "/assets/recipe-images/gaufre_bruxelles_spooky.png",
     "categories": [
@@ -2611,7 +2611,7 @@ window.RECIPES = {
       "bruxelles",
       "petit-dejeuner"
     ],
-    "difficultyScore": 4
+    "difficultyScore": 3
   },
   "tarte_citron_meringuee": {
     "title": "Tarte citron meringuée",
@@ -2701,10 +2701,10 @@ window.RECIPES = {
       "meringue",
       "dessert"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 8
   },
   "tiramisu_speculoos": {
-    "title": "Tiramisu spéculoos rapide",
+    "title": "Tiramisu sp?culoos",
     "master": "desserts_cuillere_maitre",
     "image": "/assets/recipe-images/tiramisu_speculoos_spooky.png",
     "categories": [
@@ -2747,10 +2747,10 @@ window.RECIPES = {
       "speculoos",
       "rapide"
     ],
-    "difficultyScore": 4
+    "difficultyScore": 3
   },
   "cake_sale_lardon": {
-    "title": "Cake salé lardon",
+    "title": "Cake sal? aux lardons",
     "master": "entrees_maitre",
     "image": "/assets/recipe-images/cake_sale_lardon_spooky.png",
     "categories": [
@@ -2805,7 +2805,7 @@ window.RECIPES = {
       "lardon",
       "apero"
     ],
-    "difficultyScore": 4
+    "difficultyScore": 3
   },
   "oignons_rotis_thym_miel": {
     "title": "Oignons rôtis au thym et au miel",
@@ -2854,7 +2854,7 @@ window.RECIPES = {
       "miel",
       "accompagnement"
     ],
-    "difficultyScore": 3
+    "difficultyScore": 2
   },
   "cochon_confit_biere_erable": {
     "title": "Cochon confit à la bière et au sirop d’érable",
@@ -2910,10 +2910,10 @@ window.RECIPES = {
       "erable",
       "mijote"
     ],
-    "difficultyScore": 6
+    "difficultyScore": 5
   },
   "pate_sucree": {
-    "title": "Pâte sucrée",
+    "title": "P?te sucr?e",
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_sucree_spooky.png",
     "categories": [
@@ -2953,7 +2953,7 @@ window.RECIPES = {
       "base",
       "patisserie"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 5
   },
   "creme_amande_citron": {
     "title": "Crème d’amande",
@@ -3003,7 +3003,7 @@ window.RECIPES = {
     ]
   },
   "creme_citron_lemon_curd": {
-    "title": "Crème citron (lemon curd)",
+    "title": "Cr?me citron",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_citron_lemon_curd_spooky.png",
     "categories": [
@@ -3047,7 +3047,7 @@ window.RECIPES = {
       "lemon-curd",
       "garniture"
     ],
-    "difficultyScore": 6
+    "difficultyScore": 5
   },
   "compotee_citron": {
     "title": "Marmelade citron",
@@ -3090,7 +3090,7 @@ window.RECIPES = {
       "tarte",
       "garniture"
     ],
-    "difficultyScore": 7,
+    "difficultyScore": 5,
     "aliases": [
       "marmelade citron",
       "compotée citron"
@@ -3138,7 +3138,7 @@ window.RECIPES = {
       "base",
       "patisserie"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 6
   },
   "creme_patissiere_vanille": {
     "title": "Crème pâtissière vanille",
@@ -3184,7 +3184,7 @@ window.RECIPES = {
       "vanille",
       "base"
     ],
-    "difficultyScore": 7
+    "difficultyScore": 5
   },
   "salade_avocat_oeuf_epinards": {
     "title": "Salade avocat, œuf et épinards",
@@ -3242,7 +3242,7 @@ window.RECIPES = {
       "epinards",
       "entree"
     ],
-    "difficultyScore": 4,
+    "difficultyScore": 2,
     "additionalMasters": [
       "apero_maitre"
     ]
@@ -3261,56 +3261,56 @@ window.RECIPES = {
     ],
     "variants": [
       {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat, œuf et épinards"
+        "id": "balsamique_reduit",
+        "label": "Balsamique r?duit"
       },
       {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouettée (assaisonnements)"
+        "id": "cake_sale_lardon",
+        "label": "Cake sal? aux lardons"
       },
       {
-        "id": "legumes_rotis",
-        "label": "Légumes rôtis au four"
+        "id": "cookies_sales_variantes",
+        "label": "Cookies sal?s"
       },
       {
         "id": "court_bouillon",
         "label": "Court-bouillon"
       },
       {
-        "id": "vinaigrette",
-        "label": "Vinaigrette de chef (variantes)"
-      },
-      {
-        "id": "pesto_variantes",
-        "label": "Pesto (base + variantes)"
-      },
-      {
-        "id": "balsamique_reduit",
-        "label": "Balsamique réduit (variantes)"
-      },
-      {
         "id": "huile_pimentee_pizza",
-        "label": "Huile pimentée pour pizza (variantes)"
+        "label": "Huile piment?e pour pizza"
+      },
+      {
+        "id": "legumes_rotis",
+        "label": "Légumes rôtis au four"
       },
       {
         "id": "marinades_guide",
         "label": "Marinades"
       },
       {
-        "id": "cake_sale_lardon",
-        "label": "Cake salé lardon"
+        "id": "oignons_rotis_thym_miel",
+        "label": "Oignons rôtis au thym et au miel"
       },
       {
-        "id": "cookies_sales_variantes",
-        "label": "Cookies salés (base + variantes)"
+        "id": "pesto_variantes",
+        "label": "Pesto"
+      },
+      {
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouett?e"
+      },
+      {
+        "id": "salade_avocat_oeuf_epinards",
+        "label": "Salade avocat, œuf et épinards"
       },
       {
         "id": "tomates_variantes",
-        "label": "Tomates au four (séchées ou confites)"
+        "label": "Tomates au four"
       },
       {
-        "id": "oignons_rotis_thym_miel",
-        "label": "Oignons rôtis au thym et au miel"
+        "id": "vinaigrette",
+        "label": "Vinaigrette de chef"
       }
     ],
     "technical": [
@@ -3336,12 +3336,12 @@ window.RECIPES = {
     ],
     "variants": [
       {
-        "id": "tiramisu_speculoos",
-        "label": "Tiramisu spéculoos rapide"
-      },
-      {
         "id": "mi_cuits_chocolat",
         "label": "Mi-cuits au chocolat"
+      },
+      {
+        "id": "tiramisu_speculoos",
+        "label": "Tiramisu sp?culoos"
       }
     ],
     "technical": [
@@ -3631,7 +3631,7 @@ window.RECIPES = {
       "fondant",
       "coulant"
     ],
-    "difficultyScore": 6,
+    "difficultyScore": 5,
     "additionalMasters": [
       "desserts_maitre"
     ]
@@ -3702,7 +3702,7 @@ window.RECIPES = {
     ]
   },
   "macaron_ourea_pierre_herme": {
-    "title": "Macaron Ouréa façon Pierre Hermé",
+    "title": "Macaron Our?a",
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/macaron_ourea_pierre_herme_spooky.png",
     "categories": [
@@ -3759,8 +3759,7 @@ window.RECIPES = {
       "macaron",
       "ourea",
       "noisette",
-      "yuzu",
-      "pierre herme"
+      "yuzu"
     ],
     "difficultyScore": 9,
     "additionalMasters": [
@@ -3768,7 +3767,7 @@ window.RECIPES = {
     ]
   },
   "churros_maison": {
-    "title": "Churros maison",
+    "title": "Churros",
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/churros_maison_spooky.png",
     "categories": [

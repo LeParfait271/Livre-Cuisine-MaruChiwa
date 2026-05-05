@@ -1,10 +1,10 @@
 // ============================================================
-//  Cook Note - Service Worker PWA v7
+//  Cook Note - Service Worker PWA v23
 //  Cache-first pour assets statiques
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'cook-note-v22';
+const CACHE_NAME = 'cook-note-v23';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -15,6 +15,7 @@ const STATIC_ASSETS = [
   '/recipe.js',
   '/manifest.json',
   '/assets/cook-note.png',
+  '/assets/base-principale-fond-site.jpg',
 ];
 
 // Installation
@@ -23,7 +24,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v22] Assets statiques mis en cache.');
+        console.log('[SW v23] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
@@ -37,7 +38,7 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-        console.log('[SW v22] Anciens caches supprimés.');
+        console.log('[SW v23] Anciens caches supprimés.');
     })
   );
   self.clients.claim();

@@ -231,6 +231,10 @@ a {
   justify-self: end;
 }
 
+.top-search-button {
+  font-size: 18px;
+}
+
 .cart-icon-btn {
   position: relative;
   font-size: 18px;
@@ -504,6 +508,11 @@ a {
   transition: transform var(--speed), border-color var(--speed), box-shadow var(--speed);
 }
 
+.recipe-card.master-card {
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+}
+
 .recipe-card:hover,
 .recipe-card:focus-visible {
   transform: translateY(-3px);
@@ -736,27 +745,6 @@ a {
   color: var(--accent-ink);
 }
 
-.cook-mode-bar {
-  position: sticky;
-  top: 72px;
-  z-index: 18;
-  width: min(1180px, calc(100% - 32px));
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin: 0 auto;
-  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface) 92%, black);
-  box-shadow: var(--shadow);
-  padding: 10px 14px;
-}
-
-.cook-mode-bar strong {
-  color: var(--accent);
-}
-
 .timer-pill {
   border-radius: 999px;
   background: var(--accent);
@@ -765,25 +753,8 @@ a {
   font-weight: 950;
 }
 
-.cook-mode .recipe-detail-grid {
-  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
-}
-
-.cook-mode .notes-panel {
-  grid-column: 1 / -1;
-}
-
-.cook-mode .step-list li {
-  padding: 16px;
-}
-
-.cook-mode .step-text {
-  font-size: 18px;
-  line-height: 1.55;
-}
-
 .recipe-detail-hero {
-  min-height: 300px;
+  min-height: 250px;
   display: flex;
   align-items: end;
   border-bottom: 1px solid var(--line);
@@ -797,21 +768,31 @@ a {
 .detail-hero-copy {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 54px 0 34px;
+  padding: 44px 0 28px;
 }
 
 .parent-hero {
-  min-height: 340px;
+  min-height: 330px;
 }
 
 .parent-hero .detail-hero-copy {
   display: grid;
-  justify-items: start;
+  justify-items: center;
   gap: 0;
+  text-align: center;
+}
+
+.parent-hero .back-link {
+  justify-self: start;
+}
+
+.parent-hero .detail-meta,
+.parent-hero .detail-actions {
+  justify-content: center;
 }
 
 .detail-hero-logo {
-  width: min(390px, 66vw);
+  width: min(560px, 78vw);
   height: auto;
   margin: 0 0 14px;
   filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .52));
@@ -842,7 +823,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr) minmax(280px, .7fr);
   gap: 16px;
-  margin: -34px auto 0;
+  margin: 16px auto 0;
 }
 
 .recipe-panel {
@@ -854,7 +835,7 @@ a {
   position: relative;
   z-index: 2;
   width: min(1180px, calc(100% - 32px));
-  margin: -34px auto 16px;
+  margin: 16px auto;
 }
 
 .variant-picker-panel + .recipe-detail-grid {
@@ -870,7 +851,7 @@ a {
 .variant-picker-panel-selected {
   display: grid;
   gap: 12px;
-  min-height: 210px;
+  min-height: 160px;
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -1097,6 +1078,45 @@ a {
 .ingredient-group h3 {
   margin: 0 0 10px;
   font-size: 15px;
+}
+
+.ingredient-group-toggle {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+  color: var(--text);
+  padding: 0 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 950;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ingredient-group-toggle:hover,
+.ingredient-group-toggle:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+}
+
+.ingredient-toggle-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+}
+
+.collapsible-ingredient-group ul {
+  margin-top: 10px;
 }
 
 .ingredient-group-link {
@@ -1377,10 +1397,10 @@ a {
 
 @media (max-width: 1040px) {
   .topbar {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 44px 1fr auto;
     grid-template-areas:
-      "home actions actions"
-      "search search fav";
+      "home actions actions actions"
+      "search-btn search search fav";
     align-items: stretch;
   }
 
@@ -1412,6 +1432,11 @@ a {
     justify-self: end;
   }
 
+  .top-search-button {
+    grid-area: search-btn;
+    justify-self: start;
+  }
+
   .top-right .top-search {
     grid-area: search;
   }
@@ -1431,11 +1456,11 @@ a {
   }
 
   .topbar {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 44px 1fr auto;
     grid-template-areas:
-      "home fav"
-      "actions actions"
-      "search search";
+      "home . fav"
+      "actions actions actions"
+      "search-btn search search";
     gap: 8px;
   }
 

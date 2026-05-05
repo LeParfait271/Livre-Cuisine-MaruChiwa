@@ -4,6 +4,13 @@ const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const recipesPath = path.join(ROOT, 'recipes.js');
+const textFilesToCheck = [
+  path.join(ROOT, 'index.html'),
+  path.join(ROOT, 'app.js'),
+  path.join(ROOT, 'style.css'),
+  path.join(ROOT, 'manifest.json'),
+  path.join(ROOT, 'service-worker.js')
+];
 const code = fs.readFileSync(recipesPath, 'utf8');
 const context = { window: {} };
 vm.createContext(context);
@@ -48,12 +55,22 @@ if (!recipes || typeof recipes !== 'object') {
     if (!masterIds.has(id) && !recipe.master) errors.push(`${id}: recette sans fiche parent.`);
 
     if (Array.isArray(recipe.variants)) {
+      const labels = recipe.variants.map(variant => variant?.label || '');
+      const sortedLabels = [...labels].sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
+      if (labels.join('\n') !== sortedLabels.join('\n')) errors.push(`${id}: variantes non triees alphabetiquement.`);
       recipe.variants.forEach(variant => {
         if (!variant?.id || !ids.has(variant.id)) errors.push(`${id}: variante introuvable (${variant?.id || 'vide'}).`);
         const variantRecipe = recipes[variant?.id];
+        if (variantRecipe && variant.label !== variantRecipe.title) errors.push(`${id}: label de variante incoherent (${variant.id}).`);
         const isNestedMaster = variantRecipe && masterIds.has(variant.id);
         const isAdditionalParent = Array.isArray(variantRecipe?.additionalMasters) && variantRecipe.additionalMasters.includes(id);
         if (variant?.id && !variantRecipe?.master && !isNestedMaster && !isAdditionalParent) errors.push(`${id}: variante ${variant.id} sans fiche parent.`);
+      });
+    }
+
+    if (Array.isArray(recipe.tags)) {
+      recipe.tags.forEach(tag => {
+        if (!tag || /\d/.test(tag)) errors.push(`${id}: tag suspect (${tag}).`);
       });
     }
 
@@ -70,6 +87,14 @@ if (!recipes || typeof recipes !== 'object') {
     }
   }
 }
+
+textFilesToCheck.forEach(filePath => {
+  if (!fs.existsSync(filePath)) return;
+  const text = fs.readFileSync(filePath, 'utf8');
+  if (/\uFFFD/.test(text)) {
+    errors.push(`${path.relative(ROOT, filePath)}: caractere de remplacement UTF-8 detecte.`);
+  }
+});
 
 if (errors.length) {
   console.error(errors.join('\n'));

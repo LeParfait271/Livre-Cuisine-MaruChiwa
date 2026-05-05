@@ -199,32 +199,12 @@ function recipeShoppingLines(recipe, factor = 1) {
 }
 
 function shoppingListText(recipes, factorById = {}) {
-  const groups = new Map();
-  recipes.forEach(recipe => {
-    recipeShoppingLines(recipe, factorById[recipe.id] || 1).forEach(line => {
-      if (line.startsWith('# ')) return;
-      const item = line.replace(/^-\s*/, '');
-      const rayon = shoppingAisleFor(item);
-      if (!groups.has(rayon)) groups.set(rayon, []);
-      groups.get(rayon).push(`${item} (${recipe.title})`);
-    });
+  const blocks = recipes.map(recipe => {
+    const factor = factorById[recipe.id] || 1;
+    const factorLabel = factor === 1 ? '' : ` (${String(factor).replace('.', ',')}x)`;
+    return [`## ${recipe.title}${factorLabel}`, ...recipeShoppingLines(recipe, factor)].join('\n');
   });
-  const order = ['Fruits & légumes', 'Crèmerie', 'Boucherie & poisson', 'Épicerie', 'Boulangerie', 'Surgelé', 'Autre'];
-  const blocks = order
-    .filter(group => groups.has(group))
-    .map(group => [`## ${group}`, ...groups.get(group).sort((a, b) => a.localeCompare(b, 'fr')).map(item => `- ${item}`)].join('\n'));
   return ['Liste de courses Cook Note', '', ...blocks].join('\n\n');
-}
-
-function shoppingAisleFor(item) {
-  const text = normalizeText(item);
-  if (/(tomate|avocat|epinard|salade|citron|orange|poire|fraise|framboise|abricot|oignon|ail|persil|basilic|thym|legume|pomme|carotte|courgette)/.test(text)) return 'Fruits & légumes';
-  if (/(lait|creme|beurre|oeuf|oeufs|mascarpone|ricotta|fromage|parmesan|yaourt|babeurre)/.test(text)) return 'Crèmerie';
-  if (/(porc|cochon|lardon|poisson|viande|poulet|jambon|saumon)/.test(text)) return 'Boucherie & poisson';
-  if (/(farine|sucre|sel|poivre|huile|vinaigre|chocolat|cacao|vanille|levure|bicarbonate|poudre|amande|noisette|praline|pistache|chapelure|cranberr|speculoos|riz|pate|miel|sirop)/.test(text)) return 'Épicerie';
-  if (/(pain|brioche|croissant|tortilla|wrap)/.test(text)) return 'Boulangerie';
-  if (/(surgele|glacon|glace)/.test(text)) return 'Surgelé';
-  return 'Autre';
 }
 
 function getStepMinutes(step) {
@@ -272,13 +252,17 @@ function extractTags(recipe) {
     (group.items || []).forEach(item => {
       normalizeText(item).split(/\s+/).forEach(word => {
         const clean = word.replace(/[^a-z0-9]/g, '');
-        if (clean.length > 3 && !/^\d/.test(clean) && !blocked.has(clean)) {
+        if (clean.length > 3 && !/\d/.test(clean) && !blocked.has(clean)) {
           tags.add(clean);
         }
       });
     });
   });
   return Array.from(tags).slice(0, 18);
+}
+
+function isVariantIngredientGroup(group) {
+  return normalizeText(group?.group || '').startsWith('variante');
 }
 
 function buildInlineRecipeTargets(recipes) {
@@ -379,7 +363,7 @@ function Button(props) {
 function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
-      h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil')
+      h(Button, { variant: 'subtle', className: 'icon-square', onClick: onHome, title: 'Accueil', ariaLabel: 'Accueil' }, '\u2302')
     ),
     h('nav', { className: 'top-actions', 'aria-label': 'Actions rapides' },
       h('a', {
@@ -392,6 +376,13 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
       ])
     ),
     h('div', { className: 'top-right' },
+      h(Button, {
+        variant: 'ghost',
+        className: 'top-search-button icon-square',
+        onClick: () => searchRef.current?.focus(),
+        title: 'Rechercher',
+        ariaLabel: 'Rechercher'
+      }, '\u2315'),
       h(Button, {
         variant: 'ghost',
         className: 'top-fav-btn icon-square',
@@ -437,12 +428,15 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
   const color = getCategoryColor(recipe);
   const categories = recipe.categories || [];
   const style = { '--card-accent': color };
+  const className = ['recipe-card', recipe.image ? 'has-image' : '', master ? 'master-card' : '']
+    .filter(Boolean)
+    .join(' ');
   const imageStyle = recipe.image
     ? { backgroundImage: `url("${recipe.image}")` }
     : style;
 
   return h('article', {
-    className: recipe.image ? 'recipe-card has-image' : 'recipe-card',
+    className,
     style,
     tabIndex: 0,
     role: 'button',
@@ -670,7 +664,7 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
         h('p', { className: 'eyebrow' }, 'Recettes'),
         h('h2', null, 'Choisir une recette')
       ),
-      h('span', { className: 'progress-label' }, `${sortedVariantRefs.length} variante${sortedVariantRefs.length > 1 ? 's' : ''}`)
+      h('span', { className: 'progress-label' }, `${sortedVariantRefs.length} recette${sortedVariantRefs.length > 1 ? 's' : ''}`)
     ),
     h('div', { className: 'variant-card-grid' },
       sortedVariantRefs.map(variant => {
@@ -724,8 +718,8 @@ function RecipeView({
   const inlineTargets = useMemo(() => buildInlineRecipeTargets(recipes), [recipes]);
   const detailKey = hasSelectedVariant ? selectedRecipe.id : recipe.id;
   const [shareOpen, setShareOpen] = useState(false);
-  const [cookMode, setCookMode] = useState(false);
   const [mobileDetailTab, setMobileDetailTab] = useState('ingredients');
+  const [openIngredientGroups, setOpenIngredientGroups] = useState({});
   const [timerEnd, setTimerEnd] = useState(0);
   const [timerLabel, setTimerLabel] = useState('');
   const [now, setNow] = useState(Date.now());
@@ -741,6 +735,7 @@ function RecipeView({
     setFactor(1);
     completedRef.current = '';
     setMobileDetailTab('ingredients');
+    setOpenIngredientGroups({});
   }, [recipe.id, selectedVariantId]);
 
   useEffect(() => {
@@ -779,6 +774,10 @@ function RecipeView({
     onVariantChange?.(recipe.id, variantId);
   }
 
+  function toggleIngredientGroup(groupKey) {
+    setOpenIngredientGroups(prev => ({ ...prev, [groupKey]: !prev[groupKey] }));
+  }
+
   const heroUsesHomeImage = showVariants;
   const heroImage = heroUsesHomeImage ? HERO_IMAGE : (selectedRecipe.image || recipe.image);
   const heroStyle = heroImage
@@ -789,7 +788,7 @@ function RecipeView({
     }
     : {};
 
-  return h('main', { className: cookMode ? 'recipe-view cook-mode' : 'recipe-view' },
+  return h('main', { className: 'recipe-view' },
     h('section', {
       className: heroImage ? (heroUsesHomeImage ? 'recipe-detail-hero has-photo parent-hero' : 'recipe-detail-hero has-photo') : 'recipe-detail-hero',
       style: heroStyle
@@ -801,7 +800,7 @@ function RecipeView({
         h('h1', null, recipe.title),
         h('div', { className: 'detail-meta' },
           showVariants && !hasSelectedVariant
-            ? h('span', null, `${variantRefs.length} variante${variantRefs.length > 1 ? 's' : ''}`)
+            ? h('span', null, `${variantRefs.length} recette${variantRefs.length > 1 ? 's' : ''}`)
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
               selectedRecipe.yield && h('span', { key: 'yield' }, scaleYieldDisplay(selectedRecipe.yield, factor)),
@@ -811,20 +810,12 @@ function RecipeView({
         ),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey, factor) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
-          h(Button, { variant: cookMode ? 'primary' : 'ghost', onClick: () => setCookMode(value => !value), pressed: cookMode }, 'Mode cuisine'),
           h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => setShareOpen(true), title: 'Partager', ariaLabel: 'Partager' }, '\u2197'),
           selectedRecipe.video && h('a', { className: 'btn btn-ghost', href: selectedRecipe.video, target: '_blank', rel: 'noreferrer' }, 'Voir la vidéo'),
           h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => window.print(), title: 'Imprimer', ariaLabel: 'Imprimer' }, '\u2399'),
           canFavorite && h(Button, { variant: 'ghost', className: isFavorite ? 'icon-square favorite-action active' : 'icon-square favorite-action', onClick: () => toggleFavorite(detailKey), title: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris', ariaLabel: isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }, isFavorite ? '\u2665' : '\u2661')
         )
       )
-    ),
-    cookMode && h('div', { className: 'cook-mode-bar' },
-      h('strong', null, 'Mode cuisine'),
-      h('span', null, `${doneSteps}/${stepTotal} étapes cochées`),
-      timerEnd && remainingMs > 0
-        ? h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
-        : h('span', null, 'Aucun minuteur actif')
     ),
     showVariants && h(VariantPickerPanel, {
       parent: recipe,
@@ -859,12 +850,20 @@ function RecipeView({
             }, `${String(value).replace('.', ',')}x`))
           )
         ),
-        (selectedRecipe.ingredients || []).map((group, groupIndex) =>
-          h('div', { className: 'ingredient-group', key: `${detailKey}:group:${groupIndex}` },
-            group.recipeId && recipesById[group.recipeId]
-              ? h('button', { type: 'button', className: 'ingredient-group-link', onClick: () => openRecipe(group.recipeId) }, group.group || recipesById[group.recipeId].title)
-              : h('h3', null, group.group || 'Base'),
-            h('ul', null, (group.items || []).map((item, itemIndex) => {
+        (selectedRecipe.ingredients || []).map((group, groupIndex) => {
+          const groupKey = `${detailKey}:group:${groupIndex}`;
+          const collapsible = isVariantIngredientGroup(group);
+          const isOpen = !collapsible || Boolean(openIngredientGroups[groupKey]);
+          return h('div', { className: collapsible ? 'ingredient-group collapsible-ingredient-group' : 'ingredient-group', key: groupKey },
+            collapsible
+              ? h('button', { type: 'button', className: 'ingredient-group-toggle', onClick: () => toggleIngredientGroup(groupKey), 'aria-expanded': isOpen }, [
+                  h('span', { key: 'label' }, group.group || 'Variante'),
+                  h('span', { key: 'icon', className: 'ingredient-toggle-icon' }, isOpen ? '\u2212' : '+')
+                ])
+              : group.recipeId && recipesById[group.recipeId]
+                ? h('button', { type: 'button', className: 'ingredient-group-link', onClick: () => openRecipe(group.recipeId) }, group.group || recipesById[group.recipeId].title)
+                : h('h3', null, group.group || 'Base'),
+            isOpen && h('ul', null, (group.items || []).map((item, itemIndex) => {
               const key = `${detailKey}:ingredient:${groupIndex}:${itemIndex}`;
               return h('li', { key },
                 h('label', null,
@@ -873,8 +872,8 @@ function RecipeView({
                 )
               );
             }))
-          )
-        )
+          );
+        })
       ),
       hasSelectedVariant && h('section', { className: mobileDetailTab === 'steps' ? 'recipe-panel steps-panel active-tab-panel' : 'recipe-panel steps-panel' },
         h('div', { className: 'panel-heading' },
@@ -882,7 +881,8 @@ function RecipeView({
           hasSelectedVariant && h('div', { className: 'history-actions' },
             h('button', { type: 'button', onClick: undo, disabled: !canUndo, title: 'Ctrl+Z' }, 'Annuler'),
             h('button', { type: 'button', onClick: redo, disabled: !canRedo, title: 'Ctrl+Y' }, 'Rétablir'),
-            h('span', { className: 'progress-label' }, `${doneSteps}/${stepTotal}`)
+            h('span', { className: 'progress-label' }, `${doneSteps}/${stepTotal}`),
+            timerEnd && remainingMs > 0 && h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
           )
         ),
         hasSelectedVariant && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
@@ -1241,8 +1241,8 @@ function App() {
       searchRef
     }),
     h('nav', { className: 'mobile-bottom-nav', 'aria-label': 'Navigation mobile' },
-      h('button', { type: 'button', onClick: goHome }, h('span', null, '⌂'), 'Accueil'),
-      h('button', { type: 'button', onClick: () => searchRef.current?.focus() }, h('span', null, '⌕'), 'Recherche'),
+      h('button', { type: 'button', onClick: goHome, 'aria-label': 'Accueil' }, h('span', null, '\u2302'), h('span', { className: 'sr-only' }, 'Accueil')),
+      h('button', { type: 'button', onClick: () => searchRef.current?.focus() }, h('span', null, '\u2315'), 'Recherche'),
       h('button', { type: 'button', onClick: showFavorites }, h('span', null, '♥'), 'Favoris'),
       h('button', { type: 'button', onClick: () => setShoppingOpen(true) }, h('span', null, '🛒'), 'Courses')
     ),
