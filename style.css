@@ -737,8 +737,8 @@ a {
 
 .variant-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 12px;
 }
 
 .variant-picker-panel-selected {
@@ -749,8 +749,8 @@ a {
 .variant-card {
   overflow: hidden;
   display: grid;
-  grid-template-columns: 92px 1fr;
-  min-height: 104px;
+  grid-template-columns: 115px 1fr;
+  min-height: 130px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
@@ -765,12 +765,12 @@ a {
 }
 
 .selected-variant-card {
-  width: min(520px, 100%);
+  width: min(650px, 100%);
   text-align: left;
 }
 
 .variant-card-media {
-  min-height: 104px;
+  min-height: 130px;
   background: var(--surface-soft);
   background-position: center;
   background-size: cover;
@@ -778,12 +778,13 @@ a {
 
 .variant-card-body {
   display: grid;
-  gap: 6px;
+  gap: 7px;
   align-content: center;
-  padding: 12px;
+  padding: 15px;
 }
 
 .variant-card-body strong {
+  font-size: 18px;
   line-height: 1.14;
 }
 
