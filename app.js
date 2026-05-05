@@ -324,9 +324,15 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
       h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, '\u{1F6D2}')
     ),
     h('div', { className: 'top-right' },
-      h(Button, { variant: 'primary', onClick: showFavorites }, 'Voir les favoris'),
+      h(Button, {
+        variant: 'ghost',
+        className: 'top-fav-btn icon-square',
+        onClick: showFavorites,
+        title: 'Voir les favoris',
+        ariaLabel: 'Voir les favoris'
+      }, '\u2665'),
       h('div', { className: 'field top-search' },
-        h('label', null, 'Recherche'),
+        h('label', { className: 'sr-only' }, 'Recherche'),
         h('input', {
           ref: searchRef,
           value: query,
@@ -639,7 +645,6 @@ function HomeView(props) {
       currentSeason: props.currentSeason
     }),
     h('div', { className: 'content-wrap' },
-      h(FilterBar, { ...props.filterProps, showSearch: false }),
       h(ActiveChips, { chips: props.activeChips }),
       h(SeasonSections, {
         sections: props.sections,

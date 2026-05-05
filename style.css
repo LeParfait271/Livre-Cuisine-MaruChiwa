@@ -54,6 +54,18 @@ a {
   color: inherit;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 #root {
   min-height: 100vh;
 }
@@ -193,6 +205,19 @@ a {
   justify-self: center;
 }
 
+.top-fav-btn {
+  border-color: color-mix(in srgb, #ff4fa3 72%, white);
+  background: color-mix(in srgb, #ff4fa3 18%, var(--surface-soft));
+  color: #ff4fa3;
+  font-size: 19px;
+}
+
+.top-fav-btn:hover {
+  border-color: #ff4fa3;
+  background: color-mix(in srgb, #ff4fa3 28%, var(--surface-soft));
+  color: #ff7fbd;
+}
+
 .topbar-status {
   justify-self: end;
   color: var(--muted);
@@ -277,7 +302,7 @@ a {
 }
 
 .hero {
-  min-height: 110px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,7 +317,7 @@ a {
   display: grid;
   place-items: center;
   gap: 0;
-  padding: 20px 0 19px;
+  padding: 12px 0 11px;
   text-align: center;
 }
 
@@ -311,7 +336,7 @@ a {
 }
 
 .hero-logo {
-  width: min(860px, 86vw);
+  width: min(980px, 92vw);
   height: auto;
 }
 
@@ -1321,11 +1346,11 @@ a {
   }
 
   .hero {
-    min-height: 120px;
+    min-height: 92px;
   }
 
   .hero-inner {
-    padding: 19px 0 18px;
+    padding: 12px 0;
   }
 
   .hero h1,
