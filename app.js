@@ -3,7 +3,7 @@
 const { useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
 
-const HERO_IMAGE = '/assets/hero-fond.png';
+const HERO_IMAGE = '/assets/base-principale-fond-site.jpg';
 const COOK_NOTE_LOGO = '/assets/cook-note.png';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
@@ -16,11 +16,11 @@ const DIFFICULTY_RANGES = [
   { value: '10', label: '10', min: 10, max: 10 }
 ];
 const CATEGORY_ACCENTS = {
-  'Apéro': '#ff8a3d',
-  'Entrées': '#22c55e',
-  'Plats': '#fbbf24',
-  'Desserts': '#f472b6',
-  'Petits-déjeuners': '#60a5fa',
+  'Apéro': '#8d6343',
+  'Entrées': '#425320',
+  'Plats': '#762e0c',
+  'Desserts': '#976937',
+  'Petits-déjeuners': '#db6507',
   'Recettes de base': '#a78bfa'
 };
 const HOME_CARD_ORDER = {
@@ -311,7 +311,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, activeFilterCount, showFavorites, openAdvancedSearch, openShoppingBasket, query, setQuery, searchRef }) {
+function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
       h(Button, { variant: 'subtle', onClick: onHome }, 'Accueil')
@@ -321,10 +321,6 @@ function TopBar({ onHome, shoppingCount, activeFilterCount, showFavorites, openA
         className: 'btn btn-subtle',
         href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
       }, 'Demander une recette'),
-      h(Button, { variant: 'subtle', className: 'filter-trigger', onClick: openAdvancedSearch, title: 'Ouvrir les filtres avances' }, [
-        'Filtres',
-        activeFilterCount > 0 && h('span', { className: 'filter-badge', key: 'count' }, activeFilterCount)
-      ]),
       h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, [
         '\u{1F6D2}',
         shoppingCount > 0 && h('span', { className: 'cart-count', key: 'count' }, shoppingCount)
@@ -569,18 +565,18 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
       }, isFavorite ? '\u2665' : '\u2661')
     ),
     h('div', { className: 'card-body' },
-      h('div', { className: 'tag-line' }, categories.slice(0, 2).map(cat => h('span', { key: cat }, cat))),
+      !master && h('div', { className: 'tag-line' }, categories.slice(0, 2).map(cat => h('span', { key: cat }, cat))),
       h('h3', null, recipe.title),
       h('p', { className: 'card-meta' },
         master
-          ? h('span', null, `${getVariantRefs(recipe).length} variante${getVariantRefs(recipe).length > 1 ? 's' : ''}`)
+          ? h('span', null, `${getVariantRefs(recipe).length} recette${getVariantRefs(recipe).length > 1 ? 's' : ''}`)
           : [
             h('span', { key: 'difficulty' }, difficultyText(recipe)),
             h('span', { key: 'ingredients' }, `${countIngredients(recipe)} ingrédients`)
           ]
       ),
-      h('div', { className: 'season-line' }, seasons.slice(0, 3).map(item => h('span', { key: item }, item))),
-      h('div', { className: 'mini-tags' },
+      !master && h('div', { className: 'season-line' }, seasons.slice(0, 3).map(item => h('span', { key: item }, item))),
+      !master && h('div', { className: 'mini-tags' },
         (recipe.tagsExtracted || []).slice(0, 4).map(tag => h('button', {
           key: tag,
           type: 'button',
@@ -1343,9 +1339,7 @@ function App() {
     h(TopBar, {
       onHome: goHome,
       shoppingCount: shoppingRecipes.length,
-      activeFilterCount: activeChips.length,
       showFavorites,
-      openAdvancedSearch: () => setAdvancedOpen(true),
       openShoppingBasket: () => setShoppingOpen(true),
       query,
       setQuery,
