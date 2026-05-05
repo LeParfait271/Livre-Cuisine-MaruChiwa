@@ -8,13 +8,6 @@ const COOK_NOTE_LOGO = '/assets/cook-note.png';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
-const DIFFICULTY_ORDER = { easy: 1, medium: 2, hard: 3 };
-const DIFFICULTY_RANGES = [
-  { value: '1-3', label: '1 à 3', min: 1, max: 3 },
-  { value: '3-6', label: '3 à 6', min: 3, max: 6 },
-  { value: '6-9', label: '6 à 9', min: 6, max: 9 },
-  { value: '10', label: '10', min: 10, max: 10 }
-];
 const CATEGORY_ACCENTS = {
   'Apéro': '#8d6343',
   'Entrées': '#425320',
@@ -347,92 +340,7 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
   );
 }
 
-function buildAuditReport(recipes) {
-  const imageMap = new Map();
-  const masterIds = new Set(recipes.filter(isMasterRecipe).map(recipe => recipe.id));
-  const ids = new Set(recipes.map(recipe => recipe.id));
-  const issues = [];
-
-  recipes.forEach(recipe => {
-    if (recipe.image) {
-      const list = imageMap.get(recipe.image) || [];
-      list.push(recipe);
-      imageMap.set(recipe.image, list);
-    } else {
-      issues.push({ type: 'Image', recipe: recipe.title, detail: 'Image manquante' });
-    }
-
-    const notes = (recipe.notes || []).join(' ').toLowerCase();
-    if (!isMasterRecipe(recipe) && !notes.includes('stockage') && !notes.includes('conservation') && !notes.includes('péremption')) {
-      issues.push({ type: 'Conservation', recipe: recipe.title, detail: 'Méthode de stockage absente ou trop faible' });
-    }
-
-    (recipe.variants || []).forEach(variant => {
-      if (!ids.has(variant.id)) issues.push({ type: 'Lien fiche', recipe: recipe.title, detail: `Variante introuvable : ${variant.id}` });
-      if (masterIds.has(variant.id)) issues.push({ type: 'Structure', recipe: recipe.title, detail: `Fiche parent imbriquée : ${variant.id}` });
-    });
-
-    const text = JSON.stringify(recipe);
-    if (text.includes('?')) issues.push({ type: 'Texte', recipe: recipe.title, detail: 'Caractère ? suspect' });
-    (recipe.tags || []).forEach(tag => {
-      if (/^\d|signature|1tarte/i.test(tag)) issues.push({ type: 'Tag', recipe: recipe.title, detail: `Tag suspect : ${tag}` });
-    });
-  });
-
-  imageMap.forEach((list, image) => {
-    if (list.length > 1) {
-      issues.push({
-        type: 'Image doublon',
-        recipe: list.map(item => item.title).join(', '),
-        detail: image
-      });
-    }
-  });
-
-  return {
-    total: recipes.length,
-    recipes: recipes.filter(recipe => !isMasterRecipe(recipe)).length,
-    masters: recipes.filter(isMasterRecipe).length,
-    issues
-  };
-}
-
-function AuditPanel({ open, onClose, recipes }) {
-  const report = useMemo(() => buildAuditReport(recipes), [recipes]);
-  if (!open) return null;
-  const visibleIssues = report.issues.slice(0, 80);
-  return h('div', { className: 'modal-backdrop', onMouseDown: onClose },
-    h('section', { className: 'modal-panel audit-modal', role: 'dialog', 'aria-modal': 'true', onMouseDown: event => event.stopPropagation() },
-      h('div', { className: 'modal-head' },
-        h('div', null,
-          h('p', { className: 'eyebrow' }, 'Contrôle qualité'),
-          h('h2', null, report.issues.length ? `${report.issues.length} point${report.issues.length > 1 ? 's' : ''} à vérifier` : 'Carnet propre')
-        ),
-        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
-      ),
-      h('div', { className: 'audit-summary' },
-        h('span', null, h('strong', null, report.recipes), ' recettes'),
-        h('span', null, h('strong', null, report.masters), ' fiches parents'),
-        h('span', null, h('strong', null, report.total), ' fiches totales')
-      ),
-      report.issues.length
-        ? h('div', { className: 'audit-list' },
-          visibleIssues.map((issue, index) => h('article', { key: `${issue.type}:${issue.recipe}:${index}` },
-            h('strong', null, issue.type),
-            h('span', null, issue.recipe),
-            h('p', null, issue.detail)
-          )),
-          report.issues.length > visibleIssues.length && h('p', { className: 'muted' }, `${report.issues.length - visibleIssues.length} autres points masqués.`)
-        )
-        : h('p', { className: 'empty-line' }, 'Aucun problème bloquant détecté sur les images, liens, tags et conservations.'),
-      h('div', { className: 'modal-actions' },
-        h(Button, { variant: 'primary', onClick: onClose }, 'Fermer')
-      )
-    )
-  );
-}
-
-function Hero({ currentSeason }) {
+function Hero() {
   return h('section', {
     className: 'hero',
     style: {
@@ -445,86 +353,10 @@ function Hero({ currentSeason }) {
   );
 }
 
-function FilterBar(props) {
-  const showSearch = props.showSearch !== false;
-  return h('section', { className: showSearch ? 'filters-panel' : 'filters-panel filters-panel-compact', 'aria-label': 'Filtres de recettes' },
-    showSearch && h('div', { className: 'field wide' },
-      h('label', null, 'Recherche'),
-      h('input', {
-        ref: props.searchRef,
-        value: props.query,
-        onChange: event => props.setQuery(event.target.value),
-        placeholder: 'Carbonara, citron, dessert, four...'
-      })
-    ),
-    h('div', { className: 'field' },
-      h('label', null, 'Saison'),
-      h('select', { value: props.season, onChange: event => props.setSeason(event.target.value) },
-        h('option', { value: '' }, 'Toutes'),
-        props.seasons.map(item => h('option', { key: item, value: item }, item))
-      )
-    ),
-    h('div', { className: 'field' },
-      h('label', null, 'Difficulté'),
-      h('select', { value: props.difficulty, onChange: event => props.setDifficulty(event.target.value) },
-        h('option', { value: '' }, 'Toutes'),
-        DIFFICULTY_RANGES.map(item => h('option', { key: item.value, value: item.value }, item.label))
-      )
-    ),
-    h('div', { className: 'field' },
-      h('label', null, 'Tri'),
-      h('select', { value: props.sort, onChange: event => props.setSort(event.target.value) },
-        h('option', { value: 'title' }, 'Titre'),
-        h('option', { value: 'difficulty' }, 'Difficulté'),
-        h('option', { value: 'ingredients' }, 'Ingrédients'),
-        h('option', { value: 'season' }, 'Saison')
-      )
-    ),
-    h('div', { className: 'category-row' },
-      h('button', { type: 'button', className: props.category === '' ? 'chip active' : 'chip', onClick: () => props.setCategory('') }, 'Tout'),
-      props.categories.map(item =>
-        h('button', {
-          key: item,
-          type: 'button',
-          className: props.category === item ? 'chip active' : 'chip',
-          onClick: () => props.setCategory(item)
-        }, item)
-      )
-    ),
-    h(Button, { variant: 'subtle', className: 'reset-btn', onClick: props.onReset }, 'Réinitialiser')
-  );
-}
-
 function ActiveChips({ chips }) {
   if (!chips.length) return null;
   return h('div', { className: 'active-chips', 'aria-label': 'Filtres actifs' },
     chips.map(chip => h('button', { key: chip.key, type: 'button', onClick: chip.clear }, `${chip.label} ×`))
-  );
-}
-
-function AdvancedSearchModal({ open, onClose, allTags, props }) {
-  if (!open) return null;
-  return h('div', { className: 'modal-backdrop', role: 'presentation', onMouseDown: onClose },
-    h('section', { className: 'modal-panel advanced-modal', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'advanced-title', onMouseDown: event => event.stopPropagation() },
-      h('div', { className: 'modal-head' },
-        h('div', null, h('p', { className: 'eyebrow' }, 'Filtres combinés'), h('h2', { id: 'advanced-title' }, 'Recherche avancée')),
-        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
-      ),
-      h(FilterBar, props),
-      h('div', { className: 'tag-cloud' },
-        h('p', { className: 'eyebrow' }, 'Tags rapides'),
-        allTags.slice(0, 42).map(tag => h('button', {
-          key: tag,
-          type: 'button',
-          className: props.tagFilter === tag ? 'chip active' : 'chip',
-          onClick: () => props.setTagFilter(props.tagFilter === tag ? '' : tag)
-        }, tag))
-      ),
-      h('div', { className: 'modal-actions' },
-        h(Button, { variant: 'subtle', onClick: props.onReset }, 'Réinitialiser'),
-        h(Button, { variant: 'primary', onClick: onClose }, 'Voir les résultats')
-      )
-    )
   );
 }
 
@@ -644,9 +476,7 @@ function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTa
 
 function HomeView(props) {
   return h('main', { className: 'home-view' },
-    h(Hero, {
-      currentSeason: props.currentSeason
-    }),
+    h(Hero),
     h('div', { className: 'content-wrap' },
       h(ActiveChips, { chips: props.activeChips }),
       h(SeasonSections, {
@@ -1025,18 +855,12 @@ function App() {
     return { id, tagsExtracted, searchText: getRecipeSearchText(recipe, tagsExtracted), ...recipe };
   }).sort((a, b) => a.title.localeCompare(b.title, 'fr')), []);
   const recipesById = useMemo(() => Object.fromEntries(recipes.map(recipe => [recipe.id, recipe])), [recipes]);
-  const contentRecipes = useMemo(() => recipes.filter(recipe => !isMasterRecipe(recipe)), [recipes]);
   const catalogRecipes = useMemo(() => recipes.filter(recipe => !recipe.master), [recipes]);
-  const categories = useMemo(() => uniq(catalogRecipes.flatMap(recipe => recipe.categories || [])), [catalogRecipes]);
   const allSeasons = useMemo(() => uniq([...SEASONS, ...catalogRecipes.flatMap(recipe => recipe.seasons || [])]).filter(item => item !== 'Toutes saisons'), [catalogRecipes]);
-  const allTags = useMemo(() => uniq(catalogRecipes.flatMap(recipe => recipe.tagsExtracted || [])), [catalogRecipes]);
   const currentSeason = useMemo(() => getCurrentSeason(), []);
 
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
   const [season, setSeason] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [sort, setSort] = useState('title');
   const [tagFilter, setTagFilter] = useState('');
   const [onlyFavorites, setOnlyFavorites] = useState(false);
   const [activeId, setActiveId] = useState(() => getInitialHashRecipe());
@@ -1050,9 +874,7 @@ function App() {
   const [shoppingIds, setShoppingIds] = useState(() => readStoredList(STORAGE_KEYS.shopping, []));
   const [checked, setChecked] = useState({});
   const [historyVersion, setHistoryVersion] = useState(0);
-  const [advancedOpen, setAdvancedOpen] = useState(false);
   const [shoppingOpen, setShoppingOpen] = useState(false);
-  const [auditOpen, setAuditOpen] = useState(false);
   const searchRef = useRef(null);
   const homeScrollRef = useRef(0);
   const historyRef = useRef([{}]);
@@ -1098,13 +920,7 @@ function App() {
     const needle = normalizeText(query);
     let list = catalogRecipes.filter(recipe => {
       if (needle && !recipe.searchText.includes(needle)) return false;
-      if (category && !(recipe.categories || []).includes(category)) return false;
       if (season && !(recipe.seasons || []).includes(season)) return false;
-      if (difficulty) {
-        const range = DIFFICULTY_RANGES.find(item => item.value === difficulty);
-        const score = Number(recipe.difficultyScore);
-        if (!range || !Number.isFinite(score) || score < range.min || score > range.max) return false;
-      }
       if (tagFilter && !(recipe.tagsExtracted || []).includes(tagFilter)) return false;
       if (onlyFavorites && !favorites.includes(recipe.id)) return false;
       return true;
@@ -1113,13 +929,10 @@ function App() {
     list = [...list].sort((a, b) => {
       const order = homeCardOrder(a) - homeCardOrder(b);
       if (order) return order;
-      if (sort === 'difficulty') return (Number(a.difficultyScore) || 99) - (Number(b.difficultyScore) || 99) || a.title.localeCompare(b.title, 'fr');
-      if (sort === 'ingredients') return countIngredients(a) - countIngredients(b) || a.title.localeCompare(b.title, 'fr');
-      if (sort === 'season') return (a.seasons || ['']).join(',').localeCompare((b.seasons || ['']).join(','), 'fr') || a.title.localeCompare(b.title, 'fr');
       return a.title.localeCompare(b.title, 'fr');
     });
     return list;
-  }, [catalogRecipes, query, category, season, difficulty, sort, tagFilter, onlyFavorites, favorites]);
+  }, [catalogRecipes, query, season, tagFilter, onlyFavorites, favorites]);
 
   const sections = useMemo(() => {
     if (onlyFavorites) {
@@ -1132,9 +945,7 @@ function App() {
   }, [currentSeason, filteredRecipes, onlyFavorites, season]);
   const activeChips = [
     query && { key: 'query', label: `Recherche: ${query}`, clear: () => setQuery('') },
-    category && { key: 'category', label: category, clear: () => setCategory('') },
     season && { key: 'season', label: season, clear: () => setSeason('') },
-    difficulty && { key: 'difficulty', label: `Difficulté ${DIFFICULTY_RANGES.find(item => item.value === difficulty)?.label || difficulty}`, clear: () => setDifficulty('') },
     tagFilter && { key: 'tag', label: `Tag: ${tagFilter}`, clear: () => setTagFilter('') },
     onlyFavorites && { key: 'favorites', label: 'Favoris', clear: () => setOnlyFavorites(false) }
   ].filter(Boolean);
@@ -1215,16 +1026,6 @@ function App() {
     requestAnimationFrame(() => window.scrollTo({ top: homeScrollRef.current || 0, behavior: 'auto' }));
   }
 
-  function resetFilters() {
-    setQuery('');
-    setCategory('');
-    setSeason('');
-    setDifficulty('');
-    setSort('title');
-    setTagFilter('');
-    setOnlyFavorites(false);
-  }
-
   function showFavorites() {
     setOnlyFavorites(true);
     setActiveId(null);
@@ -1275,8 +1076,7 @@ function App() {
         return;
       }
       if (event.key === 'Escape') {
-        if (advancedOpen) setAdvancedOpen(false);
-        else if (activeRecipe && !isTypingTarget(event.target)) goHome();
+        if (activeRecipe && !isTypingTarget(event.target)) goHome();
         return;
       }
       if (isTypingTarget(event.target)) return;
@@ -1305,7 +1105,7 @@ function App() {
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [activeRecipe, advancedOpen, catalogRecipes, canUndo, canRedo]);
+  }, [activeRecipe, catalogRecipes, canUndo, canRedo]);
 
   if (!recipes.length) {
     return h('div', { className: 'mc-shell' },
@@ -1317,22 +1117,9 @@ function App() {
   }
 
   const filterProps = {
-    categories,
     seasons: allSeasons,
-    category,
-    setCategory,
     season,
-    setSeason,
-    difficulty,
-    setDifficulty,
-    sort,
-    setSort,
-    query,
-    setQuery,
-    tagFilter,
-    setTagFilter,
-    searchRef,
-    onReset: resetFilters
+    setSeason
   };
 
   return h('div', { className: 'mc-shell' },
@@ -1368,38 +1155,22 @@ function App() {
           onVariantChange: selectVariant
         })
       : h(HomeView, {
-          recipes: catalogRecipes,
-          totalRecipeCount: contentRecipes.length,
-          filteredRecipes,
           favorites,
-          currentSeason,
           sections,
           onlyFavorites,
           activeChips,
           filterProps,
           toggleFavorite,
           openRecipe,
-          showFavorites,
           clearFavoriteView: () => setOnlyFavorites(false),
           setTagFilter
         }),
-    h(AdvancedSearchModal, {
-      open: advancedOpen,
-      onClose: () => setAdvancedOpen(false),
-      allTags,
-      props: filterProps
-    }),
     h(ShoppingBasketPanel, {
       open: shoppingOpen,
       onClose: () => setShoppingOpen(false),
       recipes: shoppingRecipes,
       removeRecipe: removeShopping,
       clearShopping
-    }),
-    h(AuditPanel, {
-      open: auditOpen,
-      onClose: () => setAuditOpen(false),
-      recipes
     })
   );
 }

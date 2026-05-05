@@ -609,7 +609,7 @@ window.RECIPES = {
   "vinaigrette": {
     "title": "Vinaigrette de chef (variantes)",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/vinaigrette.jpg",
+    "image": "/assets/recipe-images/vinaigrette_spooky.png",
     "categories": [
       "Entrées",
       "Apéro"
@@ -1075,7 +1075,7 @@ window.RECIPES = {
   "pancakes_variantes": {
     "title": "Pancakes (lait ou babeurre + base babeurre maison)",
     "master": "petits_dejeuners_maitre",
-    "image": "/assets/recipe-images/pancakes_variantes.jpg",
+    "image": "/assets/recipe-images/pancakes_variantes_spooky.png",
     "categories": [
       "Petits-déjeuners"
     ],
@@ -1466,7 +1466,7 @@ window.RECIPES = {
   "coulis_fraise": {
     "title": "Coulis de fraise",
     "master": "coulis_maitre",
-    "image": "/assets/recipe-images/coulis_fraise.jpg",
+    "image": "/assets/recipe-images/coulis_fraise_spooky.png",
     "categories": [
       "Desserts"
     ],
@@ -1953,7 +1953,7 @@ window.RECIPES = {
   "pate_choux": {
     "title": "Pâte à choux",
     "master": "pates_bases_maitre",
-    "image": "/assets/recipe-images/pate_choux.jpg",
+    "image": "/assets/recipe-images/pate_choux_spooky.png",
     "categories": [
       "Desserts",
       "Recettes de base"
@@ -3104,7 +3104,7 @@ window.RECIPES = {
   "creme_patissiere_vanille": {
     "title": "Crème pâtissière vanille",
     "master": "cremes_maitre",
-    "image": "/assets/recipe-images/creme_diplomate_vanille.jpg",
+    "image": "/assets/recipe-images/creme_patissiere_vanille_spooky.png",
     "categories": [
       "Desserts",
       "Recettes de base"

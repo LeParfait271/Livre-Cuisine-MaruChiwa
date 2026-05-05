@@ -289,24 +289,6 @@ a {
   background: color-mix(in srgb, var(--surface-soft) 80%, transparent);
 }
 
-.top-stat {
-  min-height: 42px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface-soft) 80%, transparent);
-  color: var(--muted);
-  padding: 0 13px;
-  font-weight: 850;
-  white-space: nowrap;
-}
-
-.top-stat strong {
-  color: var(--text);
-}
-
 .hero {
   min-height: 82px;
   display: flex;
@@ -383,42 +365,11 @@ a {
   padding: 26px 0 70px;
 }
 
-.filters-panel {
-  display: grid;
-  grid-template-columns: minmax(240px, 1.4fr) repeat(3, minmax(130px, .55fr)) auto;
-  gap: 12px;
-  align-items: end;
-  margin: -58px 0 18px;
-  padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(20px);
-}
-
-.filters-panel-compact {
-  grid-template-columns: repeat(3, minmax(150px, .7fr)) auto;
-}
-
-.advanced-modal .filters-panel {
-  margin: 0;
-  box-shadow: none;
-}
-
 .field {
   display: grid;
   gap: 6px;
 }
 
-.category-row {
-  grid-column: 1 / -2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chip,
 .active-chips button {
   min-height: 34px;
   border: 1px solid var(--line);
@@ -431,16 +382,10 @@ a {
   transition: color var(--speed), border-color var(--speed), background var(--speed);
 }
 
-.chip.active,
-.chip:hover,
 .active-chips button:hover {
   border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
   background: color-mix(in srgb, var(--accent) 16%, var(--surface-soft));
   color: var(--text);
-}
-
-.reset-btn {
-  align-self: end;
 }
 
 .active-chips {
@@ -629,8 +574,7 @@ a {
 .season-line,
 .card-meta,
 .detail-meta,
-.mini-tags,
-.tag-cloud {
+.mini-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -1090,14 +1034,6 @@ a {
   cursor: pointer;
 }
 
-.tag-cloud {
-  margin-top: 18px;
-}
-
-.tag-cloud .eyebrow {
-  width: 100%;
-}
-
 .technical-card {
   margin-top: 18px;
   padding-top: 16px;
@@ -1169,69 +1105,6 @@ a {
 
 .combined-cart {
   min-height: 280px;
-}
-
-.advanced-modal {
-  width: min(980px, 100%);
-}
-
-.audit-modal {
-  width: min(1040px, 100%);
-}
-
-.audit-summary {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.audit-summary span {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-soft);
-  padding: 12px;
-  color: var(--muted);
-  font-weight: 850;
-}
-
-.audit-summary strong {
-  display: block;
-  color: var(--text);
-  font-size: 24px;
-}
-
-.audit-list {
-  display: grid;
-  gap: 8px;
-}
-
-.audit-list article {
-  display: grid;
-  grid-template-columns: 140px minmax(180px, .8fr) minmax(240px, 1fr);
-  gap: 10px;
-  align-items: start;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--surface-soft) 72%, transparent);
-  padding: 10px 12px;
-}
-
-.audit-list strong {
-  color: var(--accent);
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.audit-list span {
-  font-weight: 900;
-}
-
-.audit-list p,
-.empty-line {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.4;
 }
 
 .modal-head {
@@ -1322,19 +1195,6 @@ a {
     justify-self: center;
   }
 
-  .filters-panel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: -34px;
-  }
-
-  .category-row {
-    grid-column: 1 / -1;
-  }
-
-  .reset-btn {
-    grid-column: 1 / -1;
-  }
-
   .recipe-detail-grid {
     grid-template-columns: 1fr;
   }
@@ -1372,10 +1232,6 @@ a {
   .hero h1,
   .recipe-detail-hero h1 {
     font-size: 38px;
-  }
-
-  .filters-panel {
-    grid-template-columns: 1fr;
   }
 
   .recipe-grid {
