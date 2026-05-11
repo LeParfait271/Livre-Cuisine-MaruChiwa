@@ -110,6 +110,24 @@ function getVariantRefs(recipe) {
   return Array.isArray(recipe.variants) ? recipe.variants.filter(variant => variant && variant.id) : [];
 }
 
+function getLeafVariantRefs(recipe, recipesById = {}, seen = new Set()) {
+  if (!recipe || seen.has(recipe.id)) return [];
+  seen.add(recipe.id);
+  const variantRefs = getVariantRefs(recipe);
+  if (!variantRefs.length) return recipe.id ? [{ id: recipe.id, label: recipe.title }] : [];
+  return variantRefs.flatMap(variant => {
+    const child = recipesById[variant.id];
+    if (!child) return [];
+    return getVariantRefs(child).length
+      ? getLeafVariantRefs(child, recipesById, seen)
+      : [{ id: child.id, label: child.title || variant.label || child.id }];
+  });
+}
+
+function countLeafRecipes(recipe, recipesById = {}) {
+  return getLeafVariantRefs(recipe, recipesById).length;
+}
+
 function sortVariantRefs(variantRefs, recipesById = {}) {
   return [...variantRefs].sort((a, b) => {
     const left = a.label || recipesById[a.id]?.title || a.id;
@@ -433,7 +451,7 @@ function ActiveChips({ chips }) {
   );
 }
 
-function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilter }) {
+function RecipeCard({ recipe, recipesById, isFavorite, toggleFavorite, openRecipe, setTagFilter }) {
   const master = isMasterRecipe(recipe);
   const color = getCategoryColor(recipe);
   const categories = recipe.categories || [];
@@ -476,7 +494,7 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
       h('h3', null, recipe.title),
       h('p', { className: 'card-meta' },
         master
-          ? h('span', null, `${getVariantRefs(recipe).length} recette${getVariantRefs(recipe).length > 1 ? 's' : ''}`)
+          ? h('span', null, `${countLeafRecipes(recipe, recipesById)} recette${countLeafRecipes(recipe, recipesById) > 1 ? 's' : ''}`)
           : h('span', null, `${countIngredients(recipe)} ingrédients`)
       ),
       !master && h('div', { className: 'mini-tags card-overlay-tags' },
@@ -493,7 +511,7 @@ function RecipeCard({ recipe, isFavorite, toggleFavorite, openRecipe, setTagFilt
   );
 }
 
-function RecipeGrid({ recipes, favorites, toggleFavorite, openRecipe, setTagFilter }) {
+function RecipeGrid({ recipes, recipesById, favorites, toggleFavorite, openRecipe, setTagFilter }) {
   if (!recipes.length) {
     return h('div', { className: 'empty-state' },
       h('h2', null, 'Aucune recette ne matche'),
@@ -504,6 +522,7 @@ function RecipeGrid({ recipes, favorites, toggleFavorite, openRecipe, setTagFilt
     recipes.map(recipe => h(RecipeCard, {
       key: recipe.id,
       recipe,
+      recipesById,
       isFavorite: favorites.includes(recipe.id),
       toggleFavorite,
       openRecipe,
@@ -512,7 +531,7 @@ function RecipeGrid({ recipes, favorites, toggleFavorite, openRecipe, setTagFilt
   );
 }
 
-function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTagFilter, onlyFavorites, clearFavoriteView, selectedSeason, setSeason }) {
+function SeasonSections({ sections, recipesById, favorites, toggleFavorite, openRecipe, setTagFilter, onlyFavorites, clearFavoriteView, selectedSeason, setSeason }) {
   const seasonOptions = ['Toutes', ...SEASONS];
   return h('section', { className: 'season-sections', id: 'recettes' },
     h('div', { className: 'section-title list-title' },
@@ -540,7 +559,7 @@ function SeasonSections({ sections, favorites, toggleFavorite, openRecipe, setTa
         h('div', null, h('p', { className: 'eyebrow' }, section.kicker), h('h3', null, section.title)),
         h('span', null, `${section.recipes.length} fiche${section.recipes.length > 1 ? 's' : ''}`)
       ),
-      h(RecipeGrid, { recipes: section.recipes, favorites, toggleFavorite, openRecipe, setTagFilter })
+      h(RecipeGrid, { recipes: section.recipes, recipesById, favorites, toggleFavorite, openRecipe, setTagFilter })
     ))
   );
 }
@@ -552,6 +571,7 @@ function HomeView(props) {
       h(ActiveChips, { chips: props.activeChips }),
       h(SeasonSections, {
         sections: props.sections,
+        recipesById: props.recipesById,
         favorites: props.favorites,
         toggleFavorite: props.toggleFavorite,
         openRecipe: props.openRecipe,
@@ -719,7 +739,7 @@ function RecipeView({
   onVariantChange
 }) {
   const [factor, setFactor] = useState(1);
-  const variantRefs = useMemo(() => sortVariantRefs(getVariantRefs(recipe), recipesById), [recipe.id, recipesById]);
+  const variantRefs = useMemo(() => sortVariantRefs(getLeafVariantRefs(recipe, recipesById), recipesById), [recipe.id, recipesById]);
   const showVariants = variantRefs.length > 0;
   const [selectedVariantId, setSelectedVariantId] = useState(() => initialSelectedVariantId || (showVariants ? '' : recipe.id));
   const selectedVariantRecipe = selectedVariantId ? recipesById[selectedVariantId] : null;
@@ -810,7 +830,7 @@ function RecipeView({
         h('h1', null, recipe.title),
         h('div', { className: 'detail-meta' },
           showVariants && !hasSelectedVariant
-            ? h('span', null, `${variantRefs.length} recette${variantRefs.length > 1 ? 's' : ''}`)
+            ? h('span', null, `${countLeafRecipes(recipe, recipesById)} recette${countLeafRecipes(recipe, recipesById) > 1 ? 's' : ''}`)
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
               selectedRecipe.yield && h('span', { key: 'yield' }, scaleYieldDisplay(selectedRecipe.yield, factor)),
@@ -1299,6 +1319,7 @@ function App() {
       : h(HomeView, {
           favorites,
           sections,
+          recipesById,
           onlyFavorites,
           activeChips,
           filterProps,
