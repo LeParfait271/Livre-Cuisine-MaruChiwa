@@ -16,7 +16,8 @@ window.RECIPES = {
           "500 g fraises",
           "50 à 70 g sucre",
           "15 g jus de citron"
-        ]
+        ],
+        "note": "Astuce : cuis peu et ajoute le citron en fin de cuisson pour garder une couleur bien rouge."
       },
       {
         "group": "Coulis de framboise",
@@ -25,7 +26,8 @@ window.RECIPES = {
           "80 à 100 g sucre",
           "15 g jus de citron",
           "20 g eau si besoin"
-        ]
+        ],
+        "note": "Astuce : ne presse pas trop fort les pépins dans la passoire, sinon le coulis peut devenir amer."
       },
       {
         "group": "Coulis de mangue",
@@ -34,7 +36,8 @@ window.RECIPES = {
           "40 à 60 g sucre",
           "15 g jus de citron vert",
           "30 à 60 g eau ou jus d’orange"
-        ]
+        ],
+        "note": "Astuce : la mangue épaissit beaucoup. Ajuste toujours la texture après mixage."
       },
       {
         "group": "Coulis de pêche",
@@ -43,7 +46,8 @@ window.RECIPES = {
           "50 à 70 g sucre",
           "15 g jus de citron",
           "20 à 40 g eau si besoin"
-        ]
+        ],
+        "note": "Astuce : ajoute quelques gouttes de citron rapidement après découpe pour éviter l’oxydation."
       },
       {
         "group": "Coulis d’abricot",
@@ -52,7 +56,8 @@ window.RECIPES = {
           "70 à 100 g sucre",
           "15 g jus de citron",
           "30 à 50 g eau"
-        ]
+        ],
+        "note": "Astuce : l’abricot devient vite acide après cuisson. Goûte toujours avant d’ajouter tout le citron."
       },
       {
         "group": "Coulis de myrtille",
@@ -61,7 +66,8 @@ window.RECIPES = {
           "70 à 90 g sucre",
           "10 à 15 g jus de citron",
           "20 g eau"
-        ]
+        ],
+        "note": "Astuce : la myrtille épaissit naturellement grâce à sa pectine. Ne réduis pas trop."
       },
       {
         "group": "Coulis de mûre",
@@ -70,7 +76,8 @@ window.RECIPES = {
           "90 à 110 g sucre",
           "15 g jus de citron",
           "20 à 30 g eau"
-        ]
+        ],
+        "note": "Astuce : filtre soigneusement. Les pépins de mûre sont plus gênants que ceux de framboise."
       },
       {
         "group": "Coulis d’ananas",
@@ -79,7 +86,8 @@ window.RECIPES = {
           "50 à 80 g sucre",
           "10 g jus de citron vert",
           "30 à 60 g eau ou jus d’ananas"
-        ]
+        ],
+        "note": "Astuce : l’ananas est fibreux. Un blender puissant donne un meilleur résultat qu’un mixeur plongeant."
       },
       {
         "group": "Coulis de kiwi",
@@ -87,7 +95,8 @@ window.RECIPES = {
           "500 g kiwis mûrs",
           "60 à 90 g sucre",
           "10 g jus de citron vert"
-        ]
+        ],
+        "note": "Astuce : évite de cuire le kiwi longtemps, il perd sa couleur verte et peut devenir amer."
       },
       {
         "group": "Coulis de pomme",
@@ -96,7 +105,8 @@ window.RECIPES = {
           "50 à 80 g sucre",
           "15 g jus de citron",
           "80 à 120 g eau ou jus de pomme"
-        ]
+        ],
+        "note": "Astuce : la pomme donne plutôt une texture de compote fluide. Pour un vrai coulis, détends bien après mixage."
       }
     ],
     "steps": [
@@ -110,17 +120,7 @@ window.RECIPES = {
       "Refroidir rapidement et conserver au frais."
     ],
     "notes": [
-      "Fraise : équeuter, couper, cuire 5 à 7 min avec le sucre, ajouter le citron, mixer puis filtrer seulement pour un coulis très lisse. Astuce : cuire peu et ajouter le citron en fin de cuisson pour garder une couleur bien rouge.",
-      "Framboise : chauffer doucement 5 min avec sucre et un petit fond d’eau si besoin, ajouter le citron, mixer puis passer obligatoirement au chinois pour retirer les pépins. Astuce : ne pas presser trop fort les pépins pour éviter l’amertume.",
-      "Mangue : chauffer 3 à 5 min avec sucre et un peu d’eau, ajouter le citron vert, mixer longuement puis détendre si nécessaire. Astuce : la mangue épaissit beaucoup, ajuste toujours la texture après mixage.",
-      "Pêche : éplucher si la peau est épaisse, retirer les noyaux, cuire 6 à 8 min avec le sucre, ajouter le citron, mixer et filtrer si besoin. Astuce : quelques gouttes de citron après découpe limitent l’oxydation.",
-      "Abricot : couper, dénoyauter, cuire 8 à 10 min avec sucre et eau, ajouter le citron, mixer très finement puis filtrer. Astuce : l’abricot devient vite acide après cuisson, goûte avant de mettre tout le citron.",
-      "Myrtille : cuire 6 à 8 min avec eau et sucre jusqu’à éclatement, ajouter le citron, mixer puis filtrer si tu veux un coulis lisse. Astuce : la myrtille épaissit naturellement grâce à sa pectine, ne réduis pas trop.",
-      "Mûre : cuire 6 à 8 min avec sucre et eau, mixer, passer au chinois fin, puis ajouter le citron après filtrage. Astuce : filtre soigneusement, les pépins de mûre sont plus gênants que ceux de framboise.",
-      "Ananas : retirer peau et coeur dur, cuire 8 à 10 min avec sucre et un peu d’eau, ajouter le citron vert, mixer longtemps puis filtrer. Astuce : l’ananas est fibreux, un blender puissant donne un meilleur résultat qu’un mixeur plongeant.",
-      "Kiwi : mixer cru avec sucre et citron vert, filtrer légèrement si tu veux enlever une partie des graines, puis réserver au froid. Astuce : évite de cuire longtemps le kiwi, il perd sa couleur verte et peut devenir amer.",
-      "Pomme : cuire 12 à 15 min avec eau et sucre jusqu’à texture fondante, ajouter le citron, mixer finement puis détendre avec eau ou jus. Astuce : la pomme donne une texture de compote fluide, il faut bien détendre pour obtenir un vrai coulis.",
-      "Finition commune : après refroidissement, vérifier une texture nappante, un sucre présent mais pas dominant, une acidité vive, une bonne brillance et une conservation de 3 à 5 jours au frais ou en congélation par petites portions."
+      "Finition commune : après refroidissement, vérifie toujours une texture nappante, un sucre présent mais pas dominant, une acidité assez vive pour réveiller le fruit, une bonne brillance et une conservation de 3 à 5 jours au frais ou en congélation par petites portions."
     ],
     "tags": [
       "coulis",
@@ -1114,13 +1114,15 @@ window.RECIPES = {
           "100 g jambon en dés",
           "100 g fromage râpé",
           "15 g moutarde à l’ancienne (option)"
-        ]
+        ],
+        "note": "Astuce : garde les dés de jambon assez petits pour que les cookies se tiennent bien."
       },
       {
         "group": "Variante comté",
         "items": [
           "120 g comté râpé"
-        ]
+        ],
+        "note": "Astuce : utilise un comté bien râpé pour une répartition régulière dans la pâte."
       }
     ],
     "steps": [
@@ -1129,7 +1131,6 @@ window.RECIPES = {
       "Former des boules, aplatir à 1 cm et cuire 12–15 min à 180 °C."
     ],
     "notes": [
-      "Variante 1 : jambon-fromage ; Variante 2 : comté seul.",
       "Conservation : 3 j boîte hermétique.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."

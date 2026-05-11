@@ -904,7 +904,11 @@ function RecipeView({
                   h('span', null, renderLinkedText(scaleIngredient(item, factor), inlineTargets, openRecipe))
                 )
               );
-            }))
+            })),
+            isOpen && (group.note || (group.notes || []).length > 0) && h('div', { className: 'ingredient-group-note' },
+              group.note && h('p', null, renderLinkedText(group.note, inlineTargets, openRecipe)),
+              (group.notes || []).map((note, noteIndex) => h('p', { key: `${groupKey}:note:${noteIndex}` }, renderLinkedText(note, inlineTargets, openRecipe)))
+            )
           );
         })
       ),
