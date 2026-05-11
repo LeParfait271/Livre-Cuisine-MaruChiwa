@@ -288,9 +288,12 @@ function extractTags(recipe) {
   return Array.from(tags).slice(0, 18);
 }
 
-function isVariantIngredientGroup(group) {
+function isVariantIngredientGroup(group, groups = []) {
   const label = normalizeText(group?.group || '');
-  return label.startsWith('variante') || label.startsWith('version') || label.startsWith('option');
+  if (label.startsWith('variante') || label.startsWith('version') || label.startsWith('option')) return true;
+  if ((groups || []).length < 3) return false;
+  if (label.includes('base commune') || label === 'base' || label.includes('commun')) return false;
+  return true;
 }
 
 function buildInlineRecipeTargets(recipes) {
@@ -882,7 +885,7 @@ function RecipeView({
         ),
         (selectedRecipe.ingredients || []).map((group, groupIndex) => {
           const groupKey = `${detailKey}:group:${groupIndex}`;
-          const collapsible = isVariantIngredientGroup(group);
+          const collapsible = isVariantIngredientGroup(group, selectedRecipe.ingredients || []);
           const isOpen = !collapsible || Boolean(openIngredientGroups[groupKey]);
           return h('div', { className: collapsible ? 'ingredient-group collapsible-ingredient-group' : 'ingredient-group', key: groupKey },
             collapsible

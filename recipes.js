@@ -11,71 +11,168 @@ window.RECIPES = {
     "difficulty": "easy",
     "ingredients": [
       {
-        "group": "Coulis abricot-vanille",
-        "items": [
-          "400 g abricots dénoyautés",
-          "70 g sucre",
-          "1/2 gousse de vanille",
-          "20 g eau"
-        ]
-      },
-      {
         "group": "Coulis de fraise",
         "items": [
-          "400 g fraises",
-          "80 g sucre",
-          "10 g jus de citron"
+          "500 g fraises",
+          "50 à 70 g sucre",
+          "15 g jus de citron"
         ]
       },
       {
         "group": "Coulis de framboise",
         "items": [
-          "400 g framboises",
-          "90 g sucre",
-          "10 g jus de citron"
+          "500 g framboises",
+          "80 à 100 g sucre",
+          "15 g jus de citron",
+          "20 g eau si besoin"
         ]
       },
       {
-        "group": "Coulis de poire",
+        "group": "Coulis de mangue",
         "items": [
-          "400 g poires mûres",
-          "60–80 g sucre (au goût)",
-          "10 g jus de citron"
+          "500 g mangue mûre",
+          "40 à 60 g sucre",
+          "15 g jus de citron vert",
+          "30 à 60 g eau ou jus d’orange"
+        ]
+      },
+      {
+        "group": "Coulis de pêche",
+        "items": [
+          "500 g pêches mûres",
+          "50 à 70 g sucre",
+          "15 g jus de citron",
+          "20 à 40 g eau si besoin"
+        ]
+      },
+      {
+        "group": "Coulis d’abricot",
+        "items": [
+          "500 g abricots mûrs",
+          "70 à 100 g sucre",
+          "15 g jus de citron",
+          "30 à 50 g eau"
+        ]
+      },
+      {
+        "group": "Coulis de myrtille",
+        "items": [
+          "500 g myrtilles",
+          "70 à 90 g sucre",
+          "10 à 15 g jus de citron",
+          "20 g eau"
+        ]
+      },
+      {
+        "group": "Coulis de mûre",
+        "items": [
+          "500 g mûres",
+          "90 à 110 g sucre",
+          "15 g jus de citron",
+          "20 à 30 g eau"
+        ]
+      },
+      {
+        "group": "Coulis d’ananas",
+        "items": [
+          "500 g ananas frais",
+          "50 à 80 g sucre",
+          "10 g jus de citron vert",
+          "30 à 60 g eau ou jus d’ananas"
+        ]
+      },
+      {
+        "group": "Coulis de kiwi",
+        "items": [
+          "500 g kiwis mûrs",
+          "60 à 90 g sucre",
+          "10 g jus de citron vert"
+        ]
+      },
+      {
+        "group": "Coulis de pomme",
+        "items": [
+          "500 g pommes",
+          "50 à 80 g sucre",
+          "15 g jus de citron",
+          "80 à 120 g eau ou jus de pomme"
         ]
       }
     ],
     "steps": [
-      "Choisir le bloc du fruit voulu.",
-      "Mixer les fruits avec le sucre et le citron.",
-      "Chauffer quelques minutes si la recette le demande, puis passer finement.",
-      "Refroidir avant utilisation."
+      "Règle générale : préparer les fruits.",
+      "Mettre les fruits en casserole avec le sucre et, selon le fruit, un peu d’eau ou de jus.",
+      "Cuire doucement 5 à 10 min, ou suivre le temps indiqué pour le fruit choisi.",
+      "Ajouter le citron plutôt en fin de cuisson pour garder un goût frais.",
+      "Mixer finement.",
+      "Filtrer si besoin selon les pépins, fibres ou peaux.",
+      "Ajuster la texture avec un peu d’eau ou de jus, puis corriger sucre et acidité.",
+      "Refroidir rapidement et conserver au frais."
     ],
     "notes": [
-      "Les coulis sont regroupés ici pour éviter les fiches identiques dispersées.",
-      "Stockage : bocal ou flacon propre au réfrigérateur. Péremption : 3–5 jours; congélation possible environ 2 mois."
+      "Fraise : équeuter, couper, cuire 5 à 7 min avec le sucre, ajouter le citron, mixer puis filtrer seulement pour un coulis très lisse. Astuce : cuire peu et ajouter le citron en fin de cuisson pour garder une couleur bien rouge.",
+      "Framboise : chauffer doucement 5 min avec sucre et un petit fond d’eau si besoin, ajouter le citron, mixer puis passer obligatoirement au chinois pour retirer les pépins. Astuce : ne pas presser trop fort les pépins pour éviter l’amertume.",
+      "Mangue : chauffer 3 à 5 min avec sucre et un peu d’eau, ajouter le citron vert, mixer longuement puis détendre si nécessaire. Astuce : la mangue épaissit beaucoup, ajuste toujours la texture après mixage.",
+      "Pêche : éplucher si la peau est épaisse, retirer les noyaux, cuire 6 à 8 min avec le sucre, ajouter le citron, mixer et filtrer si besoin. Astuce : quelques gouttes de citron après découpe limitent l’oxydation.",
+      "Abricot : couper, dénoyauter, cuire 8 à 10 min avec sucre et eau, ajouter le citron, mixer très finement puis filtrer. Astuce : l’abricot devient vite acide après cuisson, goûte avant de mettre tout le citron.",
+      "Myrtille : cuire 6 à 8 min avec eau et sucre jusqu’à éclatement, ajouter le citron, mixer puis filtrer si tu veux un coulis lisse. Astuce : la myrtille épaissit naturellement grâce à sa pectine, ne réduis pas trop.",
+      "Mûre : cuire 6 à 8 min avec sucre et eau, mixer, passer au chinois fin, puis ajouter le citron après filtrage. Astuce : filtre soigneusement, les pépins de mûre sont plus gênants que ceux de framboise.",
+      "Ananas : retirer peau et coeur dur, cuire 8 à 10 min avec sucre et un peu d’eau, ajouter le citron vert, mixer longtemps puis filtrer. Astuce : l’ananas est fibreux, un blender puissant donne un meilleur résultat qu’un mixeur plongeant.",
+      "Kiwi : mixer cru avec sucre et citron vert, filtrer légèrement si tu veux enlever une partie des graines, puis réserver au froid. Astuce : évite de cuire longtemps le kiwi, il perd sa couleur verte et peut devenir amer.",
+      "Pomme : cuire 12 à 15 min avec eau et sucre jusqu’à texture fondante, ajouter le citron, mixer finement puis détendre avec eau ou jus. Astuce : la pomme donne une texture de compote fluide, il faut bien détendre pour obtenir un vrai coulis.",
+      "Finition commune : après refroidissement, vérifier une texture nappante, un sucre présent mais pas dominant, une acidité vive, une bonne brillance et une conservation de 3 à 5 jours au frais ou en congélation par petites portions."
     ],
     "tags": [
       "coulis",
       "fruit",
+      "sauce",
       "dessert",
       "base"
     ],
     "technical": [
       {
-        "label": "Texture",
-        "value": "Mixer finement puis tamiser pour un coulis net et brillant."
+        "label": "Fraise",
+        "value": "50-70 g sucre - 15 g citron - 5-7 min - filtrage facultatif"
       },
       {
-        "label": "Sucre",
-        "value": "Ajuster selon le fruit et l'acidite, sans masquer le gout principal."
+        "label": "Framboise",
+        "value": "80-100 g sucre - 15 g citron - 5 min - filtrage obligatoire"
       },
       {
-        "label": "Service",
-        "value": "Refroidir avant dressage pour garder une tenue precise."
+        "label": "Mangue",
+        "value": "40-60 g sucre - 15 g citron vert - 3-5 min - filtrage facultatif"
+      },
+      {
+        "label": "Pêche",
+        "value": "50-70 g sucre - 15 g citron - 6-8 min - filtrage conseillé"
+      },
+      {
+        "label": "Abricot",
+        "value": "70-100 g sucre - 10-15 g citron - 8-10 min - filtrage conseillé"
+      },
+      {
+        "label": "Myrtille",
+        "value": "70-90 g sucre - 10-15 g citron - 6-8 min - filtrage facultatif"
+      },
+      {
+        "label": "Mûre",
+        "value": "90-110 g sucre - 15 g citron - 6-8 min - filtrage obligatoire"
+      },
+      {
+        "label": "Ananas",
+        "value": "50-80 g sucre - 10 g citron vert - 8-10 min - filtrage conseillé"
+      },
+      {
+        "label": "Kiwi",
+        "value": "60-90 g sucre - 10 g citron vert - cru - filtrage léger"
+      },
+      {
+        "label": "Pomme",
+        "value": "50-80 g sucre - 15 g citron - 12-15 min - filtrage facultatif"
       }
     ],
     "master": "sauces_maitre",
-    "yield": "4 recettes de coulis",
+    "yield": "10 coulis de fruits",
     "difficultyScore": 4
   },
   "chantilly_maitre": {
