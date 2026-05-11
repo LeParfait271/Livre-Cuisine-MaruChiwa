@@ -17,7 +17,7 @@ window.RECIPES = {
           "50 à 70 g sucre",
           "15 g jus de citron"
         ],
-        "note": "Astuce : cuis peu et ajoute le citron en fin de cuisson pour garder une couleur bien rouge."
+        "note": "Astuce cuisson : 5 à 7 min. Cuis peu et ajoute le citron en fin de cuisson pour garder une couleur bien rouge."
       },
       {
         "group": "Coulis de framboise",
@@ -27,7 +27,7 @@ window.RECIPES = {
           "15 g jus de citron",
           "20 g eau si besoin"
         ],
-        "note": "Astuce : ne presse pas trop fort les pépins dans la passoire, sinon le coulis peut devenir amer."
+        "note": "Astuce cuisson : 5 min. Ne presse pas trop fort les pépins dans la passoire, sinon le coulis peut devenir amer."
       },
       {
         "group": "Coulis de mangue",
@@ -37,7 +37,7 @@ window.RECIPES = {
           "15 g jus de citron vert",
           "30 à 60 g eau ou jus d’orange"
         ],
-        "note": "Astuce : la mangue épaissit beaucoup. Ajuste toujours la texture après mixage."
+        "note": "Astuce cuisson : 3 à 5 min. La mangue épaissit beaucoup, ajuste toujours la texture après mixage."
       },
       {
         "group": "Coulis de pêche",
@@ -47,7 +47,7 @@ window.RECIPES = {
           "15 g jus de citron",
           "20 à 40 g eau si besoin"
         ],
-        "note": "Astuce : ajoute quelques gouttes de citron rapidement après découpe pour éviter l’oxydation."
+        "note": "Astuce cuisson : 6 à 8 min. Ajoute quelques gouttes de citron rapidement après découpe pour éviter l’oxydation."
       },
       {
         "group": "Coulis d’abricot",
@@ -57,7 +57,7 @@ window.RECIPES = {
           "15 g jus de citron",
           "30 à 50 g eau"
         ],
-        "note": "Astuce : l’abricot devient vite acide après cuisson. Goûte toujours avant d’ajouter tout le citron."
+        "note": "Astuce cuisson : 8 à 10 min. L’abricot devient vite acide après cuisson, goûte toujours avant d’ajouter tout le citron."
       },
       {
         "group": "Coulis de myrtille",
@@ -67,7 +67,7 @@ window.RECIPES = {
           "10 à 15 g jus de citron",
           "20 g eau"
         ],
-        "note": "Astuce : la myrtille épaissit naturellement grâce à sa pectine. Ne réduis pas trop."
+        "note": "Astuce cuisson : 6 à 8 min. La myrtille épaissit naturellement grâce à sa pectine, ne réduis pas trop."
       },
       {
         "group": "Coulis de mûre",
@@ -77,7 +77,7 @@ window.RECIPES = {
           "15 g jus de citron",
           "20 à 30 g eau"
         ],
-        "note": "Astuce : filtre soigneusement. Les pépins de mûre sont plus gênants que ceux de framboise."
+        "note": "Astuce cuisson : 6 à 8 min. Filtre soigneusement, les pépins de mûre sont plus gênants que ceux de framboise."
       },
       {
         "group": "Coulis d’ananas",
@@ -87,7 +87,7 @@ window.RECIPES = {
           "10 g jus de citron vert",
           "30 à 60 g eau ou jus d’ananas"
         ],
-        "note": "Astuce : l’ananas est fibreux. Un blender puissant donne un meilleur résultat qu’un mixeur plongeant."
+        "note": "Astuce cuisson : 8 à 10 min. L’ananas est fibreux, un blender puissant donne un meilleur résultat qu’un mixeur plongeant."
       },
       {
         "group": "Coulis de kiwi",
@@ -96,7 +96,7 @@ window.RECIPES = {
           "60 à 90 g sucre",
           "10 g jus de citron vert"
         ],
-        "note": "Astuce : évite de cuire le kiwi longtemps, il perd sa couleur verte et peut devenir amer."
+        "note": "Astuce cuisson : cru. Évite de cuire le kiwi longtemps, il perd sa couleur verte et peut devenir amer."
       },
       {
         "group": "Coulis de pomme",
@@ -106,7 +106,7 @@ window.RECIPES = {
           "15 g jus de citron",
           "80 à 120 g eau ou jus de pomme"
         ],
-        "note": "Astuce : la pomme donne plutôt une texture de compote fluide. Pour un vrai coulis, détends bien après mixage."
+        "note": "Astuce cuisson : 12 à 15 min. La pomme donne plutôt une texture de compote fluide, détends bien après mixage pour obtenir un vrai coulis."
       }
     ],
     "steps": [
@@ -129,48 +129,7 @@ window.RECIPES = {
       "dessert",
       "base"
     ],
-    "technical": [
-      {
-        "label": "Fraise",
-        "value": "50-70 g sucre - 15 g citron - 5-7 min - filtrage facultatif"
-      },
-      {
-        "label": "Framboise",
-        "value": "80-100 g sucre - 15 g citron - 5 min - filtrage obligatoire"
-      },
-      {
-        "label": "Mangue",
-        "value": "40-60 g sucre - 15 g citron vert - 3-5 min - filtrage facultatif"
-      },
-      {
-        "label": "Pêche",
-        "value": "50-70 g sucre - 15 g citron - 6-8 min - filtrage conseillé"
-      },
-      {
-        "label": "Abricot",
-        "value": "70-100 g sucre - 10-15 g citron - 8-10 min - filtrage conseillé"
-      },
-      {
-        "label": "Myrtille",
-        "value": "70-90 g sucre - 10-15 g citron - 6-8 min - filtrage facultatif"
-      },
-      {
-        "label": "Mûre",
-        "value": "90-110 g sucre - 15 g citron - 6-8 min - filtrage obligatoire"
-      },
-      {
-        "label": "Ananas",
-        "value": "50-80 g sucre - 10 g citron vert - 8-10 min - filtrage conseillé"
-      },
-      {
-        "label": "Kiwi",
-        "value": "60-90 g sucre - 10 g citron vert - cru - filtrage léger"
-      },
-      {
-        "label": "Pomme",
-        "value": "50-80 g sucre - 15 g citron - 12-15 min - filtrage facultatif"
-      }
-    ],
+    "technical": [],
     "master": "sauces_maitre",
     "yield": "10 coulis de fruits",
     "difficultyScore": 4
@@ -264,12 +223,12 @@ window.RECIPES = {
         "label": "Crème diplomate vanille à garnir"
       },
       {
-        "id": "creme_kinder_nutella",
-        "label": "Crème Kinder / Nutella stable"
-      },
-      {
         "id": "mascarpone",
         "label": "Crème mascarpone vanille"
+      },
+      {
+        "id": "creme_kinder_nutella",
+        "label": "Crème Nutella à garnir"
       },
       {
         "id": "creme_patissiere_praline",
@@ -281,7 +240,7 @@ window.RECIPES = {
       },
       {
         "id": "creme_pistache",
-        "label": "Crème pistache stable"
+        "label": "Crème pistache à garnir"
       },
       {
         "id": "creme_praline",
@@ -1400,7 +1359,8 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/choux_craquelin_spooky.png",
     "categories": [
-      "Base"
+      "Base",
+      "Desserts"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1449,7 +1409,8 @@ window.RECIPES = {
     ],
     "difficultyScore": 7,
     "additionalMasters": [
-      "elements_base_maitre"
+      "elements_base_maitre",
+      "desserts_maitre"
     ]
   },
   "meringues": {
@@ -1457,7 +1418,8 @@ window.RECIPES = {
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/meringues_spooky.png",
     "categories": [
-      "Desserts"
+      "Desserts",
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1490,7 +1452,10 @@ window.RECIPES = {
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "coulis_fraise": {
     "title": "Coulis de fraise",
@@ -1905,7 +1870,8 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/craquelin_cacao_spooky.png",
     "categories": [
-      "Base"
+      "Base",
+      "Desserts"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1935,7 +1901,8 @@ window.RECIPES = {
     ],
     "difficultyScore": 2,
     "additionalMasters": [
-      "elements_base_maitre"
+      "elements_base_maitre",
+      "desserts_maitre"
     ]
   },
   "pate_choux": {
@@ -1943,7 +1910,8 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_choux_spooky.png",
     "categories": [
-      "Base"
+      "Base",
+      "Desserts"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1975,7 +1943,8 @@ window.RECIPES = {
     ],
     "difficultyScore": 7,
     "additionalMasters": [
-      "elements_base_maitre"
+      "elements_base_maitre",
+      "desserts_maitre"
     ]
   },
   "creme_patissiere_praline": {
@@ -2250,12 +2219,24 @@ window.RECIPES = {
         "label": "Biscuits, cookies et meringues"
       },
       {
+        "id": "choux_craquelin",
+        "label": "Choux au craquelin"
+      },
+      {
+        "id": "craquelin_cacao",
+        "label": "Craquelin cacao"
+      },
+      {
         "id": "desserts_cuillere_maitre",
         "label": "Desserts à la cuillère"
       },
       {
         "id": "paris_brest",
         "label": "Paris-Brest"
+      },
+      {
+        "id": "pate_choux",
+        "label": "Pâte à choux"
       },
       {
         "id": "tartes_maitre",
@@ -2282,7 +2263,7 @@ window.RECIPES = {
     ]
   },
   "creme_kinder_nutella": {
-    "title": "Crème Kinder / Nutella stable",
+    "title": "Crème Nutella à garnir",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_kinder_nutella_spooky.png",
     "categories": [
@@ -2321,10 +2302,14 @@ window.RECIPES = {
       "fourrage",
       "stable"
     ],
-    "difficultyScore": 3
+    "difficultyScore": 3,
+    "aliases": [
+      "creme nutella",
+      "crème nutella"
+    ]
   },
   "creme_pistache": {
-    "title": "Crème pistache stable",
+    "title": "Crème pistache à garnir",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_pistache_spooky.png",
     "categories": [
@@ -2938,7 +2923,10 @@ window.RECIPES = {
       "base",
       "patisserie"
     ],
-    "difficultyScore": 6
+    "difficultyScore": 6,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "creme_patissiere_vanille": {
     "title": "Crème pâtissière vanille",
@@ -3631,6 +3619,14 @@ window.RECIPES = {
       {
         "id": "bases_salees_maitre",
         "label": "Bases salées"
+      },
+      {
+        "id": "meringue_italienne",
+        "label": "Meringue italienne"
+      },
+      {
+        "id": "meringues",
+        "label": "Meringues"
       },
       {
         "id": "pates_tarte_variantes",
