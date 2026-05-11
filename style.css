@@ -522,10 +522,11 @@ a {
 
 .card-media {
   position: absolute;
-  inset: 0;
+  inset: -1px;
   display: grid;
   place-items: center;
   aspect-ratio: auto;
+  background-color: #050505;
   background:
     radial-gradient(circle at 70% 16%, color-mix(in srgb, var(--card-accent, var(--accent)) 42%, transparent), transparent 42%),
     linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .015));

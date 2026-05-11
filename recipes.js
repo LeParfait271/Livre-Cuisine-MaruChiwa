@@ -378,6 +378,10 @@ window.RECIPES = {
         "label": "Ricotta fouettée"
       },
       {
+        "id": "sauce_caramel",
+        "label": "Sauce caramel"
+      },
+      {
         "id": "vinaigrette",
         "label": "Vinaigrette de chef"
       }
@@ -2239,6 +2243,10 @@ window.RECIPES = {
         "label": "Pâte à choux"
       },
       {
+        "id": "sauce_caramel",
+        "label": "Sauce caramel"
+      },
+      {
         "id": "tartes_maitre",
         "label": "Tartes"
       },
@@ -3884,9 +3892,9 @@ window.RECIPES = {
       {
         "group": "Fourrage cheesecake",
         "items": [
-          "115 g cream cheese",
+          "115 g fromage frais type Philadelphia (cream cheese)",
           "25 g sucre glace",
-          "30 g sauce caramel au beurre salé"
+          "30 g <span data-goto=\"sauce_caramel\">sauce caramel</span>"
         ]
       },
       {
@@ -3905,13 +3913,13 @@ window.RECIPES = {
       {
         "group": "Finition",
         "items": [
-          "Sauce caramel",
+          "<span data-goto=\"sauce_caramel\">Sauce caramel</span>",
           "Fleur de sel"
         ]
       }
     ],
     "steps": [
-      "Fouetter le cream cheese avec le sucre glace et le caramel, puis déposer 12 petites portions sur papier cuisson.",
+      "Fouetter le fromage frais type Philadelphia avec le sucre glace et le caramel, puis déposer 12 petites portions sur papier cuisson.",
       "Congeler les portions de fourrage 30 min pour pouvoir les enfermer proprement.",
       "Crémer le beurre avec la cassonade et le sucre, puis incorporer l’œuf et la vanille.",
       "Ajouter farine, bicarbonate et sel sans trop travailler la pâte.",
@@ -3920,6 +3928,7 @@ window.RECIPES = {
       "Laisser tiédir, ajouter un filet de caramel et une pointe de fleur de sel."
     ],
     "notes": [
+      "Le cream cheese correspond à un fromage frais dense et légèrement acidulé, type Philadelphia. Évite le fromage blanc ou le Saint Môret trop souple si tu veux un cœur net.",
       "Bien refermer la pâte autour du fourrage pour éviter les fuites. Conservation : 3 jours au réfrigérateur.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
@@ -3929,5 +3938,71 @@ window.RECIPES = {
       "cheesecake"
     ],
     "difficultyScore": 5
+  },
+  "sauce_caramel": {
+    "title": "Sauce caramel",
+    "master": "sauces_assaisonnements_maitre",
+    "image": "/assets/recipe-images/creme_praline_spooky.png",
+    "categories": [
+      "Sauces",
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "yield": "Environ 1 pot",
+    "aliases": [
+      "caramel",
+      "sauce caramel au beurre",
+      "sauce caramel dessert"
+    ],
+    "ingredients": [
+      {
+        "group": "Caramel",
+        "items": [
+          "1 tasse cassonade",
+          "1/2 tasse beurre",
+          "1 pincée de sel"
+        ]
+      },
+      {
+        "group": "Crème",
+        "items": [
+          "1/2 tasse crème 35 %",
+          "1/2 tasse lait"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "1 c. à thé extrait de vanille"
+        ]
+      }
+    ],
+    "steps": [
+      "Mettre la cassonade, le beurre et le sel dans une casserole.",
+      "Chauffer doucement en mélangeant jusqu’à ce que le beurre soit fondu et que le sucre commence à se dissoudre.",
+      "Ajouter la crème 35 % et le lait en remuant.",
+      "Porter à frémissement doux et cuire 6 à 9 min, en mélangeant régulièrement, jusqu’à texture nappante.",
+      "Retirer du feu, ajouter la vanille et mélanger.",
+      "Laisser tiédir : la sauce épaissit en refroidissant.",
+      "Mettre en pot propre et conserver au réfrigérateur."
+    ],
+    "notes": [
+      "Pour une sauce plus fluide, ajoute une petite touche de lait chaud après cuisson.",
+      "Pour une sauce plus épaisse, prolonge très légèrement la cuisson en surveillant la couleur et la texture.",
+      "Conservation : environ 1 semaine au réfrigérateur dans un pot propre fermé."
+    ],
+    "tags": [
+      "sauce",
+      "caramel",
+      "dessert",
+      "cookies"
+    ],
+    "difficultyScore": 3,
+    "additionalMasters": [
+      "desserts_maitre"
+    ]
   }
 };
