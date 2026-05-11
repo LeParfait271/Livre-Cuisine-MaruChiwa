@@ -1,10 +1,10 @@
 // ============================================================
-//  Cook Note - Service Worker PWA v23
+//  Cook Note - Service Worker PWA v24
 //  Cache-first pour assets statiques
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'cook-note-v23';
+const CACHE_NAME = 'cook-note-v24';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -16,6 +16,13 @@ const STATIC_ASSETS = [
   '/manifest.json',
   '/assets/cook-note.png',
   '/assets/base-principale-fond-site.jpg',
+  '/assets/recipe-images/parent_apero.png',
+  '/assets/recipe-images/parent_base.png',
+  '/assets/recipe-images/parent_desserts.png',
+  '/assets/recipe-images/parent_entrees.png',
+  '/assets/recipe-images/parent_petit_dejeuner.png',
+  '/assets/recipe-images/parent_plats.png',
+  '/assets/recipe-images/parent_sauces.png',
 ];
 
 // Installation
@@ -24,7 +31,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v23] Assets statiques mis en cache.');
+        console.log('[SW v24] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
@@ -38,7 +45,7 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-        console.log('[SW v23] Anciens caches supprimés.');
+        console.log('[SW v24] Anciens caches supprimés.');
     })
   );
   self.clients.claim();

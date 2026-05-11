@@ -3,8 +3,7 @@ window.RECIPES = {
     "title": "Coulis",
     "image": "/assets/recipe-images/coulis_maitre_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -75,7 +74,7 @@ window.RECIPES = {
         "value": "Refroidir avant dressage pour garder une tenue precise."
       }
     ],
-    "master": "desserts_maitre",
+    "master": "sauces_maitre",
     "yield": "4 recettes de coulis",
     "difficultyScore": 4
   },
@@ -84,7 +83,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/chantilly_maitre_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -135,8 +134,7 @@ window.RECIPES = {
     "title": "Toppings et garnitures",
     "image": "/assets/recipe-images/cremes_maitre_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Desserts"
     ],
     "seasons": [
       "Toutes saisons"
@@ -236,8 +234,7 @@ window.RECIPES = {
     "title": "Pâtes et bases pâtissières",
     "image": "/assets/recipe-images/pates_bases_maitre_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -254,16 +251,8 @@ window.RECIPES = {
         "label": "Craquelin cacao"
       },
       {
-        "id": "paris_brest",
-        "label": "Paris-Brest"
-      },
-      {
         "id": "pate_choux",
         "label": "Pâte à choux"
-      },
-      {
-        "id": "pate_noisette",
-        "label": "Pâte de noisette maison"
       },
       {
         "id": "pate_sucree",
@@ -304,9 +293,7 @@ window.RECIPES = {
     "title": "Sauces, pestos et assaisonnements",
     "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro",
-      "Recettes de base"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -329,6 +316,10 @@ window.RECIPES = {
       {
         "id": "pesto_variantes",
         "label": "Pesto"
+      },
+      {
+        "id": "ricotta_fouettee",
+        "label": "Ricotta fouettée"
       },
       {
         "id": "vinaigrette",
@@ -369,9 +360,7 @@ window.RECIPES = {
     "title": "Tomates préparées",
     "image": "/assets/recipe-images/tomates_maitre_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro",
-      "Recettes de base"
+      "Entrées"
     ],
     "seasons": [
       "Été",
@@ -423,9 +412,7 @@ window.RECIPES = {
     "title": "Biscuits, cookies et meringues",
     "image": "/assets/recipe-images/biscuits_gouters_maitre_spooky.png",
     "categories": [
-      "Desserts",
-      "Apéro",
-      "Recettes de base"
+      "Desserts"
     ],
     "seasons": [
       "Toutes saisons"
@@ -541,12 +528,10 @@ window.RECIPES = {
     "master": "petit_dejeuner_maitre"
   },
   "bases_salees_maitre": {
-    "title": "Bases salées et accompagnements",
+    "title": "Bases salées",
     "image": "/assets/recipe-images/bases_salees_maitre_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -557,14 +542,6 @@ window.RECIPES = {
       {
         "id": "court_bouillon",
         "label": "Court-bouillon"
-      },
-      {
-        "id": "legumes_rotis",
-        "label": "Légumes rôtis au four"
-      },
-      {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouettée"
       },
       {
         "id": "tortillas_mexicaines",
@@ -583,7 +560,7 @@ window.RECIPES = {
       "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche maître : bases salées, accompagnements et préparations de service."
+      "Fiche parent pour les bases salées utiles dans plusieurs recettes."
     ],
     "technical": [
       {
@@ -691,11 +668,10 @@ window.RECIPES = {
   },
   "ricotta_fouettee": {
     "title": "Ricotta fouettée",
-    "master": "bases_salees_maitre",
+    "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/ricotta_fouettee_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -793,7 +769,8 @@ window.RECIPES = {
     "notes": [
       "Séchées : parfaites pour antipasti et salades.",
       "Confites : idéales en bruschetta / pâtes.",
-      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 4
   },
@@ -826,13 +803,14 @@ window.RECIPES = {
     "notes": [
       "Variantes : poivre de Sichuan, origan, paprika fumé.",
       "Conservation : 1 mois au froid.",
-      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 2
   },
   "legumes_rotis": {
     "title": "Légumes rôtis au four",
-    "master": "bases_salees_maitre",
+    "master": "entrees_maitre",
     "image": "/assets/recipe-images/legumes_rotis_spooky.png",
     "categories": [
       "Entrées"
@@ -874,7 +852,8 @@ window.RECIPES = {
     "notes": [
       "Plaque préchauffée = croûte plus nette.",
       "Conservation : 4 j au réfrigérateur.",
-      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 3
   },
@@ -1055,13 +1034,14 @@ window.RECIPES = {
     "notes": [
       "Variante 1 : jambon-fromage ; Variante 2 : comté seul.",
       "Conservation : 3 j boîte hermétique.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 4
   },
   "pancakes_variantes": {
     "title": "Pancakes",
-    "master": "petits_dejeuners_maitre",
+    "master": "petit_dejeuner_maitre",
     "image": "/assets/recipe-images/pancakes_variantes_spooky.png",
     "categories": [
       "Petits-déjeuners"
@@ -1125,11 +1105,10 @@ window.RECIPES = {
   },
   "chocolat_ancien": {
     "title": "Chocolat chaud à l'ancienne",
-    "master": "petits_dejeuners_maitre",
+    "master": "petit_dejeuner_maitre",
     "image": "/assets/recipe-images/chocolat_ancien_spooky.png",
     "categories": [
-      "Petits-déjeuners",
-      "Desserts"
+      "Petits-déjeuners"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1323,7 +1302,7 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/choux_craquelin_spooky.png",
     "categories": [
-      "Desserts"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1367,52 +1346,13 @@ window.RECIPES = {
       "Conservation : coques 3 j à température ambiante dans boîte hermétique ; garnis 24 h au froid.",
       "→ Recette de garnissage : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span>",
       "→ Version allégée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 7,
     "additionalMasters": [
       "elements_base_maitre"
     ]
-  },
-  "cookies": {
-    "title": "Cookies américains",
-    "master": "cookies_sucres_maitre",
-    "image": "/assets/recipe-images/cookies_spooky.png",
-    "categories": [
-      "Desserts"
-    ],
-    "seasons": [
-      "Toutes saisons"
-    ],
-    "difficulty": "easy",
-    "yield": "20–24 cookies (50–60 g)",
-    "ingredients": [
-      {
-        "group": "Appareil",
-        "items": [
-          "Sucre brun 560 g",
-          "Sucre 450 g",
-          "Beurre 560 g",
-          "4 œufs",
-          "Extrait de vanille 15 g",
-          "Huile de sésame 10 g",
-          "Eau 10 g + 12 g levure chimique + 12 g bicarbonate",
-          "Farine de gruau 480 g",
-          "Farine de gâteau 480 g",
-          "Sel fin 15 g",
-          "Pépites de chocolat 700 g"
-        ]
-      }
-    ],
-    "steps": [
-      "Crémer beurres + sucres ; œufs/arômes ; poudres ; farines ; pépites ; bouler."
-    ],
-    "notes": [
-      "Repos au froid conseillé ; cuire selon taille.",
-      "Conservation : 3 j boîte hermétique ; pâte crue congélée 1 mois.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
-    ],
-    "difficultyScore": 3
   },
   "meringues": {
     "title": "Meringues",
@@ -1449,7 +1389,8 @@ window.RECIPES = {
       "Cuisson longue = meringues bien sèches et stables.",
       "Stockage optimal : boîte hermétique, endroit sec, jamais au réfrigérateur.",
       "Conservation : 2 semaines sans perte de texture.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 4
   },
@@ -1616,53 +1557,11 @@ window.RECIPES = {
     ],
     "difficultyScore": 2
   },
-  "creme_amande_": {
-    "title": "Crème d'amandes",
-    "master": "cremes_maitre",
-    "image": "/assets/recipe-images/creme_amande__spooky.png",
-    "categories": [
-      "Desserts"
-    ],
-    "seasons": [
-      "Toutes saisons"
-    ],
-    "difficulty": "easy",
-    "yield": "1 préparation (≈ tarte 22–24 cm)",
-    "ingredients": [
-      {
-        "group": "Appareil",
-        "items": [
-          "100 g beurre pommade",
-          "100 g sucre",
-          "100 g poudre d'amande",
-          "2 œufs",
-          "10 g farine",
-          "Zeste de citron (option)",
-          "Rhum ou vanille (option)"
-        ]
-      }
-    ],
-    "steps": [
-      "Crémer beurre + sucre.",
-      "Ajouter poudre d'amande.",
-      "Incorporer œufs un à un.",
-      "Ajouter farine et arômes.",
-      "Utiliser en garniture de tarte ou cuisson douce."
-    ],
-    "notes": [
-      "Ne pas trop fouetter pour éviter qu'elle gonfle à la cuisson.",
-      "Stockage optimal : boîte hermétique au réfrigérateur.",
-      "Conservation : 48 h au froid ; congélateur 1 mois.",
-      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
-    ],
-    "difficultyScore": 3
-  },
   "court_bouillon": {
     "title": "Court-bouillon",
     "master": "bases_salees_maitre",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1715,10 +1614,9 @@ window.RECIPES = {
   },
   "donuts_cloud": {
     "title": "Beignets Cloud",
-    "master": "petits_dejeuners_maitre",
+    "master": "petit_dejeuner_maitre",
     "categories": [
-      "Petits-déjeuners",
-      "Desserts"
+      "Petits-déjeuners"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1782,7 +1680,8 @@ window.RECIPES = {
       "Apprêt insuffisant : mie dense.",
       "Sur-apprêt : beignets qui retombent.",
       "Résultat attendu : mie aérée et filante, extérieur finement doré, cuisson à cœur sans sécheresse.",
-      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 7
   },
@@ -1859,7 +1758,7 @@ window.RECIPES = {
   },
   "paris_brest": {
     "title": "Paris-Brest",
-    "master": "pates_bases_maitre",
+    "master": "desserts_maitre",
     "image": "/assets/recipe-images/paris_brest_spooky.png",
     "categories": [
       "Desserts"
@@ -1884,7 +1783,6 @@ window.RECIPES = {
         "items": [
           "→ Voir : <span data-goto=\"craquelin_cacao\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Craquelin cacao</span>",
           "→ Voir : <span data-goto=\"pate_choux\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Pâte à choux</span>",
-          "→ Voir : <span data-goto=\"pate_noisette\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Pâte de noisette</span>",
           "→ Voir : <span data-goto=\"creme_patissiere_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière praliné</span>",
           "→ Voir : <span data-goto=\"creme_beurre_meringue_italienne\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème au beurre meringue italienne</span>",
           "→ Voir : <span data-goto=\"creme_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème praliné</span>"
@@ -1909,7 +1807,7 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/craquelin_cacao_spooky.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1947,7 +1845,7 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_choux_spooky.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1974,42 +1872,10 @@ window.RECIPES = {
     ],
     "notes": [
       "Le test du sillon : il doit se refermer doucement quand la texture est correcte.",
-      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
+      "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 7,
-    "additionalMasters": [
-      "elements_base_maitre"
-    ]
-  },
-  "pate_noisette": {
-    "title": "Pâte de noisette maison",
-    "master": "pates_bases_maitre",
-    "image": "/assets/recipe-images/pate_noisette_spooky.png",
-    "categories": [
-      "Éléments de base"
-    ],
-    "seasons": [
-      "Toutes saisons"
-    ],
-    "difficulty": "easy",
-    "ingredients": [
-      {
-        "group": "Base",
-        "items": [
-          "250 g noisettes torréfiées",
-          "14 g sucre glace",
-          "0,5 g fleur de sel"
-        ]
-      }
-    ],
-    "steps": [
-      "Mixer longuement tous les ingrédients jusqu’à obtention d’une pâte lisse et fluide."
-    ],
-    "notes": [
-      "Composant utilisable dans crèmes, pralinés et ganaches.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
-    ],
-    "difficultyScore": 2,
     "additionalMasters": [
       "elements_base_maitre"
     ]
@@ -2020,7 +1886,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/creme_patissiere_praline_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2063,7 +1929,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/creme_beurre_meringue_italienne_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2096,7 +1962,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Base technique pour plusieurs entremets/pâtisseries classiques.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "difficultyScore": 8
   },
@@ -2106,7 +1973,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/creme_praline_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2211,10 +2078,6 @@ window.RECIPES = {
         "label": "Oignons rôtis au thym et au miel"
       },
       {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat, œuf et épinards"
-      },
-      {
         "id": "tomates_maitre",
         "label": "Tomates préparées"
       }
@@ -2291,6 +2154,10 @@ window.RECIPES = {
       {
         "id": "desserts_cuillere_maitre",
         "label": "Desserts à la cuillère"
+      },
+      {
+        "id": "paris_brest",
+        "label": "Paris-Brest"
       },
       {
         "id": "tartes_maitre",
@@ -2400,7 +2267,7 @@ window.RECIPES = {
   },
   "gaufre_bruxelles": {
     "title": "Gaufres",
-    "master": "petits_dejeuners_maitre",
+    "master": "petit_dejeuner_maitre",
     "image": "/assets/recipe-images/gaufre_bruxelles_spooky.png",
     "categories": [
       "Petits-déjeuners"
@@ -2525,7 +2392,8 @@ window.RECIPES = {
     "notes": [
       "Points critiques : beurre pommade non liquide, sirop à 118–120 °C, verser lentement, fouetter jusqu’à refroidissement complet.",
       "Résultat attendu : pâte croustillante, crème d’amande moelleuse, crème citron fondante, meringue légère et stable.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "tarte",
@@ -2583,10 +2451,9 @@ window.RECIPES = {
   },
   "cake_sale_lardon": {
     "title": "Cake salé aux lardons",
-    "master": "entrees_maitre",
+    "master": "apero_maitre",
     "image": "/assets/recipe-images/cake_sale_lardon_spooky.png",
     "categories": [
-      "Entrées",
       "Apéro"
     ],
     "seasons": [
@@ -2629,7 +2496,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Le cake est prêt quand la lame ressort sèche et que le dessus est bien doré.",
-      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours."
+      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "cake",
@@ -2676,7 +2544,8 @@ window.RECIPES = {
     "notes": [
       "Accompagnement pour viande grillée, poisson, purée ou gratin de légumes.",
       "Conservation : 3–4 jours au froid en boîte hermétique.",
-      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
+      "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "oignon",
@@ -2731,7 +2600,8 @@ window.RECIPES = {
     "notes": [
       "Cuisson lente indispensable pour une texture fondante.",
       "Conservation : 3–4 jours au froid, réchauffage doux avec un peu de sauce.",
-      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours."
+      "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "porc",
@@ -2746,7 +2616,7 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_sucree_spooky.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2787,12 +2657,12 @@ window.RECIPES = {
     ]
   },
   "creme_amande_citron": {
-    "title": "Crème d’amande",
+    "title": "Crème d’amande pour fond de tarte",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_amande_citron_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2839,7 +2709,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/creme_citron_lemon_curd_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Printemps",
@@ -2886,7 +2756,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/compotee_citron_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Printemps",
@@ -2933,7 +2803,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/meringue_italienne_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2961,7 +2831,8 @@ window.RECIPES = {
     "notes": [
       "Verser le sirop lentement.",
       "Fouetter jusqu’à refroidissement complet pour une bonne stabilité.",
-      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
+      "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "meringue",
@@ -2977,7 +2848,7 @@ window.RECIPES = {
     "image": "/assets/recipe-images/creme_patissiere_vanille_spooky.png",
     "categories": [
       "Desserts",
-      "Recettes de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3019,7 +2890,7 @@ window.RECIPES = {
   },
   "salade_avocat_oeuf_epinards": {
     "title": "Salade avocat, œuf et épinards",
-    "master": "entrees_maitre",
+    "master": "crudites_maitre",
     "image": "/assets/recipe-images/salade_avocat_oeuf_epinards_spooky.png",
     "categories": [
       "Entrées"
@@ -3176,8 +3047,7 @@ window.RECIPES = {
     "master": "entrees_maitre",
     "image": "/assets/recipe-images/crudites_maitre_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Entrées"
     ],
     "seasons": [
       "Printemps",
@@ -3211,8 +3081,7 @@ window.RECIPES = {
     "master": "petit_dejeuner_maitre",
     "image": "/assets/recipe-images/babeurre_maison_spooky.png",
     "categories": [
-      "Petits-déjeuners",
-      "Recettes de base"
+      "Petits-déjeuners"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3289,7 +3158,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Servir chaud, tiède ou en accompagnement d’une viande grillée.",
-      "Stockage : 2 jours au réfrigérateur, réchauffer au four doux."
+      "Stockage : 2 jours au réfrigérateur, réchauffer au four doux.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "tomate",
@@ -3308,7 +3178,7 @@ window.RECIPES = {
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/tortillas_mexicaines_spooky.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3405,7 +3275,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Le temps de cuisson est le point clé : tester un moule avant une série.",
-      "Stockage : appareil cru 24 h au réfrigérateur, cuisson minute recommandée."
+      "Stockage : appareil cru 24 h au réfrigérateur, cuisson minute recommandée.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "chocolat",
@@ -3469,7 +3340,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Pour des cookies épais, cuire la pâte bien froide.",
-      "Stockage : 4 jours en boîte hermétique."
+      "Stockage : 4 jours en boîte hermétique.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "cookies",
@@ -3533,7 +3405,8 @@ window.RECIPES = {
     ],
     "notes": [
       "Recette technique : pesées précises, blancs à température ambiante et cuisson régulière.",
-      "Stockage : 3 jours au réfrigérateur, sortir 15 min avant dégustation."
+      "Stockage : 3 jours au réfrigérateur, sortir 15 min avant dégustation.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "macaron",
@@ -3595,7 +3468,8 @@ window.RECIPES = {
     ],
     "notes": [
       "La pâte doit être assez souple pour être pochée mais garder les stries de la douille.",
-      "Stockage : meilleur minute, possible 24 h mais perd du croustillant."
+      "Stockage : meilleur minute, possible 24 h mais perd du croustillant.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "churros",
@@ -3610,7 +3484,7 @@ window.RECIPES = {
   },
   "sauces_maitre": {
     "title": "Sauces",
-    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "image": "/assets/recipe-images/parent_sauces.png",
     "categories": [
       "Sauces"
     ],
@@ -3618,6 +3492,10 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "variants": [
+      {
+        "id": "coulis_maitre",
+        "label": "Coulis"
+      },
       {
         "id": "sauces_burger_variantes",
         "label": "Sauces burger"
@@ -3643,10 +3521,10 @@ window.RECIPES = {
     ]
   },
   "elements_base_maitre": {
-    "title": "Éléments de base",
-    "image": "/assets/recipe-images/pates_bases_maitre_spooky.png",
+    "title": "Base",
+    "image": "/assets/recipe-images/parent_base.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3654,7 +3532,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "bases_salees_maitre",
-        "label": "Bases salées et accompagnements"
+        "label": "Bases salées"
       },
       {
         "id": "pates_tarte_variantes",
@@ -3663,10 +3541,6 @@ window.RECIPES = {
       {
         "id": "pates_bases_maitre",
         "label": "Pâtes et bases pâtissières"
-      },
-      {
-        "id": "tortillas_mexicaines",
-        "label": "Tortillas mexicaines"
       }
     ],
     "ingredients": [
@@ -3681,7 +3555,14 @@ window.RECIPES = {
       "Sélectionner la base voulue dans les cartes de recettes."
     ],
     "notes": [
-      "Fiche parent pour wraps, tortillas, pâtes à tarte et bases de préparation."
+      "Fiche parent pour les préparations de base : pains, tortillas, pâtes, fonds et supports de recettes."
+    ],
+    "tags": [
+      "base",
+      "pâte",
+      "pain",
+      "tortilla",
+      "fond de tarte"
     ]
   },
   "cookies_sucres_maitre": {
@@ -3695,10 +3576,6 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "variants": [
-      {
-        "id": "cookies",
-        "label": "Cookies américains"
-      },
       {
         "id": "caramel_cheesecake_cookies",
         "label": "Cookies caramel cheesecake"
@@ -3818,7 +3695,7 @@ window.RECIPES = {
     "master": "elements_base_maitre",
     "image": "/assets/recipe-images/pates_bases_maitre_spooky.png",
     "categories": [
-      "Éléments de base"
+      "Base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3949,7 +3826,8 @@ window.RECIPES = {
       "Laisser tiédir, ajouter un filet de caramel et une pointe de fleur de sel."
     ],
     "notes": [
-      "Bien refermer la pâte autour du fourrage pour éviter les fuites. Conservation : 3 jours au réfrigérateur."
+      "Bien refermer la pâte autour du fourrage pour éviter les fuites. Conservation : 3 jours au réfrigérateur.",
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
       "cookies",

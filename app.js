@@ -9,12 +9,13 @@ const COOK_NOTE_LOGO = '/assets/cook-note.png';
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
 const CATEGORY_ACCENTS = {
-  'Apéro': '#8d6343',
-  'Entrées': '#425320',
-  'Plats': '#762e0c',
-  'Desserts': '#976937',
-  'Petits-déjeuners': '#db6507',
-  'Recettes de base': '#a78bfa'
+  'Apéro': '#b51f30',
+  'Entrées': '#697c1f',
+  'Plats': '#c46311',
+  'Desserts': '#7d5565',
+  'Petits-déjeuners': '#b07a16',
+  'Sauces': '#b84a16',
+  'Base': '#0f8a84'
 };
 const HOME_CARD_ORDER = {
   petit_dejeuner_maitre: 1,
@@ -980,6 +981,10 @@ function App() {
   const shoppingRecipes = useMemo(() => shoppingIds.map(id => recipesById[id]).filter(Boolean), [shoppingIds, recipesById]);
 
   useEffect(() => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  }, []);
+
+  useEffect(() => {
     if (!activeRecipe?.master || isMasterRecipe(activeRecipe)) return;
     setVariantSelection(prev => ({ ...prev, [activeRecipe.master]: activeRecipe.id }));
     setActiveId(activeRecipe.master);
@@ -1094,6 +1099,7 @@ function App() {
     const target = recipesById[id];
     if (!target) return;
     if (!activeRecipe) homeScrollRef.current = window.scrollY || 0;
+    restoreHomeScrollRef.current = false;
     const parentId = target.master && !isMasterRecipe(target) ? target.master : id;
     if (target.master && !isMasterRecipe(target)) {
       setVariantSelection(prev => ({ ...prev, [parentId]: id }));
@@ -1115,7 +1121,7 @@ function App() {
     if (window.location.hash !== nextHash) {
       window.location.hash = nextHash.slice(1);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
   }
 
   function selectVariant(parentId, variantId) {
@@ -1151,7 +1157,10 @@ function App() {
     const handleHash = () => {
       const recipe = getInitialHashRecipe();
       const variant = getInitialHashVariant();
-      if (recipe && !activeId) homeScrollRef.current = window.scrollY || homeScrollRef.current || 0;
+      if (recipe && !activeId) {
+        homeScrollRef.current = Math.max(window.scrollY || 0, homeScrollRef.current || 0);
+        restoreHomeScrollRef.current = false;
+      }
       setActiveId(recipe);
       if (!recipe) restoreHomeScrollRef.current = true;
       if (recipe && variant) {
@@ -1172,7 +1181,13 @@ function App() {
     if (activeRecipe || !restoreHomeScrollRef.current) return;
     restoreHomeScrollRef.current = false;
     const top = homeScrollRef.current || 0;
-    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top, behavior: 'auto' })));
+    let attempts = 0;
+    const restore = () => {
+      window.scrollTo({ top, behavior: 'auto' });
+      attempts += 1;
+      if (attempts < 8 && Math.abs((window.scrollY || 0) - top) > 2) requestAnimationFrame(restore);
+    };
+    requestAnimationFrame(() => requestAnimationFrame(restore));
   }, [activeRecipe]);
 
   useEffect(() => {

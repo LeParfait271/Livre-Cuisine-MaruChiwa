@@ -21,7 +21,7 @@ const errors = [];
 
 function checkTextEncoding(value, location) {
   if (typeof value === 'string') {
-    if (/\uFFFD|\?/.test(value)) {
+    if (/\uFFFD|\?|Ã|â€/.test(value)) {
       errors.push(`${location}: caractere suspect detecte (${value}).`);
     }
     return;
@@ -33,6 +33,21 @@ function checkTextEncoding(value, location) {
   if (value && typeof value === 'object') {
     Object.entries(value).forEach(([key, item]) => checkTextEncoding(item, `${location}.${key}`));
   }
+}
+
+function collectStrings(value, out = []) {
+  if (typeof value === 'string') {
+    out.push(value);
+    return out;
+  }
+  if (Array.isArray(value)) {
+    value.forEach(item => collectStrings(item, out));
+    return out;
+  }
+  if (value && typeof value === 'object') {
+    Object.values(value).forEach(item => collectStrings(item, out));
+  }
+  return out;
 }
 
 if (!recipes || typeof recipes !== 'object') {
@@ -87,8 +102,13 @@ if (!recipes || typeof recipes !== 'object') {
       if (!fs.existsSync(filePath)) errors.push(`${id}: image locale introuvable (${recipe.image}).`);
     }
 
-    const noteText = Array.isArray(recipe.notes) ? recipe.notes.join('\n') : '';
-    for (const match of noteText.matchAll(/data-goto=["']([^"']+)["']/g)) {
+    const linkableText = collectStrings({
+      ingredients: recipe.ingredients || [],
+      steps: recipe.steps || [],
+      notes: recipe.notes || [],
+      technical: recipe.technical || []
+    }).join('\n');
+    for (const match of linkableText.matchAll(/data-goto=\\?["']([^"']+)\\?["']/g)) {
       if (!ids.has(match[1])) errors.push(`${id}: lien interne data-goto introuvable (${match[1]}).`);
     }
   }
@@ -97,8 +117,8 @@ if (!recipes || typeof recipes !== 'object') {
 textFilesToCheck.forEach(filePath => {
   if (!fs.existsSync(filePath)) return;
   const text = fs.readFileSync(filePath, 'utf8');
-  if (/\uFFFD/.test(text)) {
-    errors.push(`${path.relative(ROOT, filePath)}: caractere de remplacement UTF-8 detecte.`);
+  if (/\uFFFD|Ã|â€/.test(text)) {
+    errors.push(`${path.relative(ROOT, filePath)}: caractere UTF-8 suspect detecte.`);
   }
 });
 
