@@ -98,7 +98,7 @@ window.RECIPES = {
       },
       {
         "id": "chantilly_gelatine",
-        "label": "Chantilly stabilis?e"
+        "label": "Chantilly stabilisée"
       }
     ],
     "ingredients": [
@@ -145,12 +145,8 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "chantilly_classique",
-        "label": "Chantilly classique"
-      },
-      {
-        "id": "chantilly_gelatine",
-        "label": "Chantilly stabilis?e"
+        "id": "chantilly_maitre",
+        "label": "Chantilly"
       },
       {
         "id": "coulis_maitre",
@@ -158,31 +154,19 @@ window.RECIPES = {
       },
       {
         "id": "creme_beurre_meringue_italienne",
-        "label": "Cr?me au beurre meringue italienne"
+        "label": "Crème au beurre meringue italienne"
       },
       {
         "id": "creme_citron_lemon_curd",
-        "label": "Cr?me citron"
-      },
-      {
-        "id": "creme_diplomate_cloud",
-        "label": "Cr?me diplomate vanille ? garnir"
-      },
-      {
-        "id": "creme_praline",
-        "label": "Cr?me pralin?"
-      },
-      {
-        "id": "creme_amande_citron",
-        "label": "Crème d’amande"
-      },
-      {
-        "id": "creme_amande_",
-        "label": "Crème d'amandes"
+        "label": "Crème citron"
       },
       {
         "id": "creme_diplomate_vanille",
         "label": "Crème diplomate vanille"
+      },
+      {
+        "id": "creme_diplomate_cloud",
+        "label": "Crème diplomate vanille à garnir"
       },
       {
         "id": "creme_kinder_nutella",
@@ -203,6 +187,10 @@ window.RECIPES = {
       {
         "id": "creme_pistache",
         "label": "Crème pistache stable"
+      },
+      {
+        "id": "creme_praline",
+        "label": "Crème praliné"
       },
       {
         "id": "compotee_citron",
@@ -266,10 +254,6 @@ window.RECIPES = {
         "label": "Craquelin cacao"
       },
       {
-        "id": "pate_sucree",
-        "label": "P?te sucr?e"
-      },
-      {
         "id": "paris_brest",
         "label": "Paris-Brest"
       },
@@ -280,6 +264,10 @@ window.RECIPES = {
       {
         "id": "pate_noisette",
         "label": "Pâte de noisette maison"
+      },
+      {
+        "id": "pate_sucree",
+        "label": "Pâte sucrée"
       }
     ],
     "ingredients": [
@@ -310,7 +298,7 @@ window.RECIPES = {
         "value": "Surveiller la coloration plutot que le minuteur seul."
       }
     ],
-    "master": "desserts_maitre"
+    "master": "elements_base_maitre"
   },
   "sauces_assaisonnements_maitre": {
     "title": "Sauces, pestos et assaisonnements",
@@ -328,11 +316,11 @@ window.RECIPES = {
     "variants": [
       {
         "id": "balsamique_reduit",
-        "label": "Balsamique r?duit"
+        "label": "Balsamique réduit"
       },
       {
         "id": "huile_pimentee_pizza",
-        "label": "Huile piment?e pour pizza"
+        "label": "Huile pimentée pour pizza"
       },
       {
         "id": "marinades_guide",
@@ -375,7 +363,7 @@ window.RECIPES = {
         "value": "Filmer ou couvrir au contact quand la sauce attend."
       }
     ],
-    "master": "entrees_maitre"
+    "master": "sauces_maitre"
   },
   "tomates_maitre": {
     "title": "Tomates préparées",
@@ -450,20 +438,12 @@ window.RECIPES = {
         "label": "Churros"
       },
       {
-        "id": "cookies",
-        "label": "Cookies américains"
-      },
-      {
-        "id": "cookies_chocolat_blanc_cranberry",
-        "label": "Cookies chocolat blanc cranberry"
-      },
-      {
-        "id": "cookies_sales_variantes",
-        "label": "Cookies sal?s"
+        "id": "cookies_sucres_maitre",
+        "label": "Cookies sucrés"
       },
       {
         "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Our?a"
+        "label": "Macaron Ouréa"
       },
       {
         "id": "meringues",
@@ -523,7 +503,7 @@ window.RECIPES = {
       },
       {
         "id": "gaufre_bruxelles",
-        "label": "Gaufres de Bruxelles"
+        "label": "Gaufres"
       },
       {
         "id": "pancakes_variantes",
@@ -584,7 +564,7 @@ window.RECIPES = {
       },
       {
         "id": "ricotta_fouettee",
-        "label": "Ricotta fouett?e"
+        "label": "Ricotta fouettée"
       },
       {
         "id": "tortillas_mexicaines",
@@ -619,15 +599,14 @@ window.RECIPES = {
         "value": "Garder les elements chauds separes si le dressage attend."
       }
     ],
-    "master": "entrees_maitre"
+    "master": "elements_base_maitre"
   },
   "vinaigrette": {
     "title": "Vinaigrette de chef",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/vinaigrette_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -665,8 +644,7 @@ window.RECIPES = {
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/pesto_variantes_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Sauces"
     ],
     "seasons": [
       "Printemps",
@@ -712,7 +690,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "ricotta_fouettee": {
-    "title": "Ricotta fouett?e",
+    "title": "Ricotta fouettée",
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/ricotta_fouettee_spooky.png",
     "categories": [
@@ -744,12 +722,11 @@ window.RECIPES = {
     "difficultyScore": 2
   },
   "balsamique_reduit": {
-    "title": "Balsamique r?duit",
+    "title": "Balsamique réduit",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/balsamique_reduit_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -779,8 +756,7 @@ window.RECIPES = {
     "master": "tomates_maitre",
     "image": "/assets/recipe-images/tomates_variantes_spooky.png",
     "categories": [
-      "Entrées",
-      "Apéro"
+      "Entrées"
     ],
     "seasons": [
       "Été",
@@ -822,12 +798,11 @@ window.RECIPES = {
     "difficultyScore": 4
   },
   "huile_pimentee_pizza": {
-    "title": "Huile piment?e pour pizza",
+    "title": "Huile pimentée pour pizza",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/huile_pimentee_pizza_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -860,8 +835,7 @@ window.RECIPES = {
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/legumes_rotis_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Entrées"
     ],
     "seasons": [
       "Toutes saisons"
@@ -909,8 +883,7 @@ window.RECIPES = {
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/marinades_guide_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Sauces"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1037,11 +1010,10 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "cookies_sales_variantes": {
-    "title": "Cookies sal?s",
-    "master": "biscuits_gouters_maitre",
+    "title": "Cookies salés",
+    "master": "apero_maitre",
     "image": "/assets/recipe-images/cookies_sales_variantes_spooky.png",
     "categories": [
-      "Entrées",
       "Apéro"
     ],
     "seasons": [
@@ -1262,7 +1234,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "chantilly_gelatine": {
-    "title": "Chantilly stabilis?e",
+    "title": "Chantilly stabilisée",
     "master": "chantilly_maitre",
     "image": "/assets/recipe-images/chantilly_gelatine_spooky.png",
     "categories": [
@@ -1397,11 +1369,14 @@ window.RECIPES = {
       "→ Version allégée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 7,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "cookies": {
     "title": "Cookies américains",
-    "master": "biscuits_gouters_maitre",
+    "master": "cookies_sucres_maitre",
     "image": "/assets/recipe-images/cookies_spooky.png",
     "categories": [
       "Desserts"
@@ -1812,7 +1787,7 @@ window.RECIPES = {
     "difficultyScore": 7
   },
   "creme_diplomate_cloud": {
-    "title": "Cr?me diplomate vanille ? garnir",
+    "title": "Crème diplomate vanille à garnir",
     "master": "cremes_maitre",
     "categories": [
       "Desserts"
@@ -1934,8 +1909,7 @@ window.RECIPES = {
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/craquelin_cacao_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Éléments de base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -1963,15 +1937,17 @@ window.RECIPES = {
       "Composant pour : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 2
+    "difficultyScore": 2,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "pate_choux": {
     "title": "Pâte à choux",
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_choux_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Éléments de base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2000,15 +1976,17 @@ window.RECIPES = {
       "Le test du sillon : il doit se refermer doucement quand la texture est correcte.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
-    "difficultyScore": 7
+    "difficultyScore": 7,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "pate_noisette": {
     "title": "Pâte de noisette maison",
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_noisette_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Éléments de base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2031,7 +2009,10 @@ window.RECIPES = {
       "Composant utilisable dans crèmes, pralinés et ganaches.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 2
+    "difficultyScore": 2,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "creme_patissiere_praline": {
     "title": "Crème pâtissière praliné",
@@ -2077,7 +2058,7 @@ window.RECIPES = {
     "difficultyScore": 6
   },
   "creme_beurre_meringue_italienne": {
-    "title": "Cr?me au beurre meringue italienne",
+    "title": "Crème au beurre meringue italienne",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_beurre_meringue_italienne_spooky.png",
     "categories": [
@@ -2120,7 +2101,7 @@ window.RECIPES = {
     "difficultyScore": 8
   },
   "creme_praline": {
-    "title": "Cr?me pralin?",
+    "title": "Crème praliné",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_praline_spooky.png",
     "categories": [
@@ -2180,7 +2161,7 @@ window.RECIPES = {
       },
       {
         "id": "gaufre_bruxelles",
-        "label": "Gaufres de Bruxelles"
+        "label": "Gaufres"
       },
       {
         "id": "pancakes_variantes",
@@ -2218,52 +2199,24 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "balsamique_reduit",
-        "label": "Balsamique r?duit"
-      },
-      {
-        "id": "cake_sale_lardon",
-        "label": "Cake sal? aux lardons"
-      },
-      {
-        "id": "court_bouillon",
-        "label": "Court-bouillon"
-      },
-      {
-        "id": "huile_pimentee_pizza",
-        "label": "Huile piment?e pour pizza"
+        "id": "crudites_maitre",
+        "label": "Crudités et salades fraîches"
       },
       {
         "id": "legumes_rotis",
         "label": "Légumes rôtis au four"
       },
       {
-        "id": "marinades_guide",
-        "label": "Marinades"
-      },
-      {
         "id": "oignons_rotis_thym_miel",
         "label": "Oignons rôtis au thym et au miel"
-      },
-      {
-        "id": "pesto_variantes",
-        "label": "Pesto"
-      },
-      {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouett?e"
       },
       {
         "id": "salade_avocat_oeuf_epinards",
         "label": "Salade avocat, œuf et épinards"
       },
       {
-        "id": "tomates_variantes",
-        "label": "Tomates au four"
-      },
-      {
-        "id": "vinaigrette",
-        "label": "Vinaigrette de chef"
+        "id": "tomates_maitre",
+        "label": "Tomates préparées"
       }
     ],
     "ingredients": [
@@ -2299,14 +2252,6 @@ window.RECIPES = {
       {
         "id": "cochon_confit_biere_erable",
         "label": "Cochon confit à la bière et au sirop d’érable"
-      },
-      {
-        "id": "tomates_provencales",
-        "label": "Tomates provençales"
-      },
-      {
-        "id": "tortillas_mexicaines",
-        "label": "Tortillas mexicaines"
       }
     ],
     "ingredients": [
@@ -2340,132 +2285,20 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "chantilly_classique",
-        "label": "Chantilly classique"
+        "id": "biscuits_gouters_maitre",
+        "label": "Biscuits, cookies et meringues"
       },
       {
-        "id": "chantilly_gelatine",
-        "label": "Chantilly stabilis?e"
+        "id": "desserts_cuillere_maitre",
+        "label": "Desserts à la cuillère"
       },
       {
-        "id": "choux_craquelin",
-        "label": "Choux au craquelin"
+        "id": "tartes_maitre",
+        "label": "Tartes"
       },
       {
-        "id": "churros_maison",
-        "label": "Churros"
-      },
-      {
-        "id": "cookies",
-        "label": "Cookies américains"
-      },
-      {
-        "id": "cookies_chocolat_blanc_cranberry",
-        "label": "Cookies chocolat blanc cranberry"
-      },
-      {
-        "id": "cookies_sales_variantes",
-        "label": "Cookies sal?s"
-      },
-      {
-        "id": "coulis_maitre",
-        "label": "Coulis"
-      },
-      {
-        "id": "creme_beurre_meringue_italienne",
-        "label": "Cr?me au beurre meringue italienne"
-      },
-      {
-        "id": "creme_citron_lemon_curd",
-        "label": "Cr?me citron"
-      },
-      {
-        "id": "creme_diplomate_cloud",
-        "label": "Cr?me diplomate vanille ? garnir"
-      },
-      {
-        "id": "creme_praline",
-        "label": "Cr?me pralin?"
-      },
-      {
-        "id": "craquelin_cacao",
-        "label": "Craquelin cacao"
-      },
-      {
-        "id": "creme_amande_citron",
-        "label": "Crème d’amande"
-      },
-      {
-        "id": "creme_amande_",
-        "label": "Crème d'amandes"
-      },
-      {
-        "id": "creme_diplomate_vanille",
-        "label": "Crème diplomate vanille"
-      },
-      {
-        "id": "creme_kinder_nutella",
-        "label": "Crème Kinder / Nutella stable"
-      },
-      {
-        "id": "mascarpone",
-        "label": "Crème mascarpone vanille"
-      },
-      {
-        "id": "creme_patissiere_praline",
-        "label": "Crème pâtissière praliné"
-      },
-      {
-        "id": "creme_patissiere_vanille",
-        "label": "Crème pâtissière vanille"
-      },
-      {
-        "id": "creme_pistache",
-        "label": "Crème pistache stable"
-      },
-      {
-        "id": "macaron_ourea_pierre_herme",
-        "label": "Macaron Our?a"
-      },
-      {
-        "id": "compotee_citron",
-        "label": "Marmelade citron"
-      },
-      {
-        "id": "meringue_italienne",
-        "label": "Meringue italienne"
-      },
-      {
-        "id": "meringues",
-        "label": "Meringues"
-      },
-      {
-        "id": "mi_cuits_chocolat",
-        "label": "Mi-cuits au chocolat"
-      },
-      {
-        "id": "pate_sucree",
-        "label": "P?te sucr?e"
-      },
-      {
-        "id": "paris_brest",
-        "label": "Paris-Brest"
-      },
-      {
-        "id": "pate_choux",
-        "label": "Pâte à choux"
-      },
-      {
-        "id": "pate_noisette",
-        "label": "Pâte de noisette maison"
-      },
-      {
-        "id": "tarte_citron_meringuee",
-        "label": "Tarte citron meringuée"
-      },
-      {
-        "id": "tiramisu_speculoos",
-        "label": "Tiramisu sp?culoos"
+        "id": "cremes_maitre",
+        "label": "Toppings et garnitures"
       }
     ],
     "ingredients": [
@@ -2566,12 +2399,11 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "gaufre_bruxelles": {
-    "title": "Gaufres de Bruxelles",
+    "title": "Gaufres",
     "master": "petits_dejeuners_maitre",
     "image": "/assets/recipe-images/gaufre_bruxelles_spooky.png",
     "categories": [
-      "Petits-déjeuners",
-      "Desserts"
+      "Petits-déjeuners"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2704,7 +2536,7 @@ window.RECIPES = {
     "difficultyScore": 8
   },
   "tiramisu_speculoos": {
-    "title": "Tiramisu sp?culoos",
+    "title": "Tiramisu spéculoos",
     "master": "desserts_cuillere_maitre",
     "image": "/assets/recipe-images/tiramisu_speculoos_spooky.png",
     "categories": [
@@ -2750,7 +2582,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "cake_sale_lardon": {
-    "title": "Cake sal? aux lardons",
+    "title": "Cake salé aux lardons",
     "master": "entrees_maitre",
     "image": "/assets/recipe-images/cake_sale_lardon_spooky.png",
     "categories": [
@@ -2812,8 +2644,7 @@ window.RECIPES = {
     "master": "entrees_maitre",
     "image": "/assets/recipe-images/oignons_rotis_thym_miel_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Entrées"
     ],
     "seasons": [
       "Automne",
@@ -2843,7 +2674,6 @@ window.RECIPES = {
       "Arroser avec le jus de cuisson pendant la cuisson."
     ],
     "notes": [
-      "Source fournie : recettes.memeswing.com.",
       "Accompagnement pour viande grillée, poisson, purée ou gratin de légumes.",
       "Conservation : 3–4 jours au froid en boîte hermétique.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
@@ -2899,7 +2729,6 @@ window.RECIPES = {
       "Réduire la sauce si besoin et napper la viande."
     ],
     "notes": [
-      "Source fournie : ertova.com.",
       "Cuisson lente indispensable pour une texture fondante.",
       "Conservation : 3–4 jours au froid, réchauffage doux avec un peu de sauce.",
       "Stockage : refroidir rapidement puis conserver au réfrigérateur en boîte hermétique. Péremption : 3–4 jours."
@@ -2913,12 +2742,11 @@ window.RECIPES = {
     "difficultyScore": 5
   },
   "pate_sucree": {
-    "title": "P?te sucr?e",
+    "title": "Pâte sucrée",
     "master": "pates_bases_maitre",
     "image": "/assets/recipe-images/pate_sucree_spooky.png",
     "categories": [
-      "Desserts",
-      "Recettes de base"
+      "Éléments de base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -2953,7 +2781,10 @@ window.RECIPES = {
       "base",
       "patisserie"
     ],
-    "difficultyScore": 5
+    "difficultyScore": 5,
+    "additionalMasters": [
+      "elements_base_maitre"
+    ]
   },
   "creme_amande_citron": {
     "title": "Crème d’amande",
@@ -3003,7 +2834,7 @@ window.RECIPES = {
     ]
   },
   "creme_citron_lemon_curd": {
-    "title": "Cr?me citron",
+    "title": "Crème citron",
     "master": "cremes_maitre",
     "image": "/assets/recipe-images/creme_citron_lemon_curd_spooky.png",
     "categories": [
@@ -3191,8 +3022,7 @@ window.RECIPES = {
     "master": "entrees_maitre",
     "image": "/assets/recipe-images/salade_avocat_oeuf_epinards_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Entrées"
     ],
     "seasons": [
       "Printemps",
@@ -3261,56 +3091,12 @@ window.RECIPES = {
     ],
     "variants": [
       {
-        "id": "balsamique_reduit",
-        "label": "Balsamique r?duit"
-      },
-      {
         "id": "cake_sale_lardon",
-        "label": "Cake sal? aux lardons"
+        "label": "Cake salé aux lardons"
       },
       {
         "id": "cookies_sales_variantes",
-        "label": "Cookies sal?s"
-      },
-      {
-        "id": "court_bouillon",
-        "label": "Court-bouillon"
-      },
-      {
-        "id": "huile_pimentee_pizza",
-        "label": "Huile piment?e pour pizza"
-      },
-      {
-        "id": "legumes_rotis",
-        "label": "Légumes rôtis au four"
-      },
-      {
-        "id": "marinades_guide",
-        "label": "Marinades"
-      },
-      {
-        "id": "oignons_rotis_thym_miel",
-        "label": "Oignons rôtis au thym et au miel"
-      },
-      {
-        "id": "pesto_variantes",
-        "label": "Pesto"
-      },
-      {
-        "id": "ricotta_fouettee",
-        "label": "Ricotta fouett?e"
-      },
-      {
-        "id": "salade_avocat_oeuf_epinards",
-        "label": "Salade avocat, œuf et épinards"
-      },
-      {
-        "id": "tomates_variantes",
-        "label": "Tomates au four"
-      },
-      {
-        "id": "vinaigrette",
-        "label": "Vinaigrette de chef"
+        "label": "Cookies salés"
       }
     ],
     "technical": [
@@ -3341,7 +3127,7 @@ window.RECIPES = {
       },
       {
         "id": "tiramisu_speculoos",
-        "label": "Tiramisu sp?culoos"
+        "label": "Tiramisu spéculoos"
       }
     ],
     "technical": [
@@ -3468,8 +3254,7 @@ window.RECIPES = {
     "master": "tomates_maitre",
     "image": "/assets/recipe-images/tomates_provencales_spooky.png",
     "categories": [
-      "Entrées",
-      "Plats"
+      "Entrées"
     ],
     "seasons": [
       "Été"
@@ -3503,7 +3288,6 @@ window.RECIPES = {
       "Cuire 25 à 35 min, jusqu’à obtenir des tomates fondantes et un dessus doré."
     ],
     "notes": [
-      "Source : <a href=\"https://www.meilleurduchef.com/fr/recette/tomate-provencale.html\" target=\"_blank\" rel=\"noreferrer\">Meilleur du Chef</a>.",
       "Servir chaud, tiède ou en accompagnement d’une viande grillée.",
       "Stockage : 2 jours au réfrigérateur, réchauffer au four doux."
     ],
@@ -3524,8 +3308,7 @@ window.RECIPES = {
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/tortillas_mexicaines_spooky.png",
     "categories": [
-      "Plats",
-      "Recettes de base"
+      "Éléments de base"
     ],
     "seasons": [
       "Toutes saisons"
@@ -3558,7 +3341,6 @@ window.RECIPES = {
       "Empiler dans un torchon propre pour garder les tortillas souples."
     ],
     "notes": [
-      "Source : <a href=\"https://www.maspatule.com/blog/2022/06/06/recette-tortilla-mexicaine/\" target=\"_blank\" rel=\"noreferrer\">MaSpatule</a>.",
       "Si elles sèchent, les réchauffer quelques secondes sous cloche ou dans un torchon humide.",
       "Stockage : 2 jours bien emballées, ou congélation séparées par papier cuisson."
     ],
@@ -3571,7 +3353,8 @@ window.RECIPES = {
     ],
     "difficultyScore": 4,
     "additionalMasters": [
-      "plats_maitre"
+      "plats_maitre",
+      "elements_base_maitre"
     ]
   },
   "mi_cuits_chocolat": {
@@ -3621,7 +3404,6 @@ window.RECIPES = {
       "Attendre 1 min, démouler délicatement et servir aussitôt."
     ],
     "notes": [
-      "Source : <a href=\"https://www.aureliencohen.fr/2020/05/04/mi-cuits-au-chocolat/\" target=\"_blank\" rel=\"noreferrer\">Aurélien Cohen</a>.",
       "Le temps de cuisson est le point clé : tester un moule avant une série.",
       "Stockage : appareil cru 24 h au réfrigérateur, cuisson minute recommandée."
     ],
@@ -3638,7 +3420,7 @@ window.RECIPES = {
   },
   "cookies_chocolat_blanc_cranberry": {
     "title": "Cookies chocolat blanc cranberry",
-    "master": "biscuits_gouters_maitre",
+    "master": "cookies_sucres_maitre",
     "image": "/assets/recipe-images/cookies_chocolat_blanc_cranberry_spooky.png",
     "categories": [
       "Desserts"
@@ -3686,7 +3468,6 @@ window.RECIPES = {
       "Laisser figer quelques minutes sur plaque avant de déplacer."
     ],
     "notes": [
-      "Source : <a href=\"https://cookedbymomy.com/white-chocolate-cranberry-cookies/\" target=\"_blank\" rel=\"noreferrer\">Cooked by Momy</a>.",
       "Pour des cookies épais, cuire la pâte bien froide.",
       "Stockage : 4 jours en boîte hermétique."
     ],
@@ -3702,7 +3483,7 @@ window.RECIPES = {
     ]
   },
   "macaron_ourea_pierre_herme": {
-    "title": "Macaron Our?a",
+    "title": "Macaron Ouréa",
     "master": "biscuits_gouters_maitre",
     "image": "/assets/recipe-images/macaron_ourea_pierre_herme_spooky.png",
     "categories": [
@@ -3751,7 +3532,6 @@ window.RECIPES = {
       "Garnir les coques refroidies, ajouter quelques noisettes, assembler et maturer 24 h au frais."
     ],
     "notes": [
-      "Source : <a href=\"https://maison-kayser.com/cours/la-recette-du-macaron-ourea-de-pierre-herme/\" target=\"_blank\" rel=\"noreferrer\">Maison Kayser</a>.",
       "Recette technique : pesées précises, blancs à température ambiante et cuisson régulière.",
       "Stockage : 3 jours au réfrigérateur, sortir 15 min avant dégustation."
     ],
@@ -3814,7 +3594,6 @@ window.RECIPES = {
       "Cuire environ 2 min de chaque côté, égoutter sur papier absorbant, puis rouler dans le sucre."
     ],
     "notes": [
-      "Source : fiche image fournie par l’utilisateur, L’atelier de Roxane.",
       "La pâte doit être assez souple pour être pochée mais garder les stries de la douille.",
       "Stockage : meilleur minute, possible 24 h mais perd du croustillant."
     ],
@@ -3828,5 +3607,355 @@ window.RECIPES = {
     "additionalMasters": [
       "desserts_maitre"
     ]
+  },
+  "sauces_maitre": {
+    "title": "Sauces",
+    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "variants": [
+      {
+        "id": "sauces_burger_variantes",
+        "label": "Sauces burger"
+      },
+      {
+        "id": "sauces_assaisonnements_maitre",
+        "label": "Sauces, pestos et assaisonnements"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Variantes",
+        "items": [
+          "Choisir une sauce dans la fiche."
+        ]
+      }
+    ],
+    "steps": [
+      "Sélectionner la sauce voulue dans les cartes de recettes."
+    ],
+    "notes": [
+      "Fiche parent pour les sauces, pestos, marinades et assaisonnements."
+    ]
+  },
+  "elements_base_maitre": {
+    "title": "Éléments de base",
+    "image": "/assets/recipe-images/pates_bases_maitre_spooky.png",
+    "categories": [
+      "Éléments de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "variants": [
+      {
+        "id": "bases_salees_maitre",
+        "label": "Bases salées et accompagnements"
+      },
+      {
+        "id": "pates_tarte_variantes",
+        "label": "Pâtes à tarte"
+      },
+      {
+        "id": "pates_bases_maitre",
+        "label": "Pâtes et bases pâtissières"
+      },
+      {
+        "id": "tortillas_mexicaines",
+        "label": "Tortillas mexicaines"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Variantes",
+        "items": [
+          "Choisir une base dans la fiche."
+        ]
+      }
+    ],
+    "steps": [
+      "Sélectionner la base voulue dans les cartes de recettes."
+    ],
+    "notes": [
+      "Fiche parent pour wraps, tortillas, pâtes à tarte et bases de préparation."
+    ]
+  },
+  "cookies_sucres_maitre": {
+    "title": "Cookies sucrés",
+    "master": "biscuits_gouters_maitre",
+    "image": "/assets/recipe-images/cookies_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "variants": [
+      {
+        "id": "cookies",
+        "label": "Cookies américains"
+      },
+      {
+        "id": "caramel_cheesecake_cookies",
+        "label": "Cookies caramel cheesecake"
+      },
+      {
+        "id": "cookies_chocolat_blanc_cranberry",
+        "label": "Cookies chocolat blanc cranberry"
+      }
+    ],
+    "ingredients": [
+      {
+        "group": "Variantes",
+        "items": [
+          "Choisir une recette de cookies sucrés."
+        ]
+      }
+    ],
+    "steps": [
+      "Sélectionner la recette de cookies voulue."
+    ],
+    "notes": [
+      "Fiche parent pour garder les cookies sucrés ensemble sans les mélanger aux cookies salés."
+    ]
+  },
+  "sauces_burger_variantes": {
+    "title": "Sauces burger",
+    "master": "sauces_maitre",
+    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "yield": "6 sauces en petites portions",
+    "ingredients": [
+      {
+        "group": "Base commune",
+        "items": [
+          "Mayonnaise selon la texture souhaitée",
+          "Sel, poivre"
+        ]
+      },
+      {
+        "group": "Variante pub sauce",
+        "items": [
+          "180 g mayonnaise",
+          "12 g cassonade",
+          "30 ml sauce Worcestershire",
+          "1 c. à café oignon en poudre",
+          "1 c. à café ail en poudre"
+        ]
+      },
+      {
+        "group": "Variante zinger épicée",
+        "items": [
+          "120 g mayonnaise",
+          "1 c. à soupe paprika",
+          "2 c. à café piment de Cayenne",
+          "1 c. à café ail en poudre",
+          "1 c. à café oignon en poudre",
+          "1/2 c. à café poivre noir"
+        ]
+      },
+      {
+        "group": "Variante miel moutarde",
+        "items": [
+          "1 c. à soupe moutarde de Dijon",
+          "1 c. à café ail en poudre",
+          "1/4 c. à café poivre noir",
+          "1 c. à soupe vinaigre de cidre",
+          "2 c. à soupe miel"
+        ]
+      },
+      {
+        "group": "Variante big mac",
+        "items": [
+          "120 g mayonnaise",
+          "2 c. à soupe relish de cornichons",
+          "1 c. à soupe moutarde jaune",
+          "1 c. à café vinaigre blanc",
+          "1 c. à café sucre",
+          "1/2 c. à café ail en poudre",
+          "1/2 c. à café oignon en poudre",
+          "1/2 c. à café paprika"
+        ]
+      },
+      {
+        "group": "Variante dipping sauce",
+        "items": [
+          "120 g mayonnaise",
+          "1 c. à soupe ketchup",
+          "1 c. à soupe moutarde jaune",
+          "1 c. à café sauce barbecue",
+          "1 c. à café jus de citron"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger les ingrédients de la variante choisie dans un bol.",
+      "Ajuster sel, poivre, acidité et piquant selon le burger ou les frites.",
+      "Réserver au frais 20 min pour arrondir le goût."
+    ],
+    "notes": [
+      "Conservation : 2 à 3 jours au réfrigérateur dans une boîte fermée."
+    ],
+    "tags": [
+      "sauce",
+      "burger",
+      "dip",
+      "frites"
+    ],
+    "difficultyScore": 2
+  },
+  "pates_tarte_variantes": {
+    "title": "Pâtes à tarte",
+    "master": "elements_base_maitre",
+    "image": "/assets/recipe-images/pates_bases_maitre_spooky.png",
+    "categories": [
+      "Éléments de base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "yield": "1 fond de tarte",
+    "ingredients": [
+      {
+        "group": "Variante pâte brisée beurre",
+        "items": [
+          "300 g farine",
+          "115 g beurre froid",
+          "60 ml eau glacée",
+          "12 g sucre",
+          "1/4 c. à café sel"
+        ]
+      },
+      {
+        "group": "Variante biscuit graham",
+        "items": [
+          "125 g biscuits graham émiettés",
+          "60 g beurre fondu",
+          "50 g sucre"
+        ]
+      },
+      {
+        "group": "Variante oreo",
+        "items": [
+          "200 g biscuits Oreo écrasés",
+          "75 g beurre fondu"
+        ]
+      },
+      {
+        "group": "Variante amande",
+        "items": [
+          "140 g poudre d’amande",
+          "60 g beurre fondu",
+          "12 g sucre",
+          "1/4 c. à café sel"
+        ]
+      },
+      {
+        "group": "Variante shortbread",
+        "items": [
+          "125 g farine",
+          "60 g beurre",
+          "30 g sucre glace",
+          "1/2 c. à café vanille"
+        ]
+      },
+      {
+        "group": "Variante cheddar salée",
+        "items": [
+          "250 g farine",
+          "90 g cheddar râpé",
+          "60 g beurre",
+          "1/4 c. à café sel",
+          "45 ml eau glacée"
+        ]
+      }
+    ],
+    "steps": [
+      "Choisir une variante et mélanger les éléments secs.",
+      "Incorporer le beurre ou le liant jusqu’à obtenir une texture sableuse ou compacte selon la variante.",
+      "Foncer le moule, réfrigérer 30 min, puis cuire à blanc selon la garniture prévue."
+    ],
+    "notes": [
+      "Adapter la cuisson à la garniture : précuire pour une crème froide, cuire avec la garniture pour une tarte cuite."
+    ],
+    "tags": [
+      "pate",
+      "tarte",
+      "base"
+    ],
+    "difficultyScore": 4
+  },
+  "caramel_cheesecake_cookies": {
+    "title": "Cookies caramel cheesecake",
+    "master": "cookies_sucres_maitre",
+    "image": "/assets/recipe-images/cookies_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "yield": "12 cookies",
+    "aliases": [
+      "cookies cheesecake caramel",
+      "caramel cheesecake cookies"
+    ],
+    "ingredients": [
+      {
+        "group": "Fourrage cheesecake",
+        "items": [
+          "115 g cream cheese",
+          "25 g sucre glace",
+          "30 g sauce caramel au beurre salé"
+        ]
+      },
+      {
+        "group": "Pâte à cookies",
+        "items": [
+          "115 g beurre doux mou",
+          "100 g cassonade",
+          "50 g sucre",
+          "1 œuf",
+          "1 1/2 c. à café extrait de vanille",
+          "220 g farine",
+          "1/2 c. à café bicarbonate",
+          "1/4 c. à café sel"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Sauce caramel",
+          "Fleur de sel"
+        ]
+      }
+    ],
+    "steps": [
+      "Fouetter le cream cheese avec le sucre glace et le caramel, puis déposer 12 petites portions sur papier cuisson.",
+      "Congeler les portions de fourrage 30 min pour pouvoir les enfermer proprement.",
+      "Crémer le beurre avec la cassonade et le sucre, puis incorporer l’œuf et la vanille.",
+      "Ajouter farine, bicarbonate et sel sans trop travailler la pâte.",
+      "Aplatir une portion de pâte, placer un cœur cheesecake congelé au centre, refermer et bouler.",
+      "Cuire à 175 °C pendant 10 à 12 min, jusqu’à bords légèrement dorés.",
+      "Laisser tiédir, ajouter un filet de caramel et une pointe de fleur de sel."
+    ],
+    "notes": [
+      "Bien refermer la pâte autour du fourrage pour éviter les fuites. Conservation : 3 jours au réfrigérateur."
+    ],
+    "tags": [
+      "cookies",
+      "caramel",
+      "cheesecake"
+    ],
+    "difficultyScore": 5
   }
 };

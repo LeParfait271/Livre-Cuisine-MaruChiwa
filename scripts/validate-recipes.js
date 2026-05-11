@@ -21,7 +21,7 @@ const errors = [];
 
 function checkTextEncoding(value, location) {
   if (typeof value === 'string') {
-    if (/[�]/.test(value) || /\?/.test(value)) {
+    if (/\uFFFD|\?/.test(value)) {
       errors.push(`${location}: caractere suspect detecte (${value}).`);
     }
     return;
@@ -71,6 +71,12 @@ if (!recipes || typeof recipes !== 'object') {
     if (Array.isArray(recipe.tags)) {
       recipe.tags.forEach(tag => {
         if (!tag || /\d/.test(tag)) errors.push(`${id}: tag suspect (${tag}).`);
+      });
+    }
+
+    if (Array.isArray(recipe.notes)) {
+      recipe.notes.forEach(note => {
+        if (/\bsource\b|https?:\/\/|href\s*=/i.test(String(note))) errors.push(`${id}: source externe presente dans les notes.`);
       });
     }
 

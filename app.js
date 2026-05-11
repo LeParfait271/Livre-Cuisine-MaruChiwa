@@ -20,8 +20,10 @@ const HOME_CARD_ORDER = {
   petit_dejeuner_maitre: 1,
   apero_maitre: 2,
   entrees_maitre: 3,
-  plats_maitre: 4,
-  desserts_maitre: 5
+  sauces_maitre: 4,
+  elements_base_maitre: 5,
+  plats_maitre: 6,
+  desserts_maitre: 7
 };
 const STORAGE_KEYS = {
   favorites: 'cook_note_favorites',
@@ -223,9 +225,14 @@ function formatRemaining(ms) {
   return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
 }
 
-function getRecipeSearchText(recipe, tags) {
+function getRecipeSearchText(recipe, tags, recipesById = {}) {
   const ingredients = (recipe.ingredients || [])
     .flatMap(group => [group.group, ...(group.items || [])])
+    .join(' ');
+  const variantsText = (recipe.variants || [])
+    .map(variant => recipesById[variant.id])
+    .filter(Boolean)
+    .map(variantRecipe => getRecipeSearchText(variantRecipe, variantRecipe.tags || [], recipesById))
     .join(' ');
   return normalizeText([
     recipe.title,
@@ -237,7 +244,8 @@ function getRecipeSearchText(recipe, tags) {
     ...(recipe.variants || []).flatMap(variant => [variant.id, variant.label]),
     ingredients,
     ...(recipe.steps || []),
-    ...(recipe.notes || [])
+    ...(recipe.notes || []),
+    variantsText
   ].join(' '));
 }
 
@@ -262,7 +270,8 @@ function extractTags(recipe) {
 }
 
 function isVariantIngredientGroup(group) {
-  return normalizeText(group?.group || '').startsWith('variante');
+  const label = normalizeText(group?.group || '');
+  return label.startsWith('variante') || label.startsWith('version') || label.startsWith('option');
 }
 
 function buildInlineRecipeTargets(recipes) {
@@ -932,10 +941,13 @@ function RecipeView({
 
 function App() {
   const rawRecipes = window.RECIPES && typeof window.RECIPES === 'object' ? window.RECIPES : {};
-  const recipes = useMemo(() => Object.entries(rawRecipes).map(([id, recipe]) => {
-    const tagsExtracted = extractTags(recipe);
-    return { id, tagsExtracted, searchText: getRecipeSearchText(recipe, tagsExtracted), ...recipe };
-  }).sort((a, b) => a.title.localeCompare(b.title, 'fr')), []);
+  const recipes = useMemo(() => {
+    const baseRecipesById = Object.fromEntries(Object.entries(rawRecipes).map(([id, recipe]) => [id, { id, ...recipe }]));
+    return Object.entries(rawRecipes).map(([id, recipe]) => {
+      const tagsExtracted = extractTags(recipe);
+      return { id, tagsExtracted, searchText: getRecipeSearchText(recipe, tagsExtracted, baseRecipesById), ...recipe };
+    }).sort((a, b) => a.title.localeCompare(b.title, 'fr'));
+  }, []);
   const recipesById = useMemo(() => Object.fromEntries(recipes.map(recipe => [recipe.id, recipe])), [recipes]);
   const catalogRecipes = useMemo(() => recipes.filter(recipe => !recipe.master), [recipes]);
   const allSeasons = useMemo(() => uniq([...SEASONS, ...catalogRecipes.flatMap(recipe => recipe.seasons || [])]).filter(item => item !== 'Toutes saisons'), [catalogRecipes]);
@@ -1002,8 +1014,9 @@ function App() {
 
   const filteredRecipes = useMemo(() => {
     const needle = normalizeText(query);
+    const queryTokens = needle.split(/\s+/).filter(token => token.length > 1);
     let list = catalogRecipes.filter(recipe => {
-      if (needle && !recipe.searchText.includes(needle)) return false;
+      if (needle && !queryTokens.every(token => recipe.searchText.includes(token))) return false;
       if (season && !(recipe.seasons || []).includes(season)) return false;
       if (tagFilter && !(recipe.tagsExtracted || []).includes(tagFilter)) return false;
       if (onlyFavorites && !favorites.includes(recipe.id)) return false;
