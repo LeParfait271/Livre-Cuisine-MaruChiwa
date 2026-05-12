@@ -132,7 +132,8 @@ window.RECIPES = {
     "technical": [],
     "master": "sauces_maitre",
     "yield": "10 coulis de fruits",
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "variantGroups": true
   },
   "chantilly_maitre": {
     "title": "Chantilly",
@@ -376,6 +377,10 @@ window.RECIPES = {
       {
         "id": "ricotta_fouettee",
         "label": "Ricotta fouettée"
+      },
+      {
+        "id": "sauce_aux_poivres",
+        "label": "Sauce aux poivres"
       },
       {
         "id": "sauce_caramel",
@@ -1098,7 +1103,8 @@ window.RECIPES = {
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "variantGroups": true
   },
   "pancakes_variantes": {
     "title": "Pancakes",
@@ -2186,6 +2192,10 @@ window.RECIPES = {
       {
         "id": "cochon_confit_biere_erable",
         "label": "Cochon confit à la bière et au sirop d’érable"
+      },
+      {
+        "id": "cotelettes_porc_miel_moutarde",
+        "label": "Côtelettes de porc miel moutarde"
       }
     ],
     "ingredients": [
@@ -3790,7 +3800,8 @@ window.RECIPES = {
       "dip",
       "frites"
     ],
-    "difficultyScore": 2
+    "difficultyScore": 2,
+    "variantGroups": true
   },
   "pates_tarte_variantes": {
     "title": "Pâtes à tarte",
@@ -3871,7 +3882,8 @@ window.RECIPES = {
       "tarte",
       "base"
     ],
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "variantGroups": true
   },
   "caramel_cheesecake_cookies": {
     "title": "Cookies caramel cheesecake",
@@ -4003,6 +4015,211 @@ window.RECIPES = {
     "difficultyScore": 3,
     "additionalMasters": [
       "desserts_maitre"
+    ]
+  },
+  "sauce_aux_poivres": {
+    "title": "Sauce aux poivres",
+    "master": "sauces_assaisonnements_maitre",
+    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "variantGroups": true,
+    "aliases": [
+      "sauce au poivre",
+      "sauce poivre",
+      "sauce steak",
+      "sauce aux poivres basique"
+    ],
+    "tags": [
+      "sauce",
+      "poivre",
+      "fond de veau",
+      "crème",
+      "viande"
+    ],
+    "ingredients": [
+      {
+        "group": "Variante haut de gamme",
+        "items": [
+          "1 c. à café de poivre noir en grains",
+          "1 c. à soupe de poivre vert en saumure",
+          "1/2 c. à café de poivre blanc ou poivre de Kampot",
+          "1 petite échalote",
+          "40 ml de cognac ou Armagnac",
+          "50 ml de vin blanc sec ou Madère",
+          "250 ml de fond de veau brun réduit",
+          "120 ml de crème liquide entière 30-35 %",
+          "30 g de beurre froid",
+          "1 c. à café d’huile neutre ou graisse de cuisson",
+          "Sel fin",
+          "Option : 1 à 2 c. à soupe de jus de viande"
+        ],
+        "note": "Cuisson : torréfier les poivres 30 à 45 secondes, réduire le fond 8 à 12 minutes, puis réduire avec la crème 4 à 6 minutes."
+      },
+      {
+        "group": "Variante express premium",
+        "items": [
+          "30 ml de cognac",
+          "150 ml de fond de veau",
+          "80 ml de crème liquide entière",
+          "1 c. à soupe de poivre vert",
+          "Poivre noir concassé",
+          "20 g de beurre froid"
+        ],
+        "note": "Cuisson : déglacer la poêle, ajouter fond, crème et poivres, réduire 5 minutes puis monter au beurre froid."
+      },
+      {
+        "group": "Variante basique",
+        "items": [
+          "200 ml de crème liquide entière",
+          "1 à 2 c. à café de poivre noir concassé",
+          "1 petite échalote",
+          "20 g de beurre",
+          "30 ml de cognac, whisky ou vin blanc",
+          "1 c. à café de moutarde",
+          "100 ml de bouillon de bœuf ou volaille",
+          "Sel"
+        ],
+        "note": "Cuisson : réduire le bouillon 3 à 5 minutes, puis mijoter avec crème et moutarde 5 à 8 minutes."
+      },
+      {
+        "group": "Variante ultra simple",
+        "items": [
+          "200 ml de crème liquide entière",
+          "1 c. à café de moutarde",
+          "1 à 2 c. à café de poivre concassé",
+          "1/2 cube de bouillon émietté"
+        ],
+        "note": "Cuisson : chauffer doucement et laisser réduire environ 5 minutes."
+      }
+    ],
+    "steps": [
+      "Concasser les poivres au mortier ou avec le fond d’une casserole.",
+      "Pour la version haut de gamme, torréfier les poivres à sec 30 à 45 secondes sans les brûler.",
+      "Faire suer l’échalote ciselée avec un peu de matière grasse jusqu’à ce qu’elle devienne translucide.",
+      "Déglacer avec l’alcool choisi, puis laisser réduire presque à sec.",
+      "Ajouter le vin blanc, le Madère ou le bouillon selon la variante, puis réduire pour concentrer le goût.",
+      "Ajouter le fond de veau ou le bouillon, puis laisser réduire jusqu’à ce que la sauce commence à napper.",
+      "Ajouter la crème et mijoter doucement jusqu’à obtenir une texture onctueuse.",
+      "Couper le feu, ajouter le beurre froid en morceaux et fouetter sans refaire bouillir.",
+      "Goûter, rectifier le sel et ajuster l’intensité du poivre."
+    ],
+    "notes": [
+      "Texture cible : la sauce doit napper le dos d’une cuillère et laisser une trace nette quelques secondes.",
+      "Pour une finition plus fine, passer au chinois puis remettre quelques grains de poivre vert dans la sauce filtrée.",
+      "Si la sauce est trop épaisse, détends-la avec un peu de fond ou d’eau chaude. Si elle est trop liquide, réduis-la avant d’ajouter le beurre.",
+      "Accords : filet de bœuf, entrecôte, côte de bœuf, magret de canard, tournedos, pommes dauphines, gratin dauphinois ou frites maison."
+    ],
+    "technical": [
+      {
+        "label": "Poivre",
+        "value": "Concasser grossièrement et chauffer brièvement pour réveiller les arômes sans amertume."
+      },
+      {
+        "label": "Réduction",
+        "value": "Réduire par étapes pour concentrer sans épaissir lourdement."
+      },
+      {
+        "label": "Finition",
+        "value": "Monter au beurre hors du feu pour garder une sauce brillante."
+      }
+    ]
+  },
+  "cotelettes_porc_miel_moutarde": {
+    "title": "Côtelettes de porc miel moutarde",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/cochon_confit_biere_erable_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 6,
+    "yield": "4 personnes",
+    "aliases": [
+      "côtelette de porc miel moutarde",
+      "porc sauce miel moutarde",
+      "côtelettes porc cidre moutarde"
+    ],
+    "tags": [
+      "porc",
+      "miel",
+      "moutarde",
+      "cidre",
+      "sauce"
+    ],
+    "ingredients": [
+      {
+        "group": "Viande",
+        "items": [
+          "4 côtelettes de porc épaisses de 3 à 4 cm",
+          "40 g de beurre doux",
+          "1 c. à soupe d’huile neutre",
+          "2 gousses d’ail en chemise",
+          "2 branches de thym frais",
+          "1 petite branche de romarin",
+          "Fleur de sel",
+          "Poivre noir fraîchement moulu"
+        ],
+        "note": "Sortir la viande 45 minutes avant cuisson et bien sécher la surface pour obtenir une vraie coloration."
+      },
+      {
+        "group": "Sauce miel moutarde",
+        "items": [
+          "2 petites échalotes",
+          "2 c. à soupe de miel de fleurs, acacia ou châtaignier doux",
+          "2 c. à soupe de moutarde à l’ancienne",
+          "1 c. à café de moutarde de Dijon",
+          "150 ml de cidre brut ou vin blanc sec",
+          "250 ml de fond de veau ou fond brun de volaille réduit",
+          "80 à 100 ml de crème liquide entière",
+          "1 c. à soupe de vinaigre de cidre",
+          "30 g de beurre froid",
+          "Sel"
+        ]
+      }
+    ],
+    "steps": [
+      "Sortir les côtelettes du froid 45 minutes avant cuisson, les éponger et les saler légèrement.",
+      "Chauffer une grande poêle avec l’huile, puis saisir les côtelettes 2 à 3 minutes par face à feu moyen-vif.",
+      "Ajouter le beurre, l’ail, le thym et le romarin, puis arroser la viande 1 à 2 minutes avec le beurre mousseux.",
+      "Retirer les côtelettes lorsqu’elles sont bien dorées et les réserver sur une grille ou une assiette.",
+      "Retirer l’excès de gras de la poêle en gardant les sucs, puis faire suer les échalotes 2 à 3 minutes.",
+      "Ajouter le miel et le laisser mousser 30 à 45 secondes, puis déglacer avec le vinaigre de cidre.",
+      "Ajouter le cidre ou le vin blanc et réduire presque à sec.",
+      "Verser le fond, réduire jusqu’à une texture légèrement sirupeuse, puis ajouter les moutardes et la crème.",
+      "Laisser réduire 3 à 5 minutes à feu doux, puis remettre les côtelettes dans la sauce et napper régulièrement.",
+      "Terminer à feu doux jusqu’à 63-65 °C à cœur, retirer du feu et laisser reposer 5 minutes.",
+      "Retirer les côtelettes, couper le feu, ajouter le beurre froid et fouetter pour lier la sauce."
+    ],
+    "notes": [
+      "La sauce doit napper le dos d’une cuillère sans devenir lourde.",
+      "Si la sauce paraît trop ronde, ajoute une micro-touche de vinaigre de cidre ou de jus de citron juste avant le beurre.",
+      "Pour des côtelettes très épaisses, tu peux finir au four à 150 °C après la saisie, puis servir avec la sauce à part. Surveille la cuisson, car chaque four chauffe différemment.",
+      "Garnitures adaptées : purée de céleri-rave, pommes Anna, carottes glacées, chou pointu rôti ou écrasé de pommes de terre au beurre noisette."
+    ],
+    "technical": [
+      {
+        "label": "Température",
+        "value": "Viser 63-65 °C à cœur pour garder le porc juteux."
+      },
+      {
+        "label": "Réduction",
+        "value": "Réduire le cidre presque à sec pour éviter une sauce trop sucrée."
+      },
+      {
+        "label": "Finition",
+        "value": "Monter au beurre hors du feu pour une sauce brillante."
+      }
     ]
   }
 };
