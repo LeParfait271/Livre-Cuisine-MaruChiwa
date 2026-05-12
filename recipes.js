@@ -131,7 +131,7 @@ window.RECIPES = {
     ],
     "technical": [],
     "master": "sauces_maitre",
-    "yield": "10 coulis de fruits",
+    "yield": "10 portions de coulis de fruit",
     "difficultyScore": 4,
     "variantGroups": true
   },
@@ -618,7 +618,7 @@ window.RECIPES = {
       },
       {
         "id": "tortillas_mexicaines",
-        "label": "Tortillas mexicaines"
+        "label": "Tortillas"
       }
     ],
     "ingredients": [
@@ -737,7 +737,8 @@ window.RECIPES = {
       "Conservation : 2–4 j au froid, film au contact + fine couche d’huile.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 3,
+    "variantGroups": true
   },
   "ricotta_fouettee": {
     "title": "Ricotta fouettée",
@@ -850,7 +851,8 @@ window.RECIPES = {
       "tomates au four",
       "tomates confites",
       "tomates séchées"
-    ]
+    ],
+    "variantGroups": true
   },
   "huile_pimentee_pizza": {
     "title": "Huile pimentée pour pizza",
@@ -1064,7 +1066,8 @@ window.RECIPES = {
       "Conservation : marinades prêtes 7 j au froid.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
-    "difficultyScore": 3
+    "difficultyScore": 3,
+    "variantGroups": true
   },
   "cookies_sales_variantes": {
     "title": "Cookies salés",
@@ -1181,7 +1184,8 @@ window.RECIPES = {
     "aliases": [
       "pancakes",
       "babeurre"
-    ]
+    ],
+    "variantGroups": true
   },
   "chocolat_ancien": {
     "title": "Chocolat chaud à l'ancienne",
@@ -1428,7 +1432,8 @@ window.RECIPES = {
       "→ Recette de garnissage : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span>",
       "→ Version allégée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
-      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire.",
+      "Crèmes à garnir : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span> · <span data-goto=\"creme_diplomate_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille à garnir</span> · <span data-goto=\"creme_patissiere_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière vanille</span> · <span data-goto=\"creme_patissiere_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière praliné</span> · <span data-goto=\"creme_kinder_nutella\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème Nutella à garnir</span> · <span data-goto=\"creme_pistache\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pistache à garnir</span> · <span data-goto=\"creme_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème praliné</span> · <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème mascarpone vanille</span> · <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>."
     ],
     "difficultyScore": 7,
     "additionalMasters": [
@@ -1767,7 +1772,8 @@ window.RECIPES = {
       "Sur-apprêt : beignets qui retombent.",
       "Résultat attendu : mie aérée et filante, extérieur finement doré, cuisson à cœur sans sécheresse.",
       "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture.",
-      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
+      "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire.",
+      "Crèmes à garnir : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span> · <span data-goto=\"creme_diplomate_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille à garnir</span> · <span data-goto=\"creme_patissiere_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière vanille</span> · <span data-goto=\"creme_patissiere_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière praliné</span> · <span data-goto=\"creme_kinder_nutella\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème Nutella à garnir</span> · <span data-goto=\"creme_pistache\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pistache à garnir</span> · <span data-goto=\"creme_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème praliné</span> · <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème mascarpone vanille</span> · <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>."
     ],
     "difficultyScore": 7
   },
@@ -3311,7 +3317,7 @@ window.RECIPES = {
     ]
   },
   "tortillas_mexicaines": {
-    "title": "Tortillas mexicaines",
+    "title": "Tortillas",
     "master": "bases_salees_maitre",
     "image": "/assets/recipe-images/tortillas_mexicaines_spooky.png",
     "categories": [
@@ -3323,7 +3329,6 @@ window.RECIPES = {
     "difficulty": "medium",
     "yield": "8 tortillas",
     "aliases": [
-      "tortilla mexicaine",
       "tortillas de blé",
       "wraps maison"
     ],
@@ -3353,7 +3358,6 @@ window.RECIPES = {
     ],
     "tags": [
       "tortilla",
-      "mexicaine",
       "wrap",
       "base",
       "farine"
@@ -3792,6 +3796,7 @@ window.RECIPES = {
       {
         "group": "Variante miel moutarde",
         "items": [
+          "120 g mayonnaise",
           "1 c. à soupe moutarde de Dijon",
           "1 c. à café ail en poudre",
           "1/4 c. à café poivre noir",
@@ -3903,6 +3908,15 @@ window.RECIPES = {
           "60 g beurre",
           "1/4 c. à café sel",
           "45 ml eau glacée"
+        ]
+      },
+      {
+        "group": "Variante pâte sucrée",
+        "items": [
+          "100 g farine",
+          "50 g beurre mou",
+          "40 g sucre",
+          "25 g œuf"
         ]
       }
     ],
@@ -4478,7 +4492,7 @@ window.RECIPES = {
   "cookies_chocolat_moelleux": {
     "title": "Cookies chocolat moelleux",
     "master": "cookies_sucres_maitre",
-    "image": "/assets/recipe-images/cookies_chocolat_moelleux_spooky.svg",
+    "image": "/assets/recipe-images/cookies.jpg",
     "categories": [
       "Desserts"
     ],
@@ -4543,7 +4557,7 @@ window.RECIPES = {
   "pancakes_fluffy": {
     "title": "Pancakes fluffy",
     "master": "petit_dejeuner_maitre",
-    "image": "/assets/recipe-images/pancakes_fluffy_spooky.svg",
+    "image": "/assets/recipe-images/pancakes_variantes.jpg",
     "categories": [
       "Petits-déjeuners"
     ],

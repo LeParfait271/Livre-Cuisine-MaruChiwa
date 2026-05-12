@@ -1,4 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+  function sanitizeNoteHtml(value) {
+    const template = document.createElement('template');
+    template.innerHTML = String(value || '');
+    const allowedTags = new Set(['SPAN', 'STRONG', 'EM', 'B', 'I', 'BR']);
+    const clean = node => {
+      Array.from(node.childNodes).forEach(child => {
+        if (child.nodeType === Node.TEXT_NODE) return;
+        if (child.nodeType !== Node.ELEMENT_NODE || !allowedTags.has(child.tagName)) {
+          child.replaceWith(document.createTextNode(child.textContent || ''));
+          return;
+        }
+        Array.from(child.attributes).forEach(attribute => {
+          if (!(child.tagName === 'SPAN' && attribute.name === 'data-goto')) {
+            child.removeAttribute(attribute.name);
+          }
+        });
+        clean(child);
+      });
+    };
+    clean(template.content);
+    return template.innerHTML;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   const recipe = id && window.RECIPES ? window.RECIPES[id] : null;
@@ -18,6 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.title = recipe.title;
   title.textContent = recipe.title;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', `${recipe.title} sur Cook Note : ingrédients, étapes et astuces.`);
+  const jsonLd = document.createElement('script');
+  jsonLd.type = 'application/ld+json';
+  jsonLd.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: recipe.title,
+    image: recipe.image ? new URL(recipe.image, window.location.origin).href : undefined,
+    recipeYield: recipe.yield || undefined,
+    recipeCategory: (recipe.categories || []).join(', ') || undefined,
+    recipeIngredient: (recipe.ingredients || []).flatMap(group => group.items || []),
+    recipeInstructions: (recipe.steps || []).map(step => ({ '@type': 'HowToStep', text: step }))
+  });
+  document.head.appendChild(jsonLd);
 
   ingredients.replaceChildren(
     ...(recipe.ingredients || []).map(group => {
@@ -51,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   notes.replaceChildren(
     ...(recipe.notes || []).map(note => {
       const li = document.createElement('li');
-      li.innerHTML = note;
+      li.innerHTML = sanitizeNoteHtml(note);
       return li;
     })
   );

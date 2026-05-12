@@ -18,10 +18,11 @@ vm.runInContext(code, context, { filename: recipesPath });
 
 const recipes = context.window.RECIPES;
 const errors = [];
+const ENCODING_SUSPECT_RE = new RegExp('(?:\\uFFFD|\\u00C3|\\u00C2[\\u00A0-\\u00BF]|\\u00E2\\u20AC|\\u00C5[\\u2018\\u2019\\u201C\\u201D])');
 
 function checkTextEncoding(value, location) {
   if (typeof value === 'string') {
-    if (/\uFFFD|\?|Ã|â€/.test(value)) {
+    if (ENCODING_SUSPECT_RE.test(value) || value.includes('?')) {
       errors.push(`${location}: caractere suspect detecte (${value}).`);
     }
     return;
@@ -84,6 +85,12 @@ if (!recipes || typeof recipes !== 'object') {
       });
     }
 
+    const variantishGroups = (recipe.ingredients || [])
+      .filter(group => /^(variante|version|option|\d+\))/i.test(String(group.group || '').trim()));
+    if (variantishGroups.length >= 2 && !recipe.variantGroups) {
+      errors.push(`${id}: groupes de variantes sans variantGroups=true.`);
+    }
+
     if (Array.isArray(recipe.tags)) {
       recipe.tags.forEach(tag => {
         if (!tag || /\d/.test(tag)) errors.push(`${id}: tag suspect (${tag}).`);
@@ -98,6 +105,8 @@ if (!recipes || typeof recipes !== 'object') {
 
     if (!recipe.image) {
       errors.push(`${id}: image manquante.`);
+    } else if (/\.svg(?:$|\?)/i.test(recipe.image)) {
+      errors.push(`${id}: image SVG placeholder interdite (${recipe.image}).`);
     } else if (recipe.image.startsWith('/')) {
       const filePath = path.join(ROOT, recipe.image.replace(/^\/+/, ''));
       if (!fs.existsSync(filePath)) errors.push(`${id}: image locale introuvable (${recipe.image}).`);
@@ -129,7 +138,7 @@ if (!recipes || typeof recipes !== 'object') {
 textFilesToCheck.forEach(filePath => {
   if (!fs.existsSync(filePath)) return;
   const text = fs.readFileSync(filePath, 'utf8');
-  if (/\uFFFD|Ã|â€/.test(text)) {
+  if (ENCODING_SUSPECT_RE.test(text)) {
     errors.push(`${path.relative(ROOT, filePath)}: caractere UTF-8 suspect detecte.`);
   }
 });

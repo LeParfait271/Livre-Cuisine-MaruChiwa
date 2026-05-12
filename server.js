@@ -41,8 +41,8 @@ function loadAdminPassword() {
       console.warn('[admin] admin.local.json invalide:', error.message);
     }
   }
-  console.warn('[admin] Aucun mot de passe configure. Mot de passe temporaire: changeme');
-  return 'changeme';
+  console.warn('[admin] Aucun mot de passe configure. Admin desactive.');
+  return null;
 }
 
 function send(res, status, body, headers = {}) {
@@ -345,6 +345,10 @@ function route(req, res) {
 
   if (req.method === 'POST' && url.pathname === '/api/admin/login') {
     readJson(req).then(body => {
+      if (!ADMIN_PASSWORD) {
+        sendJson(res, 503, { error: 'Admin non configure. Definir COOK_NOTE_ADMIN_PASSWORD.' });
+        return;
+      }
       if (String(body.password || '') !== ADMIN_PASSWORD) {
         sendJson(res, 401, { error: 'Mot de passe invalide' });
         return;

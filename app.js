@@ -31,6 +31,7 @@ const STORAGE_KEYS = {
   recents: 'cook_note_recents',
   shopping: 'cook_note_shopping_basket',
   shoppingFactors: 'cook_note_shopping_factors',
+  homeScroll: 'cook_note_home_scroll',
   legacyFavorites: ['mc_food_favorites', 'cuisine_favs'],
   legacyRecents: ['mc_food_recents', 'cuisine_recents']
 };
@@ -157,17 +158,37 @@ function formatNumber(value) {
   return value.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
 }
 
+function scaleParentheticalAmounts(text, factor) {
+  return String(text || '').replace(/\(([^)]*)\)/g, (full, content) => {
+    const hasScalableHint = /(?:≈|env\.?|environ|oeufs?|œufs?|jaunes?|blancs?|pi[eè]ces?|portions?|cl|ml|g|kg)/i.test(content);
+    if (!hasScalableHint || !/\d/.test(content)) return full;
+    const scaled = content.replace(/(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[\u2013\u2014-]|à|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?/gi, (match, firstRaw, rangeSep, secondRaw) => {
+      const first = parseAmount(firstRaw);
+      const second = secondRaw ? parseAmount(secondRaw) : null;
+      if (!Number.isFinite(first)) return match;
+      if (second !== null && Number.isFinite(second)) {
+        const separator = rangeSep.slice(0, rangeSep.length - secondRaw.length);
+        return `${formatNumber(first * factor)}${separator}${formatNumber(second * factor)}`;
+      }
+      return formatNumber(first * factor);
+    });
+    return `(${scaled})`;
+  });
+}
+
 function scaleIngredient(text, factor) {
   if (factor === 1) return text;
-  const match = String(text).match(/^(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*[–-]\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?(.*)$/);
+  const match = String(text).match(/^(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[\u2013\u2014-]|à|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?(.*)$/i);
   if (!match) return text;
   const first = parseAmount(match[1]);
   const second = match[3] ? parseAmount(match[3]) : null;
   if (!Number.isFinite(first)) return text;
+  const rest = scaleParentheticalAmounts(match[4], factor);
   if (second !== null && Number.isFinite(second)) {
-    return `${formatNumber(first * factor)}-${formatNumber(second * factor)}${match[4]}`;
+    const separator = match[2].slice(0, match[2].length - match[3].length);
+    return `${formatNumber(first * factor)}${separator}${formatNumber(second * factor)}${rest}`;
   }
-  return `${formatNumber(first * factor)}${match[4]}`;
+  return `${formatNumber(first * factor)}${rest}`;
 }
 
 function scaleYield(text, factor) {
@@ -291,6 +312,7 @@ function extractTags(recipe) {
 function isVariantIngredientGroup(group, groups = [], recipe = null) {
   const label = normalizeText(group?.group || '');
   if (label.includes('base commune') || label === 'base' || label.includes('commun')) return false;
+  if (/^\d+\)/.test(label)) return true;
   if (label.startsWith('variante') || label.startsWith('version') || label.startsWith('option')) return true;
   if (recipe?.variantGroups) return true;
   return false;
@@ -376,6 +398,63 @@ function sanitizeNoteHtml(value) {
   return template.innerHTML;
 }
 
+function setMetaContent(selector, content) {
+  const node = document.head.querySelector(selector);
+  if (node && content) node.setAttribute('content', content);
+}
+
+function absoluteAssetUrl(url) {
+  if (!url) return undefined;
+  try {
+    return new URL(url, window.location.origin).href;
+  } catch {
+    return undefined;
+  }
+}
+
+function recipeJsonLd(recipe) {
+  if (!recipe || isMasterRecipe(recipe)) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: recipe.title,
+    image: absoluteAssetUrl(recipe.image),
+    recipeYield: recipe.yield || undefined,
+    recipeCategory: (recipe.categories || []).join(', ') || undefined,
+    keywords: (recipe.tags || recipe.tagsExtracted || []).join(', ') || undefined,
+    recipeIngredient: (recipe.ingredients || []).flatMap(group => group.items || []),
+    recipeInstructions: (recipe.steps || []).map(step => ({ '@type': 'HowToStep', text: step }))
+  };
+}
+
+function updateDocumentMeta(recipe) {
+  const title = recipe?.title ? `${recipe.title} - Cook Note` : 'Cook Note';
+  const description = recipe?.title
+    ? `${recipe.title} sur Cook Note : ingrédients, étapes, portions et astuces.`
+    : 'Cook Note - carnet de recettes illustré avec recherche, favoris, listes de courses et minuteurs.';
+  document.title = title;
+  setMetaContent('meta[name="description"]', description);
+  setMetaContent('meta[property="og:title"]', title);
+  setMetaContent('meta[property="og:description"]', description);
+  setMetaContent('meta[name="twitter:title"]', title);
+  setMetaContent('meta[name="twitter:description"]', description);
+  if (recipe?.image) {
+    const image = absoluteAssetUrl(recipe.image);
+    setMetaContent('meta[property="og:image"]', image);
+    setMetaContent('meta[property="og:image:secure_url"]', image);
+    setMetaContent('meta[name="twitter:image"]', image);
+  }
+  document.getElementById('recipe-jsonld')?.remove();
+  const jsonLd = recipeJsonLd(recipe);
+  if (jsonLd) {
+    const script = document.createElement('script');
+    script.id = 'recipe-jsonld';
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+  }
+}
+
 function Button(props) {
   const className = ['btn', props.variant ? `btn-${props.variant}` : '', props.className || '']
     .filter(Boolean)
@@ -442,6 +521,7 @@ function Hero() {
     }
   },
     h('div', { className: 'hero-inner' },
+      h('h1', { className: 'sr-only' }, 'Cook Note'),
       h('img', { className: 'hero-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' })
     )
   );
@@ -789,6 +869,10 @@ function RecipeView({
   }, [initialSelectedVariantId, recipe.id]);
 
   useEffect(() => {
+    setOpenIngredientGroups({});
+  }, [detailKey]);
+
+  useEffect(() => {
     if (!stepTotal || doneSteps !== stepTotal || completedRef.current === detailKey) return;
     completedRef.current = detailKey;
     if (window.confetti) {
@@ -977,8 +1061,8 @@ function App() {
     }).sort((a, b) => a.title.localeCompare(b.title, 'fr'));
   }, []);
   const recipesById = useMemo(() => Object.fromEntries(recipes.map(recipe => [recipe.id, recipe])), [recipes]);
-  const catalogRecipes = useMemo(() => recipes.filter(recipe => !recipe.master), [recipes]);
-  const allSeasons = useMemo(() => uniq([...SEASONS, ...catalogRecipes.flatMap(recipe => recipe.seasons || [])]).filter(item => item !== 'Toutes saisons'), [catalogRecipes]);
+  const homeCatalogRecipes = useMemo(() => recipes.filter(recipe => !recipe.master), [recipes]);
+  const searchableRecipes = useMemo(() => recipes.filter(recipe => !isMasterRecipe(recipe)), [recipes]);
   const currentSeason = useMemo(() => getCurrentSeason(), []);
 
   const [query, setQuery] = useState('');
@@ -999,17 +1083,36 @@ function App() {
   const [historyVersion, setHistoryVersion] = useState(0);
   const [shoppingOpen, setShoppingOpen] = useState(false);
   const searchRef = useRef(null);
-  const homeScrollRef = useRef(0);
+  const homeScrollRef = useRef(Number(sessionStorage.getItem(STORAGE_KEYS.homeScroll)) || 0);
   const restoreHomeScrollRef = useRef(false);
   const historyRef = useRef([{}]);
   const historyIndexRef = useRef(0);
 
   const activeRecipe = activeId ? recipesById[activeId] : null;
+  const activeVariantId = activeRecipe ? variantSelection[activeRecipe.id] : '';
+  const activeSeoRecipe = activeVariantId && recipesById[activeVariantId] ? recipesById[activeVariantId] : activeRecipe;
   const shoppingRecipes = useMemo(() => shoppingIds.map(id => recipesById[id]).filter(Boolean), [shoppingIds, recipesById]);
+  const catalogRecipes = useMemo(() => query.trim() ? searchableRecipes : homeCatalogRecipes, [homeCatalogRecipes, query, searchableRecipes]);
+  const allSeasons = useMemo(() => uniq([...SEASONS, ...catalogRecipes.flatMap(recipe => recipe.seasons || [])]).filter(item => item !== 'Toutes saisons'), [catalogRecipes]);
 
   useEffect(() => {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   }, []);
+
+  useEffect(() => {
+    updateDocumentMeta(activeSeoRecipe);
+  }, [activeSeoRecipe?.id]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (activeRecipe) return;
+      const top = window.scrollY || 0;
+      homeScrollRef.current = top;
+      sessionStorage.setItem(STORAGE_KEYS.homeScroll, String(top));
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeRecipe]);
 
   useEffect(() => {
     if (!activeRecipe?.master || isMasterRecipe(activeRecipe)) return;
@@ -1125,7 +1228,10 @@ function App() {
   function openRecipe(id) {
     const target = recipesById[id];
     if (!target) return;
-    if (!activeRecipe) homeScrollRef.current = window.scrollY || 0;
+    if (!activeRecipe) {
+      homeScrollRef.current = window.scrollY || 0;
+      sessionStorage.setItem(STORAGE_KEYS.homeScroll, String(homeScrollRef.current));
+    }
     restoreHomeScrollRef.current = false;
     const parentId = target.master && !isMasterRecipe(target) ? target.master : id;
     if (target.master && !isMasterRecipe(target)) {
