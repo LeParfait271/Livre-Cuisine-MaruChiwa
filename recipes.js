@@ -4492,7 +4492,7 @@ window.RECIPES = {
   "cookies_chocolat_moelleux": {
     "title": "Cookies chocolat moelleux",
     "master": "cookies_sucres_maitre",
-    "image": "/assets/recipe-images/cookies.jpg",
+    "image": "/assets/recipe-images/cookies_chocolat_moelleux_spooky.png",
     "categories": [
       "Desserts"
     ],
@@ -4557,7 +4557,7 @@ window.RECIPES = {
   "pancakes_fluffy": {
     "title": "Pancakes fluffy",
     "master": "petit_dejeuner_maitre",
-    "image": "/assets/recipe-images/pancakes_variantes.jpg",
+    "image": "/assets/recipe-images/pancakes_fluffy_spooky.png",
     "categories": [
       "Petits-déjeuners"
     ],
