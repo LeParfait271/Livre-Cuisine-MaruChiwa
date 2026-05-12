@@ -2208,7 +2208,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "bouillabaisse_rouille",
-        "label": "Bouillabaisse rouille"
+        "label": "Bouillabaisse"
       },
       {
         "id": "cochon_confit_biere_erable",
@@ -2576,7 +2576,7 @@ window.RECIPES = {
     "difficultyScore": 3
   },
   "cake_sale_lardon": {
-    "title": "Cake salé aux lardons",
+    "title": "Cake salé poitrine fumée",
     "master": "apero_maitre",
     "image": "/assets/recipe-images/cake_sale_lardon_spooky.png",
     "categories": [
@@ -2591,11 +2591,13 @@ window.RECIPES = {
       {
         "group": "Garniture",
         "items": [
-          "200 g lardons fumés",
+          "200 g de poitrine fumée en dés",
           "80 g oignon",
           "4 g ail",
           "10 g huile d’olive",
-          "50 g vin blanc pour déglacer"
+          "50 g vin blanc pour déglacer",
+          "1 à 2 tomates coupées en tranches très fines",
+          "Thym ou origan pour les tomates"
         ]
       },
       {
@@ -2613,11 +2615,12 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Faire griller les lardons.",
+      "Faire griller la poitrine fumée en dés.",
       "Ajouter oignon et ail coupés très petit.",
       "Déglacer au vin blanc et laisser évaporer l’alcool.",
       "Mélanger tous les ingrédients de l’appareil avec la garniture.",
       "Beurrer et fariner le moule.",
+      "Déposer les tranches fines de tomates sur le dessus du cake juste avant d’enfourner, puis parsemer de thym ou d’origan.",
       "Enfourner à 180 °C pendant 35 à 50 min selon le moule et l’épaisseur du cake."
     ],
     "notes": [
@@ -2628,10 +2631,16 @@ window.RECIPES = {
     "tags": [
       "cake",
       "sale",
-      "lardon",
-      "apero"
+      "apero",
+      "poitrine",
+      "tomate"
     ],
-    "difficultyScore": 3
+    "difficultyScore": 3,
+    "aliases": [
+      "cake salé lardon",
+      "cake jambon fromage",
+      "cake poitrine fumée"
+    ]
   },
   "oignons_rotis_thym_miel": {
     "title": "Oignons rôtis au thym et au miel",
@@ -3091,7 +3100,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "cake_sale_lardon",
-        "label": "Cake salé aux lardons"
+        "label": "Cake salé poitrine fumée"
       },
       {
         "id": "cookies_sales_variantes",
@@ -3982,7 +3991,7 @@ window.RECIPES = {
   "sauce_caramel": {
     "title": "Sauce caramel",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/sauce_caramel_spooky.svg",
+    "image": "/assets/recipe-images/sauce_caramel_spooky.png",
     "categories": [
       "Sauces",
       "Desserts"
@@ -4048,7 +4057,7 @@ window.RECIPES = {
   "sauce_aux_poivres": {
     "title": "Sauce aux poivres",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/sauce_aux_poivres_spooky.svg",
+    "image": "/assets/recipe-images/sauce_aux_poivres_spooky.png",
     "categories": [
       "Sauces"
     ],
@@ -4163,7 +4172,7 @@ window.RECIPES = {
   "cotelettes_porc_miel_moutarde": {
     "title": "Côtelettes de porc miel moutarde",
     "master": "plats_maitre",
-    "image": "/assets/recipe-images/cotelettes_porc_miel_moutarde_spooky.svg",
+    "image": "/assets/recipe-images/cotelettes_porc_miel_moutarde_spooky.png",
     "categories": [
       "Plats"
     ],
@@ -4253,7 +4262,7 @@ window.RECIPES = {
   "rouille_haut_de_gamme": {
     "title": "Rouille haut de gamme",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/rouille_haut_de_gamme_spooky.svg",
+    "image": "/assets/recipe-images/rouille_haut_de_gamme_spooky.png",
     "categories": [
       "Sauces"
     ],
@@ -4347,7 +4356,7 @@ window.RECIPES = {
     ]
   },
   "bouillabaisse_rouille": {
-    "title": "Bouillabaisse rouille",
+    "title": "Bouillabaisse",
     "master": "plats_maitre",
     "image": "/assets/recipe-images/plats_maitre_spooky.png",
     "categories": [
@@ -4362,7 +4371,8 @@ window.RECIPES = {
     "aliases": [
       "bouillabaisse",
       "soupe de poisson rouille",
-      "bouillabaisse haut de gamme"
+      "bouillabaisse haut de gamme",
+      "bouillabaisse rouille"
     ],
     "tags": [
       "poisson",
@@ -4594,7 +4604,7 @@ window.RECIPES = {
   "mayonnaise_maison": {
     "title": "Mayonnaise maison",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/mayonnaise_maison_spooky.svg",
+    "image": "/assets/recipe-images/mayonnaise_maison_spooky.png",
     "categories": [
       "Sauces"
     ],
@@ -4678,7 +4688,7 @@ window.RECIPES = {
   "frites_belges": {
     "title": "Frites belges",
     "master": "plats_maitre",
-    "image": "/assets/recipe-images/frites_belges_spooky.svg",
+    "image": "/assets/recipe-images/frites_belges_spooky.png",
     "categories": [
       "Plats"
     ],
