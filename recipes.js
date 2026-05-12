@@ -379,6 +379,10 @@ window.RECIPES = {
         "label": "Ricotta fouettée"
       },
       {
+        "id": "rouille_haut_de_gamme",
+        "label": "Rouille haut de gamme"
+      },
+      {
         "id": "sauce_aux_poivres",
         "label": "Sauce aux poivres"
       },
@@ -2110,6 +2114,10 @@ window.RECIPES = {
       {
         "id": "pancakes_variantes",
         "label": "Pancakes"
+      },
+      {
+        "id": "pancakes_fluffy",
+        "label": "Pancakes fluffy"
       }
     ],
     "ingredients": [
@@ -2189,6 +2197,10 @@ window.RECIPES = {
     "difficulty": "easy",
     "masterType": "collection",
     "variants": [
+      {
+        "id": "bouillabaisse_rouille",
+        "label": "Bouillabaisse rouille"
+      },
       {
         "id": "cochon_confit_biere_erable",
         "label": "Cochon confit à la bière et au sirop d’érable"
@@ -3695,6 +3707,10 @@ window.RECIPES = {
       {
         "id": "cookies_chocolat_blanc_cranberry",
         "label": "Cookies chocolat blanc cranberry"
+      },
+      {
+        "id": "cookies_chocolat_moelleux",
+        "label": "Cookies chocolat moelleux"
       }
     ],
     "ingredients": [
@@ -4219,6 +4235,347 @@ window.RECIPES = {
       {
         "label": "Finition",
         "value": "Monter au beurre hors du feu pour une sauce brillante."
+      }
+    ]
+  },
+  "rouille_haut_de_gamme": {
+    "title": "Rouille haut de gamme",
+    "master": "sauces_assaisonnements_maitre",
+    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "6 à 8 personnes",
+    "aliases": [
+      "rouille maison",
+      "rouille bouillabaisse",
+      "sauce rouille"
+    ],
+    "tags": [
+      "rouille",
+      "sauce",
+      "safran",
+      "ail",
+      "bouillabaisse"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "2 jaunes d’œufs",
+          "2 petites gousses d’ail dégermées",
+          "80 g de pomme de terre cuite dans le bouillon",
+          "1 c. à café de moutarde de Dijon douce",
+          "1 belle pincée de safran",
+          "1 c. à soupe de bouillon chaud pour infuser le safran",
+          "1 c. à café de jus de citron",
+          "1 c. à café de vinaigre de Xérès ou vinaigre de vin vieux",
+          "1/2 c. à café de piment d’Espelette",
+          "Sel fin"
+        ]
+      },
+      {
+        "group": "Huiles",
+        "items": [
+          "180 ml d’huile d’olive douce",
+          "80 ml d’huile neutre"
+        ]
+      },
+      {
+        "group": "Option gastronomique",
+        "items": [
+          "1 c. à soupe de foie de poisson cuit passé au tamis",
+          "ou 1 c. à café de bisque très réduite",
+          "ou 1 petite pointe de concentré de tomate torréfié"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Quelques gouttes de jus de citron",
+          "Une micro-pincée de piment d’Espelette",
+          "Un filet d’huile d’olive fruitée"
+        ]
+      }
+    ],
+    "steps": [
+      "Infuser le safran 10 à 15 minutes dans une cuillère de bouillon chaud.",
+      "Dégermer l’ail, puis l’écraser au mortier avec une petite pincée de sel jusqu’à obtenir une pâte fine.",
+      "Mélanger la pâte d’ail, les jaunes, la moutarde, la pomme de terre écrasée, l’infusion de safran, le citron, le vinaigre et le piment.",
+      "Verser l’huile neutre très progressivement en fouettant comme une mayonnaise.",
+      "Ajouter ensuite l’huile d’olive douce en filet, toujours en fouettant, jusqu’à obtenir une texture dense et brillante.",
+      "Ajuster la texture avec quelques gouttes de bouillon tiède si elle est trop épaisse, ou un peu de pomme de terre écrasée si elle est trop liquide.",
+      "Incorporer l’option gastronomique si souhaité, en petite quantité pour ne pas masquer le bouillon.",
+      "Rectifier le sel, le citron et le piment, puis réserver au frais filmé au contact."
+    ],
+    "notes": [
+      "Texture cible : ferme, brillante, nappante, assez dense pour tenir sur un croûton et assez souple pour fondre dans le bouillon.",
+      "Évite l’huile d’olive trop forte : elle peut apporter de l’amertume.",
+      "Le safran infusé donne une couleur plus régulière et un parfum plus propre que le safran ajouté à sec.",
+      "Pour un rendu plus net, passer la rouille au tamis fin après montage et la dresser en petite quenelle."
+    ],
+    "technical": [
+      {
+        "label": "Émulsion",
+        "value": "Ajouter l’huile très lentement au départ pour stabiliser la rouille."
+      },
+      {
+        "label": "Relief",
+        "value": "Ajuster citron, vinaigre et piment par petites touches."
+      },
+      {
+        "label": "Service",
+        "value": "Servir sur croûtons frottés à l’ail ou avec une soupe de poisson très chaude."
+      }
+    ]
+  },
+  "bouillabaisse_rouille": {
+    "title": "Bouillabaisse rouille",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/plats_maitre_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "hard",
+    "difficultyScore": 8,
+    "yield": "8 personnes",
+    "aliases": [
+      "bouillabaisse",
+      "soupe de poisson rouille",
+      "bouillabaisse haut de gamme"
+    ],
+    "tags": [
+      "poisson",
+      "bouillabaisse",
+      "rouille",
+      "fenouil",
+      "safran"
+    ],
+    "ingredients": [
+      {
+        "group": "Poissons",
+        "items": [
+          "2 daurades royales",
+          "2 rougets barbets",
+          "2 rascasses de ligne"
+        ]
+      },
+      {
+        "group": "Base aromatique",
+        "items": [
+          "200 g de carottes",
+          "100 g de céleri",
+          "150 g de poireaux",
+          "150 g d’oignons",
+          "200 g de fenouil",
+          "500 g de tomates mûres",
+          "75 g de concentré de tomate",
+          "2 g d’ail",
+          "Thym",
+          "1 orange",
+          "3 étoiles de badiane",
+          "8 graines de cardamome",
+          "2 g de safran"
+        ]
+      },
+      {
+        "group": "Liquides",
+        "items": [
+          "200 g de jus de moules",
+          "125 g de Pernod",
+          "500 g de fumet de poisson",
+          "1,5 L de vin blanc"
+        ]
+      },
+      {
+        "group": "Garniture",
+        "items": [
+          "Pommes de terre",
+          "Fenouils",
+          "Rouille maison",
+          "Piment d’Espelette",
+          "Basilic nain",
+          "Huile d’olive"
+        ],
+        "recipeId": "rouille_haut_de_gamme"
+      },
+      {
+        "group": "Fenouils au curry",
+        "items": [
+          "Jus de citron",
+          "Sel",
+          "Curry en poudre",
+          "Huile d’olive"
+        ]
+      }
+    ],
+    "steps": [
+      "Lever les filets des poissons ou demander au poissonnier de le faire, puis garder arêtes et têtes pour le bouillon.",
+      "Retirer les ouïes des têtes si nécessaire, éponger les morceaux et réserver les filets au frais.",
+      "Émincer carottes, céleri, poireaux, oignons et fenouil, concasser les tomates, prélever un large zeste d’orange et préparer les épices.",
+      "Faire colorer arêtes et têtes de poisson dans une grande marmite avec un filet d’huile d’olive.",
+      "Déglacer au Pernod, laisser réduire, puis ajouter le vin blanc et réduire à nouveau.",
+      "Ajouter tomates, concentré de tomate, fumet, jus de moules, garniture aromatique, têtes, orange, badiane et cardamome.",
+      "Cuire environ 45 minutes à frémissement.",
+      "Couper le feu, ajouter le safran et laisser infuser quelques minutes sans forte ébullition.",
+      "Filtrer au chinois, presser pour récupérer le jus, puis filtrer une seconde fois si besoin.",
+      "Cuire les pommes de terre dans une partie du bouillon safrané, les égoutter puis les poêler rapidement à l’huile d’olive.",
+      "Assaisonner les fenouils avec citron, sel, curry et huile d’olive, puis les cuire à la vapeur ou doucement jusqu’à tendreté.",
+      "Chauffer les assiettes, disposer poisson, pommes de terre et fenouil, puis verser le bouillon brûlant sur les tranches de poisson.",
+      "Ajouter une petite quantité de rouille, du piment d’Espelette, du basilic nain et un filet d’huile d’olive."
+    ],
+    "notes": [
+      "Préparer la <span data-goto=\"rouille_haut_de_gamme\">rouille haut de gamme</span> à part pour garder une texture nette au service.",
+      "Le bouillon doit être très chaud pour terminer la cuisson des tranches de poisson dans l’assiette.",
+      "Pour des morceaux épais, pocher quelques minutes dans le bouillon à 80-85 °C avant dressage.",
+      "Le Pernod doit soutenir la note anisée du fenouil sans dominer le poisson."
+    ],
+    "technical": [
+      {
+        "label": "Bouillon",
+        "value": "Colorer les arêtes avant déglaçage pour donner du relief."
+      },
+      {
+        "label": "Safran",
+        "value": "L’infuser hors forte ébullition pour éviter une note médicinale."
+      },
+      {
+        "label": "Service",
+        "value": "Servir en assiette chaude avec bouillon brûlant et garnitures séparées."
+      }
+    ]
+  },
+  "cookies_chocolat_moelleux": {
+    "title": "Cookies chocolat moelleux",
+    "master": "cookies_sucres_maitre",
+    "image": "/assets/recipe-images/cookies_spooky.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 4,
+    "yield": "environ 72 cookies",
+    "aliases": [
+      "cookies chocolat",
+      "cookies pépites chocolat",
+      "cookies moelleux"
+    ],
+    "tags": [
+      "cookies",
+      "chocolat",
+      "goûter"
+    ],
+    "ingredients": [
+      {
+        "group": "Pâte",
+        "items": [
+          "250 g de sucre",
+          "250 g de cassonade tassée",
+          "340 g de beurre mou",
+          "2 c. à café de vanille",
+          "3 œufs",
+          "530 g de farine",
+          "2 c. à café de bicarbonate de soude",
+          "1/2 c. à café de sel",
+          "340 à 680 g de pépites de chocolat mi-sucré"
+        ]
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 190 °C.",
+      "Crémer le sucre, la cassonade et le beurre mou jusqu’à obtenir une texture légère.",
+      "Ajouter la vanille et les œufs, puis mélanger jusqu’à homogénéité.",
+      "Incorporer farine, bicarbonate et sel sans trop travailler la pâte.",
+      "Ajouter les pépites de chocolat.",
+      "Déposer des boules de pâte espacées sur une plaque non graissée.",
+      "Cuire 8 à 10 minutes, jusqu’à légère coloration dorée.",
+      "Laisser reposer quelques minutes sur plaque puis transférer sur grille."
+    ],
+    "notes": [
+      "Pour des cookies plus chocolatés, utiliser la quantité haute de pépites.",
+      "La pâte peut être congelée en boules et cuite après décongélation.",
+      "Chaque four réagit différemment : surveille la coloration et ajuste le temps de cuisson si nécessaire."
+    ],
+    "technical": [
+      {
+        "label": "Texture",
+        "value": "Ne pas trop cuire : les cookies finissent de se raffermir hors du four."
+      },
+      {
+        "label": "Congélation",
+        "value": "Congeler les boules de pâte bien emballées pour une cuisson minute."
+      }
+    ]
+  },
+  "pancakes_fluffy": {
+    "title": "Pancakes fluffy",
+    "master": "petit_dejeuner_maitre",
+    "image": "/assets/recipe-images/pancakes_variantes_spooky.png",
+    "categories": [
+      "Petits-déjeuners"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "8 à 10 pancakes",
+    "aliases": [
+      "pancakes moelleux",
+      "fluffy pancakes",
+      "pancakes épais"
+    ],
+    "tags": [
+      "pancakes",
+      "petit déjeuner",
+      "moelleux"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "190 g de farine",
+          "2 1/2 c. à café de levure chimique",
+          "1/2 c. à café de sel",
+          "1 c. à soupe de sucre",
+          "300 ml de lait",
+          "1 gros œuf",
+          "45 g de beurre fondu"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger farine, levure chimique, sel et sucre.",
+      "Fouetter à part le lait, l’œuf et le beurre fondu tiédi.",
+      "Verser les liquides sur les ingrédients secs et mélanger juste assez pour hydrater la pâte.",
+      "Laisser reposer 10 minutes.",
+      "Cuire dans une poêle légèrement graissée à feu moyen-doux.",
+      "Retourner quand des bulles apparaissent et que les bords commencent à se tenir.",
+      "Servir chaud."
+    ],
+    "notes": [
+      "Ne cherche pas une pâte parfaitement lisse : quelques petits grumeaux aident à garder des pancakes moelleux.",
+      "Pour une version plus épaisse, baisse légèrement le feu et couvre la poêle quelques instants."
+    ],
+    "technical": [
+      {
+        "label": "Repos",
+        "value": "Dix minutes suffisent pour hydrater la farine sans alourdir la pâte."
+      },
+      {
+        "label": "Cuisson",
+        "value": "Feu moyen-doux pour laisser gonfler sans brûler."
       }
     ]
   }
