@@ -1,18 +1,14 @@
 // ============================================================
-//  Cook Note - Service Worker PWA v24
+//  Cook Note - Service Worker PWA v25
 //  Cache-first pour assets statiques
 //  Network-first pour les images externes (Unsplash, CDN)
 // ============================================================
 
-const CACHE_NAME = 'cook-note-v24';
+const CACHE_NAME = 'cook-note-v25';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/style.css',
-  '/app.js',
-  '/recipes.js',
   '/recipe.html',
-  '/recipe.js',
   '/manifest.json',
   '/assets/cook-note.png',
   '/assets/base-principale-fond-site.jpg',
@@ -31,7 +27,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then(cache => Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url))))
       .then(() => {
-        console.log('[SW v24] Assets statiques mis en cache.');
+        console.log('[SW v25] Assets statiques mis en cache.');
       })
   );
   self.skipWaiting();
@@ -45,7 +41,7 @@ self.addEventListener('activate', (event) => {
         keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
       )
     ).then(() => {
-        console.log('[SW v24] Anciens caches supprimés.');
+        console.log('[SW v25] Anciens caches supprimés.');
     })
   );
   self.clients.claim();
@@ -64,6 +60,13 @@ self.addEventListener('fetch', (event) => {
 
   // Ne jamais mettre en cache l'admin ni l'API.
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) return;
+
+  // Ces fichiers changent souvent pendant les mises à jour du carnet.
+  // On les sert depuis le réseau pour éviter d'afficher d'anciennes recettes.
+  if (['/app.js', '/recipes.js', '/recipe.js', '/style.css'].includes(url.pathname)) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }));
+    return;
+  }
 
   // Pour les assets locaux : cache-first, réseau en fallback
   event.respondWith(

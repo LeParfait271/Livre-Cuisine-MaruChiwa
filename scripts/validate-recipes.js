@@ -59,6 +59,7 @@ if (!recipes || typeof recipes !== 'object') {
   const masterIds = new Set(Object.entries(recipes)
     .filter(([, recipe]) => Array.isArray(recipe.variants) && recipe.variants.length)
     .map(([id]) => id));
+  const leafImages = new Map();
 
   for (const [id, recipe] of Object.entries(recipes)) {
     const isMaster = masterIds.has(id);
@@ -102,6 +103,11 @@ if (!recipes || typeof recipes !== 'object') {
       if (!fs.existsSync(filePath)) errors.push(`${id}: image locale introuvable (${recipe.image}).`);
     }
 
+    if (!isMaster && recipe.image) {
+      if (!leafImages.has(recipe.image)) leafImages.set(recipe.image, []);
+      leafImages.get(recipe.image).push(id);
+    }
+
     const linkableText = collectStrings({
       ingredients: recipe.ingredients || [],
       steps: recipe.steps || [],
@@ -110,6 +116,12 @@ if (!recipes || typeof recipes !== 'object') {
     }).join('\n');
     for (const match of linkableText.matchAll(/data-goto=\\?["']([^"']+)\\?["']/g)) {
       if (!ids.has(match[1])) errors.push(`${id}: lien interne data-goto introuvable (${match[1]}).`);
+    }
+  }
+
+  for (const [image, recipeIds] of leafImages.entries()) {
+    if (recipeIds.length > 1) {
+      errors.push(`image dupliquee entre recettes (${image}): ${recipeIds.join(', ')}.`);
     }
   }
 }

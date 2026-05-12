@@ -371,6 +371,10 @@ window.RECIPES = {
         "label": "Marinades"
       },
       {
+        "id": "mayonnaise_maison",
+        "label": "Mayonnaise maison"
+      },
+      {
         "id": "pesto_variantes",
         "label": "Pesto"
       },
@@ -440,7 +444,7 @@ window.RECIPES = {
     "variants": [
       {
         "id": "tomates_variantes",
-        "label": "Tomates au four"
+        "label": "Tomates confites et séchées"
       },
       {
         "id": "tomates_provencales",
@@ -459,7 +463,7 @@ window.RECIPES = {
       "Choisir une variante pour afficher la recette complète."
     ],
     "notes": [
-      "Fiche maître : préparations de tomates au four."
+      "Fiche maître : préparations de tomates confites, séchées ou rôties."
     ],
     "technical": [
       {
@@ -797,7 +801,7 @@ window.RECIPES = {
     "difficultyScore": 2
   },
   "tomates_variantes": {
-    "title": "Tomates au four",
+    "title": "Tomates confites et séchées",
     "master": "tomates_maitre",
     "image": "/assets/recipe-images/tomates_variantes_spooky.png",
     "categories": [
@@ -841,7 +845,12 @@ window.RECIPES = {
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
-    "difficultyScore": 4
+    "difficultyScore": 4,
+    "aliases": [
+      "tomates au four",
+      "tomates confites",
+      "tomates séchées"
+    ]
   },
   "huile_pimentee_pizza": {
     "title": "Huile pimentée pour pizza",
@@ -2208,6 +2217,10 @@ window.RECIPES = {
       {
         "id": "cotelettes_porc_miel_moutarde",
         "label": "Côtelettes de porc miel moutarde"
+      },
+      {
+        "id": "frites_belges",
+        "label": "Frites belges"
       }
     ],
     "ingredients": [
@@ -3048,7 +3061,6 @@ window.RECIPES = {
       "Ajouter les options au moment du service si souhaité."
     ],
     "notes": [
-      "Recette ajoutée depuis l’image fournie.",
       "Servir rapidement après découpe de l’avocat.",
       "Stockage : boîte hermétique au réfrigérateur. Péremption : 24 h, à assaisonner au dernier moment."
     ],
@@ -3970,7 +3982,7 @@ window.RECIPES = {
   "sauce_caramel": {
     "title": "Sauce caramel",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/creme_praline_spooky.png",
+    "image": "/assets/recipe-images/sauce_caramel_spooky.svg",
     "categories": [
       "Sauces",
       "Desserts"
@@ -4036,7 +4048,7 @@ window.RECIPES = {
   "sauce_aux_poivres": {
     "title": "Sauce aux poivres",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "image": "/assets/recipe-images/sauce_aux_poivres_spooky.svg",
     "categories": [
       "Sauces"
     ],
@@ -4151,7 +4163,7 @@ window.RECIPES = {
   "cotelettes_porc_miel_moutarde": {
     "title": "Côtelettes de porc miel moutarde",
     "master": "plats_maitre",
-    "image": "/assets/recipe-images/cochon_confit_biere_erable_spooky.png",
+    "image": "/assets/recipe-images/cotelettes_porc_miel_moutarde_spooky.svg",
     "categories": [
       "Plats"
     ],
@@ -4241,7 +4253,7 @@ window.RECIPES = {
   "rouille_haut_de_gamme": {
     "title": "Rouille haut de gamme",
     "master": "sauces_assaisonnements_maitre",
-    "image": "/assets/recipe-images/sauces_assaisonnements_maitre_spooky.png",
+    "image": "/assets/recipe-images/rouille_haut_de_gamme_spooky.svg",
     "categories": [
       "Sauces"
     ],
@@ -4456,7 +4468,7 @@ window.RECIPES = {
   "cookies_chocolat_moelleux": {
     "title": "Cookies chocolat moelleux",
     "master": "cookies_sucres_maitre",
-    "image": "/assets/recipe-images/cookies_spooky.png",
+    "image": "/assets/recipe-images/cookies_chocolat_moelleux_spooky.svg",
     "categories": [
       "Desserts"
     ],
@@ -4521,7 +4533,7 @@ window.RECIPES = {
   "pancakes_fluffy": {
     "title": "Pancakes fluffy",
     "master": "petit_dejeuner_maitre",
-    "image": "/assets/recipe-images/pancakes_variantes_spooky.png",
+    "image": "/assets/recipe-images/pancakes_fluffy_spooky.svg",
     "categories": [
       "Petits-déjeuners"
     ],
@@ -4576,6 +4588,166 @@ window.RECIPES = {
       {
         "label": "Cuisson",
         "value": "Feu moyen-doux pour laisser gonfler sans brûler."
+      }
+    ]
+  },
+  "mayonnaise_maison": {
+    "title": "Mayonnaise maison",
+    "master": "sauces_assaisonnements_maitre",
+    "image": "/assets/recipe-images/mayonnaise_maison_spooky.svg",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "environ 250 g",
+    "variantGroups": true,
+    "aliases": [
+      "mayonnaise belge",
+      "mayo maison",
+      "sauce mayonnaise"
+    ],
+    "tags": [
+      "mayonnaise",
+      "sauce",
+      "frites"
+    ],
+    "ingredients": [
+      {
+        "group": "Base mayonnaise",
+        "items": [
+          "1 jaune d’œuf",
+          "1 c. à café de moutarde",
+          "1 c. à soupe de vinaigre de vin blanc ou jus de citron",
+          "200 ml d’huile neutre",
+          "Sel",
+          "Poivre blanc"
+        ],
+        "note": "Tous les ingrédients doivent idéalement être à la même température pour faciliter l’émulsion."
+      },
+      {
+        "group": "Variante tartare",
+        "items": [
+          "Mayonnaise maison",
+          "Câpres hachées",
+          "Cornichons hachés",
+          "Persil plat",
+          "Estragon",
+          "Échalote très finement ciselée",
+          "Un peu de jus de citron"
+        ]
+      },
+      {
+        "group": "Variante andalouse",
+        "items": [
+          "Mayonnaise maison",
+          "Concentré de tomate légèrement travaillé",
+          "Poivron rouge rôti mixé",
+          "Paprika fumé",
+          "Une pointe de piment",
+          "Quelques gouttes de vinaigre"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger le jaune d’œuf, la moutarde, le vinaigre ou le citron et une pincée de sel.",
+      "Verser l’huile en filet très fin en fouettant constamment.",
+      "Continuer jusqu’à obtenir une texture ferme, brillante et nappante.",
+      "Rectifier le sel, le poivre blanc et l’acidité avec citron ou vinaigre.",
+      "Pour les variantes, incorporer les garnitures dans la mayonnaise déjà montée."
+    ],
+    "notes": [
+      "Si la mayonnaise tranche, repartir avec un nouveau jaune et incorporer l’ancienne préparation petit à petit.",
+      "Pour des frites, garde une texture assez ferme afin que la sauce tienne bien.",
+      "À conserver au frais et à consommer rapidement."
+    ],
+    "technical": [
+      {
+        "label": "Émulsion",
+        "value": "Commencer avec un filet d’huile très fin pour stabiliser la base."
+      },
+      {
+        "label": "Acidité",
+        "value": "Ajuster en fin de montage pour équilibrer le gras."
+      }
+    ]
+  },
+  "frites_belges": {
+    "title": "Frites belges",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/frites_belges_spooky.svg",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "aliases": [
+      "frites maison",
+      "frites double cuisson",
+      "frites belges haut de gamme"
+    ],
+    "tags": [
+      "frites",
+      "pomme de terre",
+      "double cuisson"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "1,2 à 1,5 kg de pommes de terre Bintje, Agria ou Manon",
+          "2 à 3 kg de blanc de bœuf selon la friteuse",
+          "Sel fin",
+          "Fleur de sel pour la finition"
+        ]
+      },
+      {
+        "group": "Option haut de gamme",
+        "items": [
+          "1 petite branche de thym",
+          "1 gousse d’ail en chemise retirée avant cuisson",
+          "Mayonnaise maison, sauce tartare ou sauce andalouse maison"
+        ],
+        "recipeId": "mayonnaise_maison"
+      }
+    ],
+    "steps": [
+      "Éplucher les pommes de terre et les tailler en bâtonnets réguliers de 10 à 12 mm.",
+      "Rincer les frites dans un grand saladier d’eau froide jusqu’à ce que l’eau soit moins trouble.",
+      "Égoutter, étaler sur un torchon propre, éponger soigneusement puis laisser sécher 10 à 15 minutes.",
+      "Chauffer le blanc de bœuf à 140-150 °C.",
+      "Plonger les frites par petites quantités et cuire 5 à 7 minutes : elles doivent être cuites à cœur mais encore pâles.",
+      "Égoutter sur grille et laisser reposer 20 à 30 minutes minimum.",
+      "Monter le bain à 175-180 °C.",
+      "Replonger les frites en petites quantités 2 à 4 minutes jusqu’à belle coloration dorée.",
+      "Égoutter immédiatement, secouer légèrement et saler avec du sel fin.",
+      "Terminer avec une pincée de fleur de sel et servir aussitôt avec la <span data-goto=\"mayonnaise_maison\">mayonnaise maison</span>."
+    ],
+    "notes": [
+      "Ne sale jamais avant cuisson : le sel attire l’eau et ramollit les frites.",
+      "Utilise une grille plutôt que du papier absorbant trop longtemps, car la vapeur piégée peut ramollir les frites.",
+      "Le bain ne doit pas être trop chargé : une chute de température rend les frites grasses.",
+      "Résultat cible : extérieur très croustillant, intérieur fondant, belle couleur dorée et aucune sensation grasse."
+    ],
+    "technical": [
+      {
+        "label": "Pomme de terre",
+        "value": "Bintje, Agria ou Manon donnent une bonne texture pour la double cuisson."
+      },
+      {
+        "label": "Cuisson",
+        "value": "Première cuisson fondante, repos, puis seconde cuisson croustillante."
+      },
+      {
+        "label": "Service",
+        "value": "Servir immédiatement après salage."
       }
     ]
   }
