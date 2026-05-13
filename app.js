@@ -1320,6 +1320,15 @@ function App() {
     setTimeout(() => document.getElementById('recettes')?.scrollIntoView({ behavior: 'smooth' }), 0);
   }
 
+  function updateSearchQuery(value) {
+    setQuery(value);
+    if (!value.trim() || !activeRecipe) return;
+    restoreHomeScrollRef.current = false;
+    setActiveId(null);
+    history.pushState('', document.title, window.location.pathname + window.location.search);
+    requestAnimationFrame(() => document.getElementById('recettes')?.scrollIntoView({ behavior: 'auto' }));
+  }
+
   useEffect(() => {
     const handleHash = () => {
       const recipe = getInitialHashRecipe();
@@ -1432,7 +1441,7 @@ function App() {
       showFavorites,
       openShoppingBasket: () => setShoppingOpen(true),
       query,
-      setQuery,
+      setQuery: updateSearchQuery,
       searchRef,
       searchOpen,
       setSearchOpen
