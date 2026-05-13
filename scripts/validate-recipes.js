@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const crypto = require('node:crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const recipesPath = path.join(ROOT, 'recipes.js');
@@ -19,6 +20,7 @@ vm.runInContext(code, context, { filename: recipesPath });
 const recipes = context.window.RECIPES;
 const errors = [];
 const ENCODING_SUSPECT_RE = new RegExp('(?:\\uFFFD|\\u00C3|\\u00C2[\\u00A0-\\u00BF]|\\u00E2\\u20AC|\\u00C5[\\u2018\\u2019\\u201C\\u201D])');
+const NON_METRIC_UNIT_RE = /(^|[^0-9A-Za-zÀ-ÖØ-öø-ÿ])(?:cups?|oz|ounces?|tasses?)(?=$|[^0-9A-Za-zÀ-ÖØ-öø-ÿ])/i;
 
 function checkTextEncoding(value, location) {
   if (typeof value === 'string') {
@@ -61,6 +63,7 @@ if (!recipes || typeof recipes !== 'object') {
     .filter(([, recipe]) => Array.isArray(recipe.variants) && recipe.variants.length)
     .map(([id]) => id));
   const leafImages = new Map();
+  const leafImageHashes = new Map();
 
   for (const [id, recipe] of Object.entries(recipes)) {
     const isMaster = masterIds.has(id);
@@ -103,6 +106,13 @@ if (!recipes || typeof recipes !== 'object') {
       });
     }
 
+    collectStrings(recipe).forEach(value => {
+      if (NON_METRIC_UNIT_RE.test(value)) {
+        errors.push(`${id}: unite non metrique interdite (${value}).`);
+      }
+    });
+
+    let resolvedImagePath = null;
     if (!recipe.image) {
       errors.push(`${id}: image manquante.`);
     } else if (/\.svg(?:$|\?)/i.test(recipe.image)) {
@@ -110,11 +120,17 @@ if (!recipes || typeof recipes !== 'object') {
     } else if (recipe.image.startsWith('/')) {
       const filePath = path.join(ROOT, recipe.image.replace(/^\/+/, ''));
       if (!fs.existsSync(filePath)) errors.push(`${id}: image locale introuvable (${recipe.image}).`);
+      else resolvedImagePath = filePath;
     }
 
     if (!isMaster && recipe.image) {
       if (!leafImages.has(recipe.image)) leafImages.set(recipe.image, []);
       leafImages.get(recipe.image).push(id);
+    }
+    if (!isMaster && resolvedImagePath) {
+      const imageHash = crypto.createHash('sha1').update(fs.readFileSync(resolvedImagePath)).digest('hex');
+      if (!leafImageHashes.has(imageHash)) leafImageHashes.set(imageHash, []);
+      leafImageHashes.get(imageHash).push(`${id} (${recipe.image})`);
     }
 
     const linkableText = collectStrings({
@@ -131,6 +147,11 @@ if (!recipes || typeof recipes !== 'object') {
   for (const [image, recipeIds] of leafImages.entries()) {
     if (recipeIds.length > 1) {
       errors.push(`image dupliquee entre recettes (${image}): ${recipeIds.join(', ')}.`);
+    }
+  }
+  for (const [, recipeIds] of leafImageHashes.entries()) {
+    if (recipeIds.length > 1) {
+      errors.push(`image identique dupliquee entre recettes: ${recipeIds.join(', ')}.`);
     }
   }
 }

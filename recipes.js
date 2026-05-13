@@ -376,7 +376,7 @@ window.RECIPES = {
       },
       {
         "id": "pesto_variantes",
-        "label": "Pesto"
+        "label": "Pestos"
       },
       {
         "id": "ricotta_fouettee",
@@ -384,7 +384,7 @@ window.RECIPES = {
       },
       {
         "id": "rouille_haut_de_gamme",
-        "label": "Rouille haut de gamme"
+        "label": "Rouille"
       },
       {
         "id": "sauce_aux_poivres",
@@ -617,6 +617,10 @@ window.RECIPES = {
         "label": "Court-bouillon"
       },
       {
+        "id": "pain_hot_dog",
+        "label": "Pains hot-dog"
+      },
+      {
         "id": "tortillas_mexicaines",
         "label": "Tortillas"
       }
@@ -682,7 +686,7 @@ window.RECIPES = {
     "notes": [
       "Ratio huile:acide 3:1 à 4:1 selon la salade.",
       "Variantes : citron, herbes, miso blanc, yaourt grec.",
-      "→ Voir aussi : <span data-goto=\"pesto_variantes\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Pesto (variantes)</span>",
+      "→ Voir aussi : <span data-goto=\"pesto_variantes\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Pestos</span>",
       "Stockage optimal : flacon avec couvercle au réfrigérateur ; secouer avant usage.",
       "Conservation : 5–7 j au froid.",
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
@@ -690,7 +694,7 @@ window.RECIPES = {
     "difficultyScore": 2
   },
   "pesto_variantes": {
-    "title": "Pesto",
+    "title": "Pestos",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/pesto_variantes_spooky.png",
     "categories": [
@@ -738,7 +742,12 @@ window.RECIPES = {
       "Stockage : bocal ou boîte hermétique au réfrigérateur. Péremption : 3–5 jours; vérifier odeur, texture et absence de fermentation."
     ],
     "difficultyScore": 3,
-    "variantGroups": true
+    "variantGroups": true,
+    "aliases": [
+      "pesto",
+      "pestos",
+      "pesto genovese"
+    ]
   },
   "ricotta_fouettee": {
     "title": "Ricotta fouettée",
@@ -803,10 +812,10 @@ window.RECIPES = {
   },
   "tomates_variantes": {
     "title": "Tomates confites et séchées",
-    "master": "tomates_maitre",
+    "master": "apero_maitre",
     "image": "/assets/recipe-images/tomates_variantes_spooky.png",
     "categories": [
-      "Entrées"
+      "Apéro"
     ],
     "seasons": [
       "Été",
@@ -852,7 +861,10 @@ window.RECIPES = {
       "tomates confites",
       "tomates séchées"
     ],
-    "variantGroups": true
+    "variantGroups": true,
+    "additionalMasters": [
+      "tomates_maitre"
+    ]
   },
   "huile_pimentee_pizza": {
     "title": "Huile pimentée pour pizza",
@@ -2227,6 +2239,10 @@ window.RECIPES = {
       {
         "id": "frites_belges",
         "label": "Frites belges"
+      },
+      {
+        "id": "gaufres_pommes_terre",
+        "label": "Gaufres de pommes de terre croustillantes"
       }
     ],
     "ingredients": [
@@ -3105,12 +3121,32 @@ window.RECIPES = {
     ],
     "variants": [
       {
+        "id": "beignets_calamar",
+        "label": "Beignets de calamar"
+      },
+      {
         "id": "cake_sale_lardon",
         "label": "Cake salé poitrine fumée"
       },
       {
+        "id": "chou_fleur_croustillant",
+        "label": "Chou-fleur croustillant"
+      },
+      {
         "id": "cookies_sales_variantes",
         "label": "Cookies salés"
+      },
+      {
+        "id": "mojitos_variantes",
+        "label": "Mojitos"
+      },
+      {
+        "id": "oeufs_mimosa_variantes",
+        "label": "Œufs mimosa"
+      },
+      {
+        "id": "tomates_variantes",
+        "label": "Tomates confites et séchées"
       }
     ],
     "technical": [
@@ -4014,7 +4050,7 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "Environ 1 pot",
+    "yield": "environ 450 g",
     "aliases": [
       "caramel",
       "sauce caramel au beurre",
@@ -4024,22 +4060,23 @@ window.RECIPES = {
       {
         "group": "Caramel",
         "items": [
-          "1 tasse cassonade",
-          "1/2 tasse beurre",
-          "1 pincée de sel"
+          "200 g cassonade",
+          "115 g beurre doux",
+          "1 g sel fin"
         ]
       },
       {
         "group": "Crème",
         "items": [
-          "1/2 tasse crème 35 %",
-          "1/2 tasse lait"
+          "120 g crème liquide 35 %",
+          "120 g lait entier",
+          "5 g extrait de vanille"
         ]
       },
       {
         "group": "Finition",
         "items": [
-          "1 c. à thé extrait de vanille"
+          "5 g extrait de vanille"
         ]
       }
     ],
@@ -4274,7 +4311,7 @@ window.RECIPES = {
     ]
   },
   "rouille_haut_de_gamme": {
-    "title": "Rouille haut de gamme",
+    "title": "Rouille",
     "master": "sauces_assaisonnements_maitre",
     "image": "/assets/recipe-images/rouille_haut_de_gamme_spooky.png",
     "categories": [
@@ -4372,7 +4409,7 @@ window.RECIPES = {
   "bouillabaisse_rouille": {
     "title": "Bouillabaisse",
     "master": "plats_maitre",
-    "image": "/assets/recipe-images/plats_maitre_spooky.png",
+    "image": "/assets/recipe-images/bouillabaisse_spooky.png",
     "categories": [
       "Plats"
     ],
@@ -4469,7 +4506,7 @@ window.RECIPES = {
       "Ajouter une petite quantité de rouille, du piment d’Espelette, du basilic nain et un filet d’huile d’olive."
     ],
     "notes": [
-      "Préparer la <span data-goto=\"rouille_haut_de_gamme\">rouille haut de gamme</span> à part pour garder une texture nette au service.",
+      "Préparer la <span data-goto=\"rouille_haut_de_gamme\">rouille</span> à part pour garder une texture nette au service.",
       "Le bouillon doit être très chaud pour terminer la cuisson des tranches de poisson dans l’assiette.",
       "Pour des morceaux épais, pocher quelques minutes dans le bouillon à 80-85 °C avant dressage.",
       "Le Pernod doit soutenir la note anisée du fenouil sans dominer le poisson."
@@ -4772,6 +4809,607 @@ window.RECIPES = {
       {
         "label": "Service",
         "value": "Servir immédiatement après salage."
+      }
+    ]
+  },
+  "pain_hot_dog": {
+    "title": "Pains hot-dog",
+    "master": "bases_salees_maitre",
+    "image": "/assets/recipe-images/pain_hot_dog_spooky.png",
+    "categories": [
+      "Base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "16 pains",
+    "aliases": [
+      "pain hot dog",
+      "pain à hot-dog",
+      "bun hot dog"
+    ],
+    "tags": [
+      "pain",
+      "base",
+      "hot dog",
+      "boulangerie"
+    ],
+    "ingredients": [
+      {
+        "group": "Pâte",
+        "items": [
+          "235 g lait entier",
+          "120 g eau",
+          "55 g beurre doux",
+          "560 g farine",
+          "25 g sucre",
+          "9 g sel fin",
+          "50 g œuf entier",
+          "8 g levure boulangère sèche"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Lait ou œuf battu pour dorer",
+          "Graines de sésame optionnelles"
+        ]
+      }
+    ],
+    "steps": [
+      "Chauffer doucement le lait, l’eau et le beurre jusqu’à environ 50 °C, sans dépasser cette température.",
+      "Mélanger 220 g de farine avec le sel, le sucre et la levure.",
+      "Ajouter le mélange liquide tiède, puis l’œuf.",
+      "Incorporer le reste de farine progressivement, environ 60 g à la fois, jusqu’à obtenir une pâte souple.",
+      "Pétrir environ 10 min, jusqu’à ce que la pâte devienne élastique et moelleuse.",
+      "Diviser en 16 pâtons, former des rectangles, puis rouler chaque pâton en boudin allongé.",
+      "Pincer les extrémités et la soudure pour garder une forme régulière.",
+      "Laisser lever 25 à 45 min selon la température de la pièce.",
+      "Cuire à 200 °C pendant 10 à 12 min, jusqu’à légère coloration.",
+      "Refroidir sur grille avant ouverture."
+    ],
+    "notes": [
+      "Pour plus de moelleux, laisser pousser la pâte 1 h après pétrissage, dégazer, puis façonner.",
+      "Ces pains se congèlent très bien une fois refroidis.",
+      "Chaque four réagit différemment : surveille la coloration et ajuste le temps de cuisson si nécessaire."
+    ],
+    "technical": [
+      {
+        "label": "Texture",
+        "value": "La pâte doit rester souple, pas sèche ni dure."
+      },
+      {
+        "label": "Façonnage",
+        "value": "Souder dessous pour éviter que les pains ne s’ouvrent à la cuisson."
+      },
+      {
+        "label": "Réchauffage",
+        "value": "Réchauffer doucement à la vapeur ou quelques secondes avec humidité pour retrouver le moelleux."
+      }
+    ]
+  },
+  "oeufs_mimosa_variantes": {
+    "title": "Œufs mimosa",
+    "master": "apero_maitre",
+    "image": "/assets/recipe-images/oeufs_mimosa_spooky.png",
+    "categories": [
+      "Apéro",
+      "Entrées"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 4,
+    "yield": "12 demi-œufs",
+    "variantGroups": true,
+    "aliases": [
+      "oeufs mimosa",
+      "œufs mimosa betterave",
+      "œufs mimosa avocat crevette"
+    ],
+    "tags": [
+      "oeufs",
+      "apero",
+      "entree",
+      "froid"
+    ],
+    "ingredients": [
+      {
+        "group": "Base œufs",
+        "items": [
+          "300 g œufs entiers",
+          "Eau froide",
+          "Glaçons pour refroidissement"
+        ]
+      },
+      {
+        "group": "Variante betterave",
+        "items": [
+          "250 g betterave cuite",
+          "500 g eau",
+          "120 g vinaigre de cidre",
+          "25 g sucre",
+          "6 g sel fin",
+          "1 feuille de laurier",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Farce betterave",
+        "items": [
+          "100 g jaunes d’œufs cuits",
+          "60 g mayonnaise maison",
+          "8 g moutarde douce",
+          "15 g crème fraîche épaisse ou yaourt grec",
+          "5 g vinaigre de cidre ou jus de citron",
+          "0,5 g paprika fumé ou piment d’Espelette",
+          "Sel fin",
+          "Poivre blanc"
+        ]
+      },
+      {
+        "group": "Variante avocat crevette",
+        "items": [
+          "180 g chair d’avocat mûr",
+          "100 g jaunes d’œufs cuits",
+          "15 à 30 g jus de citron vert",
+          "15 à 30 g mayonnaise maison",
+          "15 g crème fraîche épaisse",
+          "5 g moutarde douce",
+          "0,5 g piment d’Espelette",
+          "180 g crevettes décortiquées et nettoyées",
+          "Sel fin",
+          "Poivre blanc"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Ciboulette ciselée",
+          "Aneth ou coriandre",
+          "Zeste de citron vert",
+          "Graines de sésame noir ou pavot"
+        ]
+      }
+    ],
+    "steps": [
+      "Placer les œufs dans une casserole, couvrir d’eau froide avec 2 à 3 cm au-dessus des œufs, puis cuire 12 à 13 min depuis le départ à froid.",
+      "Plonger immédiatement dans un bain glacé 10 min, puis écaler délicatement.",
+      "Pour la variante betterave : chauffer betterave, eau, vinaigre, sucre, sel, poivre et laurier jusqu’à frémissement, couper le feu, infuser 10 min, mixer légèrement et refroidir complètement.",
+      "Immerger les œufs écalés entiers dans la marinade froide 6 à 12 h pour une couleur nette.",
+      "Égoutter, éponger, couper en deux et retirer les jaunes.",
+      "Pour la farce betterave : tamiser les jaunes, mélanger avec mayonnaise, moutarde, crème, vinaigre ou citron, paprika, sel et poivre.",
+      "Pour la variante avocat crevette : mixer jaunes, avocat, citron vert, mayonnaise, crème, moutarde, piment, sel et poivre jusqu’à texture lisse et pochable.",
+      "Éponger les crevettes, les assaisonner très légèrement avec citron vert, sel et piment.",
+      "Garnir les blancs à la poche, puis terminer avec herbes, zestes et crevettes selon la variante."
+    ],
+    "notes": [
+      "La marinade betterave doit être froide avant contact avec les œufs pour garder une texture propre.",
+      "L’avocat oxyde vite : préparer la crème au dernier moment ou filmer au contact avec quelques gouttes de citron vert.",
+      "Pour un dressage net, éponger les blancs et les crevettes avant de garnir."
+    ],
+    "technical": [
+      {
+        "label": "Cuisson œufs",
+        "value": "Départ à froid et bain glacé donnent des jaunes fermes et faciles à travailler."
+      },
+      {
+        "label": "Farce",
+        "value": "La farce doit être lisse, ferme et pochable."
+      }
+    ]
+  },
+  "beignets_calamar": {
+    "title": "Beignets de calamar",
+    "master": "apero_maitre",
+    "image": "/assets/recipe-images/beignets_calamar_spooky.png",
+    "categories": [
+      "Apéro",
+      "Entrées"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "variantGroups": true,
+    "aliases": [
+      "beignets de calamars",
+      "calamars frits",
+      "beignets calamar"
+    ],
+    "tags": [
+      "calamar",
+      "friture",
+      "apero",
+      "entree"
+    ],
+    "ingredients": [
+      {
+        "group": "Calamars",
+        "items": [
+          "600 g anneaux de calamar",
+          "500 g lait entier",
+          "20 g jus de citron",
+          "4 g ail écrasé",
+          "6 g sel fin",
+          "Poivre blanc",
+          "0,5 g piment d’Espelette"
+        ]
+      },
+      {
+        "group": "Pâte légère",
+        "items": [
+          "120 g farine",
+          "40 g fécule de maïs",
+          "5 g levure chimique",
+          "3 g sel fin",
+          "30 g blanc d’œuf",
+          "180 à 220 g eau gazeuse très froide",
+          "20 g vodka très froide optionnelle",
+          "Zeste de citron"
+        ]
+      },
+      {
+        "group": "Aïoli citronné léger",
+        "items": [
+          "20 g jaune d’œuf",
+          "10 g moutarde",
+          "2 g ail râpé",
+          "10 g jus de citron",
+          "1 g zeste de citron",
+          "90 g huile neutre",
+          "45 g huile d’olive douce",
+          "Sel fin",
+          "0,5 g piment d’Espelette"
+        ]
+      },
+      {
+        "group": "Variante tempura",
+        "items": [
+          "90 g farine",
+          "50 g fécule",
+          "20 g jaune d’œuf",
+          "220 g eau gazeuse glacée",
+          "3 g sel fin"
+        ]
+      }
+    ],
+    "steps": [
+      "Rincer rapidement les calamars, les éponger, puis couper les tubes en anneaux réguliers de 1 à 1,5 cm.",
+      "Mélanger lait, citron, ail, sel, poivre et piment, puis mariner les calamars 30 min à 2 h au frais.",
+      "Préparer l’aïoli : fouetter jaune, moutarde, ail, citron, zeste et sel, puis monter avec huile neutre et huile d’olive en filet.",
+      "Mélanger farine, fécule, levure, sel et zeste.",
+      "Juste avant cuisson, ajouter blanc d’œuf, eau gazeuse très froide et vodka optionnelle, puis mélanger très peu.",
+      "Égoutter les calamars, les éponger très soigneusement, puis les passer légèrement dans farine ou fécule.",
+      "Chauffer l’huile à 180 °C.",
+      "Tremper les calamars dans la pâte et frire par petites quantités 1 min 30 à 2 min maximum.",
+      "Égoutter sur grille, saler légèrement et servir immédiatement avec citron et sauce."
+    ],
+    "notes": [
+      "La cuisson doit rester très courte : trop cuits, les calamars deviennent caoutchouteux.",
+      "Ne surcharge pas le bain d’huile pour garder une friture nette et non grasse.",
+      "La pâte doit rester froide, légère et légèrement irrégulière."
+    ],
+    "technical": [
+      {
+        "label": "Température",
+        "value": "180 °C pour saisir vite sans graisser."
+      },
+      {
+        "label": "Égouttage",
+        "value": "Préférer une grille au papier pour éviter la vapeur."
+      },
+      {
+        "label": "Texture",
+        "value": "Croûte fine et croustillante, calamar tendre."
+      }
+    ]
+  },
+  "gaufres_pommes_terre": {
+    "title": "Gaufres de pommes de terre croustillantes",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/gaufres_pommes_terre_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 6,
+    "yield": "4 personnes",
+    "aliases": [
+      "gaufres de pommes de terre",
+      "gaufres salées pomme de terre"
+    ],
+    "tags": [
+      "pomme de terre",
+      "gaufre",
+      "plat",
+      "fromage"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "600 g pommes de terre Agria, Bintje ou Maris Piper",
+          "100 g œufs",
+          "80 g Comté 18 mois ou Gruyère suisse",
+          "30 g parmesan râpé finement",
+          "25 g fécule de pomme de terre ou Maïzena",
+          "20 g farine",
+          "20 g crème épaisse",
+          "40 g beurre noisette",
+          "4 g ail râpé",
+          "30 g échalote ciselée",
+          "3 g ciboulette ciselée",
+          "3 g persil plat ciselé",
+          "1 pincée noix de muscade",
+          "7 g sel fin",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Cuisson",
+        "items": [
+          "Beurre clarifié ou ghee selon besoin",
+          "Quelques gouttes d’huile neutre"
+        ]
+      },
+      {
+        "group": "Sauce crème citronnée",
+        "items": [
+          "150 g crème fraîche épaisse",
+          "80 g yaourt grec",
+          "5 g jus de citron",
+          "Zeste de 1/2 citron",
+          "3 g ciboulette ciselée",
+          "1 g aneth ou estragon",
+          "Sel fin",
+          "Poivre blanc"
+        ]
+      },
+      {
+        "group": "Option luxe",
+        "items": [
+          "Saumon fumé ou truite fumée",
+          "Œuf poché",
+          "Crème crue et caviar",
+          "Jambon cru affiné",
+          "Champignons poêlés au beurre noisette"
+        ]
+      }
+    ],
+    "steps": [
+      "Éplucher les pommes de terre, les râper gros, puis les presser très fort dans un torchon pour retirer un maximum d’eau.",
+      "Pré-cuire les pommes de terre râpées 1 min 30 au micro-ondes ou 2 min à la poêle sans coloration.",
+      "Faire un beurre noisette clair avec 40 g de beurre, filtrer si besoin et laisser tiédir.",
+      "Mélanger pommes de terre, œufs, fromages, fécule, farine, crème, beurre noisette, ail, échalote, herbes, muscade, sel et poivre.",
+      "Préparer la sauce en mélangeant crème, yaourt, citron, zeste, herbes, sel et poivre, puis réserver au frais.",
+      "Préchauffer le gaufrier au maximum et graisser légèrement.",
+      "Déposer une portion généreuse d’appareil, tasser légèrement, fermer et cuire 6 à 9 min.",
+      "Sortir quand la gaufre se détache seule, bien dorée et croustillante.",
+      "Option restaurant : passer 3 à 5 min sur grille au four à 190 °C, puis saler légèrement à la fleur de sel.",
+      "Servir immédiatement avec sauce crème citronnée et herbes fraîches."
+    ],
+    "notes": [
+      "Moins il reste d’eau dans les pommes de terre, plus les gaufres seront croustillantes.",
+      "N’ouvre pas le gaufrier trop tôt : la gaufre doit se détacher seule.",
+      "Chaque four réagit différemment : surveille la coloration si tu fais la finition au four."
+    ],
+    "technical": [
+      {
+        "label": "Croustillant",
+        "value": "Pressage fort + gaufrier très chaud."
+      },
+      {
+        "label": "Goût",
+        "value": "Beurre noisette, fromage affiné, ail doux et herbes fraîches."
+      },
+      {
+        "label": "Service",
+        "value": "Servir aussitôt pour garder le contraste croustillant/fondant."
+      }
+    ]
+  },
+  "mojitos_variantes": {
+    "title": "Mojitos",
+    "master": "apero_maitre",
+    "image": "/assets/recipe-images/mojitos_spooky.png",
+    "categories": [
+      "Apéro"
+    ],
+    "seasons": [
+      "Printemps",
+      "Été"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "yield": "6 variantes",
+    "variantGroups": true,
+    "aliases": [
+      "mojito",
+      "mojitos",
+      "mojito framboise",
+      "mojito mangue"
+    ],
+    "tags": [
+      "boisson",
+      "cocktail",
+      "mojito",
+      "apero"
+    ],
+    "ingredients": [
+      {
+        "group": "Mojito classique",
+        "items": [
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum blanc",
+          "5 à 6 feuilles de menthe",
+          "80 à 120 g eau gazeuse",
+          "Glaçons"
+        ]
+      },
+      {
+        "group": "Mojito framboise",
+        "items": [
+          "45 g framboises",
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum blanc",
+          "5 à 6 feuilles de menthe",
+          "80 à 120 g eau gazeuse",
+          "Glaçons"
+        ]
+      },
+      {
+        "group": "Mojito mangue",
+        "items": [
+          "60 g mangue mûre en dés",
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum blanc",
+          "5 à 6 feuilles de menthe",
+          "80 à 120 g eau gazeuse",
+          "Glaçons"
+        ]
+      },
+      {
+        "group": "Mojito concombre",
+        "items": [
+          "40 g concombre en tranches",
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum blanc",
+          "5 à 6 feuilles de menthe",
+          "80 à 120 g eau gazeuse",
+          "Glaçons"
+        ]
+      },
+      {
+        "group": "Mojito fruit de la passion",
+        "items": [
+          "45 g pulpe de fruit de la passion",
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum blanc",
+          "5 à 6 feuilles de menthe",
+          "80 à 120 g eau gazeuse",
+          "Glaçons"
+        ]
+      },
+      {
+        "group": "Mojito rhum ambré",
+        "items": [
+          "20 g jus de citron vert",
+          "5 g sucre",
+          "50 g rhum ambré",
+          "50 g eau gazeuse",
+          "5 à 6 feuilles de menthe",
+          "Glaçons"
+        ]
+      }
+    ],
+    "steps": [
+      "Mettre sucre, citron vert, menthe et fruit éventuel dans le verre.",
+      "Écraser doucement sans broyer la menthe.",
+      "Ajouter le rhum, puis remplir de glaçons.",
+      "Compléter avec eau gazeuse bien froide.",
+      "Mélanger délicatement de bas en haut et servir immédiatement."
+    ],
+    "notes": [
+      "Écrase doucement : la menthe doit parfumer sans devenir amère.",
+      "Utilise une eau gazeuse très froide pour garder un cocktail vif.",
+      "Pour une version sans alcool, remplace le rhum par la même quantité d’eau gazeuse ou de ginger beer."
+    ],
+    "technical": [
+      {
+        "label": "Équilibre",
+        "value": "Citron, sucre, menthe et dilution doivent rester nets."
+      },
+      {
+        "label": "Service",
+        "value": "Préparer minute pour garder bulles et fraîcheur."
+      }
+    ]
+  },
+  "chou_fleur_croustillant": {
+    "title": "Chou-fleur croustillant",
+    "master": "apero_maitre",
+    "image": "/assets/recipe-images/chou_fleur_croustillant_spooky.png",
+    "categories": [
+      "Apéro",
+      "Entrées"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "4 personnes",
+    "aliases": [
+      "bouchées de chou-fleur croustillant",
+      "cauliflower bites"
+    ],
+    "tags": [
+      "chou fleur",
+      "legume",
+      "apero",
+      "four"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "600 g fleurettes de chou-fleur",
+          "30 g huile d’olive",
+          "50 g parmesan râpé",
+          "2 g paprika",
+          "2 g ail en poudre",
+          "2 g oignon en poudre",
+          "Sel fin",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Service",
+        "items": [
+          "Sauce yaourt grec ou sauce ranch",
+          "5 g persil haché optionnel",
+          "Quartiers de citron"
+        ]
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 220 °C et couvrir une plaque de papier cuisson.",
+      "Mélanger les fleurettes avec l’huile d’olive pour les enrober.",
+      "Mélanger parmesan, paprika, ail, oignon, sel et poivre.",
+      "Saupoudrer sur le chou-fleur et mélanger pour bien répartir.",
+      "Étaler en une seule couche sur la plaque.",
+      "Cuire 25 à 30 min en retournant à mi-cuisson, jusqu’à coloration dorée et bords croustillants.",
+      "Servir chaud avec sauce et citron."
+    ],
+    "notes": [
+      "Ne surcharge pas la plaque : l’humidité empêcherait le croustillant.",
+      "Chaque four réagit différemment : surveille la coloration et ajuste le temps de cuisson si nécessaire."
+    ],
+    "technical": [
+      {
+        "label": "Plaque",
+        "value": "Une seule couche pour rôtir au lieu d’étuver."
+      },
+      {
+        "label": "Texture",
+        "value": "Bords dorés, cœur tendre, surface légèrement croustillante."
       }
     ]
   }
