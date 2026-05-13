@@ -144,6 +144,12 @@ function getLeafVariantRefs(recipe, recipesById = {}, seen = new Set()) {
   });
 }
 
+function recipeHasSeason(recipe, season, recipesById = {}) {
+  if (!season) return true;
+  if ((recipe?.seasons || []).includes(season)) return true;
+  return getLeafVariantRefs(recipe, recipesById).some(ref => (recipesById[ref.id]?.seasons || []).includes(season));
+}
+
 function countLeafRecipes(recipe, recipesById = {}) {
   return getLeafVariantRefs(recipe, recipesById).length;
 }
@@ -259,13 +265,76 @@ function recipeShoppingLines(recipe, factor = 1) {
   ]);
 }
 
+function normalizeShoppingName(value) {
+  return normalizeText(value)
+    .replace(/^(?:de |d'|du |des |la |le |les |l')/i, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function parseShoppingIngredient(line) {
+  const cleaned = String(line || '').replace(/^[-•]\s*/, '').trim();
+  const match = cleaned.match(/^(\d+(?:[.,]\d+)?(?:\/\d+)?)(\s*(?:[\u2013\u2014-]|à|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?\s*(g|kg|ml|cl|l)\s+(.*)$/i);
+  if (!match) return null;
+  const first = parseAmount(match[1]);
+  const second = match[3] ? parseAmount(match[3]) : null;
+  if (!Number.isFinite(first)) return null;
+  const unit = match[4].toLowerCase();
+  const multiplier = unit === 'kg' || unit === 'l' ? 1000 : unit === 'cl' ? 10 : 1;
+  const baseUnit = unit === 'kg' ? 'g' : unit === 'l' || unit === 'cl' ? 'ml' : unit;
+  const name = match[5].trim();
+  return {
+    key: `${baseUnit}:${normalizeShoppingName(name)}`,
+    name,
+    unit: baseUnit,
+    first: first * multiplier,
+    second: Number.isFinite(second) ? second * multiplier : null
+  };
+}
+
+function formatShoppingAmount(item) {
+  if (item.second !== null) return `${formatNumber(item.first)} à ${formatNumber(item.second)} ${item.unit}`;
+  return `${formatNumber(item.first)} ${item.unit}`;
+}
+
 function shoppingListText(recipes, factorById = {}) {
+  const grouped = new Map();
   const blocks = recipes.map(recipe => {
     const factor = factorById[recipe.id] || 1;
     const factorLabel = factor === 1 ? '' : ` (${String(factor).replace('.', ',')}x)`;
+    (recipe.ingredients || []).forEach(group => {
+      (group.items || []).forEach(item => {
+        const scaled = scaleIngredient(item, factor);
+        const parsed = parseShoppingIngredient(scaled);
+        if (!parsed) return;
+        const existing = grouped.get(parsed.key);
+        if (existing) {
+          const existingFirst = existing.first;
+          const existingSecond = existing.second;
+          existing.first += parsed.first;
+          existing.second = existingSecond !== null || parsed.second !== null
+            ? (existingSecond || existingFirst) + (parsed.second || parsed.first)
+            : null;
+          existing.recipes.add(recipe.title);
+        } else {
+          grouped.set(parsed.key, { ...parsed, recipes: new Set([recipe.title]) });
+        }
+      });
+    });
     return [`## ${recipe.title}${factorLabel}`, ...recipeShoppingLines(recipe, factor)].join('\n');
   });
-  return ['Liste de courses Cook Note', '', ...blocks].join('\n\n');
+  const groupedLines = [...grouped.values()]
+    .sort((a, b) => a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' }))
+    .map(item => `- ${formatShoppingAmount(item)} ${item.name} (${[...item.recipes].join(', ')})`);
+  return [
+    'Liste de courses Cook Note',
+    '',
+    groupedLines.length ? '## Ingrédients regroupés' : '',
+    ...groupedLines,
+    '',
+    '## Détail par recette',
+    ...blocks
+  ].filter((line, index, lines) => line || lines[index - 1]).join('\n\n');
 }
 
 function getStepMinutes(step) {
@@ -354,6 +423,17 @@ function buildInlineRecipeTargets(recipes) {
 
 function renderLinkedText(text, targets, openRecipe) {
   const value = String(text || '');
+  const explicitLinkPattern = /<span\s+data-goto=(["'])([^"']+)\1[^>]*>(.*?)<\/span>/i;
+  const explicitMatch = value.match(explicitLinkPattern);
+  if (explicitMatch) {
+    const [full, , id, label] = explicitMatch;
+    const index = value.indexOf(full);
+    return h(React.Fragment, null,
+      renderLinkedText(value.slice(0, index), targets, openRecipe),
+      h('button', { type: 'button', className: 'inline-recipe-link', onClick: () => openRecipe(id) }, label.replace(/<[^>]+>/g, '')),
+      renderLinkedText(value.slice(index + full.length), targets, openRecipe)
+    );
+  }
   const normalized = normalizeText(value);
   const target = targets.find(item => normalized.includes(item.normalized));
   if (!target) return value;
@@ -1048,7 +1128,7 @@ function RecipeView({
               h('label', null,
                 h('input', { type: 'checkbox', checked: Boolean(checked[key]), onChange: () => toggle(key) }),
                 h('span', { className: 'step-number' }, String(index + 1).padStart(2, '0')),
-                h('span', { className: 'step-text' }, step)
+                h('span', { className: 'step-text' }, renderLinkedText(step, inlineTargets, openRecipe))
               ),
               minutes > 0 && h('button', {
                 type: 'button',
@@ -1186,7 +1266,7 @@ function App() {
     const queryTokens = needle.split(/\s+/).filter(token => token.length > 1);
     let list = catalogRecipes.filter(recipe => {
       if (needle && !queryTokens.every(token => recipe.searchText.includes(token))) return false;
-      if (season && !(recipe.seasons || []).includes(season)) return false;
+      if (season && !recipeHasSeason(recipe, season, recipesById)) return false;
       if (tagFilter && !(recipe.tagsExtracted || []).includes(tagFilter)) return false;
       if (onlyFavorites && !favorites.includes(recipe.id)) return false;
       return true;
@@ -1198,7 +1278,7 @@ function App() {
       return a.title.localeCompare(b.title, 'fr');
     });
     return list;
-  }, [catalogRecipes, query, season, tagFilter, onlyFavorites, favorites]);
+  }, [catalogRecipes, query, season, tagFilter, onlyFavorites, favorites, recipesById]);
 
   const sections = useMemo(() => {
     if (onlyFavorites) {

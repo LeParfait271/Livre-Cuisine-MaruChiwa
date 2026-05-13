@@ -300,10 +300,6 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "craquelin_cacao",
-        "label": "Craquelin cacao"
-      },
-      {
         "id": "pate_choux",
         "label": "Pâte à choux"
       },
@@ -1899,10 +1895,9 @@ window.RECIPES = {
   },
   "craquelin_cacao": {
     "title": "Craquelin cacao",
-    "master": "pates_bases_maitre",
+    "master": "desserts_maitre",
     "image": "/assets/recipe-images/craquelin_cacao_spooky.png",
     "categories": [
-      "Base",
       "Desserts"
     ],
     "seasons": [
@@ -1931,11 +1926,7 @@ window.RECIPES = {
       "Composant pour : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile."
     ],
-    "difficultyScore": 2,
-    "additionalMasters": [
-      "elements_base_maitre",
-      "desserts_maitre"
-    ]
+    "difficultyScore": 2
   },
   "pate_choux": {
     "title": "Pâte à choux",
@@ -2240,12 +2231,24 @@ window.RECIPES = {
         "label": "Côtelettes de porc miel moutarde"
       },
       {
+        "id": "curry_lentilles_coco",
+        "label": "Curry de lentilles vertes au lait de coco"
+      },
+      {
         "id": "frites_belges",
         "label": "Frites belges"
       },
       {
+        "id": "frites_maison",
+        "label": "Frites maison"
+      },
+      {
         "id": "gaufres_pommes_terre",
         "label": "Gaufres de pommes de terre croustillantes"
+      },
+      {
+        "id": "toppings_frites",
+        "label": "Toppings frites"
       }
     ],
     "ingredients": [
@@ -3990,7 +3993,7 @@ window.RECIPES = {
   "caramel_cheesecake_cookies": {
     "title": "Cookies caramel cheesecake",
     "master": "cookies_sucres_maitre",
-    "image": "/assets/recipe-images/cookies_spooky.png",
+    "image": "/assets/recipe-images/cookies_caramel_cheesecake_spooky.png",
     "categories": [
       "Desserts"
     ],
@@ -5663,7 +5666,7 @@ window.RECIPES = {
     ],
     "steps": [
       "Couper le melon en deux, retirer les graines, puis former des billes avec une cuillère parisienne.",
-      "Réserver les billes au frais et garder les chutes pour un <span data-goto=\"gaspacho_melon\">gaspacho de melon</span>.",
+      "Réserver les billes au frais et garder les chutes pour un gaspacho de melon.",
       "Égoutter et éponger la mozzarella.",
       "Mélanger huile d’olive, jus de citron, zeste, basilic, origan ou thym, piment, sel et poivre, puis mariner la mozzarella 20 à 30 min au frais.",
       "Émincer l’oignon rouge très finement, le placer 10 min dans eau froide avec quelques gouttes de citron, puis égoutter et éponger.",
@@ -5686,6 +5689,343 @@ window.RECIPES = {
       {
         "label": "Anti-gaspillage",
         "value": "Les chutes de melon vont très bien dans le gaspacho de melon."
+      }
+    ]
+  },
+  "frites_maison": {
+    "title": "Frites maison",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/frites_maison_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 4,
+    "yield": "4 personnes",
+    "nutriScore": "D",
+    "aliases": [
+      "frites classiques",
+      "recette frites maison"
+    ],
+    "tags": [
+      "frites",
+      "pomme de terre",
+      "plat",
+      "accompagnement"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "600 g pommes de terre type Bintje",
+          "Huile de friture",
+          "Sel fin"
+        ]
+      },
+      {
+        "group": "Finition optionnelle",
+        "items": [
+          "Fleur de sel",
+          "Poivre noir fraîchement moulu",
+          "Sauce maison au choix"
+        ]
+      }
+    ],
+    "steps": [
+      "Éplucher les pommes de terre.",
+      "Couper les pommes de terre en frites régulières, idéalement avec un coupe-frites.",
+      "Rincer les frites à l’eau claire pour retirer l’excès d’amidon.",
+      "Égoutter puis sécher très soigneusement dans un torchon propre.",
+      "Chauffer l’huile à 160 °C et cuire les frites 7 à 8 min pour cuire l’intérieur sans forte coloration.",
+      "Égoutter sur grille et laisser refroidir.",
+      "Monter l’huile à 190 °C et cuire 3 à 4 min, jusqu’à ce que les frites soient dorées et croustillantes.",
+      "Égoutter sur papier absorbant ou, mieux, sur grille.",
+      "Saler immédiatement et servir sans attendre."
+    ],
+    "notes": [
+      "Bien sécher les pommes de terre avant friture : l’eau fait chuter la température de l’huile et ramollit les frites.",
+      "Pour une finition plus nette, laisse refroidir 20 à 30 min après le premier bain, puis fais le deuxième bain juste avant le service.",
+      "Accompagnements : burger maison, poulet rôti, fish and chips, steak, moules, mayonnaise maison, ketchup maison, sauce tartare ou sauce andalouse."
+    ],
+    "technical": [
+      {
+        "label": "Pommes de terre",
+        "value": "Choisir une variété farineuse comme la Bintje."
+      },
+      {
+        "label": "Cuisson",
+        "value": "Premier bain à 160 °C, second bain à 190 °C."
+      },
+      {
+        "label": "Cible",
+        "value": "Dorées, croustillantes dehors, moelleuses dedans, non grasses."
+      }
+    ]
+  },
+  "toppings_frites": {
+    "title": "Toppings frites",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/toppings_frites_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "6 idées pour 4 personnes",
+    "nutriScore": "D",
+    "aliases": [
+      "topping frites",
+      "garnitures frites",
+      "loaded fries"
+    ],
+    "tags": [
+      "frites",
+      "toppings",
+      "garniture",
+      "accompagnement"
+    ],
+    "variantGroups": true,
+    "ingredients": [
+      {
+        "group": "Base commune",
+        "items": [
+          "Frites chaudes"
+        ],
+        "note": "Préparer des frites belges, des frites maison ou des frites au four, puis ajouter les toppings juste après cuisson."
+      },
+      {
+        "group": "Variante sel et poivre",
+        "items": [
+          "Sel fin",
+          "Poivre noir fraîchement moulu",
+          "Fleur de sel optionnelle"
+        ]
+      },
+      {
+        "group": "Variante ail, parmesan et persil",
+        "items": [
+          "40 g parmesan râpé finement",
+          "3 g ail râpé très finement",
+          "6 g persil plat haché",
+          "15 g huile d’olive ou 20 g beurre fondu",
+          "Sel fin",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Variante cheddar et oignons verts",
+        "items": [
+          "120 g cheddar râpé",
+          "30 g oignons verts émincés",
+          "Poivre noir",
+          "Sel fin si nécessaire"
+        ]
+      },
+      {
+        "group": "Sauce cheddar optionnelle",
+        "items": [
+          "100 g cheddar râpé",
+          "80 g crème liquide",
+          "5 g moutarde douce"
+        ]
+      },
+      {
+        "group": "Variante paprika et cayenne",
+        "items": [
+          "3 g paprika",
+          "0,5 g piment de Cayenne",
+          "1,5 g ail en poudre",
+          "Sel fin",
+          "Poivre noir optionnel"
+        ]
+      },
+      {
+        "group": "Variante cheddar, bacon et crème aigre",
+        "items": [
+          "120 g cheddar râpé",
+          "80 g bacon croustillant en morceaux",
+          "30 g oignons verts émincés",
+          "60 g crème aigre ou crème fraîche épaisse citronnée",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Crème aigre rapide",
+        "items": [
+          "100 g crème fraîche épaisse",
+          "5 g jus de citron",
+          "1 g sel",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Variante patate douce paprika et ail",
+        "items": [
+          "Frites de patate douce chaudes",
+          "3 g paprika",
+          "1,5 g ail en poudre",
+          "Sel fin",
+          "Poivre noir",
+          "0,5 g piment de Cayenne optionnel"
+        ]
+      },
+      {
+        "group": "Sauce fraîche conseillée",
+        "items": [
+          "100 g yaourt grec",
+          "5 g jus de citron",
+          "7 g miel",
+          "Sel fin",
+          "Poivre noir",
+          "1 g paprika"
+        ]
+      }
+    ],
+    "steps": [
+      "Préparer une base de frites : frites belges ou frites maison.",
+      "Égoutter les frites et ajouter les toppings secs immédiatement tant qu’elles sont très chaudes.",
+      "Pour la version ail-parmesan, mélanger ail et huile ou beurre fondu, verser sur les frites, puis ajouter parmesan et persil.",
+      "Pour les cheese fries, déposer cheddar sur les frites, passer 2 à 3 min sous le gril ou à 200 °C, puis ajouter les oignons verts.",
+      "Pour la sauce cheddar, chauffer la crème doucement, ajouter cheddar et moutarde, puis mélanger jusqu’à fonte complète.",
+      "Pour les frites épicées, mélanger paprika, cayenne, ail en poudre et sel, puis secouer avec les frites chaudes.",
+      "Pour les loaded fries, faire fondre le cheddar, puis ajouter bacon, oignons verts, crème aigre et poivre.",
+      "Pour les frites de patate douce, mélanger l’assaisonnement à part puis enrober délicatement au dernier moment.",
+      "Servir les sauces à part si tu veux garder un maximum de croustillant."
+    ],
+    "notes": [
+      "Liens utiles : <span data-goto=\"frites_belges\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Frites belges</span> · <span data-goto=\"frites_maison\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Frites maison</span>.",
+      "Ajouter les sauces au dernier moment et éviter de couvrir les frites après topping : la vapeur les ramollit.",
+      "Le parmesan doit fondre sur les frites chaudes, jamais brûler avant cuisson."
+    ],
+    "technical": [
+      {
+        "label": "Croustillant",
+        "value": "Toppings secs immédiatement, sauces au dernier moment."
+      },
+      {
+        "label": "Service",
+        "value": "Servir très chaud, en gardant les sauces séparées si nécessaire."
+      }
+    ]
+  },
+  "curry_lentilles_coco": {
+    "title": "Curry de lentilles vertes au lait de coco",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/curry_lentilles_coco_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 à 6 personnes",
+    "nutriScore": "B",
+    "aliases": [
+      "curry de lentilles",
+      "lentilles vertes lait de coco"
+    ],
+    "tags": [
+      "curry",
+      "lentilles",
+      "coco",
+      "plat",
+      "vegetarien"
+    ],
+    "ingredients": [
+      {
+        "group": "Lentilles et sauce",
+        "items": [
+          "250 g lentilles vertes",
+          "500 ml lait de coco entier",
+          "600 ml bouillon de légumes",
+          "150 g tomates concassées",
+          "120 g oignon jaune",
+          "30 g échalote",
+          "10 g ail",
+          "15 g gingembre frais râpé",
+          "20 g concentré de tomate",
+          "30 g huile de coco ou huile neutre",
+          "Sel fin",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Légumes",
+        "items": [
+          "300 g carottes",
+          "200 g courgette",
+          "80 g épinards frais",
+          "1 citron vert"
+        ]
+      },
+      {
+        "group": "Épices",
+        "items": [
+          "3 g curry doux ou madras",
+          "3 g curcuma",
+          "3 g coriandre moulue",
+          "1,5 g cumin moulu",
+          "0,5 g cannelle",
+          "0,5 g cardamome moulue optionnelle",
+          "Piment doux ou piment d’Espelette",
+          "2 g graines de moutarde ou 5 g moutarde à l’ancienne optionnelle"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Coriandre fraîche ou basilic thaï",
+          "40 g noix de cajou torréfiées",
+          "Huile pimentée douce optionnelle"
+        ]
+      },
+      {
+        "group": "Riz basmati",
+        "items": [
+          "300 g riz basmati",
+          "450 ml eau",
+          "5 g sel",
+          "Cardamome optionnelle",
+          "Zeste de citron vert"
+        ]
+      }
+    ],
+    "steps": [
+      "Rincer les lentilles à l’eau froide, égoutter et réserver sans trempage pour garder une bonne tenue.",
+      "Couper les carottes en petite brunoise ou demi-rondelles fines, la courgette en dés, émincer l’oignon, ciseler l’échalote, puis râper ail et gingembre.",
+      "Chauffer une grande sauteuse avec l’huile de coco, ajouter les graines de moutarde si utilisées, puis torréfier curry, curcuma, coriandre, cumin, cannelle, cardamome et piment 30 à 45 secondes.",
+      "Ajouter oignon et échalote, faire suer 5 à 7 min, puis ajouter ail et gingembre et cuire 1 min.",
+      "Ajouter le concentré de tomate, cuire 2 min, puis ajouter les tomates concassées et réduire 3 à 4 min.",
+      "Ajouter les lentilles, mélanger pour les enrober, verser le bouillon chaud, porter à frémissement, couvrir à moitié et cuire 20 min à feu doux.",
+      "Ajouter les carottes et le lait de coco, puis cuire encore 15 à 20 min à feu doux.",
+      "Ajouter la courgette sur les 8 à 10 dernières minutes, puis les épinards à la toute fin.",
+      "Hors du feu, équilibrer avec quelques gouttes de citron vert, un peu de zeste et du poivre noir fraîchement moulu.",
+      "Pour le riz, rincer le riz basmati, cuire avec eau, sel et cardamome 10 min à feu très doux, puis laisser reposer 10 min couvert.",
+      "Dresser avec riz, curry, herbes fraîches, noix de cajou torréfiées, citron vert, oignons frits ou échalotes croustillantes et un filet d’huile pimentée si souhaité."
+    ],
+    "notes": [
+      "Garde la courgette à part jusqu’à la fin pour qu’elle reste lisible et ne disparaisse pas dans la sauce.",
+      "Les épices doivent sentir bon mais ne doivent pas brûler.",
+      "Le citron vert réveille le lait de coco et évite un résultat trop rond.",
+      "Résultat cible : crémeux mais pas lourd, épicé sans agressivité, lentilles entières, légumes lisibles et finition fraîche."
+    ],
+    "technical": [
+      {
+        "label": "Texture",
+        "value": "Sauce crémeuse, lentilles entières, légumes identifiables."
+      },
+      {
+        "label": "Équilibre",
+        "value": "Finir avec citron vert et herbes pour alléger le lait de coco."
       }
     ]
   }

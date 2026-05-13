@@ -246,17 +246,19 @@ a {
 
 .top-search-button {
   font-size: 18px;
+  color: #fff;
 }
 
 .top-search-button.active {
   border-color: color-mix(in srgb, var(--accent) 72%, white);
   background: color-mix(in srgb, var(--accent) 20%, var(--surface-soft));
-  color: var(--accent);
+  color: #fff;
 }
 
 .cart-icon-btn {
   position: relative;
   font-size: 18px;
+  color: #fff;
 }
 
 .cart-count {
