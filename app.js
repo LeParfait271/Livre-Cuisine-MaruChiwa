@@ -107,6 +107,25 @@ function difficultyText(recipe) {
     : (DIFFICULTY_LABELS[recipe?.difficulty] || 'Recette');
 }
 
+function getNutriScore(recipe) {
+  if (recipe?.nutriScore) return String(recipe.nutriScore).toUpperCase();
+  const text = normalizeText([
+    recipe?.title,
+    recipe?.yield,
+    ...(recipe?.categories || []),
+    ...(recipe?.tags || []),
+    ...(recipe?.aliases || []),
+    ...(recipe?.ingredients || []).flatMap(group => [group.group, ...(group.items || [])])
+  ].join(' '));
+  let score = 2;
+  if (/\b(salade|crudite|legume|chou fleur|tomate|gazpacho|gaspacho|melon|fruit|soupe|court bouillon)\b/.test(text)) score -= 1;
+  if (/\b(friture|frites|beignet|churros|donut|caramel|cookie|cookies|creme au beurre|mayonnaise|rouille|pate sucree)\b/.test(text)) score += 1;
+  if (/\b(beurre|creme|fromage|huile|sucre|chocolat|miel|sirop|jambon|lardon|poitrine fumee)\b/.test(text)) score += 1;
+  if (/\b(poisson|oeuf|oeufs|yaourt|avocat|mozzarella|pesto)\b/.test(text)) score -= 0.5;
+  const index = Math.max(0, Math.min(4, Math.round(score)));
+  return ['A', 'B', 'C', 'D', 'E'][index];
+}
+
 function getVariantRefs(recipe) {
   return Array.isArray(recipe.variants) ? recipe.variants.filter(variant => variant && variant.id) : [];
 }
@@ -278,6 +297,7 @@ function getRecipeSearchText(recipe, tags, recipesById = {}) {
     recipe.title,
     recipe.yield,
     recipe.difficulty,
+    ...(recipe.aliases || []),
     ...(recipe.categories || []),
     ...(recipe.seasons || []),
     ...tags,
@@ -470,7 +490,13 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef }) {
+function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef, searchOpen, setSearchOpen }) {
+  const visibleSearch = searchOpen || Boolean(query.trim());
+  function openSearch() {
+    setSearchOpen(true);
+    setTimeout(() => searchRef.current?.focus(), 0);
+  }
+
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
       h(Button, { variant: 'subtle', className: 'icon-square', onClick: onHome, title: 'Accueil', ariaLabel: 'Accueil' }, '\u2302')
@@ -488,11 +514,12 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
     h('div', { className: 'top-right' },
       h(Button, {
         variant: 'ghost',
-        className: 'top-search-button icon-square',
-        onClick: () => searchRef.current?.focus(),
+        className: visibleSearch ? 'top-search-button icon-square active' : 'top-search-button icon-square',
+        onClick: visibleSearch && !query.trim() ? () => setSearchOpen(false) : openSearch,
         title: 'Rechercher',
-        ariaLabel: 'Rechercher'
-      }, '\u2315'),
+        ariaLabel: visibleSearch && !query.trim() ? 'Fermer la recherche' : 'Rechercher',
+        pressed: visibleSearch
+      }, '🔍'),
       h(Button, {
         variant: 'ghost',
         className: 'top-fav-btn icon-square',
@@ -500,12 +527,16 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
         title: 'Voir les favoris',
         ariaLabel: 'Voir les favoris'
       }, '\u2665'),
-      h('div', { className: 'field top-search' },
+      h('div', { className: visibleSearch ? 'field top-search is-open' : 'field top-search' },
         h('label', { className: 'sr-only' }, 'Recherche'),
         h('input', {
           ref: searchRef,
           value: query,
           onChange: event => setQuery(event.target.value),
+          onFocus: () => setSearchOpen(true),
+          onKeyDown: event => {
+            if (event.key === 'Escape' && !query.trim()) setSearchOpen(false);
+          },
           placeholder: 'Rechercher une recette...'
         })
       )
@@ -580,6 +611,7 @@ function RecipeCard({ recipe, recipesById, isFavorite, toggleFavorite, openRecip
           ? h('span', null, `${countLeafRecipes(recipe, recipesById)} recette${countLeafRecipes(recipe, recipesById) > 1 ? 's' : ''}`)
           : h('span', null, `${countIngredients(recipe)} ingrédients`)
       ),
+      !master && h('span', { className: `nutri-score nutri-${getNutriScore(recipe).toLowerCase()}` }, `Nutri ${getNutriScore(recipe)}`),
       !master && h('div', { className: 'mini-tags card-overlay-tags' },
         (recipe.tagsExtracted || []).slice(0, 2).map(tag => h('button', {
           key: tag,
@@ -920,6 +952,7 @@ function RecipeView({
             ? h('span', null, `${countLeafRecipes(recipe, recipesById)} recette${countLeafRecipes(recipe, recipesById) > 1 ? 's' : ''}`)
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
+              h('span', { key: 'nutri', className: `nutri-score nutri-${getNutriScore(selectedRecipe).toLowerCase()}` }, `Nutri ${getNutriScore(selectedRecipe)}`),
               selectedRecipe.yield && h('span', { key: 'yield' }, scaleYieldDisplay(selectedRecipe.yield, factor)),
               h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingrédients`),
               h('span', { key: 'steps' }, `${stepTotal} étapes`)
@@ -1066,6 +1099,7 @@ function App() {
   const currentSeason = useMemo(() => getCurrentSeason(), []);
 
   const [query, setQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
   const [season, setSeason] = useState('');
   const [tagFilter, setTagFilter] = useState('');
   const [onlyFavorites, setOnlyFavorites] = useState(false);
@@ -1399,11 +1433,13 @@ function App() {
       openShoppingBasket: () => setShoppingOpen(true),
       query,
       setQuery,
-      searchRef
+      searchRef,
+      searchOpen,
+      setSearchOpen
     }),
     h('nav', { className: 'mobile-bottom-nav', 'aria-label': 'Navigation mobile' },
       h('button', { type: 'button', onClick: goHome, 'aria-label': 'Accueil' }, h('span', null, '\u2302'), h('span', { className: 'sr-only' }, 'Accueil')),
-      h('button', { type: 'button', onClick: () => searchRef.current?.focus() }, h('span', null, '\u2315'), 'Recherche'),
+      h('button', { type: 'button', onClick: () => { setSearchOpen(true); setTimeout(() => searchRef.current?.focus(), 0); } }, h('span', null, '🔍'), 'Recherche'),
       h('button', { type: 'button', onClick: showFavorites }, h('span', null, '♥'), 'Favoris'),
       h('button', { type: 'button', onClick: () => setShoppingOpen(true) }, h('span', null, '🛒'), 'Courses')
     ),

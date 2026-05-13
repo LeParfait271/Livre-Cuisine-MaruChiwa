@@ -300,10 +300,6 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
-        "id": "choux_craquelin",
-        "label": "Choux au craquelin"
-      },
-      {
         "id": "craquelin_cacao",
         "label": "Craquelin cacao"
       },
@@ -1395,10 +1391,9 @@ window.RECIPES = {
   },
   "choux_craquelin": {
     "title": "Choux au craquelin",
-    "master": "pates_bases_maitre",
+    "master": "desserts_maitre",
     "image": "/assets/recipe-images/choux_craquelin_spooky.png",
     "categories": [
-      "Base",
       "Desserts"
     ],
     "seasons": [
@@ -1447,11 +1442,7 @@ window.RECIPES = {
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire.",
       "Crèmes à garnir : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span> · <span data-goto=\"creme_diplomate_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille à garnir</span> · <span data-goto=\"creme_patissiere_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière vanille</span> · <span data-goto=\"creme_patissiere_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière praliné</span> · <span data-goto=\"creme_kinder_nutella\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème Nutella à garnir</span> · <span data-goto=\"creme_pistache\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pistache à garnir</span> · <span data-goto=\"creme_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème praliné</span> · <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème mascarpone vanille</span> · <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>."
     ],
-    "difficultyScore": 7,
-    "additionalMasters": [
-      "elements_base_maitre",
-      "desserts_maitre"
-    ]
+    "difficultyScore": 7
   },
   "meringues": {
     "title": "Meringues",
@@ -2178,6 +2169,14 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
+        "id": "beignets_calamar",
+        "label": "Beignets de calamar"
+      },
+      {
+        "id": "chou_fleur_croustillant",
+        "label": "Chou-fleur croustillant"
+      },
+      {
         "id": "crudites_maitre",
         "label": "Crudités et salades fraîches"
       },
@@ -2224,6 +2223,10 @@ window.RECIPES = {
     "difficulty": "easy",
     "masterType": "collection",
     "variants": [
+      {
+        "id": "beignets_calamar",
+        "label": "Beignets de calamar"
+      },
       {
         "id": "bouillabaisse_rouille",
         "label": "Bouillabaisse"
@@ -3236,8 +3239,20 @@ window.RECIPES = {
     "difficulty": "easy",
     "variants": [
       {
+        "id": "gaspacho_melon",
+        "label": "Gaspacho de melon"
+      },
+      {
+        "id": "gazpacho_tomate_menthe_basilic",
+        "label": "Gazpacho tomate, menthe et basilic"
+      },
+      {
         "id": "salade_avocat_oeuf_epinards",
         "label": "Salade avocat, œuf et épinards"
+      },
+      {
+        "id": "salade_melon_mozzarella_jambon_cru",
+        "label": "Salade melon, mozzarella et jambon cru"
       }
     ],
     "ingredients": [
@@ -5009,7 +5024,8 @@ window.RECIPES = {
     "image": "/assets/recipe-images/beignets_calamar_spooky.png",
     "categories": [
       "Apéro",
-      "Entrées"
+      "Entrées",
+      "Plats"
     ],
     "seasons": [
       "Printemps",
@@ -5110,6 +5126,10 @@ window.RECIPES = {
         "label": "Texture",
         "value": "Croûte fine et croustillante, calamar tendre."
       }
+    ],
+    "additionalMasters": [
+      "entrees_maitre",
+      "plats_maitre"
     ]
   },
   "gaufres_pommes_terre": {
@@ -5410,6 +5430,262 @@ window.RECIPES = {
       {
         "label": "Texture",
         "value": "Bords dorés, cœur tendre, surface légèrement croustillante."
+      }
+    ],
+    "additionalMasters": [
+      "entrees_maitre"
+    ]
+  },
+  "gazpacho_tomate_menthe_basilic": {
+    "title": "Gazpacho tomate, menthe et basilic",
+    "master": "crudites_maitre",
+    "image": "/assets/recipe-images/gazpacho_tomate_menthe_basilic_spooky.png",
+    "categories": [
+      "Entrées"
+    ],
+    "seasons": [
+      "Été"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "environ 1 litre",
+    "nutriScore": "A",
+    "aliases": [
+      "gazpacho tomate",
+      "gaspacho tomate menthe basilic",
+      "soupe froide tomate"
+    ],
+    "tags": [
+      "gazpacho",
+      "tomate",
+      "froid",
+      "ete",
+      "entree"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "880 g tomates bien mûres",
+          "50 à 70 g courgette crue épluchée ou partiellement épluchée",
+          "25 à 35 g jus de citron",
+          "20 à 30 g oignon doux",
+          "9 à 12 g huile d’olive vierge extra",
+          "1 à 2 g ail dégermé",
+          "5 g basilic frais",
+          "1 à 1,5 g menthe fraîche",
+          "6 à 8 g sel fin",
+          "Poivre blanc",
+          "Eau froide seulement si besoin"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Basilic ciselé",
+          "Quelques dés de tomate mondée",
+          "Filet d’huile d’olive",
+          "Petite feuille de menthe"
+        ]
+      }
+    ],
+    "steps": [
+      "Inciser légèrement la base des tomates, les plonger 15 secondes dans l’eau bouillante, les refroidir dans l’eau glacée, puis retirer la peau.",
+      "Couper les tomates en morceaux.",
+      "Éplucher partiellement la courgette si sa peau est épaisse, puis la couper en petits morceaux.",
+      "Émincer l’oignon doux et retirer le germe de l’ail.",
+      "Mixer longuement tomates, courgette, oignon, ail, jus de citron, sel et poivre blanc jusqu’à texture très lisse.",
+      "Ajouter basilic et menthe, puis mixer brièvement pour ne pas chauffer les herbes.",
+      "Verser l’huile d’olive en filet pendant que le blender tourne.",
+      "Passer au chinois fin en pressant doucement avec une louche.",
+      "Réserver au frais au moins 2 h, mélanger, puis servir très froid."
+    ],
+    "notes": [
+      "Monder les tomates donne une texture plus fine et plus nette.",
+      "Si le gazpacho est trop acide, ajoute un peu de tomate bien mûre ou une pincée de sucre.",
+      "Si la texture est trop épaisse, détends avec un peu d’eau froide.",
+      "Résultat cible : très frais, lisse, dominé par la tomate, légèrement acidulé et parfumé par les herbes."
+    ],
+    "technical": [
+      {
+        "label": "Texture",
+        "value": "Mixer longuement, puis filtrer pour un rendu prêt-à-boire premium."
+      },
+      {
+        "label": "Herbes",
+        "value": "Mixer brièvement après ajout pour préserver couleur et parfum."
+      }
+    ]
+  },
+  "gaspacho_melon": {
+    "title": "Gaspacho de melon",
+    "master": "crudites_maitre",
+    "image": "/assets/recipe-images/gaspacho_melon_spooky.png",
+    "categories": [
+      "Entrées"
+    ],
+    "seasons": [
+      "Été"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "yield": "2 petits verres",
+    "nutriScore": "A",
+    "aliases": [
+      "gazpacho melon",
+      "gaspacho melon sans concombre",
+      "soupe froide melon"
+    ],
+    "tags": [
+      "gaspacho",
+      "melon",
+      "froid",
+      "ete",
+      "entree"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "200 à 250 g melon",
+          "75 g tomates jaunes ou tomates bien mûres",
+          "12 à 15 g mie de pain",
+          "20 g huile d’olive",
+          "8 à 15 g jus de citron ou vinaigre de Xérès",
+          "Quelques feuilles de basilic ou de menthe",
+          "Sel fin",
+          "Poivre blanc",
+          "Piment d’Espelette",
+          "Eau froide ou glaçons selon texture"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Filet d’huile d’olive",
+          "Basilic ou menthe ciselée",
+          "Piment d’Espelette",
+          "Mini-billes de melon"
+        ]
+      }
+    ],
+    "steps": [
+      "Mettre le melon dans un blender avec les tomates, la mie de pain, le jus de citron ou le vinaigre, le sel, le poivre blanc et le piment.",
+      "Ajouter quelques feuilles de basilic ou de menthe.",
+      "Mixer longuement jusqu’à texture lisse.",
+      "Verser l’huile d’olive en filet pendant que le blender tourne.",
+      "Ajuster avec un peu d’eau froide ou quelques glaçons si la texture est trop épaisse.",
+      "Passer au chinois fin pour une texture plus nette.",
+      "Goûter, ajuster sel, acidité et piment.",
+      "Réserver au frais au moins 1 h et servir très froid."
+    ],
+    "notes": [
+      "Ce gaspacho doit rester fruité, frais et légèrement acidulé, sans goût dominant de tomate.",
+      "Utilise les chutes de melon de la <span data-goto=\"salade_melon_mozzarella_jambon_cru\">salade melon, mozzarella et jambon cru</span> pour éviter le gaspillage."
+    ],
+    "technical": [
+      {
+        "label": "Équilibre",
+        "value": "Le melon doit dominer, avec tomate et acidité en soutien."
+      },
+      {
+        "label": "Texture",
+        "value": "Filtrer pour une bouche plus nette."
+      }
+    ]
+  },
+  "salade_melon_mozzarella_jambon_cru": {
+    "title": "Salade melon, mozzarella et jambon cru",
+    "master": "crudites_maitre",
+    "image": "/assets/recipe-images/salade_melon_mozzarella_jambon_cru_spooky.png",
+    "categories": [
+      "Entrées"
+    ],
+    "seasons": [
+      "Été"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "4 personnes",
+    "nutriScore": "B",
+    "aliases": [
+      "salade melon mozzarella",
+      "salade melon jambon cru",
+      "melon mozzarella jambon"
+    ],
+    "tags": [
+      "salade",
+      "melon",
+      "mozzarella",
+      "jambon cru",
+      "entree"
+    ],
+    "ingredients": [
+      {
+        "group": "Salade",
+        "items": [
+          "600 à 800 g melon charentais mûr",
+          "250 g billes de mozzarella ou mozzarella di bufala",
+          "120 à 150 g jambon cru italien, Serrano, Parme ou San Daniele",
+          "80 g roquette",
+          "40 g oignon rouge",
+          "Basilic frais",
+          "Menthe fraîche",
+          "30 g pignons de pin ou pistaches",
+          "Fleur de sel",
+          "Poivre noir"
+        ]
+      },
+      {
+        "group": "Marinade mozzarella",
+        "items": [
+          "55 g huile d’olive fruitée",
+          "Zeste de 1/2 citron",
+          "15 g jus de citron",
+          "3 g basilic ciselé",
+          "1 g origan ou thym frais",
+          "Piment d’Espelette",
+          "Sel fin",
+          "Poivre"
+        ]
+      },
+      {
+        "group": "Vinaigrette melon-citron",
+        "items": [
+          "40 g huile d’olive",
+          "15 g jus de citron ou vinaigre de Xérès",
+          "7 g miel doux",
+          "15 à 30 g jus de melon récupéré",
+          "Sel fin",
+          "Poivre"
+        ]
+      }
+    ],
+    "steps": [
+      "Couper le melon en deux, retirer les graines, puis former des billes avec une cuillère parisienne.",
+      "Réserver les billes au frais et garder les chutes pour un <span data-goto=\"gaspacho_melon\">gaspacho de melon</span>.",
+      "Égoutter et éponger la mozzarella.",
+      "Mélanger huile d’olive, jus de citron, zeste, basilic, origan ou thym, piment, sel et poivre, puis mariner la mozzarella 20 à 30 min au frais.",
+      "Émincer l’oignon rouge très finement, le placer 10 min dans eau froide avec quelques gouttes de citron, puis égoutter et éponger.",
+      "Torréfier les pignons ou pistaches 2 à 3 min à feu moyen dans une poêle sèche.",
+      "Mélanger jus de citron ou vinaigre, miel, jus de melon, sel et poivre, puis ajouter l’huile d’olive.",
+      "Assaisonner légèrement la roquette avec un peu de vinaigrette.",
+      "Ajouter melon, mozzarella marinée, jambon cru en chiffonnade, oignon rouge, pignons ou pistaches, basilic, menthe, fleur de sel et poivre.",
+      "Ajouter la vinaigrette juste avant de servir."
+    ],
+    "notes": [
+      "Dresser sans trop mélanger pour garder une salade nette et non détrempée.",
+      "La salade doit être fraîche, équilibrée entre sucré, salé et acidité, et parfumée par les herbes.",
+      "Options : balsamique blanc, copeaux de parmesan, citron caviar, éclats de pistaches ou huile d’olive au basilic."
+    ],
+    "technical": [
+      {
+        "label": "Service",
+        "value": "Assaisonner au dernier moment pour préserver la roquette et le melon."
+      },
+      {
+        "label": "Anti-gaspillage",
+        "value": "Les chutes de melon vont très bien dans le gaspacho de melon."
       }
     ]
   }

@@ -227,12 +227,31 @@ a {
 }
 
 .top-search {
-  width: min(320px, 100%);
+  width: 0;
+  max-width: min(320px, 100%);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: width var(--speed), opacity var(--speed), transform var(--speed);
   justify-self: end;
+}
+
+.top-search.is-open {
+  width: min(320px, 100%);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
 .top-search-button {
   font-size: 18px;
+}
+
+.top-search-button.active {
+  border-color: color-mix(in srgb, var(--accent) 72%, white);
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface-soft));
+  color: var(--accent);
 }
 
 .cart-icon-btn {
@@ -657,6 +676,26 @@ a {
   border-color: color-mix(in srgb, var(--card-accent, var(--accent)) 42%, var(--line));
   color: color-mix(in srgb, var(--card-accent, var(--accent)) 78%, var(--text));
 }
+
+.nutri-score {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 24px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 6px;
+  padding: 0 8px;
+  color: #0b0b08;
+  font-size: 12px;
+  font-weight: 950;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .22);
+}
+
+.nutri-score.nutri-a { background: #038141; color: #fff; }
+.nutri-score.nutri-b { background: #86bc25; color: #101407; }
+.nutri-score.nutri-c { background: #fecb02; color: #171303; }
+.nutri-score.nutri-d { background: #ee8100; color: #170b02; }
+.nutri-score.nutri-e { background: #e63e11; color: #fff; }
 
 .recipe-card h3 {
   min-height: 0;
@@ -1458,7 +1497,7 @@ a {
     display: none;
   }
 
-  .top-search {
+  .top-search.is-open {
     width: 100%;
   }
 
