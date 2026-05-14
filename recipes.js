@@ -609,6 +609,10 @@ window.RECIPES = {
         "label": "Court-bouillon"
       },
       {
+        "id": "pains_burgers_brioche",
+        "label": "Pains burgers briochés"
+      },
+      {
         "id": "pain_hot_dog",
         "label": "Pains hot-dog"
       },
@@ -5899,7 +5903,7 @@ window.RECIPES = {
       "Servir les sauces à part si tu veux garder un maximum de croustillant."
     ],
     "notes": [
-      "Liens utiles : <span data-goto=\"frites_belges\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Frites belges</span> · <span data-goto=\"frites_maison\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Frites maison</span>.",
+      "Liens utiles : <span data-goto=\"frites_belges\">Frites belges</span> · <span data-goto=\"frites_maison\">Frites maison</span> · <span data-goto=\"frites_patate_douce\">Frites de patate douce</span>.",
       "Ajouter les sauces au dernier moment et éviter de couvrir les frites après topping : la vapeur les ramollit.",
       "Le parmesan doit fondre sur les frites chaudes, jamais brûler avant cuisson."
     ],
@@ -6026,6 +6030,414 @@ window.RECIPES = {
       {
         "label": "Équilibre",
         "value": "Finir avec citron vert et herbes pour alléger le lait de coco."
+      }
+    ]
+  },
+  "frites_patate_douce": {
+    "title": "Frites de patate douce croustillantes",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/frites_patate_douce_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver",
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "nutriScore": "C",
+    "aliases": [
+      "frites patate douce",
+      "patate douce croustillante",
+      "sweet potato fries"
+    ],
+    "tags": [
+      "frites",
+      "patate douce",
+      "four",
+      "accompagnement"
+    ],
+    "ingredients": [
+      {
+        "group": "Frites",
+        "items": [
+          "800 g patates douces",
+          "30 g huile neutre ou huile d’olive douce",
+          "12 g fécule de maïs ou fécule de pomme de terre",
+          "2 g paprika fumé",
+          "1,5 g ail en poudre",
+          "1,5 g oignon en poudre optionnel",
+          "1 petite pincée piment d’Espelette",
+          "Poivre noir",
+          "Sel fin après cuisson",
+          "Fleur de sel"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Coriandre, persil plat ou ciboulette ciselée",
+          "Zeste de citron vert",
+          "Paprika fumé léger"
+        ]
+      },
+      {
+        "group": "Service",
+        "items": [
+          "<span data-goto=\"sauce_yaourt_citronnee\">Sauce yaourt citronnée</span>"
+        ]
+      }
+    ],
+    "steps": [
+      "Éplucher les patates douces si la peau est épaisse.",
+      "Couper en bâtonnets réguliers de 8 à 10 mm d’épaisseur.",
+      "Rincer 1 à 2 min dans un grand saladier d’eau froide, puis égoutter.",
+      "Sécher très soigneusement dans un torchon et laisser sécher 10 min à l’air libre.",
+      "Enrober les frites avec un voile très fin de fécule, sans paquet blanc visible.",
+      "Ajouter l’huile, le paprika fumé, l’ail, l’oignon si utilisé, le piment et le poivre. Ne pas saler avant cuisson.",
+      "Préchauffer le four à 220 °C chaleur tournante avec la plaque dans le four.",
+      "Disposer les frites espacées sur papier cuisson ou plaque légèrement huilée.",
+      "Cuire 20 à 25 min en retournant à mi-cuisson, puis prolonger 5 min si nécessaire.",
+      "Finir 2 à 3 min sous le gril pour plus de croustillant en surveillant attentivement.",
+      "Laisser reposer 2 min sur la plaque, transférer sur grille si possible, puis saler et finir avec herbes, zeste et fleur de sel."
+    ],
+    "notes": [
+      "Servir avec la <span data-goto=\"sauce_yaourt_citronnee\">sauce yaourt citronnée</span> dans un bol à part pour garder le croustillant.",
+      "La patate douce contient plus d’eau et de sucre qu’une pomme de terre classique : taille régulière, séchage soigné et plaque bien chaude sont essentiels.",
+      "Surveille la cuisson : tous les fours ne colorent pas de la même façon, surtout en fin de cuisson ou sous le gril."
+    ],
+    "technical": [
+      {
+        "label": "Cuisson four",
+        "value": "220 °C chaleur tournante, 20 à 25 min, puis 2 à 3 min sous le gril si besoin."
+      },
+      {
+        "label": "Air fryer",
+        "value": "200 °C, 15 à 20 min, panier secoué toutes les 5 min."
+      },
+      {
+        "label": "Cible",
+        "value": "Bords dorés et croustillants, centre fondant, assaisonnement fumé et sauce fraîche à part."
+      }
+    ]
+  },
+  "sauce_yaourt_citronnee": {
+    "title": "Sauce yaourt citronnée",
+    "master": "sauces_maitre",
+    "image": "/assets/recipe-images/sauce_yaourt_citronnee_spooky.png",
+    "categories": [
+      "Sauces"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "yield": "1 bol",
+    "nutriScore": "B",
+    "aliases": [
+      "sauce yaourt citron",
+      "sauce fraîche citronnée",
+      "dip yaourt"
+    ],
+    "tags": [
+      "sauce",
+      "yaourt",
+      "citron",
+      "dip"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "150 g yaourt grec",
+          "15 g mayonnaise maison ou bonne mayonnaise",
+          "5 g jus de citron vert ou jaune",
+          "Zeste de 1/2 citron vert",
+          "7 g miel",
+          "1 g paprika fumé",
+          "1 petite pincée piment d’Espelette",
+          "Sel fin",
+          "Poivre blanc"
+        ]
+      }
+    ],
+    "steps": [
+      "Mélanger le yaourt grec et la mayonnaise.",
+      "Ajouter le jus de citron, le zeste, le miel, le paprika fumé et le piment.",
+      "Saler et poivrer.",
+      "Réserver au frais au moins 15 min avant service."
+    ],
+    "notes": [
+      "Prévue pour accompagner les <span data-goto=\"frites_patate_douce\">frites de patate douce croustillantes</span>.",
+      "La sauce doit rester fraîche, légèrement acidulée et légèrement fumée pour équilibrer le côté sucré de la patate douce."
+    ],
+    "technical": [
+      {
+        "label": "Repos",
+        "value": "15 min au frais pour arrondir l’assaisonnement."
+      },
+      {
+        "label": "Texture",
+        "value": "Crémeuse, nappante, pas liquide."
+      }
+    ]
+  },
+  "sauce_mornay": {
+    "title": "Sauce Mornay",
+    "master": "sauces_maitre",
+    "image": "/assets/recipe-images/sauce_mornay_spooky.png",
+    "categories": [
+      "Sauces",
+      "Base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 4,
+    "yield": "1 sauce pour 1 gratin",
+    "nutriScore": "D",
+    "aliases": [
+      "mornay",
+      "sauce fromage",
+      "sauce gratin"
+    ],
+    "tags": [
+      "sauce",
+      "fromage",
+      "gratin",
+      "base"
+    ],
+    "ingredients": [
+      {
+        "group": "Base",
+        "items": [
+          "35 g beurre",
+          "35 g farine",
+          "450 g lait entier",
+          "100 g crème liquide entière",
+          "90 g comté 18 mois râpé",
+          "35 g parmesan râpé",
+          "1 jaune d’œuf",
+          "5 g moutarde de Dijon",
+          "1 pincée muscade",
+          "Sel",
+          "Poivre blanc"
+        ]
+      }
+    ],
+    "steps": [
+      "Faire fondre le beurre dans une casserole.",
+      "Ajouter la farine et cuire le roux 2 min sans coloration.",
+      "Verser le lait froid progressivement en fouettant.",
+      "Ajouter la crème et cuire 5 à 7 min jusqu’à obtenir une sauce nappante.",
+      "Hors du feu, ajouter le comté, le parmesan, la moutarde, la muscade et le poivre.",
+      "Goûter avant de saler.",
+      "Ajouter le jaune d’œuf hors du feu en fouettant."
+    ],
+    "notes": [
+      "Utilisée dans le <span data-goto=\"gratin_chou_fleur\">gratin de chou-fleur</span>.",
+      "La sauce doit être nappante mais pas trop épaisse : elle continue à gratiner au four."
+    ],
+    "technical": [
+      {
+        "label": "Roux",
+        "value": "2 min sans coloration pour éviter le goût de farine."
+      },
+      {
+        "label": "Cuisson",
+        "value": "5 à 7 min après ajout lait et crème."
+      }
+    ]
+  },
+  "gratin_chou_fleur": {
+    "title": "Gratin de chou-fleur",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/gratin_chou_fleur_spooky.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "nutriScore": "C",
+    "aliases": [
+      "gratin choux fleur",
+      "gratin de chou fleur",
+      "chou-fleur mornay"
+    ],
+    "tags": [
+      "chou-fleur",
+      "gratin",
+      "fromage",
+      "four"
+    ],
+    "ingredients": [
+      {
+        "group": "Chou-fleur",
+        "items": [
+          "900 g à 1 kg chou-fleur",
+          "30 g huile d’olive",
+          "20 g beurre fondu",
+          "Sel fin",
+          "Poivre blanc",
+          "1 pincée muscade"
+        ]
+      },
+      {
+        "group": "Sauce",
+        "items": [
+          "1 recette de <span data-goto=\"sauce_mornay\">sauce Mornay</span>"
+        ]
+      },
+      {
+        "group": "Chapelure noisette",
+        "items": [
+          "45 g chapelure panko ou chapelure maison",
+          "25 g noisettes torréfiées concassées",
+          "20 g parmesan râpé",
+          "25 g beurre fondu",
+          "8 g persil plat haché"
+        ]
+      }
+    ],
+    "steps": [
+      "Couper le chou-fleur en sommités régulières et garder le cœur épluché en petits morceaux.",
+      "Rincer rapidement puis égoutter très soigneusement.",
+      "Cuire les sommités 5 à 6 min à la vapeur, ou 6 à 8 min dans une eau-lait salée, en gardant le chou-fleur ferme.",
+      "Préchauffer le four à 220 °C.",
+      "Mélanger le chou-fleur avec huile d’olive, beurre fondu, sel, poivre et muscade.",
+      "Étaler sur plaque et rôtir 15 à 20 min jusqu’à légère coloration.",
+      "Préparer la <span data-goto=\"sauce_mornay\">sauce Mornay</span>.",
+      "Mélanger chapelure, noisettes, parmesan, persil et beurre fondu jusqu’à texture sableuse.",
+      "Beurrer légèrement un plat, disposer le chou-fleur rôti, napper de sauce Mornay et couvrir de chapelure noisette.",
+      "Enfourner à 190 °C pendant 18 à 22 min.",
+      "Terminer sous le gril 2 à 3 min si besoin, puis laisser reposer 5 min avant service."
+    ],
+    "notes": [
+      "La <span data-goto=\"sauce_mornay\">sauce Mornay</span> doit rester nappante, pas trop épaisse, pour éviter un gratin pâteux.",
+      "Rôtir le chou-fleur concentre le goût et évite un gratin aqueux.",
+      "Surveille la cuisson : chaque four gratine différemment, surtout sous le gril."
+    ],
+    "technical": [
+      {
+        "label": "Pré-cuisson",
+        "value": "5 à 6 min vapeur ou 6 à 8 min eau-lait, chou-fleur encore ferme."
+      },
+      {
+        "label": "Gratin",
+        "value": "190 °C, 18 à 22 min, puis gril 2 à 3 min si besoin."
+      },
+      {
+        "label": "Cible",
+        "value": "Dessus doré et croustillant, intérieur crémeux mais non liquide."
+      }
+    ]
+  },
+  "pains_burgers_brioche": {
+    "title": "Pains burgers briochés",
+    "master": "bases_salees_maitre",
+    "image": "/assets/recipe-images/pains_burgers_brioche_spooky.png",
+    "categories": [
+      "Base"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "8 pains",
+    "nutriScore": "C",
+    "aliases": [
+      "pain burger brioché",
+      "pains burger",
+      "buns burger",
+      "buns briochés"
+    ],
+    "tags": [
+      "pain",
+      "burger",
+      "buns",
+      "boulangerie",
+      "base"
+    ],
+    "ingredients": [
+      {
+        "group": "Pâte",
+        "items": [
+          "500 g farine T55",
+          "25 à 30 g levure fraîche de boulanger ou 10 à 12 g levure sèche active",
+          "10 g sel fin",
+          "25 g sucre",
+          "200 g eau tiède",
+          "80 g lait tiède",
+          "60 g œuf entier battu",
+          "30 g beurre doux ramolli"
+        ]
+      },
+      {
+        "group": "Dorure",
+        "items": [
+          "1 jaune d’œuf",
+          "15 g eau",
+          "1 petite pincée sel optionnelle"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Graines de sésame torréfiées",
+          "Ou graines de pavot",
+          "Ou graines de tournesol"
+        ]
+      }
+    ],
+    "steps": [
+      "Peser tous les ingrédients, couper le beurre en petits morceaux et le laisser ramollir.",
+      "Battre légèrement l’œuf entier et préparer la dorure avec le jaune d’œuf et l’eau.",
+      "Verser la farine dans la cuve du batteur, ajouter le sel et le sucre, puis mélanger rapidement.",
+      "Mélanger l’eau tiède et le lait tiède, ajouter la levure et laisser reposer 10 min à température ambiante.",
+      "Pétrir à vitesse lente en versant le mélange eau, lait et levure, puis ajouter l’œuf battu.",
+      "Ajouter le beurre ramolli et pétrir environ 5 min à vitesse assez élevée, jusqu’à ce que la pâte se décolle des parois.",
+      "Transvaser dans un saladier, couvrir et laisser pousser 2 h à température ambiante ou autour de 25 à 28 °C.",
+      "Dégazer doucement, peser la pâte et diviser en 8 pâtons réguliers.",
+      "Bouler chaque pâton avec la soudure dessous pour tendre la surface et obtenir un bun bien rond.",
+      "Déposer sur plaque avec papier cuisson, bien espacer, couvrir légèrement et laisser pousser 1 h.",
+      "Dorer délicatement au pinceau sans appuyer, puis ajouter les graines.",
+      "Cuire à 200 °C chaleur tournante pendant 10 à 12 min, jusqu’à coloration dorée.",
+      "Laisser refroidir sur grille avant de couper ou congeler."
+    ],
+    "notes": [
+      "Le beurre doit être souple, pas fondu : un beurre fondu rend la pâte moins régulière.",
+      "Évite le contact direct concentré entre sel et levure, qui peut ralentir la pousse.",
+      "Ne rajoute pas trop de farine si la pâte colle un peu : une pâte trop farinée donne des buns secs et denses.",
+      "Pour un rendu restaurant, toaster les faces coupées à la poêle avec un peu de beurre juste avant montage.",
+      "Surveille la cuisson : tous les fours colorent différemment, et les buns doivent rester moelleux."
+    ],
+    "technical": [
+      {
+        "label": "Pousse",
+        "value": "2 h première pousse, puis 1 h après façonnage."
+      },
+      {
+        "label": "Cuisson",
+        "value": "200 °C chaleur tournante, 10 à 12 min."
+      },
+      {
+        "label": "Conservation",
+        "value": "24 h bien emballés ou congélation après refroidissement."
+      },
+      {
+        "label": "Cible",
+        "value": "Buns ronds, dorés, souples, moelleux et assez solides pour tenir la garniture."
       }
     ]
   }

@@ -4,7 +4,7 @@ const { useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
 
 const HERO_IMAGE = '/assets/base-principale-fond-site.jpg';
-const COOK_NOTE_LOGO = '/assets/cook-note.png';
+const COOK_NOTE_LOGO = '/assets/cook-note-logo.svg';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
@@ -1147,7 +1147,7 @@ function RecipeView({
         h('p', { className: 'eyebrow' }, 'Notes'),
         h('h2', null, 'Astuces et liens'),
         (selectedRecipe.notes || []).length
-          ? h('ul', null, selectedRecipe.notes.map((note, index) => h('li', { key: `${detailKey}:note:${index}`, dangerouslySetInnerHTML: { __html: sanitizeNoteHtml(note) } })))
+          ? h('ul', null, selectedRecipe.notes.map((note, index) => h('li', { key: `${detailKey}:note:${index}` }, renderLinkedText(sanitizeNoteHtml(note), inlineTargets, openRecipe))))
           : h('p', null, 'Aucune note pour cette recette.'),
         (selectedRecipe.technical || recipe.technical || []).length > 0 && h('div', { className: 'technical-card' },
           h('p', { className: 'eyebrow' }, 'Fiche technique'),
