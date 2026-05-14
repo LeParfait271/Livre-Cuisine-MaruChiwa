@@ -349,8 +349,11 @@ a {
 }
 
 .hero-logo {
-  width: min(980px, 92vw);
+  width: min(780px, 84vw);
+  max-height: 170px;
   height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .55));
 }
 
 .detail-actions,
@@ -845,8 +848,10 @@ a {
 }
 
 .detail-hero-logo {
-  width: min(560px, 78vw);
+  width: min(620px, 78vw);
+  max-height: 150px;
   height: auto;
+  object-fit: contain;
   margin: 0 0 14px;
   filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .52));
 }
