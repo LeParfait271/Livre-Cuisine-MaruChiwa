@@ -2306,6 +2306,10 @@ window.RECIPES = {
         "label": "Craquelin cacao"
       },
       {
+        "id": "crumble_pomme_poire",
+        "label": "Crumble pomme-poire"
+      },
+      {
         "id": "desserts_cuillere_maitre",
         "label": "Desserts à la cuillère"
       },
@@ -2343,6 +2347,76 @@ window.RECIPES = {
     ],
     "notes": [
       "Fiche parent de navigation. Les recettes restent conservées dans leurs variantes."
+    ]
+  },
+  "crumble_pomme_poire": {
+    "title": "Crumble pomme-poire",
+    "master": "desserts_maitre",
+    "image": "/assets/recipe-images/crumble_pomme_poire.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 2,
+    "yield": "2 personnes",
+    "aliases": [
+      "crumble pomme poire",
+      "crumble aux pommes et poires",
+      "dessert pomme poire"
+    ],
+    "tags": [
+      "crumble",
+      "pomme",
+      "poire",
+      "dessert"
+    ],
+    "ingredients": [
+      {
+        "group": "Fruits",
+        "items": [
+          "1 pomme",
+          "1 poire"
+        ]
+      },
+      {
+        "group": "Pâte à crumble",
+        "items": [
+          "50g de beurre salé en pommade",
+          "50g de sucre",
+          "30g de farine",
+          "30g de poudre de noisette ou de poudre d’amande"
+        ]
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 180°C.",
+      "Laver la pomme et la poire, puis les éplucher.",
+      "Couper les fruits en petits cubes.",
+      "Mélanger le beurre salé pommade, le sucre, la farine et la poudre de noisette ou d’amande.",
+      "Travailler du bout des doigts jusqu’à obtenir une texture sableuse.",
+      "Répartir les cubes de pomme et de poire dans le fond d’un petit plat à gratin.",
+      "Recouvrir les fruits avec la pâte à crumble.",
+      "Enfourner 30 à 35min, jusqu’à ce que les fruits soient fondants et que le crumble soit bien doré.",
+      "Servir tiède ou à température ambiante."
+    ],
+    "notes": [
+      "Le beurre doit être pommade, pas fondu, pour obtenir un crumble bien sableux.",
+      "Surveiller la coloration en fin de cuisson : le dessus doit être doré sans brûler.",
+      "Très bon tiède, nature ou avec une crème anglaise."
+    ],
+    "technical": [
+      {
+        "label": "Texture",
+        "value": "Travailler la pâte du bout des doigts pour garder des morceaux irréguliers et croustillants."
+      },
+      {
+        "label": "Cuisson",
+        "value": "180°C, 30 à 35min selon le plat et la taille des fruits."
+      }
     ]
   },
   "creme_kinder_nutella": {
