@@ -349,8 +349,8 @@ a {
 }
 
 .hero-logo {
-  width: min(780px, 84vw);
-  max-height: 170px;
+  width: min(920px, 88vw);
+  max-height: 220px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .55));
@@ -848,8 +848,8 @@ a {
 }
 
 .detail-hero-logo {
-  width: min(620px, 78vw);
-  max-height: 150px;
+  width: min(760px, 82vw);
+  max-height: 190px;
   height: auto;
   object-fit: contain;
   margin: 0 0 14px;
