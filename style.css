@@ -1206,10 +1206,6 @@ a {
   color: var(--accent);
 }
 
-.collapsible-ingredient-group ul {
-  margin-top: 10px;
-}
-
 .ingredient-group-note {
   margin-top: 12px;
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
@@ -1254,6 +1250,10 @@ a {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.collapsible-ingredient-group ul {
+  margin-top: 14px;
 }
 
 .ingredient-group label,
