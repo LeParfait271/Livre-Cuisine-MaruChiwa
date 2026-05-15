@@ -1278,7 +1278,6 @@ function RecipeView({
               h('span', { key: 'steps' }, `${stepTotal} étapes`)
             ]
         ),
-        hasSelectedVariant && h(QuantityFactorControl, { factor, setFactor, className: 'detail-factor-control' }),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey, factor) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
           h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => setShareOpen(true), title: 'Partager', ariaLabel: 'Partager' }, '\u2197'),
