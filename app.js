@@ -465,6 +465,85 @@ function getRecipeSearchText(recipe, tags, recipesById = {}) {
   ].join(' '));
 }
 
+const SEARCH_SYNONYMS = {
+  mayo: ['mayonnaise'],
+  mayonaise: ['mayonnaise'],
+  gateau: ['cake', 'dessert'],
+  gâteau: ['cake', 'dessert'],
+  patate: ['pomme de terre', 'pommes de terre'],
+  oeuf: ['œuf', 'oeufs', 'œufs'],
+  oeufs: ['œufs', 'oeuf', 'œuf'],
+  citronne: ['citron'],
+  citronné: ['citron']
+};
+
+function expandSearchTokens(tokens) {
+  return tokens.map(token => [token, ...(SEARCH_SYNONYMS[token] || []).map(normalizeText)]);
+}
+
+function isCloseSearchToken(token, text) {
+  if (token.length < 4) return false;
+  const words = text.match(/[a-z0-9]{4,}/g) || [];
+  return words.some(word => {
+    if (word.includes(token) || token.includes(word)) return true;
+    if (word.length === token.length) {
+      for (let index = 0; index < token.length - 1; index += 1) {
+        if (
+          token[index] === word[index + 1] &&
+          token[index + 1] === word[index] &&
+          token.slice(0, index) === word.slice(0, index) &&
+          token.slice(index + 2) === word.slice(index + 2)
+        ) return true;
+      }
+    }
+    if (Math.abs(word.length - token.length) > 1) return false;
+    let edits = 0;
+    for (let index = 0; index < Math.min(word.length, token.length); index += 1) {
+      if (word[index] !== token[index]) edits += 1;
+      if (edits > 1) return false;
+    }
+    return edits + Math.abs(word.length - token.length) <= 1;
+  });
+}
+
+function scoreRecipeSearch(recipe, query) {
+  const needle = normalizeText(query).trim();
+  if (!needle) return { score: 0, reasons: [] };
+  const tokenGroups = expandSearchTokens(needle.split(/\s+/).filter(token => token.length > 1));
+  const title = normalizeText(recipe.title);
+  const aliases = normalizeText((recipe.aliases || []).join(' '));
+  const tags = normalizeText([...(recipe.tags || []), ...(recipe.tagsExtracted || [])].join(' '));
+  const categories = normalizeText((recipe.categories || []).join(' '));
+  const ingredients = normalizeText((recipe.ingredients || []).flatMap(group => [group.group, ...(group.items || [])]).join(' '));
+  const notes = normalizeText([...(recipe.notes || []), ...(recipe.technical || []).flatMap(item => [item.label, item.value, item.text])].join(' '));
+  const fields = [
+    { name: 'titre', text: title, points: 120 },
+    { name: 'alias', text: aliases, points: 90 },
+    { name: 'tag', text: tags, points: 70 },
+    { name: 'catégorie', text: categories, points: 55 },
+    { name: 'ingrédient', text: ingredients, points: 45 },
+    { name: 'note', text: notes, points: 18 }
+  ];
+  let score = 0;
+  const reasons = new Set();
+  const allMatched = tokenGroups.every(group => fields.some(field => group.some(token => field.text.includes(token) || isCloseSearchToken(token, field.text))));
+  if (!allMatched) return { score: 0, reasons: [] };
+  if (title === needle) score += 220;
+  if (title.startsWith(needle)) score += 150;
+  fields.forEach(field => {
+    tokenGroups.forEach(group => {
+      if (group.some(token => field.text.includes(token))) {
+        score += field.points;
+        reasons.add(field.name);
+      } else if (group.some(token => isCloseSearchToken(token, field.text))) {
+        score += Math.round(field.points * 0.45);
+        reasons.add(`${field.name} proche`);
+      }
+    });
+  });
+  return { score, reasons: Array.from(reasons).slice(0, 3) };
+}
+
 function extractTags(recipe) {
   const tags = new Set((recipe.tags || []).map(tag => normalizeText(tag)).filter(Boolean));
   const blocked = new Set([
@@ -657,13 +736,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, setQuery, searchRef, searchOpen, setSearchOpen }) {
-  const visibleSearch = searchOpen || Boolean(query.trim());
-  function openSearch() {
-    setSearchOpen(true);
-    setTimeout(() => searchRef.current?.focus(), 0);
-  }
-
+function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, openSearch }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
       h(Button, { variant: 'subtle', className: 'icon-square', onClick: onHome, title: 'Accueil', ariaLabel: 'Accueil' }, '\u2302')
@@ -681,36 +754,22 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
     h('div', { className: 'top-right' },
       h(Button, {
         variant: 'ghost',
-        className: visibleSearch ? 'top-search-button icon-square active' : 'top-search-button icon-square',
-        onClick: visibleSearch && !query.trim() ? () => setSearchOpen(false) : openSearch,
+        className: query.trim() ? 'top-search-button icon-square active' : 'top-search-button icon-square',
+        onClick: openSearch,
         title: 'Rechercher',
-        ariaLabel: visibleSearch && !query.trim() ? 'Fermer la recherche' : 'Rechercher',
-        pressed: visibleSearch
-      }, '🔍'),
+        ariaLabel: 'Rechercher',
+        pressed: Boolean(query.trim())
+      }, '\u{1F50D}'),
       h(Button, {
         variant: 'ghost',
         className: 'top-fav-btn icon-square',
         onClick: showFavorites,
         title: 'Voir les favoris',
         ariaLabel: 'Voir les favoris'
-      }, '\u2665'),
-      h('div', { className: visibleSearch ? 'field top-search is-open' : 'field top-search' },
-        h('label', { className: 'sr-only' }, 'Recherche'),
-        h('input', {
-          ref: searchRef,
-          value: query,
-          onChange: event => setQuery(event.target.value),
-          onFocus: () => setSearchOpen(true),
-          onKeyDown: event => {
-            if (event.key === 'Escape' && !query.trim()) setSearchOpen(false);
-          },
-          placeholder: 'Rechercher une recette...'
-        })
-      )
+      }, '\u2665')
     )
   );
 }
-
 function Hero() {
   return h('section', {
     className: 'hero',
@@ -896,6 +955,81 @@ function SharePanel({ open, onClose, recipe }) {
         h('a', { className: 'btn btn-subtle', href: `https://wa.me/?text=${encodeURIComponent(text)}`, target: '_blank', rel: 'noreferrer' }, 'WhatsApp'),
         h('a', { className: 'btn btn-subtle', href: `mailto:?subject=${encodeURIComponent(recipe.title)}&body=${encodeURIComponent(text)}` }, 'Email')
       )
+    )
+  );
+}
+
+function SearchPanel({ open, onClose, query, setQuery, searchRef, results, resultMeta, openRecipe }) {
+  if (!open) return null;
+  const hasQuery = Boolean(query.trim());
+  const visibleResults = hasQuery ? results.slice(0, 12) : [];
+  return h('div', { className: 'modal-backdrop search-backdrop', onMouseDown: onClose },
+    h('section', {
+      className: 'modal-panel search-modal',
+      role: 'dialog',
+      'aria-modal': 'true',
+      'aria-label': 'Recherche',
+      onMouseDown: event => event.stopPropagation()
+    },
+      h('div', { className: 'modal-head' },
+        h('div', null,
+          h('p', { className: 'eyebrow' }, 'Recherche'),
+          h('h2', null, 'Trouver une recette')
+        ),
+        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
+      ),
+      h('div', { className: 'field search-modal-field' },
+        h('label', { className: 'sr-only' }, 'Rechercher une recette'),
+        h('input', {
+          ref: searchRef,
+          value: query,
+          onChange: event => setQuery(event.target.value),
+          onKeyDown: event => {
+            if (event.key === 'Escape') onClose();
+            if (event.key === 'Enter' && visibleResults[0]) {
+              openRecipe(visibleResults[0].id);
+              onClose();
+            }
+          },
+          placeholder: 'Citron, mayonnaise, chocolat, sauce...'
+        })
+      ),
+      hasQuery
+        ? h('div', { className: 'search-result-count' }, `${results.length} résultat${results.length > 1 ? 's' : ''} pour "${query}"`)
+        : h('div', { className: 'search-suggestions' },
+          ['citron', 'chocolat', 'mayonnaise', 'pancakes', 'sauce', 'base'].map(item =>
+            h('button', { key: item, type: 'button', onClick: () => setQuery(item) }, item)
+          )
+        ),
+      hasQuery && (visibleResults.length
+        ? h('div', { className: 'search-results' },
+          visibleResults.map(recipe => {
+            const meta = resultMeta.get(recipe.id);
+            return h('button', {
+              key: recipe.id,
+              type: 'button',
+              className: 'search-result',
+              onClick: () => {
+                openRecipe(recipe.id);
+                onClose();
+              }
+            },
+              h('span', { className: 'search-result-image', style: recipe.image ? { backgroundImage: `url("${recipe.image}")` } : {} }),
+              h('span', { className: 'search-result-copy' },
+                h('strong', null, recipe.title),
+                h('small', null, [
+                  primaryCategory(recipe),
+                  meta?.reasons?.length ? ` · trouvé dans ${meta.reasons.join(', ')}` : ''
+                ].join(''))
+              ),
+              h('span', { className: `nutri-score nutri-${getNutriScore(recipe).toLowerCase()}` }, `Nutri ${getNutriScore(recipe)}`)
+            );
+          })
+        )
+        : h('div', { className: 'empty-state search-empty' },
+          h('h2', null, 'Aucun résultat'),
+          h('p', null, 'Essaie un ingrédient, une catégorie ou un mot proche.')
+        ))
     )
   );
 }
@@ -1367,12 +1501,20 @@ function App() {
 
   const canUndo = historyVersion >= 0 && historyIndexRef.current > 0;
   const canRedo = historyVersion >= 0 && historyIndexRef.current < historyRef.current.length - 1;
+  const searchMeta = useMemo(() => {
+    const needle = query.trim();
+    const map = new Map();
+    if (!needle) return map;
+    searchableRecipes.forEach(recipe => {
+      const meta = scoreRecipeSearch(recipe, needle);
+      if (meta.score > 0) map.set(recipe.id, meta);
+    });
+    return map;
+  }, [query, searchableRecipes]);
 
   const filteredRecipes = useMemo(() => {
-    const needle = normalizeText(query);
-    const queryTokens = needle.split(/\s+/).filter(token => token.length > 1);
     let list = catalogRecipes.filter(recipe => {
-      if (needle && !queryTokens.every(token => recipe.searchText.includes(token))) return false;
+      if (query.trim() && !searchMeta.has(recipe.id)) return false;
       if (season && !recipeHasSeason(recipe, season, recipesById)) return false;
       if (tagFilter && !(recipe.tagsExtracted || []).includes(tagFilter)) return false;
       if (onlyFavorites && !favorites.includes(recipe.id)) return false;
@@ -1380,12 +1522,16 @@ function App() {
     });
 
     list = [...list].sort((a, b) => {
+      if (query.trim()) {
+        const score = (searchMeta.get(b.id)?.score || 0) - (searchMeta.get(a.id)?.score || 0);
+        if (score) return score;
+      }
       const order = homeCardOrder(a) - homeCardOrder(b);
       if (order) return order;
       return a.title.localeCompare(b.title, 'fr');
     });
     return list;
-  }, [catalogRecipes, query, season, tagFilter, onlyFavorites, favorites, recipesById]);
+  }, [catalogRecipes, query, searchMeta, season, tagFilter, onlyFavorites, favorites, recipesById]);
 
   const sections = useMemo(() => {
     if (onlyFavorites) {
@@ -1509,11 +1655,11 @@ function App() {
 
   function updateSearchQuery(value) {
     setQuery(value);
-    if (!value.trim() || !activeRecipe) return;
-    restoreHomeScrollRef.current = false;
-    setActiveId(null);
-    history.pushState('', document.title, window.location.pathname + window.location.search);
-    requestAnimationFrame(() => document.getElementById('recettes')?.scrollIntoView({ behavior: 'auto' }));
+  }
+
+  function openSearch() {
+    setSearchOpen(true);
+    setTimeout(() => searchRef.current?.focus(), 0);
   }
 
   useEffect(() => {
@@ -1570,11 +1716,14 @@ function App() {
     const handleKey = event => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
         event.preventDefault();
-        goHome();
-        setTimeout(() => searchRef.current?.focus(), 0);
+        openSearch();
         return;
       }
       if (event.key === 'Escape') {
+        if (searchOpen) {
+          setSearchOpen(false);
+          return;
+        }
         if (activeRecipe && !isTypingTarget(event.target)) goHome();
         return;
       }
@@ -1604,7 +1753,7 @@ function App() {
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [activeRecipe, catalogRecipes, canUndo, canRedo]);
+  }, [activeRecipe, catalogRecipes, canUndo, canRedo, searchOpen]);
 
   if (!recipes.length) {
     return h('div', { className: 'mc-shell' },
@@ -1628,14 +1777,11 @@ function App() {
       showFavorites,
       openShoppingBasket: () => setShoppingOpen(true),
       query,
-      setQuery: updateSearchQuery,
-      searchRef,
-      searchOpen,
-      setSearchOpen
+      openSearch
     }),
     h('nav', { className: 'mobile-bottom-nav', 'aria-label': 'Navigation mobile' },
       h('button', { type: 'button', onClick: goHome, 'aria-label': 'Accueil' }, h('span', null, '\u2302'), h('span', { className: 'sr-only' }, 'Accueil')),
-      h('button', { type: 'button', onClick: () => { setSearchOpen(true); setTimeout(() => searchRef.current?.focus(), 0); } }, h('span', null, '🔍'), 'Recherche'),
+      h('button', { type: 'button', onClick: openSearch }, h('span', null, '🔍'), 'Recherche'),
       h('button', { type: 'button', onClick: showFavorites }, h('span', null, '♥'), 'Favoris'),
       h('button', { type: 'button', onClick: () => setShoppingOpen(true) }, h('span', null, '🛒'), 'Courses')
     ),
@@ -1680,6 +1826,16 @@ function App() {
       factorById: shoppingFactors,
       removeRecipe: removeShopping,
       clearShopping
+    }),
+    h(SearchPanel, {
+      open: searchOpen,
+      onClose: () => setSearchOpen(false),
+      query,
+      setQuery: updateSearchQuery,
+      searchRef,
+      results: filteredRecipes,
+      resultMeta: searchMeta,
+      openRecipe
     })
   );
 }
