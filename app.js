@@ -217,7 +217,8 @@ const AVERAGE_WEIGHT_RULES = [
   { label: 'Poivron', value: '≈ 150 à 180g', pattern: /\b(poivron|poivrons)\b/ },
   { label: 'Courgette moyenne', value: '≈ 200g', pattern: /\b(courgette|courgettes)\b/ },
   { label: 'Aubergine moyenne', value: '≈ 300g', pattern: /\b(aubergine|aubergines)\b/ },
-  { label: 'Orange', value: '≈ 150 à 180g', pattern: /\b(orange|oranges)\b/ },
+  { label: 'Jus d’une orange', value: '≈ 70 à 90g', pattern: /\bjus d['’ ]?orange\b/ },
+  { label: 'Orange', value: '≈ 150 à 180g', pattern: /\b(orange|oranges)\b/, except: /\bjus d['’ ]?orange\b/ },
   { label: 'Pomme', value: '≈ 150g', pattern: /\b(pomme|pommes)\b(?!\s+de\s+terre)/ },
   { label: 'Poire', value: '≈ 160g', pattern: /\b(poire|poires)\b/ }
 ];
