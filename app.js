@@ -88,6 +88,44 @@ function getCurrentSeason(date = new Date()) {
   return 'Hiver';
 }
 
+const SEASONAL_INGREDIENT_RULES = [
+  { seasons: ['Printemps'], pattern: /\b(asperge|asperges|petits pois|radis|rhubarbe|fraise|fraises)\b/ },
+  { seasons: ['Printemps', 'Été'], pattern: /\b(framboise|framboises|cerise|cerises|abricot|abricots|peche|peches)\b/ },
+  { seasons: ['Été'], pattern: /\b(melon|pasteque|concombre|tomate|tomates|courgette|courgettes|aubergine|aubergines|poivron|poivrons|basilic|menthe|myrtille|myrtilles|mure|mures|ananas|kiwi)\b/ },
+  { seasons: ['Automne'], pattern: /\b(figue|figues|raisin|raisins|poire|poires|pommes?\b(?! de terre)|coing|coings|noisette|noisettes|noix|chataigne|chataignes|champignon|champignons)\b/ },
+  { seasons: ['Automne', 'Hiver'], pattern: /\b(courge|courges|potiron|potimarron|butternut|patate douce|patates douces|poireau|poireaux|celeri|chou fleur|chou-fleur|choux|endive|endives)\b/ },
+  { seasons: ['Hiver'], pattern: /\b(citron|citrons|orange|oranges|clementine|clementines|mandarine|mandarines|pamplemousse|pamplemousses)\b/ }
+];
+
+function getRecipeSeasonText(recipe) {
+  return normalizeText([
+    recipe?.title,
+    ...(recipe?.tags || []),
+    ...(recipe?.aliases || []),
+    ...(recipe?.ingredients || []).flatMap(group => [group.group, ...(group.items || [])])
+  ].join(' '));
+}
+
+function getInferredRecipeSeasons(recipe) {
+  const text = getRecipeSeasonText(recipe);
+  const seasons = new Set();
+  SEASONAL_INGREDIENT_RULES.forEach(rule => {
+    if (rule.pattern.test(text)) rule.seasons.forEach(season => seasons.add(season));
+  });
+  return Array.from(seasons);
+}
+
+function getRecipeSeasonSet(recipe, recipesById = {}) {
+  const seasons = new Set([...(recipe?.seasons || []), ...getInferredRecipeSeasons(recipe)]);
+  getLeafVariantRefs(recipe, recipesById).forEach(ref => {
+    const child = recipesById[ref.id];
+    if (!child || child.id === recipe?.id) return;
+    (child.seasons || []).forEach(season => seasons.add(season));
+    getInferredRecipeSeasons(child).forEach(season => seasons.add(season));
+  });
+  return seasons;
+}
+
 function primaryCategory(recipe) {
   return (recipe.categories || [])[0] || 'Recette';
 }
@@ -234,8 +272,8 @@ function getLeafVariantRefs(recipe, recipesById = {}, seen = new Set()) {
 
 function recipeHasSeason(recipe, season, recipesById = {}) {
   if (!season) return true;
-  if ((recipe?.seasons || []).includes(season)) return true;
-  return getLeafVariantRefs(recipe, recipesById).some(ref => (recipesById[ref.id]?.seasons || []).includes(season));
+  const seasons = getRecipeSeasonSet(recipe, recipesById);
+  return seasons.has(season) || seasons.has('Toutes saisons');
 }
 
 function countLeafRecipes(recipe, recipesById = {}) {
@@ -1086,7 +1124,7 @@ function QuantityFactorControl({ factor, setFactor, className = '' }) {
     'aria-label': 'Multiplier les quantités'
   },
     h('span', { className: 'factor-label' }, 'Quantités'),
-    [0.25, 0.5, 1, 2].map(value => h('button', {
+    [0.25, 0.5, 1, 2, 4].map(value => h('button', {
       key: value,
       type: 'button',
       className: factor === value ? 'active' : '',
@@ -1546,7 +1584,7 @@ function App() {
       return [{ key: 'favorites', kicker: 'Favoris', title: 'Recettes sauvegardées', recipes: filteredRecipes }];
     }
     if (season) {
-      return [{ key: `season-${season}`, kicker: season === currentSeason ? 'Saison actuelle' : 'Saison', title: season, recipes: filteredRecipes }];
+      return [{ key: `season-${season}`, kicker: season === currentSeason ? 'Saison actuelle' : 'Saison', title: `${season} + toutes saisons`, recipes: filteredRecipes }];
     }
     return [{ key: 'all-seasons', kicker: 'Toutes', title: 'Toutes les recettes', recipes: filteredRecipes }];
   }, [currentSeason, filteredRecipes, onlyFavorites, season]);
