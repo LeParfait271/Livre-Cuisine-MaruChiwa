@@ -163,9 +163,9 @@ function getRecipeAllergens(recipe) {
 }
 
 const AVERAGE_WEIGHT_RULES = [
-  { label: 'Œuf moyen', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/ },
-  { label: 'Jaune d’œuf', value: '≈ 18 g', pattern: /\b(jaune d oeuf|jaunes d oeufs|jaune d œuf|jaunes d œufs)\b/ },
-  { label: 'Blanc d’œuf', value: '≈ 30 g', pattern: /\b(blanc d oeuf|blancs d oeufs|blanc d œuf|blancs d œufs)\b/ },
+  { label: 'Œuf moyen', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/, except: /\b(jaunes?|blancs?) d['’ ]?(oeuf|oeufs)\b/ },
+  { label: 'Jaune d’œuf', value: '≈ 18 g', pattern: /\bjaunes? d['’ ]?(oeuf|oeufs)\b/ },
+  { label: 'Blanc d’œuf', value: '≈ 30 g', pattern: /\bblancs? d['’ ]?(oeuf|oeufs)\b/ },
   { label: 'Citron jaune', value: '≈ 100 à 120 g', pattern: /\b(citron entier|citron jaune|citrons jaunes)\b/ },
   { label: 'Jus d’un citron', value: '≈ 40 à 50 g', pattern: /\bjus de citron\b/ },
   { label: 'Gousse d’ail', value: '≈ 5 g', pattern: /\b(gousse d ail|gousses d ail|ail)\b/ },
@@ -197,6 +197,7 @@ function getRecipeAverageWeights(recipe) {
       const text = normalizeText(item);
       if (!/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) return;
       AVERAGE_WEIGHT_RULES.forEach(rule => {
+        if (rule.except?.test(text)) return;
         if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
       });
     });
