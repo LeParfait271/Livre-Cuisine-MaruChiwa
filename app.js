@@ -966,17 +966,29 @@ function HomeView(props) {
 
 function SharePanel({ open, onClose, recipe }) {
   const [copied, setCopied] = useState(false);
+  const [copiedText, setCopiedText] = useState(false);
+  const [qrReady, setQrReady] = useState(false);
   const canvasRef = useRef(null);
   const url = `${window.location.origin}${window.location.pathname}#recipe=${encodeURIComponent(recipe.id)}`;
-  const text = `${recipe.title}\n${url}`;
+  const description = 'Une recette du livre de cuisine de MaruChiwa : ingredients, etapes et astuces.';
+  const text = `${recipe.title} - Cook Note\n${description}\n${url}`;
+  const imageStyle = recipe.image ? { backgroundImage: `url("${recipe.image}")` } : {};
+
+  function nativeShare() {
+    if (!navigator.share) return copyText(text).then(() => setCopiedText(true));
+    return navigator.share({ title: `${recipe.title} - Cook Note`, text: description, url }).catch(() => {});
+  }
 
   useEffect(() => {
+    setCopied(false);
+    setCopiedText(false);
+    setQrReady(false);
     if (!open || !canvasRef.current || !window.QRCode) return;
     window.QRCode.toCanvas(canvasRef.current, url, {
-      width: 180,
+      width: 132,
       margin: 1,
       color: { dark: '#111111', light: '#ffffff' }
-    }).catch(() => {});
+    }).then(() => setQrReady(true)).catch(() => setQrReady(false));
   }, [open, url]);
 
   if (!open) return null;
@@ -984,12 +996,32 @@ function SharePanel({ open, onClose, recipe }) {
     h('section', { className: 'modal-panel share-modal', role: 'dialog', 'aria-modal': 'true', onMouseDown: event => event.stopPropagation() },
       h('div', { className: 'modal-head' },
         h('div', null, h('p', { className: 'eyebrow' }, 'Partager'), h('h2', null, recipe.title)),
-        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '×')
+        h('button', { type: 'button', className: 'icon-btn', onClick: onClose, 'aria-label': 'Fermer' }, '\u00d7')
       ),
-      h('canvas', { ref: canvasRef, className: 'qr-canvas', width: 180, height: 180 }),
-      !window.QRCode && h('p', { className: 'muted' }, 'QR indisponible hors ligne tant que la librairie CDN n’a pas été chargée.'),
+      h('div', { className: 'share-card' },
+        h('div', { className: 'share-card-media', style: imageStyle },
+          !recipe.image && h('span', { className: 'card-letter' }, recipe.title.slice(0, 1))
+        ),
+        h('div', { className: 'share-card-copy' },
+          h('p', { className: 'eyebrow' }, 'Cook Note'),
+          h('h3', null, recipe.title),
+          h('p', null, description),
+          h('div', { className: 'share-card-meta' },
+            h('span', null, primaryCategory(recipe)),
+            recipe.yield && h('span', null, recipe.yield),
+            h('span', { className: `nutri-score nutri-${getNutriScore(recipe).toLowerCase()}` }, `Nutri ${getNutriScore(recipe)}`)
+          )
+        ),
+        h('div', { className: qrReady ? 'share-qr is-ready' : 'share-qr' },
+          h('canvas', { ref: canvasRef, className: 'qr-canvas', width: 132, height: 132 }),
+          !qrReady && h('span', null, 'Lien pret')
+        )
+      ),
+      h('div', { className: 'share-link-box' }, url),
       h('div', { className: 'share-actions' },
-        h(Button, { variant: 'primary', onClick: () => copyText(text).then(() => setCopied(true)) }, copied ? 'Copié' : 'Copier le lien'),
+        navigator.share && h(Button, { variant: 'primary', onClick: nativeShare }, 'Partager'),
+        h(Button, { variant: navigator.share ? 'subtle' : 'primary', onClick: () => copyText(url).then(() => setCopied(true)) }, copied ? 'Lien copie' : 'Copier le lien'),
+        h(Button, { variant: 'subtle', onClick: () => copyText(text).then(() => setCopiedText(true)) }, copiedText ? 'Texte copie' : 'Copier le texte'),
         h('a', { className: 'btn btn-subtle', href: `https://wa.me/?text=${encodeURIComponent(text)}`, target: '_blank', rel: 'noreferrer' }, 'WhatsApp'),
         h('a', { className: 'btn btn-subtle', href: `mailto:?subject=${encodeURIComponent(recipe.title)}&body=${encodeURIComponent(text)}` }, 'Email')
       )

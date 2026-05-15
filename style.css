@@ -369,6 +369,100 @@ a {
   justify-content: flex-end;
 }
 
+.share-modal {
+  width: min(760px, 100%);
+}
+
+.share-card {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 132px;
+  gap: 16px;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
+}
+
+.share-card-media {
+  min-height: 180px;
+  background: var(--surface-strong) center / cover no-repeat;
+}
+
+.share-card-copy {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 0;
+}
+
+.share-card-copy h3,
+.share-card-copy p {
+  margin: 0;
+}
+
+.share-card-copy h3 {
+  font-size: 26px;
+  line-height: 1.05;
+}
+
+.share-card-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.share-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+.share-card-meta span:not(.nutri-score) {
+  min-height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.share-qr {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  padding: 14px;
+  border-left: 1px solid var(--line);
+}
+
+.share-qr span {
+  position: absolute;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.share-qr:not(.is-ready) .qr-canvas {
+  display: none;
+}
+
+.share-link-box {
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, .24);
+  color: var(--muted);
+  padding: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .favorite-action {
   color: #ff8fbd;
 }
@@ -1622,11 +1716,10 @@ a {
 
 .qr-canvas {
   display: block;
-  width: 180px;
-  height: 180px;
-  margin: 8px auto 18px;
-  border: 10px solid #fff;
-  border-radius: var(--radius);
+  width: 132px;
+  height: 132px;
+  border: 8px solid #fff;
+  border-radius: 8px;
   background: #fff;
 }
 
@@ -1780,6 +1873,24 @@ a {
 
   .search-result-image {
     width: 54px;
+  }
+
+  .share-card {
+    grid-template-columns: 1fr;
+  }
+
+  .share-card-media {
+    min-height: 170px;
+  }
+
+  .share-card-copy {
+    padding: 0 14px 14px;
+  }
+
+  .share-qr {
+    min-height: auto;
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .recipe-tabs {
