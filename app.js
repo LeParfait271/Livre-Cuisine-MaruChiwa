@@ -1105,6 +1105,7 @@ function RecipeView({
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
           hasSelectedVariant && h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
+            h('span', { className: 'factor-label' }, 'Quantités'),
             [0.25, 0.5, 1, 2].map(value => h('button', {
               key: value,
               type: 'button',

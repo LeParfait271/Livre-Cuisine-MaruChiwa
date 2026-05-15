@@ -1098,10 +1098,22 @@ a {
 .history-actions {
   display: inline-flex;
   gap: 4px;
+  align-items: center;
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-soft);
+}
+
+.factor-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  border-right: 1px solid var(--line);
+  color: var(--text);
+  padding: 0 9px 0 6px;
+  font-size: 12px;
+  font-weight: 950;
 }
 
 .factor-control button,
