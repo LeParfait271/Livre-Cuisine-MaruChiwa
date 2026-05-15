@@ -13,106 +13,106 @@ window.RECIPES = {
       {
         "group": "Coulis de fraise",
         "items": [
-          "500 g fraises",
-          "50 à 70 g sucre",
-          "15 g jus de citron"
+          "500g fraises",
+          "50 à 70g sucre",
+          "15g jus de citron"
         ],
-        "note": "Astuce cuisson : 5 à 7 min. Cuis peu et ajoute le citron en fin de cuisson pour garder une couleur bien rouge."
+        "note": "Astuce cuisson : 5 à 7min. Cuis peu et ajoute le citron en fin de cuisson pour garder une couleur bien rouge."
       },
       {
         "group": "Coulis de framboise",
         "items": [
-          "500 g framboises",
-          "80 à 100 g sucre",
-          "15 g jus de citron",
-          "20 g eau si besoin"
+          "500g framboises",
+          "80 à 100g sucre",
+          "15g jus de citron",
+          "20g eau si besoin"
         ],
-        "note": "Astuce cuisson : 5 min. Ne presse pas trop fort les pépins dans la passoire, sinon le coulis peut devenir amer."
+        "note": "Astuce cuisson : 5min. Ne presse pas trop fort les pépins dans la passoire, sinon le coulis peut devenir amer."
       },
       {
         "group": "Coulis de mangue",
         "items": [
-          "500 g mangue mûre",
-          "40 à 60 g sucre",
-          "15 g jus de citron vert",
-          "30 à 60 g eau ou jus d’orange"
+          "500g mangue mûre",
+          "40 à 60g sucre",
+          "15g jus de citron vert",
+          "30 à 60g eau ou jus d’orange"
         ],
-        "note": "Astuce cuisson : 3 à 5 min. La mangue épaissit beaucoup, ajuste toujours la texture après mixage."
+        "note": "Astuce cuisson : 3 à 5min. La mangue épaissit beaucoup, ajuste toujours la texture après mixage."
       },
       {
         "group": "Coulis de pêche",
         "items": [
-          "500 g pêches mûres",
-          "50 à 70 g sucre",
-          "15 g jus de citron",
-          "20 à 40 g eau si besoin"
+          "500g pêches mûres",
+          "50 à 70g sucre",
+          "15g jus de citron",
+          "20 à 40g eau si besoin"
         ],
-        "note": "Astuce cuisson : 6 à 8 min. Ajoute quelques gouttes de citron rapidement après découpe pour éviter l’oxydation."
+        "note": "Astuce cuisson : 6 à 8min. Ajoute quelques gouttes de citron rapidement après découpe pour éviter l’oxydation."
       },
       {
         "group": "Coulis d’abricot",
         "items": [
-          "500 g abricots mûrs",
-          "70 à 100 g sucre",
-          "15 g jus de citron",
-          "30 à 50 g eau"
+          "500g abricots mûrs",
+          "70 à 100g sucre",
+          "15g jus de citron",
+          "30 à 50g eau"
         ],
-        "note": "Astuce cuisson : 8 à 10 min. L’abricot devient vite acide après cuisson, goûte toujours avant d’ajouter tout le citron."
+        "note": "Astuce cuisson : 8 à 10min. L’abricot devient vite acide après cuisson, goûte toujours avant d’ajouter tout le citron."
       },
       {
         "group": "Coulis de myrtille",
         "items": [
-          "500 g myrtilles",
-          "70 à 90 g sucre",
-          "10 à 15 g jus de citron",
-          "20 g eau"
+          "500g myrtilles",
+          "70 à 90g sucre",
+          "10 à 15g jus de citron",
+          "20g eau"
         ],
-        "note": "Astuce cuisson : 6 à 8 min. La myrtille épaissit naturellement grâce à sa pectine, ne réduis pas trop."
+        "note": "Astuce cuisson : 6 à 8min. La myrtille épaissit naturellement grâce à sa pectine, ne réduis pas trop."
       },
       {
         "group": "Coulis de mûre",
         "items": [
-          "500 g mûres",
-          "90 à 110 g sucre",
-          "15 g jus de citron",
-          "20 à 30 g eau"
+          "500g mûres",
+          "90 à 110g sucre",
+          "15g jus de citron",
+          "20 à 30g eau"
         ],
-        "note": "Astuce cuisson : 6 à 8 min. Filtre soigneusement, les pépins de mûre sont plus gênants que ceux de framboise."
+        "note": "Astuce cuisson : 6 à 8min. Filtre soigneusement, les pépins de mûre sont plus gênants que ceux de framboise."
       },
       {
         "group": "Coulis d’ananas",
         "items": [
-          "500 g ananas frais",
-          "50 à 80 g sucre",
-          "10 g jus de citron vert",
-          "30 à 60 g eau ou jus d’ananas"
+          "500g ananas frais",
+          "50 à 80g sucre",
+          "10g jus de citron vert",
+          "30 à 60g eau ou jus d’ananas"
         ],
-        "note": "Astuce cuisson : 8 à 10 min. L’ananas est fibreux, un blender puissant donne un meilleur résultat qu’un mixeur plongeant."
+        "note": "Astuce cuisson : 8 à 10min. L’ananas est fibreux, un blender puissant donne un meilleur résultat qu’un mixeur plongeant."
       },
       {
         "group": "Coulis de kiwi",
         "items": [
-          "500 g kiwis mûrs",
-          "60 à 90 g sucre",
-          "10 g jus de citron vert"
+          "500g kiwis mûrs",
+          "60 à 90g sucre",
+          "10g jus de citron vert"
         ],
         "note": "Astuce cuisson : cru. Évite de cuire le kiwi longtemps, il perd sa couleur verte et peut devenir amer."
       },
       {
         "group": "Coulis de pomme",
         "items": [
-          "500 g pommes",
-          "50 à 80 g sucre",
-          "15 g jus de citron",
-          "80 à 120 g eau ou jus de pomme"
+          "500g pommes",
+          "50 à 80g sucre",
+          "15g jus de citron",
+          "80 à 120g eau ou jus de pomme"
         ],
-        "note": "Astuce cuisson : 12 à 15 min. La pomme donne plutôt une texture de compote fluide, détends bien après mixage pour obtenir un vrai coulis."
+        "note": "Astuce cuisson : 12 à 15min. La pomme donne plutôt une texture de compote fluide, détends bien après mixage pour obtenir un vrai coulis."
       }
     ],
     "steps": [
       "Règle générale : préparer les fruits.",
       "Mettre les fruits en casserole avec le sucre et, selon le fruit, un peu d’eau ou de jus.",
-      "Cuire doucement 5 à 10 min, ou suivre le temps indiqué pour le fruit choisi.",
+      "Cuire doucement 5 à 10min, ou suivre le temps indiqué pour le fruit choisi.",
       "Ajouter le citron plutôt en fin de cuisson pour garder un goût frais.",
       "Mixer finement.",
       "Filtrer si besoin selon les pépins, fibres ou peaux.",
@@ -670,11 +670,11 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "30 g moutarde de Dijon",
-          "45 g vinaigre de vin rouge ou Xérès",
-          "2 g sel fin, 1 g poivre",
-          "150 g huile (80 g neutre + 70 g olive)",
-          "5 g miel (option)"
+          "30g moutarde de Dijon",
+          "45g vinaigre de vin rouge ou Xérès",
+          "2g sel fin, 1g poivre",
+          "150g huile (80g neutre + 70g olive)",
+          "5g miel (option)"
         ]
       }
     ],
@@ -709,26 +709,26 @@ window.RECIPES = {
       {
         "group": "Version salade (citronnée)",
         "items": [
-          "50 g basilic",
-          "40 g parmesan râpé",
-          "30 g pignons grillés",
+          "50g basilic",
+          "40g parmesan râpé",
+          "30g pignons grillés",
           "1 gousse d'ail",
-          "45 g huile d'olive",
-          "45 g huile neutre",
-          "10 g jus de citron",
+          "45g huile d'olive",
+          "45g huile neutre",
+          "10g jus de citron",
           "Sel, poivre"
         ]
       },
       {
         "group": "Version Genovese (traditionnelle)",
         "items": [
-          "60 g basilic Genovese",
-          "30 g pignons",
-          "15 g Parmigiano Reggiano",
-          "15 g Pecorino",
+          "60g basilic Genovese",
+          "30g pignons",
+          "15g Parmigiano Reggiano",
+          "15g Pecorino",
           "1 petite gousse d'ail",
-          "100–120 g huile d'olive EV",
-          "2–3 g sel"
+          "100–120g huile d'olive EV",
+          "2–3g sel"
         ]
       }
     ],
@@ -764,14 +764,14 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g ricotta de qualité",
-          "30 g crème 35 %",
+          "250g ricotta de qualité",
+          "30g crème 35 %",
           "Sel fin, poivre"
         ]
       }
     ],
     "steps": [
-      "Fouetter 2–3 min ricotta + crème jusqu'à lisse et aérée ; assaisonner."
+      "Fouetter 2–3min ricotta + crème jusqu'à lisse et aérée ; assaisonner."
     ],
     "notes": [
       "Zaatar + huile d'olive ; Citron confit + aneth ; Miel + piment d'Espelette ; Truffe : 1–2 % huile de truffe.",
@@ -795,13 +795,13 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g vinaigre balsamique IGP",
-          "25–50 g sucre (au goût)"
+          "250g vinaigre balsamique IGP",
+          "25–50g sucre (au goût)"
         ]
       }
     ],
     "steps": [
-      "Mijoter 12–20 min à feu doux jusqu'à nappant (réduction 1/2–2/3)."
+      "Mijoter 12–20min à feu doux jusqu'à nappant (réduction 1/2–2/3)."
     ],
     "notes": [
       "Variantes : zeste d'orange, vanille, cacao, espresso, figue (filtrer).",
@@ -826,7 +826,7 @@ window.RECIPES = {
       {
         "group": "Version séchées",
         "items": [
-          "1 kg tomates Roma",
+          "1kg tomates Roma",
           "Sel fin",
           "Thym",
           "Huile d'olive pour conservation"
@@ -835,9 +835,9 @@ window.RECIPES = {
       {
         "group": "Version confites",
         "items": [
-          "1 kg tomates cerises",
-          "6 g sel",
-          "3 g sucre",
+          "1kg tomates cerises",
+          "6g sel",
+          "3g sucre",
           "4 gousses d'ail",
           "Branches de thym",
           "Huile d'olive"
@@ -845,8 +845,8 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Version séchées : four 90–100 °C pendant 2h30–3h.",
-      "Version confites : four 120 °C pendant 1h30–2h avec ail + thym et filet d’huile.",
+      "Version séchées : four 90–100°C pendant 2h30–3h.",
+      "Version confites : four 120°C pendant 1h30–2h avec ail + thym et filet d’huile.",
       "Refroidir puis conserver sous huile au frais."
     ],
     "notes": [
@@ -881,7 +881,7 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g huile d'olive",
+          "250g huile d'olive",
           "4 piments secs",
           "1 gousse d'ail écrasée",
           "Zeste de 1/2 citron (option)"
@@ -889,7 +889,7 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Chauffer 60–70 °C 10 min avec piments + ail + zeste, couvrir et infuser 24 h.",
+      "Chauffer 60–70°C 10min avec piments + ail + zeste, couvrir et infuser 24h.",
       "Filtrer."
     ],
     "notes": [
@@ -913,33 +913,33 @@ window.RECIPES = {
     "difficulty": "easy",
     "ingredients": [
       {
-        "group": "Temps de cuisson — chaleur tournante 200 °C",
+        "group": "Temps de cuisson — chaleur tournante 200°C",
         "items": [
-          "Pomme de terre (dés 2–3 cm) — 35–45 min",
-          "Patate douce (dés 2–3 cm) — 25–35 min",
-          "Carotte (bâtonnets) — 22–30 min",
-          "Panais (bâtonnets) — 25–35 min",
-          "Betterave (dés 2–3 cm) — 35–45 min",
-          "Céleri-rave (dés 2–3 cm) — 30–40 min",
-          "Courge / butternut (dés 2–3 cm) — 25–35 min",
-          "Brocoli (fleurettes) — 15–20 min",
-          "Chou-fleur (fleurettes) — 20–25 min",
-          "Choux de Bruxelles (moitiés) — 20–25 min",
-          "Poivron (lanières) — 20–25 min",
-          "Courgette (quartiers) — 18–22 min",
-          "Aubergine (dés 2–3 cm) — 25–35 min",
-          "Oignon (quartiers) — 25–30 min",
-          "Fenouil (quartiers) — 25–35 min",
-          "Poireau (tronçons 3–4 cm) — 20–25 min",
-          "Asperges (grosses, parées) — 10–14 min",
-          "Champignons (gros quartiers) — 12–18 min",
-          "Tomate (demies Roma) — 20–25 min",
-          "Haricots verts (secs et parés) — 12–15 min"
+          "Pomme de terre (dés 2–3cm) — 35–45min",
+          "Patate douce (dés 2–3cm) — 25–35min",
+          "Carotte (bâtonnets) — 22–30min",
+          "Panais (bâtonnets) — 25–35min",
+          "Betterave (dés 2–3cm) — 35–45min",
+          "Céleri-rave (dés 2–3cm) — 30–40min",
+          "Courge / butternut (dés 2–3cm) — 25–35min",
+          "Brocoli (fleurettes) — 15–20min",
+          "Chou-fleur (fleurettes) — 20–25min",
+          "Choux de Bruxelles (moitiés) — 20–25min",
+          "Poivron (lanières) — 20–25min",
+          "Courgette (quartiers) — 18–22min",
+          "Aubergine (dés 2–3cm) — 25–35min",
+          "Oignon (quartiers) — 25–30min",
+          "Fenouil (quartiers) — 25–35min",
+          "Poireau (tronçons 3–4cm) — 20–25min",
+          "Asperges (grosses, parées) — 10–14min",
+          "Champignons (gros quartiers) — 12–18min",
+          "Tomate (demies Roma) — 20–25min",
+          "Haricots verts (secs et parés) — 12–15min"
         ]
       }
     ],
     "steps": [
-      "Four 200 °C chaleur tournante. Assaisonner, étaler, rôtir jusqu'à coloration et tendreté."
+      "Four 200°C chaleur tournante. Assaisonner, étaler, rôtir jusqu'à coloration et tendreté."
     ],
     "notes": [
       "Plaque préchauffée = croûte plus nette.",
@@ -964,65 +964,65 @@ window.RECIPES = {
       {
         "group": "1) Méditerranéenne",
         "items": [
-          "40 g huile d'olive",
-          "20 g jus de citron",
-          "2 g zeste",
-          "2 g origan",
-          "2 g ail râpé",
+          "40g huile d'olive",
+          "20g jus de citron",
+          "2g zeste",
+          "2g origan",
+          "2g ail râpé",
           "Sel/poivre"
         ]
       },
       {
         "group": "2) Teriyaki rapide",
         "items": [
-          "40 g sauce soja",
-          "20 g mirin",
-          "10 g sucre",
-          "10 g vinaigre de riz",
-          "2 g gingembre",
-          "1 g ail"
+          "40g sauce soja",
+          "20g mirin",
+          "10g sucre",
+          "10g vinaigre de riz",
+          "2g gingembre",
+          "1g ail"
         ]
       },
       {
         "group": "3) Tandoori yaourt",
         "items": [
-          "100 g yaourt grec",
-          "6 g pâte tandoori ou 4 g garam masala",
-          "5 g jus de citron",
-          "2 g ail",
-          "2 g gingembre",
+          "100g yaourt grec",
+          "6g pâte tandoori ou 4g garam masala",
+          "5g jus de citron",
+          "2g ail",
+          "2g gingembre",
           "Sel"
         ]
       },
       {
         "group": "4) BBQ fumé",
         "items": [
-          "40 g ketchup",
-          "20 g sauce soja",
-          "10 g miel",
-          "10 g vinaigre de cidre",
-          "2 g paprika fumé",
-          "1 g ail"
+          "40g ketchup",
+          "20g sauce soja",
+          "10g miel",
+          "10g vinaigre de cidre",
+          "2g paprika fumé",
+          "1g ail"
         ]
       },
       {
         "group": "5) Chermoula",
         "items": [
-          "40 g huile d'olive",
-          "20 g jus de citron",
-          "10 g coriandre hachée",
-          "10 g persil",
-          "2 g cumin",
-          "1 g paprika",
-          "1 g ail"
+          "40g huile d'olive",
+          "20g jus de citron",
+          "10g coriandre hachée",
+          "10g persil",
+          "2g cumin",
+          "1g paprika",
+          "1g ail"
         ]
       },
       {
         "group": "6) Citron-herbes volaille",
         "items": [
-          "40 g huile neutre",
-          "20 g jus de citron",
-          "5 g moutarde",
+          "40g huile neutre",
+          "20g jus de citron",
+          "5g moutarde",
           "herbes fraîches",
           "Sel/poivre"
         ]
@@ -1030,48 +1030,48 @@ window.RECIPES = {
       {
         "group": "7) Porc miel-moutarde",
         "items": [
-          "40 g miel",
-          "20 g moutarde",
-          "10 g sauce soja",
-          "10 g vinaigre",
-          "1 g ail"
+          "40g miel",
+          "20g moutarde",
+          "10g sauce soja",
+          "10g vinaigre",
+          "1g ail"
         ]
       },
       {
         "group": "8) Mexicaine",
         "items": [
-          "40 g huile",
-          "20 g jus de citron vert",
-          "2 g cumin",
-          "2 g paprika",
-          "1 g piment",
-          "1 g ail"
+          "40g huile",
+          "20g jus de citron vert",
+          "2g cumin",
+          "2g paprika",
+          "1g piment",
+          "1g ail"
         ]
       },
       {
         "group": "9) Thaï citronnelle",
         "items": [
-          "40 g huile",
-          "10 g nuoc-mâm",
-          "10 g jus de citron vert",
-          "2 g citronnelle hachée",
-          "1 g sucre",
+          "40g huile",
+          "10g nuoc-mâm",
+          "10g jus de citron vert",
+          "2g citronnelle hachée",
+          "1g sucre",
           "piment"
         ]
       },
       {
         "group": "10) Légumes balsamique",
         "items": [
-          "40 g huile d'olive",
-          "20 g balsamique",
-          "2 g miel",
-          "1 g ail",
+          "40g huile d'olive",
+          "20g balsamique",
+          "2g miel",
+          "1g ail",
           "Thym"
         ]
       }
     ],
     "steps": [
-      "Mariner 30 min (poisson/crevettes), 2–4 h (volaille), 6–12 h (porc/boeuf). Égoutter avant cuisson forte."
+      "Mariner 30min (poisson/crevettes), 2–4h (volaille), 6–12h (porc/boeuf). Égoutter avant cuisson forte."
     ],
     "notes": [
       "Ne pas réutiliser la marinade crue ; porter à ébullition si sauce.",
@@ -1097,26 +1097,26 @@ window.RECIPES = {
       {
         "group": "Base commune",
         "items": [
-          "150 g farine",
-          "75 g beurre doux mou",
-          "55 g œuf (1 œuf moyen)",
-          "2 g levure chimique",
+          "150g farine",
+          "75g beurre doux mou",
+          "55g œuf (1 œuf moyen)",
+          "2g levure chimique",
           "Sel, poivre"
         ]
       },
       {
         "group": "Variante jambon-fromage",
         "items": [
-          "100 g jambon en dés",
-          "100 g fromage râpé",
-          "15 g moutarde à l’ancienne (option)"
+          "100g jambon en dés",
+          "100g fromage râpé",
+          "15g moutarde à l’ancienne (option)"
         ],
         "note": "Astuce : garde les dés de jambon assez petits pour que les cookies se tiennent bien."
       },
       {
         "group": "Variante comté",
         "items": [
-          "120 g comté râpé"
+          "120g comté râpé"
         ],
         "note": "Astuce : utilise un comté bien râpé pour une répartition régulière dans la pâte."
       }
@@ -1124,7 +1124,7 @@ window.RECIPES = {
     "steps": [
       "Crémer beurre puis incorporer l’œuf.",
       "Ajouter farine + levure + assaisonnement, puis les ingrédients de la variante choisie.",
-      "Former des boules, aplatir à 1 cm et cuire 12–15 min à 180 °C."
+      "Former des boules, aplatir à 1cm et cuire 12–15min à 180°C."
     ],
     "notes": [
       "Conservation : 3 j boîte hermétique.",
@@ -1150,34 +1150,34 @@ window.RECIPES = {
       {
         "group": "Base sèche",
         "items": [
-          "250 g farine",
-          "40 g sucre",
-          "10 g levure chimique",
-          "3 g sel"
+          "250g farine",
+          "40g sucre",
+          "10g levure chimique",
+          "3g sel"
         ]
       },
       {
         "group": "Version lait",
         "items": [
-          "110 g œufs (2 œufs moyens)",
-          "300 g lait",
-          "40 g beurre fondu"
+          "110g œufs (2 œufs moyens)",
+          "300g lait",
+          "40g beurre fondu"
         ]
       },
       {
         "group": "Version babeurre",
         "items": [
-          "110 g œufs (2 œufs moyens)",
-          "300 g babeurre",
-          "40 g beurre fondu"
+          "110g œufs (2 œufs moyens)",
+          "300g babeurre",
+          "40g beurre fondu"
         ]
       },
       {
         "group": "Babeurre maison (si besoin)",
         "items": [
-          "250 g lait entier",
-          "10 g jus de citron ou vinaigre",
-          "Repos 10 min"
+          "250g lait entier",
+          "10g jus de citron ou vinaigre",
+          "Repos 10min"
         ],
         "recipeId": "babeurre_maison"
       }
@@ -1185,12 +1185,12 @@ window.RECIPES = {
     "steps": [
       "Mélanger les ingrédients secs.",
       "Ajouter les liquides de la version choisie et mélanger juste assez (pas trop travailler).",
-      "Repos 10 min puis cuisson en petites louches sur poêle beurrée."
+      "Repos 10min puis cuisson en petites louches sur poêle beurrée."
     ],
     "notes": [
-      "Pour la version babeurre maison : préparer le <span data-goto=\"babeurre_maison\">babeurre maison</span> 10 min avant.",
-      "Conservation : pâte 4 h au froid ; pancakes cuits 2 j filmés.",
-      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
+      "Pour la version babeurre maison : préparer le <span data-goto=\"babeurre_maison\">babeurre maison</span> 10min avant.",
+      "Conservation : pâte 4h au froid ; pancakes cuits 2 j filmés.",
+      "Stockage : idéalement le jour même. Péremption : 24–48h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "difficultyScore": 3,
     "aliases": [
@@ -1210,15 +1210,15 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "4 mugs (250 ml)",
+    "yield": "4 mugs (250ml)",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "500 g lait entier",
-          "100 g crème",
-          "120 g chocolat noir 66–70 %",
-          "20 g sucre",
+          "500g lait entier",
+          "100g crème",
+          "120g chocolat noir 66–70 %",
+          "20g sucre",
           "1 pincée sel"
         ]
       }
@@ -1227,9 +1227,9 @@ window.RECIPES = {
       "Chauffer lait+crème ; fondre chocolat ; mixer pour mousser."
     ],
     "notes": [
-      "Épaissir : 5–8 g maïzena diluée.",
+      "Épaissir : 5–8g maïzena diluée.",
       "Conservation : 2 j au froid.",
-      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
+      "Stockage : idéalement le jour même. Péremption : 24–48h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "difficultyScore": 3
   },
@@ -1248,8 +1248,8 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g crème 35 % très froide",
-          "20–30 g sucre glace"
+          "250g crème 35 % très froide",
+          "20–30g sucre glace"
         ]
       }
     ],
@@ -1260,8 +1260,8 @@ window.RECIPES = {
       "Parfums : vanille, cacao, café, coco (1–2 %).",
       "→ Version plus stable : <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly mascarpone</span> ou <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly gélatine</span>",
       "Stockage optimal : dans un bol filmé ou en poche à douille au réfrigérateur.",
-      "Conservation : 24 h au froid maximum.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Conservation : 24h au froid maximum.",
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 3
   },
@@ -1276,15 +1276,15 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "~500 g",
+    "yield": "~500g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "250 g mascarpone",
-          "200 g crème entière froide",
-          "60 g sucre glace",
-          "5 g vanille"
+          "250g mascarpone",
+          "200g crème entière froide",
+          "60g sucre glace",
+          "5g vanille"
         ]
       }
     ],
@@ -1296,8 +1296,8 @@ window.RECIPES = {
     "notes": [
       "Texture plus dense, très stable.",
       "Idéal pour un fourrage rapide.",
-      "Dosage fourrage : 30–40 g par donut.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Dosage fourrage : 30–40g par donut.",
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -1323,19 +1323,19 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g crème 35 % très froide",
-          "25 g sucre glace",
-          "3 g gélatine"
+          "250g crème 35 % très froide",
+          "25g sucre glace",
+          "3g gélatine"
         ]
       }
     ],
     "steps": [
-      "Hydrater gélatine 10 min ; fondre dans 30 g de crème chaude ; mélanger au reste froid ; refroidir 20–30 min.",
+      "Hydrater gélatine 10min ; fondre dans 30g de crème chaude ; mélanger au reste froid ; refroidir 20–30min.",
       "Monter au fouet ; serrer au sucre en fin."
     ],
     "notes": [
-      "Tenue 24–36 h en poche.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Tenue 24–36h en poche.",
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 4
   },
@@ -1350,25 +1350,25 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "~700 g",
+    "yield": "~700g",
     "ingredients": [
       {
         "group": "Pâtissière",
         "items": [
-          "250 g lait",
-          "50 g jaunes d’œufs",
-          "60 g sucre",
-          "25 g Maïzena",
-          "25 g beurre",
-          "5 g vanille"
+          "250g lait",
+          "50g jaunes d’œufs",
+          "60g sucre",
+          "25g Maïzena",
+          "25g beurre",
+          "5g vanille"
         ],
         "recipeId": "creme_patissiere_vanille"
       },
       {
         "group": "Chantilly",
         "items": [
-          "200 g crème 30–35 % froide",
-          "20 g sucre glace"
+          "200g crème 30–35 % froide",
+          "20g sucre glace"
         ],
         "recipeId": "chantilly_classique"
       }
@@ -1379,10 +1379,10 @@ window.RECIPES = {
       "Lisser la pâtissière froide, puis incorporer la chantilly délicatement."
     ],
     "notes": [
-      "Dosage fourrage : 30–40 g par donut.",
+      "Dosage fourrage : 30–40g par donut.",
       "Texture attendue : légère, stable et propre.",
       "Met à jour la recette existante de crème diplomate vanille.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -1409,20 +1409,20 @@ window.RECIPES = {
       {
         "group": "Craquelin",
         "items": [
-          "50 g beurre",
-          "60 g cassonade",
-          "60 g farine"
+          "50g beurre",
+          "60g cassonade",
+          "60g farine"
         ]
       },
       {
         "group": "Pâte à choux",
         "items": [
-          "125 g lait",
-          "125 g eau",
-          "100 g beurre",
-          "5 g sel",
-          "150 g farine T55",
-          "250 g œufs (env. 5)"
+          "125g lait",
+          "125g eau",
+          "100g beurre",
+          "5g sel",
+          "150g farine T55",
+          "250g œufs (env. 5)"
         ]
       },
       {
@@ -1433,13 +1433,13 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Abaisser craquelin 2 mm, détailler disques.",
-      "Réaliser pâte à choux ; pocher Ø 3–4 cm ; couvrir d'un disque de craquelin.",
-      "Cuire 170–175 °C 35–40 min ventilé sec.",
+      "Abaisser craquelin 2mm, détailler disques.",
+      "Réaliser pâte à choux ; pocher Ø 3–4cm ; couvrir d'un disque de craquelin.",
+      "Cuire 170–175°C 35–40min ventilé sec.",
       "Refroidir, garnir."
     ],
     "notes": [
-      "Conservation : coques 3 j à température ambiante dans boîte hermétique ; garnis 24 h au froid.",
+      "Conservation : coques 3 j à température ambiante dans boîte hermétique ; garnis 24h au froid.",
       "→ Recette de garnissage : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span>",
       "→ Version allégée : <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>",
       "Stockage : boîte hermétique au sec, à température ambiante. Péremption : 5–14 jours selon humidité; garder loin du réfrigérateur sauf garniture fragile.",
@@ -1465,9 +1465,9 @@ window.RECIPES = {
       {
         "group": "Appareil",
         "items": [
-          "200 g blancs d'œufs (à température ambiante)",
-          "200 g sucre semoule",
-          "200 g sucre glace tamisé"
+          "200g blancs d'œufs (à température ambiante)",
+          "200g sucre semoule",
+          "200g sucre glace tamisé"
         ]
       }
     ],
@@ -1476,7 +1476,7 @@ window.RECIPES = {
       "Ajouter progressivement le sucre semoule en fouettant jusqu'à obtenir une meringue brillante et ferme.",
       "Incorporer délicatement le sucre glace tamisé à la maryse.",
       "Pocher les meringues sur une plaque recouverte de papier cuisson.",
-      "Cuire 2 à 3 h à 90–100 °C jusqu'à ce qu'elles soient sèches et se décollent facilement.",
+      "Cuire 2 à 3h à 90–100°C jusqu'à ce qu'elles soient sèches et se décollent facilement.",
       "Laisser refroidir dans le four éteint, porte entrouverte."
     ],
     "notes": [
@@ -1507,14 +1507,14 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "400 g fraises",
-          "80 g sucre",
-          "10 g jus de citron"
+          "400g fraises",
+          "80g sucre",
+          "10g jus de citron"
         ]
       }
     ],
     "steps": [
-      "Mixer ; chauffer à frémissement 1–2 min ; refroidir."
+      "Mixer ; chauffer à frémissement 1–2min ; refroidir."
     ],
     "notes": [
       "Texture coulis (burette) ; passer fin.",
@@ -1540,9 +1540,9 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "400 g framboises",
-          "90 g sucre",
-          "10 g jus de citron"
+          "400g framboises",
+          "90g sucre",
+          "10g jus de citron"
         ]
       }
     ],
@@ -1570,15 +1570,15 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "400 g abricots dénoyautés",
-          "70 g sucre",
+          "400g abricots dénoyautés",
+          "70g sucre",
           "1/2 gousse de vanille",
-          "20 g eau"
+          "20g eau"
         ]
       }
     ],
     "steps": [
-      "Cuire 5–8 min ; mixer lisse ; passer."
+      "Cuire 5–8min ; mixer lisse ; passer."
     ],
     "notes": [
       "Conservation : 5 j au froid ; congélateur 2 mois.",
@@ -1602,14 +1602,14 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "400 g poires mûres",
-          "60–80 g sucre (au goût)",
-          "10 g jus de citron"
+          "400g poires mûres",
+          "60–80g sucre (au goût)",
+          "10g jus de citron"
         ]
       }
     ],
     "steps": [
-      "Cuire 3–5 min ; mixer lisse ; passer."
+      "Cuire 3–5min ; mixer lisse ; passer."
     ],
     "notes": [
       "Assaisonnement possible : vanille, poivre Timut.",
@@ -1633,9 +1633,9 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "400 g fruit",
-          "60–100 g sucre (au goût et selon l'acidité)",
-          "10 g jus de citron"
+          "400g fruit",
+          "60–100g sucre (au goût et selon l'acidité)",
+          "10g jus de citron"
         ]
       },
       {
@@ -1646,7 +1646,7 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Mixer, chauffer 1–2 min jusqu'à premier frémissement, passer si nécessaire, refroidir."
+      "Mixer, chauffer 1–2min jusqu'à premier frémissement, passer si nécessaire, refroidir."
     ],
     "notes": [
       "Texture \"burette\" pour dressage : ajuster eau si besoin.",
@@ -1685,8 +1685,8 @@ window.RECIPES = {
       {
         "group": "Liquides",
         "items": [
-          "2 verres de vin blanc sec (≈ 30 cl)",
-          "50 cl eau",
+          "2 verres de vin blanc sec (≈ 30cl)",
+          "50cl eau",
           "Sel"
         ]
       }
@@ -1695,8 +1695,8 @@ window.RECIPES = {
       "Éplucher le poireau, les carottes et l'oignon. Laver le céleri et les herbes.",
       "Couper le poireau en quatre dans la longueur et l'attacher avec les branches de céleri et le laurier pour former le bouquet garni.",
       "Couper les carottes en quatre dans la longueur. Piquer l'oignon avec le clou de girofle.",
-      "Dans une cocotte, placer le bouquet garni, les carottes, l'oignon, le vin blanc et 50 cl d'eau. Saler et poivrer.",
-      "Porter à ébullition puis laisser cuire 20 min à frémissement.",
+      "Dans une cocotte, placer le bouquet garni, les carottes, l'oignon, le vin blanc et 50cl d'eau. Saler et poivrer.",
+      "Porter à ébullition puis laisser cuire 20min à frémissement.",
       "Laisser refroidir, puis placer au frais avant utilisation."
     ],
     "notes": [
@@ -1705,7 +1705,7 @@ window.RECIPES = {
       "Astuce : ajouter un trait de vinaigre blanc ou de jus de citron pour les crustacés.",
       "Base possible pour des plats mijotés, sauces et pochages aromatiques.",
       "Stockage optimal : boîte hermétique ou pot en verre au réfrigérateur.",
-      "Conservation : 3–4 j au froid ; se congèle très bien 2–3 mois (en portions de 250 ml).",
+      "Conservation : 3–4 j au froid ; se congèle très bien 2–3 mois (en portions de 250ml).",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 2
@@ -1720,65 +1720,65 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "12–14 beignets de 60–70 g",
+    "yield": "12–14 beignets de 60–70g",
     "image": "/assets/recipe-images/donuts_cloud_spooky.png",
     "ingredients": [
       {
         "group": "Pâte",
         "items": [
-          "250 g farine T45 ou T55",
-          "25 g sucre",
-          "3 g sel",
-          "10–12 g levure fraîche",
-          "50 g œuf",
-          "140 g lait",
-          "25 g beurre",
-          "5 g vanille"
+          "250g farine T45 ou T55",
+          "25g sucre",
+          "3g sel",
+          "10–12g levure fraîche",
+          "50g œuf",
+          "140g lait",
+          "25g beurre",
+          "5g vanille"
         ]
       },
       {
         "group": "Friture",
         "items": [
-          "Huile neutre à 160–165 °C"
+          "Huile neutre à 160–165°C"
         ]
       },
       {
         "group": "Finition",
         "items": [
-          "120 g sucre semoule ou sucre glace",
-          "30–40 g crème par pièce si fourré"
+          "120g sucre semoule ou sucre glace",
+          "30–40g crème par pièce si fourré"
         ]
       },
       {
         "group": "Conversion levure",
         "items": [
-          "1 g levure sèche équivaut à environ 3 g levure fraîche",
-          "8–10 g levure sèche équivalent à 24–30 g levure fraîche"
+          "1g levure sèche équivaut à environ 3g levure fraîche",
+          "8–10g levure sèche équivalent à 24–30g levure fraîche"
         ]
       }
     ],
     "steps": [
-      "La veille : prélever 40 g de lait, tiédir à 25–30 °C, dissoudre la levure fraîche.",
+      "La veille : prélever 40g de lait, tiédir à 25–30°C, dissoudre la levure fraîche.",
       "Mélanger farine, sucre, sel et vanille. Ajouter œuf, reste du lait, mélange levure et beurre fondu tiède ou mou.",
-      "Pétrir 8–10 min jusqu’à pâte lisse, souple et légèrement collante. Couvrir 15 min.",
-      "Bouler, placer en bol légèrement huilé, laisser 30–45 min à température ambiante.",
-      "Couvrir et mettre au froid 12–18 h.",
-      "Le lendemain : sortir 1 h avant.",
-      "Dégazer légèrement, bouler à 60–70 g avec une surface bien tendue.",
-      "Apprêt 1 h à 1 h 30. L’empreinte du doigt doit remonter lentement.",
-      "Frire à 160–165 °C, 2 min 30 à 3 min par face, 2–3 pièces maximum à la fois.",
+      "Pétrir 8–10min jusqu’à pâte lisse, souple et légèrement collante. Couvrir 15min.",
+      "Bouler, placer en bol légèrement huilé, laisser 30–45min à température ambiante.",
+      "Couvrir et mettre au froid 12–18h.",
+      "Le lendemain : sortir 1h avant.",
+      "Dégazer légèrement, bouler à 60–70g avec une surface bien tendue.",
+      "Apprêt 1h à 1h 30. L’empreinte du doigt doit remonter lentement.",
+      "Frire à 160–165°C, 2min 30 à 3min par face, 2–3 pièces maximum à la fois.",
       "Rouler dans le sucre à chaud, saupoudrer de sucre glace tiède ou froid, ou fourrer quand les beignets sont tièdes ou froids."
     ],
     "notes": [
       "Ne jamais fourrer chaud.",
-      "Trou sur le côté, douille longue, 30–40 g de crème.",
+      "Trou sur le côté, douille longue, 30–40g de crème.",
       "Stopper quand le beignet devient légèrement gonflé et lourd.",
       "Huile trop chaude : extérieur foncé et cœur insuffisamment cuit.",
       "Huile trop froide : beignets gras.",
       "Apprêt insuffisant : mie dense.",
       "Sur-apprêt : beignets qui retombent.",
       "Résultat attendu : mie aérée et filante, extérieur finement doré, cuisson à cœur sans sécheresse.",
-      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture.",
+      "Stockage : idéalement le jour même. Péremption : 24–48h en boîte hermétique; réchauffer doucement pour retrouver la texture.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire.",
       "Crèmes à garnir : <span data-goto=\"creme_diplomate_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille</span> · <span data-goto=\"creme_diplomate_cloud\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème diplomate vanille à garnir</span> · <span data-goto=\"creme_patissiere_vanille\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière vanille</span> · <span data-goto=\"creme_patissiere_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pâtissière praliné</span> · <span data-goto=\"creme_kinder_nutella\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème Nutella à garnir</span> · <span data-goto=\"creme_pistache\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème pistache à garnir</span> · <span data-goto=\"creme_praline\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème praliné</span> · <span data-goto=\"mascarpone\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Crème mascarpone vanille</span> · <span data-goto=\"chantilly_gelatine\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Chantilly stabilisée</span>."
     ],
@@ -1800,29 +1800,29 @@ window.RECIPES = {
       {
         "group": "Crème pâtissière",
         "items": [
-          "250 g lait entier",
-          "50 g jaunes d'œufs (≈ 3 jaunes)",
-          "60 g sucre",
-          "25 g maïzena",
-          "25 g beurre doux",
-          "5 g vanille (ou 1 gousse)"
+          "250g lait entier",
+          "50g jaunes d'œufs (≈ 3 jaunes)",
+          "60g sucre",
+          "25g maïzena",
+          "25g beurre doux",
+          "5g vanille (ou 1 gousse)"
         ],
         "recipeId": "creme_patissiere_vanille"
       },
       {
         "group": "Chantilly",
         "items": [
-          "200 g crème liquide entière (30–35 %) très froide",
-          "20 g sucre glace"
+          "200g crème liquide entière (30–35 %) très froide",
+          "20g sucre glace"
         ],
         "recipeId": "chantilly_classique"
       },
       {
         "group": "Variante mascarpone (rapide)",
         "items": [
-          "250 g mascarpone",
-          "200 g crème liquide entière",
-          "60 g sucre glace",
+          "250g mascarpone",
+          "200g crème liquide entière",
+          "60g sucre glace",
           "Vanille"
         ]
       }
@@ -1832,14 +1832,14 @@ window.RECIPES = {
       "Chauffer le lait avec la vanille (gratter la gousse si entière) jusqu'à frémissement.",
       "Dans un bol, fouetter les jaunes + sucre jusqu'à blanchiment. Ajouter la maïzena, bien mélanger.",
       "Verser le lait chaud en filet sur le mélange en fouettant constamment pour éviter la coagulation.",
-      "Remettre dans la casserole, cuire à feu moyen en remuant sans arrêt jusqu'à épaississement net (environ 1–2 min après reprise de l'ébullition).",
-      "Hors du feu, incorporer le beurre en morceaux. Filmer immédiatement au contact (le film touche la crème) et refroidir complètement au réfrigérateur (minimum 2 h).",
+      "Remettre dans la casserole, cuire à feu moyen en remuant sans arrêt jusqu'à épaississement net (environ 1–2min après reprise de l'ébullition).",
+      "Hors du feu, incorporer le beurre en morceaux. Filmer immédiatement au contact (le film touche la crème) et refroidir complètement au réfrigérateur (minimum 2h).",
       "— CHANTILLY —",
       "Fouetter la crème bien froide avec le sucre glace jusqu'à texture souple mais qui tient (bec d'oiseau ferme).",
       "— ASSEMBLAGE (crème diplomate) —",
       "Fouetter la pâtissière froide pour la détendre et la lisser. Incorporer la chantilly délicatement à la spatule en 2–3 fois (ne pas écraser les bulles d'air).",
       "— FOURRAGE DONUTS —",
-      "Faire un petit trou sur le côté de chaque donut tiède ou froid. Mettre la crème en poche avec une douille longue. Pocher 30–40 g de crème par donut — arrêter dès qu'il devient légèrement plus lourd.",
+      "Faire un petit trou sur le côté de chaque donut tiède ou froid. Mettre la crème en poche avec une douille longue. Pocher 30–40g de crème par donut — arrêter dès qu'il devient légèrement plus lourd.",
       "— VARIANTE MASCARPONE (si pressé) —",
       "Fouetter mascarpone + crème + sucre glace + vanille jusqu'à texture ferme. Prêt en 3 minutes, très stable, excellente tenue."
     ],
@@ -1849,9 +1849,9 @@ window.RECIPES = {
       "→ Recette des choux : <span data-goto='choux_craquelin' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Choux au craquelin</span>",
       "→ Version pâtissière seule : <span data-goto='creme_diplomate_vanille' style='color:#fbbf24;text-decoration:underline;cursor:pointer'>Crème diplomate vanille (recette de base)</span>",
       "Stockage optimal pâtissière : filmée au contact dans boîte hermétique au réfrigérateur.",
-      "Conservation pâtissière seule : 48 h au froid. Diplomate assemblée : 24 h au froid. Mascarpone : 36–48 h au froid.",
+      "Conservation pâtissière seule : 48h au froid. Diplomate assemblée : 24h au froid. Mascarpone : 36–48h au froid.",
       "Congélation : possible pour la pâtissière seule (avant incorporation chantilly) — 1 mois. Fouetter à nouveau après décongélation.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "difficultyScore": 6
   },
@@ -1873,7 +1873,7 @@ window.RECIPES = {
         "items": [
           "5–6 couronnes de pâte à choux cuites avec craquelin",
           "Crème au praliné",
-          "50 g noisettes torréfiées concassées",
+          "50g noisettes torréfiées concassées",
           "QS praliné noisette pur"
         ]
       },
@@ -1896,7 +1896,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Montage en couronnes de pâte à choux, crème praliné et noisettes.",
-      "Sortir du réfrigérateur 30 à 40 min avant dégustation.",
+      "Sortir du réfrigérateur 30 à 40min avant dégustation.",
       "Stockage : boîte hermétique adaptée, au réfrigérateur si la recette contient œufs, crème, viande ou garniture humide. Péremption : 2–3 jours."
     ],
     "difficultyScore": 8
@@ -1916,19 +1916,19 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "40 g beurre pommade",
-          "45 g farine",
-          "50 g cassonade",
-          "6 g cacao non sucré",
-          "25 g blancs d’œufs",
-          "40 g noisettes concassées"
+          "40g beurre pommade",
+          "45g farine",
+          "50g cassonade",
+          "6g cacao non sucré",
+          "25g blancs d’œufs",
+          "40g noisettes concassées"
         ]
       }
     ],
     "steps": [
       "Mélanger farine + cassonade + cacao, puis incorporer le beurre.",
-      "Étaler à 2 mm entre deux feuilles et congeler 30 min.",
-      "Découper des anneaux (Ø 8 cm, trou Ø 2 cm), badigeonner de blanc d’œuf, ajouter les noisettes puis recongeler jusqu’à usage."
+      "Étaler à 2mm entre deux feuilles et congeler 30min.",
+      "Découper des anneaux (Ø 8cm, trou Ø 2cm), badigeonner de blanc d’œuf, ajouter les noisettes puis recongeler jusqu’à usage."
     ],
     "notes": [
       "Composant pour : <span data-goto=\"paris_brest\" style=\"color:#fbbf24;text-decoration:underline;cursor:pointer\">Paris-Brest</span>.",
@@ -1952,12 +1952,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "60 g lait",
-          "60 g eau",
-          "2 g sel",
-          "55 g beurre",
-          "75 g farine",
-          "100 g œufs (≈2)"
+          "60g lait",
+          "60g eau",
+          "2g sel",
+          "55g beurre",
+          "75g farine",
+          "100g œufs (≈2)"
         ]
       }
     ],
@@ -1965,7 +1965,7 @@ window.RECIPES = {
       "Porter à ébullition eau + lait + sel + beurre.",
       "Hors du feu, ajouter la farine en une fois puis dessécher sur feu doux.",
       "Refroidir légèrement au robot (feuille), puis incorporer les œufs progressivement jusqu’à texture lisse.",
-      "Pocher des couronnes de 7 cm, poser le craquelin puis cuire à 170 °C pendant 40 à 45 min."
+      "Pocher des couronnes de 7cm, poser le craquelin puis cuire à 170°C pendant 40 à 45min."
     ],
     "notes": [
       "Le test du sillon : il doit se refermer doucement quand la texture est correcte.",
@@ -1994,18 +1994,18 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "4 g gélatine poudre + 16 g eau",
-          "150 g lait",
-          "30 g crème liquide",
-          "30 g sucre",
-          "9 g maïzena",
-          "9 g farine",
-          "30 g jaunes d’œufs",
-          "10 g beurre de cacao",
-          "17 g beurre",
-          "10 g mascarpone",
-          "30 g pâte de noisette",
-          "60 g praliné noisette"
+          "4g gélatine poudre + 16g eau",
+          "150g lait",
+          "30g crème liquide",
+          "30g sucre",
+          "9g maïzena",
+          "9g farine",
+          "30g jaunes d’œufs",
+          "10g beurre de cacao",
+          "17g beurre",
+          "10g mascarpone",
+          "30g pâte de noisette",
+          "60g praliné noisette"
         ]
       }
     ],
@@ -2037,26 +2037,26 @@ window.RECIPES = {
       {
         "group": "Crème anglaise au beurre",
         "items": [
-          "45 g lait",
-          "45 g sucre",
-          "35 g jaunes d’œufs",
-          "200 g beurre pommade"
+          "45g lait",
+          "45g sucre",
+          "35g jaunes d’œufs",
+          "200g beurre pommade"
         ]
       },
       {
         "group": "Meringue italienne",
         "items": [
-          "20 g eau",
-          "60 g sucre",
-          "30 g blancs d’œufs"
+          "20g eau",
+          "60g sucre",
+          "30g blancs d’œufs"
         ],
         "recipeId": "meringue_italienne"
       }
     ],
     "steps": [
-      "Cuire la crème anglaise (lait + jaunes + sucre) à 84 °C, puis refroidir légèrement.",
+      "Cuire la crème anglaise (lait + jaunes + sucre) à 84°C, puis refroidir légèrement.",
       "Foisonner le beurre pommade puis incorporer progressivement la crème anglaise.",
-      "Réaliser une meringue italienne (sirop 121 °C versé sur blancs mousseux) puis incorporer délicatement à la crème au beurre."
+      "Réaliser une meringue italienne (sirop 121°C versé sur blancs mousseux) puis incorporer délicatement à la crème au beurre."
     ],
     "notes": [
       "Base technique pour plusieurs entremets/pâtisseries classiques.",
@@ -2081,8 +2081,8 @@ window.RECIPES = {
       {
         "group": "Assemblage",
         "items": [
-          "390 g crème pâtissière praliné (ou totalité préparée)",
-          "300 g crème au beurre (environ)"
+          "390g crème pâtissière praliné (ou totalité préparée)",
+          "300g crème au beurre (environ)"
         ]
       }
     ],
@@ -2356,15 +2356,15 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "~500 g",
+    "yield": "~500g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "250 g mascarpone",
-          "150 g crème entière froide",
-          "120 g pâte à tartiner chocolat-noisette",
-          "20 g sucre glace"
+          "250g mascarpone",
+          "150g crème entière froide",
+          "120g pâte à tartiner chocolat-noisette",
+          "20g sucre glace"
         ]
       }
     ],
@@ -2376,7 +2376,7 @@ window.RECIPES = {
     "notes": [
       "Texture crèmeuse mais stable en fourrage.",
       "Goût intense, ne détrempe pas le donut.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2402,15 +2402,15 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "~500 g",
+    "yield": "~500g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "250 g mascarpone",
-          "180 g crème entière froide",
-          "80 g pâte de pistache",
-          "30 g sucre glace"
+          "250g mascarpone",
+          "180g crème entière froide",
+          "80g pâte de pistache",
+          "30g sucre glace"
         ]
       }
     ],
@@ -2421,7 +2421,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Résultat attendu : crèmeux, parfumé et stable.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2447,29 +2447,29 @@ window.RECIPES = {
       {
         "group": "Pâte levée",
         "items": [
-          "250 g farine",
-          "370 g lait tiède",
-          "15 g levure fraîche",
-          "150 g œufs entiers (3 œufs)",
-          "100 g beurre fondu",
-          "10 g sucre",
-          "2 g sel",
-          "5 g vanille optionnelle"
+          "250g farine",
+          "370g lait tiède",
+          "15g levure fraîche",
+          "150g œufs entiers (3 œufs)",
+          "100g beurre fondu",
+          "10g sucre",
+          "2g sel",
+          "5g vanille optionnelle"
         ]
       }
     ],
     "steps": [
-      "Mélanger levure et lait tiède, attendre 10 min.",
+      "Mélanger levure et lait tiède, attendre 10min.",
       "Mélanger farine, sucre, sel, jaunes d’œufs, lait et levure jusqu’à pâte lisse.",
       "Ajouter le beurre fondu.",
-      "Laisser lever 1 h.",
+      "Laisser lever 1h.",
       "Monter les blancs en neige et incorporer délicatement.",
-      "Cuire dans un gaufrier très chaud 3–4 min."
+      "Cuire dans un gaufrier très chaud 3–4min."
     ],
     "notes": [
       "Vraie gaufre de Bruxelles : pâte levée, blancs montés, gros trous, texture légère et croustillante.",
-      "Pour plus de croustillant, remplacer 50 g de lait par 50 g de bière.",
-      "Stockage : idéalement le jour même. Péremption : 24–48 h en boîte hermétique; réchauffer doucement pour retrouver la texture."
+      "Pour plus de croustillant, remplacer 50g de lait par 50g de bière.",
+      "Stockage : idéalement le jour même. Péremption : 24–48h en boîte hermétique; réchauffer doucement pour retrouver la texture."
     ],
     "tags": [
       "gaufre",
@@ -2495,33 +2495,33 @@ window.RECIPES = {
       {
         "group": "Pâte sucrée",
         "items": [
-          "100 g farine",
-          "50 g beurre mou",
-          "40 g sucre",
-          "25 g œuf"
+          "100g farine",
+          "50g beurre mou",
+          "40g sucre",
+          "25g œuf"
         ],
         "recipeId": "pate_sucree"
       },
       {
         "group": "Crème d’amande",
         "items": [
-          "75 g beurre mou",
-          "75 g sucre",
-          "50 g œuf",
-          "75 g poudre d’amande",
-          "10 g fécule",
-          "2 g zeste de citron"
+          "75g beurre mou",
+          "75g sucre",
+          "50g œuf",
+          "75g poudre d’amande",
+          "10g fécule",
+          "2g zeste de citron"
         ],
         "recipeId": "creme_amande_citron"
       },
       {
         "group": "Crème citron",
         "items": [
-          "80 g jus de citron",
-          "180 g jaunes d’œufs",
-          "130 g sucre",
-          "10 g fécule",
-          "100 g beurre"
+          "80g jus de citron",
+          "180g jaunes d’œufs",
+          "130g sucre",
+          "10g fécule",
+          "100g beurre"
         ],
         "recipeId": "creme_citron_lemon_curd"
       },
@@ -2529,36 +2529,36 @@ window.RECIPES = {
         "group": "Marmelade citron optionnelle",
         "items": [
           "3 citrons",
-          "50 g sucre"
+          "50g sucre"
         ],
         "recipeId": "compotee_citron"
       },
       {
         "group": "Meringue italienne",
         "items": [
-          "60 g blancs d’œufs",
-          "100 g sucre",
-          "30 g eau",
-          "2 g sel",
-          "2 g jus de citron"
+          "60g blancs d’œufs",
+          "100g sucre",
+          "30g eau",
+          "2g sel",
+          "2g jus de citron"
         ],
         "recipeId": "meringue_italienne"
       }
     ],
     "steps": [
-      "Pâte sucrée : mélanger beurre et sucre, ajouter œuf puis farine. Former une boule et refroidir 30 min.",
-      "Étaler à 3–4 mm, foncer, piquer et cuire 10 min à 180 °C.",
-      "Crème d’amande : mélanger beurre et sucre, ajouter œuf, poudre d’amande, fécule et zeste. Étaler 5 mm dans la tarte et cuire 20–25 min à 180 °C.",
+      "Pâte sucrée : mélanger beurre et sucre, ajouter œuf puis farine. Former une boule et refroidir 30min.",
+      "Étaler à 3–4mm, foncer, piquer et cuire 10min à 180°C.",
+      "Crème d’amande : mélanger beurre et sucre, ajouter œuf, poudre d’amande, fécule et zeste. Étaler 5mm dans la tarte et cuire 20–25min à 180°C.",
       "Crème citron : chauffer le jus, fouetter jaunes et sucre, ajouter fécule, verser le jus chaud, cuire jusqu’à épaississement, ajouter beurre, filmer au contact et refroidir.",
       "Compotée optionnelle : cuire citron et sucre, mixer, puis Étaler une fine couche sur le fond.",
-      "Montage : fond cuit, compotée optionnelle, crème citron sur 1–2 cm, lisser.",
-      "Meringue italienne : cuire sucre, eau et citron à 118–120 °C, verser en filet sur blancs mousseux, fouetter 5–10 min jusqu’à refroidissement.",
-      "Pocher la meringue, finir au chalumeau ou sous grill, puis reposer 1 h minimum au froid."
+      "Montage : fond cuit, compotée optionnelle, crème citron sur 1–2cm, lisser.",
+      "Meringue italienne : cuire sucre, eau et citron à 118–120°C, verser en filet sur blancs mousseux, fouetter 5–10min jusqu’à refroidissement.",
+      "Pocher la meringue, finir au chalumeau ou sous grill, puis reposer 1h minimum au froid."
     ],
     "notes": [
-      "Points critiques : beurre pommade non liquide, sirop à 118–120 °C, verser lentement, fouetter jusqu’à refroidissement complet.",
+      "Points critiques : beurre pommade non liquide, sirop à 118–120°C, verser lentement, fouetter jusqu’à refroidissement complet.",
       "Résultat attendu : pâte croustillante, crème d’amande moelleuse, crème citron fondante, meringue légère et stable.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs.",
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -2585,12 +2585,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g mascarpone",
-          "100 g œufs (2 œufs)",
-          "80 g sucre",
-          "200 g spéculoos",
-          "100 g jus d’orange",
-          "30–45 g Grand Marnier"
+          "250g mascarpone",
+          "100g œufs (2 œufs)",
+          "80g sucre",
+          "200g spéculoos",
+          "100g jus d’orange",
+          "30–45g Grand Marnier"
         ]
       }
     ],
@@ -2600,13 +2600,13 @@ window.RECIPES = {
       "Monter les blancs et incorporer délicatement.",
       "Tremper les spéculoos dans jus d’orange et Grand Marnier.",
       "Monter en couches.",
-      "Réfrigérer 4 h minimum."
+      "Réfrigérer 4h minimum."
     ],
     "notes": [
       "Toujours tout peser avant.",
       "Respecter les textures : pommade, mousse, bec d’oiseau.",
       "Ne jamais précipiter la meringue ou les mélanges mousseux.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "tiramisu",
@@ -2631,11 +2631,11 @@ window.RECIPES = {
       {
         "group": "Garniture",
         "items": [
-          "200 g de poitrine fumée en dés",
-          "80 g oignon",
-          "4 g ail",
-          "10 g huile d’olive",
-          "50 g vin blanc pour déglacer",
+          "200g de poitrine fumée en dés",
+          "80g oignon",
+          "4g ail",
+          "10g huile d’olive",
+          "50g vin blanc pour déglacer",
           "1 à 2 tomates coupées en tranches très fines",
           "Thym ou origan pour les tomates"
         ]
@@ -2643,14 +2643,14 @@ window.RECIPES = {
       {
         "group": "Appareil à cake",
         "items": [
-          "75 g beurre",
-          "200 g farine",
-          "11 g levure chimique",
-          "200 g œufs (4 œufs)",
-          "100 g lait",
-          "150 g emmental râpé",
-          "2 g sel",
-          "1 g poivre"
+          "75g beurre",
+          "200g farine",
+          "11g levure chimique",
+          "200g œufs (4 œufs)",
+          "100g lait",
+          "150g emmental râpé",
+          "2g sel",
+          "1g poivre"
         ]
       }
     ],
@@ -2661,7 +2661,7 @@ window.RECIPES = {
       "Mélanger tous les ingrédients de l’appareil avec la garniture.",
       "Beurrer et fariner le moule.",
       "Déposer les tranches fines de tomates sur le dessus du cake juste avant d’enfourner, puis parsemer de thym ou d’origan.",
-      "Enfourner à 180 °C pendant 35 à 50 min selon le moule et l’épaisseur du cake."
+      "Enfourner à 180°C pendant 35 à 50min selon le moule et l’épaisseur du cake."
     ],
     "notes": [
       "Le cake est prêt quand la lame ressort sèche et que le dessus est bien doré.",
@@ -2700,20 +2700,20 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "6 oignons jaunes",
-          "40 g miel",
-          "40 g huile d’olive",
+          "40g miel",
+          "40g huile d’olive",
           "2 branches de thym frais",
-          "3 g sel",
-          "1 g poivre"
+          "3g sel",
+          "1g poivre"
         ]
       }
     ],
     "steps": [
-      "Préchauffer le four à 180 °C.",
+      "Préchauffer le four à 180°C.",
       "Éplucher les oignons et les couper en deux dans la largeur.",
       "Disposer côté coupé vers le haut sur plaque.",
       "Arroser d’huile d’olive, répartir le miel, saler, poivrer et parsemer de thym.",
-      "Rôtir environ 30 min jusqu’à coloration et caramélisation.",
+      "Rôtir environ 30min jusqu’à coloration et caramélisation.",
       "Arroser avec le jus de cuisson pendant la cuisson."
     ],
     "notes": [
@@ -2747,19 +2747,19 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "1,5 kg porc (épaule ou poitrine désossée)",
-          "30 g huile végétale neutre",
+          "1,5kg porc (épaule ou poitrine désossée)",
+          "30g huile végétale neutre",
           "2 oignons jaunes émincés",
           "3 gousses d’ail hachées",
-          "330 g bière blonde ou ambrée",
-          "130 g sirop d’érable pur",
-          "15 g moutarde de Dijon",
+          "330g bière blonde ou ambrée",
+          "130g sirop d’érable pur",
+          "15g moutarde de Dijon",
           "2 branches de thym frais",
           "1 feuille de laurier",
-          "5 g sel fin",
-          "2 g poivre noir",
-          "15 g vinaigre de cidre optionnel",
-          "40 g sirop d’érable optionnel pour ajuster"
+          "5g sel fin",
+          "2g poivre noir",
+          "15g vinaigre de cidre optionnel",
+          "40g sirop d’érable optionnel pour ajuster"
         ]
       }
     ],
@@ -2802,18 +2802,18 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "100 g farine",
-          "50 g beurre mou",
-          "40 g sucre",
-          "25 g œuf"
+          "100g farine",
+          "50g beurre mou",
+          "40g sucre",
+          "25g œuf"
         ]
       }
     ],
     "steps": [
       "Mélanger beurre et sucre sans faire fondre le beurre.",
       "Ajouter l’œuf puis la farine.",
-      "Former une boule, filmer et refroidir 30 min.",
-      "Étaler à 3–4 mm, foncer le moule, piquer puis cuire selon la recette finale."
+      "Former une boule, filmer et refroidir 30min.",
+      "Étaler à 3–4mm, foncer le moule, piquer puis cuire selon la recette finale."
     ],
     "notes": [
       "Base utilisée dans la tarte citron meringuée.",
@@ -2848,12 +2848,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "75 g beurre mou",
-          "75 g sucre",
-          "50 g œuf",
-          "75 g poudre d’amande",
-          "10 g fécule",
-          "2 g zeste de citron"
+          "75g beurre mou",
+          "75g sucre",
+          "50g œuf",
+          "75g poudre d’amande",
+          "10g fécule",
+          "2g zeste de citron"
         ]
       }
     ],
@@ -2861,11 +2861,11 @@ window.RECIPES = {
       "Crèmer beurre et sucre.",
       "Ajouter l’œuf.",
       "Incorporer poudre d’amande, fécule et zeste.",
-      "Étaler environ 5 mm dans le fond de tarte et cuire jusqu’à coloration moelleuse."
+      "Étaler environ 5mm dans le fond de tarte et cuire jusqu’à coloration moelleuse."
     ],
     "notes": [
       "Base moelleuse pour tartes aux fruits ou citron.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2892,16 +2892,16 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "Environ 500 g",
+    "yield": "Environ 500g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "80 g jus de citron",
-          "180 g jaunes d’œufs",
-          "130 g sucre",
-          "10 g fécule",
-          "100 g beurre"
+          "80g jus de citron",
+          "180g jaunes d’œufs",
+          "130g sucre",
+          "10g fécule",
+          "100g beurre"
         ]
       }
     ],
@@ -2915,7 +2915,7 @@ window.RECIPES = {
     "notes": [
       "Texture fondante pour tarte citron, verrines ou fourrage.",
       "Refroidir avant montage pour une tenue nette.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -2945,7 +2945,7 @@ window.RECIPES = {
         "group": "Base",
         "items": [
           "3 citrons",
-          "50 g sucre"
+          "50g sucre"
         ]
       }
     ],
@@ -2958,7 +2958,7 @@ window.RECIPES = {
     "notes": [
       "Optionnelle dans la tarte citron meringuée.",
       "À utiliser en petite quantité pour éviter l’amertume.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "citron",
@@ -2989,19 +2989,19 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "60 g blancs d’œufs",
-          "100 g sucre",
-          "30 g eau",
-          "1 g sel",
-          "2 g jus de citron"
+          "60g blancs d’œufs",
+          "100g sucre",
+          "30g eau",
+          "1g sel",
+          "2g jus de citron"
         ]
       }
     ],
     "steps": [
-      "Cuire sucre, eau et jus de citron à 118–120 °C.",
+      "Cuire sucre, eau et jus de citron à 118–120°C.",
       "Monter les blancs mousseux avec le sel.",
       "Verser le sirop en filet sur les blancs.",
-      "Fouetter 5–10 min jusqu’à refroidissement, texture lisse, brillante et ferme."
+      "Fouetter 5–10min jusqu’à refroidissement, texture lisse, brillante et ferme."
     ],
     "notes": [
       "Verser le sirop lentement.",
@@ -3032,17 +3032,17 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "medium",
-    "yield": "Environ 400 g",
+    "yield": "Environ 400g",
     "ingredients": [
       {
         "group": "Base",
         "items": [
-          "250 g lait",
-          "50 g jaunes d’œufs",
-          "60 g sucre",
-          "25 g Maïzena",
-          "25 g beurre",
-          "5 g vanille"
+          "250g lait",
+          "50g jaunes d’œufs",
+          "60g sucre",
+          "25g Maïzena",
+          "25g beurre",
+          "5g vanille"
         ]
       }
     ],
@@ -3056,7 +3056,7 @@ window.RECIPES = {
     "notes": [
       "Base de la crème diplomate vanille.",
       "Lisser au fouet après refroidissement avant incorporation.",
-      "Stockage : au réfrigérateur à 0–4 °C, filmé ou en boîte hermétique. Péremption : 24–48 h selon fraîcheur des produits laitiers et des œufs."
+      "Stockage : au réfrigérateur à 0–4°C, filmé ou en boîte hermétique. Péremption : 24–48h selon fraîcheur des produits laitiers et des œufs."
     ],
     "tags": [
       "creme",
@@ -3084,21 +3084,21 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "200 g avocat mûr en dés",
-          "100 g œufs durs écalés et tranchés",
-          "60 g pousses d’épinards lavées et séchées",
-          "14 g huile d’olive",
-          "15 g jus de citron",
-          "2 g sel fin",
-          "1 g poivre noir"
+          "200g avocat mûr en dés",
+          "100g œufs durs écalés et tranchés",
+          "60g pousses d’épinards lavées et séchées",
+          "14g huile d’olive",
+          "15g jus de citron",
+          "2g sel fin",
+          "1g poivre noir"
         ]
       },
       {
         "group": "Option",
         "items": [
-          "120 g tomates cerises",
-          "30 g noix",
-          "40 g fromage en dés"
+          "120g tomates cerises",
+          "30g noix",
+          "40g fromage en dés"
         ]
       }
     ],
@@ -3111,7 +3111,7 @@ window.RECIPES = {
     ],
     "notes": [
       "Servir rapidement après découpe de l’avocat.",
-      "Stockage : boîte hermétique au réfrigérateur. Péremption : 24 h, à assaisonner au dernier moment."
+      "Stockage : boîte hermétique au réfrigérateur. Péremption : 24h, à assaisonner au dernier moment."
     ],
     "tags": [
       "salade",
@@ -3296,7 +3296,7 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "260 g environ",
+    "yield": "260g environ",
     "aliases": [
       "babeurre",
       "babeurre maison",
@@ -3306,19 +3306,19 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "250 g lait entier",
-          "10 g jus de citron ou vinaigre"
+          "250g lait entier",
+          "10g jus de citron ou vinaigre"
         ]
       }
     ],
     "steps": [
       "Mélanger le lait et le jus de citron ou le vinaigre.",
-      "Laisser reposer 10 min  à température ambiante.",
+      "Laisser reposer 10min  à température ambiante.",
       "Utiliser dès que le lait a légèrement épaissi."
     ],
     "notes": [
       "À utiliser dans les pancakes, gaufres ou pâtes levées moelleuses.",
-      "Stockage : au réfrigérateur en contenant propre. Péremption : 24 h."
+      "Stockage : au réfrigérateur en contenant propre. Péremption : 24h."
     ],
     "tags": [
       "babeurre",
@@ -3348,22 +3348,22 @@ window.RECIPES = {
         "group": "Tomates",
         "items": [
           "4 tomates mûres",
-          "25 g chapelure",
-          "15 g parmesan râpé",
-          "10 g persil haché",
+          "25g chapelure",
+          "15g parmesan râpé",
+          "10g persil haché",
           "1 gousse d’ail hachée",
-          "20 g huile d’olive",
-          "2 g sel fin",
-          "1 g poivre"
+          "20g huile d’olive",
+          "2g sel fin",
+          "1g poivre"
         ]
       }
     ],
     "steps": [
-      "Préchauffer le four à 180 °C.",
+      "Préchauffer le four à 180°C.",
       "Couper les tomates en deux, les saler légèrement et les poser dans un plat huilé.",
       "Mélanger chapelure, parmesan, ail, persil, poivre et un filet d’huile d’olive.",
       "Répartir la persillade sur les tomates.",
-      "Cuire 25 à 35 min, jusqu’à obtenir des tomates fondantes et un dessus doré."
+      "Cuire 25 à 35min, jusqu’à obtenir des tomates fondantes et un dessus doré."
     ],
     "notes": [
       "Servir chaud, tiède ou en accompagnement d’une viande grillée.",
@@ -3402,18 +3402,18 @@ window.RECIPES = {
       {
         "group": "Pâte",
         "items": [
-          "300 g farine de blé",
-          "5 g sel fin",
-          "6 g levure chimique",
-          "45 g huile neutre ou huile d’olive",
-          "160 g eau tiède"
+          "300g farine de blé",
+          "5g sel fin",
+          "6g levure chimique",
+          "45g huile neutre ou huile d’olive",
+          "160g eau tiède"
         ]
       }
     ],
     "steps": [
       "Mélanger farine, sel et levure chimique.",
       "Ajouter l’huile puis l’eau tiède progressivement et pétrir jusqu’à obtenir une pâte souple.",
-      "Diviser en 8 pâtons, bouler et laisser reposer 20 à 30 min sous un linge.",
+      "Diviser en 8 pâtons, bouler et laisser reposer 20 à 30min sous un linge.",
       "Étaler chaque pâton très finement sur un plan légèrement fariné.",
       "Cuire à la poêle chaude 45 à 60 s par face, sans trop colorer.",
       "Empiler dans un torchon propre pour garder les tortillas souples."
@@ -3455,19 +3455,19 @@ window.RECIPES = {
       {
         "group": "Appareil chocolat",
         "items": [
-          "200 g chocolat noir",
-          "120 g beurre",
-          "165 g œufs (3 œufs moyens)",
-          "90 g sucre",
-          "45 g farine",
-          "1 g fleur de sel"
+          "200g chocolat noir",
+          "120g beurre",
+          "165g œufs (3 œufs moyens)",
+          "90g sucre",
+          "45g farine",
+          "1g fleur de sel"
         ]
       },
       {
         "group": "Moules",
         "items": [
-          "10 g beurre pommade",
-          "10 g cacao ou farine pour chemiser"
+          "10g beurre pommade",
+          "10g cacao ou farine pour chemiser"
         ]
       }
     ],
@@ -3476,13 +3476,13 @@ window.RECIPES = {
       "Faire fondre doucement le chocolat avec le beurre.",
       "Fouetter les œufs avec le sucre sans trop blanchir.",
       "Incorporer le mélange chocolat-beurre, puis la farine et la fleur de sel.",
-      "Remplir les moules aux trois quarts et réserver au froid au moins 1 h.",
-      "Cuire à four chaud 7 à 10 min selon la taille des moules : les bords doivent être pris et le centre tremblotant.",
-      "Attendre 1 min, démouler délicatement et servir aussitôt."
+      "Remplir les moules aux trois quarts et réserver au froid au moins 1h.",
+      "Cuire à four chaud 7 à 10min selon la taille des moules : les bords doivent être pris et le centre tremblotant.",
+      "Attendre 1min, démouler délicatement et servir aussitôt."
     ],
     "notes": [
       "Le temps de cuisson est le point clé : tester un moule avant une série.",
-      "Stockage : appareil cru 24 h au réfrigérateur, cuisson minute recommandée.",
+      "Stockage : appareil cru 24h au réfrigérateur, cuisson minute recommandée.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -3518,21 +3518,21 @@ window.RECIPES = {
       {
         "group": "Pâte",
         "items": [
-          "115 g beurre mou",
-          "90 g sucre cassonade",
-          "60 g sucre blanc",
-          "55 g œuf (1 œuf moyen)",
+          "115g beurre mou",
+          "90g sucre cassonade",
+          "60g sucre blanc",
+          "55g œuf (1 œuf moyen)",
           "1 gousse de vanille ou arôme vanille selon dosage du flacon",
-          "180 g farine",
-          "3 g bicarbonate",
-          "2 g sel fin"
+          "180g farine",
+          "3g bicarbonate",
+          "2g sel fin"
         ]
       },
       {
         "group": "Garniture",
         "items": [
-          "120 g chocolat blanc concassé",
-          "90 g cranberries séchées"
+          "120g chocolat blanc concassé",
+          "90g cranberries séchées"
         ]
       }
     ],
@@ -3541,8 +3541,8 @@ window.RECIPES = {
       "Ajouter l’œuf et la vanille, puis mélanger jusqu’à homogénéité.",
       "Incorporer farine, bicarbonate et sel sans trop travailler.",
       "Ajouter chocolat blanc et cranberries.",
-      "Former des boules et laisser reposer au froid au moins 30 min.",
-      "Cuire 10 à 12 min à 175 °C, jusqu’à bords pris et centre encore moelleux.",
+      "Former des boules et laisser reposer au froid au moins 30min.",
+      "Cuire 10 à 12min à 175°C, jusqu’à bords pris et centre encore moelleux.",
       "Laisser figer quelques minutes sur plaque avant de déplacer."
     ],
     "notes": [
@@ -3583,37 +3583,37 @@ window.RECIPES = {
       {
         "group": "Coques",
         "items": [
-          "150 g poudre d’amande",
-          "150 g sucre glace",
-          "55 g blancs d’œufs",
-          "150 g sucre semoule",
-          "38 g eau",
-          "55 g blancs d’œufs pour meringue"
+          "150g poudre d’amande",
+          "150g sucre glace",
+          "55g blancs d’œufs",
+          "150g sucre semoule",
+          "38g eau",
+          "55g blancs d’œufs pour meringue"
         ]
       },
       {
         "group": "Garniture",
         "items": [
-          "180 g chocolat blanc",
-          "90 g crème liquide",
-          "35 g praliné noisette",
-          "20 g jus de yuzu ou citron",
-          "25 g noisettes torréfiées concassées"
+          "180g chocolat blanc",
+          "90g crème liquide",
+          "35g praliné noisette",
+          "20g jus de yuzu ou citron",
+          "25g noisettes torréfiées concassées"
         ]
       }
     ],
     "steps": [
       "Mixer puis tamiser poudre d’amande et sucre glace.",
       "Mélanger une première pesée de blancs d’œufs avec les poudres pour former une pâte d’amande.",
-      "Cuire eau et sucre à 118 °C, verser sur les blancs montés et fouetter en meringue italienne tiède.",
+      "Cuire eau et sucre à 118°C, verser sur les blancs montés et fouetter en meringue italienne tiède.",
       "Macaronner la meringue dans la pâte d’amande jusqu’à obtenir un ruban souple.",
-      "Pocher les coques, laisser croûter si nécessaire, puis cuire à 150 °C environ 12 à 14 min.",
+      "Pocher les coques, laisser croûter si nécessaire, puis cuire à 150°C environ 12 à 14min.",
       "Verser la crème chaude sur le chocolat blanc, lisser, puis ajouter praliné et yuzu.",
-      "Garnir les coques refroidies, ajouter quelques noisettes, assembler et maturer 24 h au frais."
+      "Garnir les coques refroidies, ajouter quelques noisettes, assembler et maturer 24h au frais."
     ],
     "notes": [
       "Recette technique : pesées précises, blancs à température ambiante et cuisson régulière.",
-      "Stockage : 3 jours au réfrigérateur, sortir 15 min avant dégustation.",
+      "Stockage : 3 jours au réfrigérateur, sortir 15min avant dégustation.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -3663,42 +3663,42 @@ window.RECIPES = {
       {
         "group": "Cake",
         "items": [
-          "200 g sucre",
-          "120 g beurre fondu",
+          "200g sucre",
+          "120g beurre fondu",
           "Zeste fin d’un citron jaune non traité",
-          "165 g œufs (environ 3 œufs moyens)",
-          "150 g farine",
+          "165g œufs (environ 3 œufs moyens)",
+          "150g farine",
           "1/2 c. à café levure chimique",
-          "80 g jus de citron"
+          "80g jus de citron"
         ]
       },
       {
         "group": "Glaçage",
         "items": [
-          "25 g jus de citron",
-          "130 g sucre glace"
+          "25g jus de citron",
+          "130g sucre glace"
         ]
       }
     ],
     "steps": [
-      "Préchauffer le four à 170 °C. Beurrer légèrement le moule ou utiliser un spray de démoulage, puis retirer l’excédent de gras avec un papier absorbant si besoin.",
+      "Préchauffer le four à 170°C. Beurrer légèrement le moule ou utiliser un spray de démoulage, puis retirer l’excédent de gras avec un papier absorbant si besoin.",
       "Faire fondre le beurre au bain-marie, le laisser tiédir légèrement, puis le verser dans un bol avec le sucre et le zeste de citron. Mélanger simplement, sans blanchir.",
-      "Ajouter les 165 g d’œufs, puis mélanger juste assez pour homogénéiser.",
+      "Ajouter les 165g d’œufs, puis mélanger juste assez pour homogénéiser.",
       "Ajouter la farine et la levure chimique. Mélanger sans insister, seulement jusqu’à obtenir une pâte homogène.",
-      "Verser les 80 g de jus de citron et mélanger jusqu’à obtention d’une pâte lisse. La pâte est fluide, c’est normal.",
+      "Verser les 80g de jus de citron et mélanger jusqu’à obtention d’une pâte lisse. La pâte est fluide, c’est normal.",
       "Verser la pâte dans le moule préparé et lisser légèrement la surface. La pâte doit remplir environ les 3/4 du moule.",
-      "Cuire à 170 °C pendant 30 à 40 min. Le cake doit être légèrement doré et une lame doit ressortir sèche.",
+      "Cuire à 170°C pendant 30 à 40min. Le cake doit être légèrement doré et une lame doit ressortir sèche.",
       "Démouler le cake à l’envers sur une grille, l’emballer immédiatement dans du film étirable et le laisser refroidir totalement dans cet emballage.",
-      "Mélanger le sucre glace avec les 25 g de jus de citron jusqu’à obtenir un glaçage lisse, fluide mais couvrant. Ajuster avec quelques gouttes de citron ou un peu de sucre glace si besoin.",
+      "Mélanger le sucre glace avec les 25g de jus de citron jusqu’à obtenir un glaçage lisse, fluide mais couvrant. Ajuster avec quelques gouttes de citron ou un peu de sucre glace si besoin.",
       "Déballer le cake totalement refroidi, poser une assiette sous la grille, verser le glaçage et lisser en couche fine régulière.",
-      "Remettre le cake sur sa grille et sécher le glaçage au four à 100 °C pendant 8 min. Le glaçage doit être sec et doux au toucher.",
+      "Remettre le cake sur sa grille et sécher le glaçage au four à 100°C pendant 8min. Le glaçage doit être sec et doux au toucher.",
       "Laisser revenir à température ambiante, puis couper en tranches fines ou moyennes."
     ],
     "notes": [
       "Ne pas blanchir beurre et sucre : trop fouetter nuit à la texture recherchée.",
       "Le moule ne doit pas être trop grand : la pâte doit arriver aux 3/4 de la hauteur pour une belle forme et une cuisson régulière.",
       "Respecter la quantité d’œufs indiquée : la précision aide à obtenir une mie qui se tient bien, même en tranches fines.",
-      "Surveiller dès 30 min : une surcuisson dessèche le cake et déséquilibre l’acidité du citron.",
+      "Surveiller dès 30min : une surcuisson dessèche le cake et déséquilibre l’acidité du citron.",
       "Filmer le cake dès la sortie du four retient l’humidité et donne une texture moelleuse, dense et fondante.",
       "Laisser vraiment refroidir le cake avant glaçage, sinon le nappage fond et reste collant.",
       "Le cake est souvent meilleur le lendemain : les arômes se stabilisent et la texture se tient encore mieux.",
@@ -3708,7 +3708,7 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Cuisson",
-        "value": "30 à 40 min à 170 °C, puis 8 min à 100 °C pour sécher le glaçage."
+        "value": "30 à 40min à 170°C, puis 8min à 100°C pour sécher le glaçage."
       },
       {
         "label": "Texture cible",
@@ -3740,12 +3740,12 @@ window.RECIPES = {
       {
         "group": "Pâte à churros",
         "items": [
-          "245 g farine",
-          "165 g œufs (3 œufs moyens)",
-          "2 g sel",
-          "25 g sucre",
-          "30 g huile neutre",
-          "250 g eau"
+          "245g farine",
+          "165g œufs (3 œufs moyens)",
+          "2g sel",
+          "25g sucre",
+          "30g huile neutre",
+          "250g eau"
         ]
       },
       {
@@ -3759,17 +3759,17 @@ window.RECIPES = {
     "steps": [
       "Porter à ébullition l’eau, l’huile, le sucre et le sel.",
       "Hors du feu, incorporer la farine à la maryse.",
-      "Remettre sur feu doux environ 3 min pour dessécher la pâte, jusqu’à former une fine pellicule au fond de la casserole.",
+      "Remettre sur feu doux environ 3min pour dessécher la pâte, jusqu’à former une fine pellicule au fond de la casserole.",
       "Transférer dans un bol et travailler quelques minutes pour faire redescendre la température.",
       "Ajouter les œufs battus en 2 fois, en mélangeant jusqu’à obtenir une pâte lisse et souple.",
       "Mettre en poche munie d’une douille étoile.",
-      "Chauffer l’huile à 170 °C.",
-      "Presser des boudins de pâte au-dessus de l’huile et couper des tronçons d’environ 15 cm.",
-      "Cuire environ 2 min de chaque côté, égoutter sur papier absorbant, puis rouler dans le sucre."
+      "Chauffer l’huile à 170°C.",
+      "Presser des boudins de pâte au-dessus de l’huile et couper des tronçons d’environ 15cm.",
+      "Cuire environ 2min de chaque côté, égoutter sur papier absorbant, puis rouler dans le sucre."
     ],
     "notes": [
       "La pâte doit être assez souple pour être pochée mais garder les stries de la douille.",
-      "Stockage : meilleur minute, possible 24 h mais perd du croustillant.",
+      "Stockage : meilleur minute, possible 24h mais perd du croustillant.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -3935,9 +3935,9 @@ window.RECIPES = {
       {
         "group": "Variante pub sauce",
         "items": [
-          "180 g mayonnaise",
-          "12 g cassonade",
-          "30 ml sauce Worcestershire",
+          "180g mayonnaise",
+          "12g cassonade",
+          "30ml sauce Worcestershire",
           "1 c. à café oignon en poudre",
           "1 c. à café ail en poudre"
         ]
@@ -3945,7 +3945,7 @@ window.RECIPES = {
       {
         "group": "Variante zinger épicée",
         "items": [
-          "120 g mayonnaise",
+          "120g mayonnaise",
           "1 c. à soupe paprika",
           "2 c. à café piment de Cayenne",
           "1 c. à café ail en poudre",
@@ -3956,7 +3956,7 @@ window.RECIPES = {
       {
         "group": "Variante miel moutarde",
         "items": [
-          "120 g mayonnaise",
+          "120g mayonnaise",
           "1 c. à soupe moutarde de Dijon",
           "1 c. à café ail en poudre",
           "1/4 c. à café poivre noir",
@@ -3967,7 +3967,7 @@ window.RECIPES = {
       {
         "group": "Variante big mac",
         "items": [
-          "120 g mayonnaise",
+          "120g mayonnaise",
           "2 c. à soupe relish de cornichons",
           "1 c. à soupe moutarde jaune",
           "1 c. à café vinaigre blanc",
@@ -3980,7 +3980,7 @@ window.RECIPES = {
       {
         "group": "Variante dipping sauce",
         "items": [
-          "120 g mayonnaise",
+          "120g mayonnaise",
           "1 c. à soupe ketchup",
           "1 c. à soupe moutarde jaune",
           "1 c. à café sauce barbecue",
@@ -3991,7 +3991,7 @@ window.RECIPES = {
     "steps": [
       "Mélanger les ingrédients de la variante choisie dans un bol.",
       "Ajuster sel, poivre, acidité et piquant selon le burger ou les frites.",
-      "Réserver au frais 20 min pour arrondir le goût."
+      "Réserver au frais 20min pour arrondir le goût."
     ],
     "notes": [
       "Conservation : 2 à 3 jours au réfrigérateur dans une boîte fermée."
@@ -4020,70 +4020,70 @@ window.RECIPES = {
       {
         "group": "Variante pâte brisée beurre",
         "items": [
-          "300 g farine",
-          "115 g beurre froid",
-          "60 ml eau glacée",
-          "12 g sucre",
+          "300g farine",
+          "115g beurre froid",
+          "60ml eau glacée",
+          "12g sucre",
           "1/4 c. à café sel"
         ]
       },
       {
         "group": "Variante biscuit graham",
         "items": [
-          "125 g biscuits graham émiettés",
-          "60 g beurre fondu",
-          "50 g sucre"
+          "125g biscuits graham émiettés",
+          "60g beurre fondu",
+          "50g sucre"
         ]
       },
       {
         "group": "Variante oreo",
         "items": [
-          "200 g biscuits Oreo écrasés",
-          "75 g beurre fondu"
+          "200g biscuits Oreo écrasés",
+          "75g beurre fondu"
         ]
       },
       {
         "group": "Variante amande",
         "items": [
-          "140 g poudre d’amande",
-          "60 g beurre fondu",
-          "12 g sucre",
+          "140g poudre d’amande",
+          "60g beurre fondu",
+          "12g sucre",
           "1/4 c. à café sel"
         ]
       },
       {
         "group": "Variante shortbread",
         "items": [
-          "125 g farine",
-          "60 g beurre",
-          "30 g sucre glace",
+          "125g farine",
+          "60g beurre",
+          "30g sucre glace",
           "vanille ou arôme vanille selon dosage du flacon"
         ]
       },
       {
         "group": "Variante cheddar salée",
         "items": [
-          "250 g farine",
-          "90 g cheddar râpé",
-          "60 g beurre",
+          "250g farine",
+          "90g cheddar râpé",
+          "60g beurre",
           "1/4 c. à café sel",
-          "45 ml eau glacée"
+          "45ml eau glacée"
         ]
       },
       {
         "group": "Variante pâte sucrée",
         "items": [
-          "100 g farine",
-          "50 g beurre mou",
-          "40 g sucre",
-          "25 g œuf"
+          "100g farine",
+          "50g beurre mou",
+          "40g sucre",
+          "25g œuf"
         ]
       }
     ],
     "steps": [
       "Choisir une variante et mélanger les éléments secs.",
       "Incorporer le beurre ou le liant jusqu’à obtenir une texture sableuse ou compacte selon la variante.",
-      "Foncer le moule, réfrigérer 30 min, puis cuire à blanc selon la garniture prévue."
+      "Foncer le moule, réfrigérer 30min, puis cuire à blanc selon la garniture prévue."
     ],
     "notes": [
       "Adapter la cuisson à la garniture : précuire pour une crème froide, cuire avec la garniture pour une tarte cuite.",
@@ -4116,20 +4116,20 @@ window.RECIPES = {
       {
         "group": "Fourrage cheesecake",
         "items": [
-          "115 g fromage frais type Philadelphia (cream cheese)",
-          "25 g sucre glace",
-          "30 g <span data-goto=\"sauce_caramel\">sauce caramel</span>"
+          "115g fromage frais type Philadelphia (cream cheese)",
+          "25g sucre glace",
+          "30g <span data-goto=\"sauce_caramel\">sauce caramel</span>"
         ]
       },
       {
         "group": "Pâte à cookies",
         "items": [
-          "115 g beurre doux mou",
-          "100 g cassonade",
-          "50 g sucre",
-          "55 g œuf (1 œuf moyen)",
+          "115g beurre doux mou",
+          "100g cassonade",
+          "50g sucre",
+          "55g œuf (1 œuf moyen)",
           "1 gousse de vanille ou arôme vanille selon dosage du flacon",
-          "220 g farine",
+          "220g farine",
           "1/2 c. à café bicarbonate",
           "1/4 c. à café sel"
         ]
@@ -4144,11 +4144,11 @@ window.RECIPES = {
     ],
     "steps": [
       "Fouetter le fromage frais type Philadelphia avec le sucre glace et le caramel, puis déposer 12 petites portions sur papier cuisson.",
-      "Congeler les portions de fourrage 30 min pour pouvoir les enfermer proprement.",
+      "Congeler les portions de fourrage 30min pour pouvoir les enfermer proprement.",
       "Crémer le beurre avec la cassonade et le sucre, puis incorporer l’œuf et la vanille.",
       "Ajouter farine, bicarbonate et sel sans trop travailler la pâte.",
       "Aplatir une portion de pâte, placer un cœur cheesecake congelé au centre, refermer et bouler.",
-      "Cuire à 175 °C pendant 10 à 12 min, jusqu’à bords légèrement dorés.",
+      "Cuire à 175°C pendant 10 à 12min, jusqu’à bords légèrement dorés.",
       "Laisser tiédir, ajouter un filet de caramel et une pointe de fleur de sel."
     ],
     "notes": [
@@ -4176,7 +4176,7 @@ window.RECIPES = {
       "Toutes saisons"
     ],
     "difficulty": "easy",
-    "yield": "environ 450 g",
+    "yield": "environ 450g",
     "aliases": [
       "caramel",
       "sauce caramel au beurre",
@@ -4186,16 +4186,16 @@ window.RECIPES = {
       {
         "group": "Caramel",
         "items": [
-          "200 g cassonade",
-          "115 g beurre doux",
-          "1 g sel fin"
+          "200g cassonade",
+          "115g beurre doux",
+          "1g sel fin"
         ]
       },
       {
         "group": "Crème",
         "items": [
-          "120 g crème liquide 35 %",
-          "120 g lait entier",
+          "120g crème liquide 35 %",
+          "120g lait entier",
           "1 gousse de vanille"
         ]
       },
@@ -4210,7 +4210,7 @@ window.RECIPES = {
       "Mettre la cassonade, le beurre et le sel dans une casserole.",
       "Chauffer doucement en mélangeant jusqu’à ce que le beurre soit fondu et que le sucre commence à se dissoudre.",
       "Ajouter la crème 35 % et le lait en remuant.",
-      "Porter à frémissement doux et cuire 6 à 9 min, en mélangeant régulièrement, jusqu’à texture nappante.",
+      "Porter à frémissement doux et cuire 6 à 9min, en mélangeant régulièrement, jusqu’à texture nappante.",
       "Retirer du feu, ajouter la vanille et mélanger.",
       "Laisser tiédir : la sauce épaissit en refroidissant.",
       "Mettre en pot propre et conserver au réfrigérateur."
@@ -4267,11 +4267,11 @@ window.RECIPES = {
           "1 c. à soupe de poivre vert en saumure",
           "1/2 c. à café de poivre blanc ou poivre de Kampot",
           "1 petite échalote",
-          "40 ml de cognac ou Armagnac",
-          "50 ml de vin blanc sec ou Madère",
-          "250 ml de fond de veau brun réduit",
-          "120 ml de crème liquide entière 30-35 %",
-          "30 g de beurre froid",
+          "40ml de cognac ou Armagnac",
+          "50ml de vin blanc sec ou Madère",
+          "250ml de fond de veau brun réduit",
+          "120ml de crème liquide entière 30-35 %",
+          "30g de beurre froid",
           "1 c. à café d’huile neutre ou graisse de cuisson",
           "Sel fin",
           "Option : 1 à 2 c. à soupe de jus de viande"
@@ -4281,25 +4281,25 @@ window.RECIPES = {
       {
         "group": "Variante express premium",
         "items": [
-          "30 ml de cognac",
-          "150 ml de fond de veau",
-          "80 ml de crème liquide entière",
+          "30ml de cognac",
+          "150ml de fond de veau",
+          "80ml de crème liquide entière",
           "1 c. à soupe de poivre vert",
           "Poivre noir concassé",
-          "20 g de beurre froid"
+          "20g de beurre froid"
         ],
         "note": "Cuisson : déglacer la poêle, ajouter fond, crème et poivres, réduire 5 minutes puis monter au beurre froid."
       },
       {
         "group": "Variante basique",
         "items": [
-          "200 ml de crème liquide entière",
+          "200ml de crème liquide entière",
           "1 à 2 c. à café de poivre noir concassé",
           "1 petite échalote",
-          "20 g de beurre",
-          "30 ml de cognac, whisky ou vin blanc",
+          "20g de beurre",
+          "30ml de cognac, whisky ou vin blanc",
           "1 c. à café de moutarde",
-          "100 ml de bouillon de bœuf ou volaille",
+          "100ml de bouillon de bœuf ou volaille",
           "Sel"
         ],
         "note": "Cuisson : réduire le bouillon 3 à 5 minutes, puis mijoter avec crème et moutarde 5 à 8 minutes."
@@ -4307,7 +4307,7 @@ window.RECIPES = {
       {
         "group": "Variante ultra simple",
         "items": [
-          "200 ml de crème liquide entière",
+          "200ml de crème liquide entière",
           "1 c. à café de moutarde",
           "1 à 2 c. à café de poivre concassé",
           "1/2 cube de bouillon émietté"
@@ -4376,8 +4376,8 @@ window.RECIPES = {
       {
         "group": "Viande",
         "items": [
-          "4 côtelettes de porc épaisses de 3 à 4 cm",
-          "40 g de beurre doux",
+          "4 côtelettes de porc épaisses de 3 à 4cm",
+          "40g de beurre doux",
           "1 c. à soupe d’huile neutre",
           "2 gousses d’ail en chemise",
           "2 branches de thym frais",
@@ -4394,11 +4394,11 @@ window.RECIPES = {
           "2 c. à soupe de miel de fleurs, acacia ou châtaignier doux",
           "2 c. à soupe de moutarde à l’ancienne",
           "1 c. à café de moutarde de Dijon",
-          "150 ml de cidre brut ou vin blanc sec",
-          "250 ml de fond de veau ou fond brun de volaille réduit",
-          "80 à 100 ml de crème liquide entière",
+          "150ml de cidre brut ou vin blanc sec",
+          "250ml de fond de veau ou fond brun de volaille réduit",
+          "80 à 100ml de crème liquide entière",
           "1 c. à soupe de vinaigre de cidre",
-          "30 g de beurre froid",
+          "30g de beurre froid",
           "Sel"
         ]
       }
@@ -4413,19 +4413,19 @@ window.RECIPES = {
       "Ajouter le cidre ou le vin blanc et réduire presque à sec.",
       "Verser le fond, réduire jusqu’à une texture légèrement sirupeuse, puis ajouter les moutardes et la crème.",
       "Laisser réduire 3 à 5 minutes à feu doux, puis remettre les côtelettes dans la sauce et napper régulièrement.",
-      "Terminer à feu doux jusqu’à 63-65 °C à cœur, retirer du feu et laisser reposer 5 minutes.",
+      "Terminer à feu doux jusqu’à 63-65°C à cœur, retirer du feu et laisser reposer 5 minutes.",
       "Retirer les côtelettes, couper le feu, ajouter le beurre froid et fouetter pour lier la sauce."
     ],
     "notes": [
       "La sauce doit napper le dos d’une cuillère sans devenir lourde.",
       "Si la sauce paraît trop ronde, ajoute une micro-touche de vinaigre de cidre ou de jus de citron juste avant le beurre.",
-      "Pour des côtelettes très épaisses, tu peux finir au four à 150 °C après la saisie, puis servir avec la sauce à part. Surveille la cuisson, car chaque four chauffe différemment.",
+      "Pour des côtelettes très épaisses, tu peux finir au four à 150°C après la saisie, puis servir avec la sauce à part. Surveille la cuisson, car chaque four chauffe différemment.",
       "Garnitures adaptées : purée de céleri-rave, pommes Anna, carottes glacées, chou pointu rôti ou écrasé de pommes de terre au beurre noisette."
     ],
     "technical": [
       {
         "label": "Température",
-        "value": "Viser 63-65 °C à cœur pour garder le porc juteux."
+        "value": "Viser 63-65°C à cœur pour garder le porc juteux."
       },
       {
         "label": "Réduction",
@@ -4466,9 +4466,9 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "36 g jaunes d’œufs (2 jaunes)",
+          "36g jaunes d’œufs (2 jaunes)",
           "2 petites gousses d’ail dégermées",
-          "80 g de pomme de terre cuite dans le bouillon",
+          "80g de pomme de terre cuite dans le bouillon",
           "1 c. à café de moutarde de Dijon douce",
           "1 belle pincée de safran",
           "1 c. à soupe de bouillon chaud pour infuser le safran",
@@ -4481,8 +4481,8 @@ window.RECIPES = {
       {
         "group": "Huiles",
         "items": [
-          "180 ml d’huile d’olive douce",
-          "80 ml d’huile neutre"
+          "180ml d’huile d’olive douce",
+          "80ml d’huile neutre"
         ]
       },
       {
@@ -4571,27 +4571,27 @@ window.RECIPES = {
       {
         "group": "Base aromatique",
         "items": [
-          "200 g de carottes",
-          "100 g de céleri",
-          "150 g de poireaux",
-          "150 g d’oignons",
-          "200 g de fenouil",
-          "500 g de tomates mûres",
-          "75 g de concentré de tomate",
-          "2 g d’ail",
+          "200g de carottes",
+          "100g de céleri",
+          "150g de poireaux",
+          "150g d’oignons",
+          "200g de fenouil",
+          "500g de tomates mûres",
+          "75g de concentré de tomate",
+          "2g d’ail",
           "Thym",
           "1 orange",
           "3 étoiles de badiane",
           "8 graines de cardamome",
-          "2 g de safran"
+          "2g de safran"
         ]
       },
       {
         "group": "Liquides",
         "items": [
-          "200 g de jus de moules",
-          "125 g de Pernod",
-          "500 g de fumet de poisson",
+          "200g de jus de moules",
+          "125g de Pernod",
+          "500g de fumet de poisson",
           "1,5 L de vin blanc"
         ]
       },
@@ -4635,7 +4635,7 @@ window.RECIPES = {
     "notes": [
       "Préparer la <span data-goto=\"rouille_haut_de_gamme\">rouille</span> à part pour garder une texture nette au service.",
       "Le bouillon doit être très chaud pour terminer la cuisson des tranches de poisson dans l’assiette.",
-      "Pour des morceaux épais, pocher quelques minutes dans le bouillon à 80-85 °C avant dressage.",
+      "Pour des morceaux épais, pocher quelques minutes dans le bouillon à 80-85°C avant dressage.",
       "Le Pernod doit soutenir la note anisée du fenouil sans dominer le poisson."
     ],
     "technical": [
@@ -4680,20 +4680,20 @@ window.RECIPES = {
       {
         "group": "Pâte",
         "items": [
-          "250 g de sucre",
-          "250 g de cassonade tassée",
-          "340 g de beurre mou",
+          "250g de sucre",
+          "250g de cassonade tassée",
+          "340g de beurre mou",
           "1 gousse de vanille ou arôme vanille selon dosage du flacon",
-          "165 g œufs (3 œufs moyens)",
-          "530 g de farine",
+          "165g œufs (3 œufs moyens)",
+          "530g de farine",
           "2 c. à café de bicarbonate de soude",
           "1/2 c. à café de sel",
-          "340 à 680 g de pépites de chocolat mi-sucré"
+          "340 à 680g de pépites de chocolat mi-sucré"
         ]
       }
     ],
     "steps": [
-      "Préchauffer le four à 190 °C.",
+      "Préchauffer le four à 190°C.",
       "Crémer le sucre, la cassonade et le beurre mou jusqu’à obtenir une texture légère.",
       "Ajouter la vanille et les œufs, puis mélanger jusqu’à homogénéité.",
       "Incorporer farine, bicarbonate et sel sans trop travailler la pâte.",
@@ -4746,12 +4746,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "60 g de jaunes d'œufs (3 jaunes moyens)",
-          "105 g de blancs d'œufs (3 blancs moyens)",
-          "100 g de sucre",
-          "150 g de farine",
+          "60g de jaunes d'œufs (3 jaunes moyens)",
+          "105g de blancs d'œufs (3 blancs moyens)",
+          "100g de sucre",
+          "150g de farine",
           "1 sachet de levure chimique",
-          "100 ml de lait",
+          "100ml de lait",
           "1 gousse de vanille",
           "1 pincée de sel",
           "beurre fondu pour les cercles et la poêle"
@@ -4799,7 +4799,7 @@ window.RECIPES = {
     ],
     "difficulty": "easy",
     "difficultyScore": 3,
-    "yield": "environ 250 g",
+    "yield": "environ 250g",
     "variantGroups": true,
     "aliases": [
       "mayonnaise belge",
@@ -4815,10 +4815,10 @@ window.RECIPES = {
       {
         "group": "Base mayonnaise",
         "items": [
-          "18 g jaune d’œuf (1 jaune)",
+          "18g jaune d’œuf (1 jaune)",
           "1 c. à café de moutarde",
           "1 c. à soupe de vinaigre de vin blanc ou jus de citron",
-          "200 ml d’huile neutre",
+          "200ml d’huile neutre",
           "Sel",
           "Poivre blanc"
         ],
@@ -4901,7 +4901,7 @@ window.RECIPES = {
       {
         "group": "Crevettes",
         "items": [
-          "500 g de grosses crevettes crues décortiquées",
+          "500g de grosses crevettes crues décortiquées",
           "Carapaces et têtes des crevettes, si disponibles",
           "1 filet d'huile d'olive",
           "Sel",
@@ -4922,10 +4922,10 @@ window.RECIPES = {
           "1 échalote émincée",
           "1 petite carotte en dés",
           "1 c. à soupe de concentré de tomate",
-          "5 cl de cognac ou armagnac",
-          "12 cl de vin blanc sec",
-          "25 cl de fumet de poisson ou bouillon de crustacés",
-          "15 cl de crème liquide entière",
+          "5cl de cognac ou armagnac",
+          "12cl de vin blanc sec",
+          "25cl de fumet de poisson ou bouillon de crustacés",
+          "15cl de crème liquide entière",
           "1 pincée de piment d'Espelette",
           "1 petite branche de thym",
           "1 feuille de laurier"
@@ -4934,9 +4934,9 @@ window.RECIPES = {
       {
         "group": "Gratin",
         "items": [
-          "30 g de parmesan râpé finement",
-          "20 g de chapelure fine ou panko",
-          "15 g de beurre froid en petits dés"
+          "30g de parmesan râpé finement",
+          "20g de chapelure fine ou panko",
+          "15g de beurre froid en petits dés"
         ]
       },
       {
@@ -5013,8 +5013,8 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "1,2 à 1,5 kg de pommes de terre Bintje, Agria ou Manon",
-          "2 à 3 kg de blanc de bœuf selon la friteuse",
+          "1,2 à 1,5kg de pommes de terre Bintje, Agria ou Manon",
+          "2 à 3kg de blanc de bœuf selon la friteuse",
           "Sel fin",
           "Fleur de sel pour la finition"
         ]
@@ -5030,13 +5030,13 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Éplucher les pommes de terre et les tailler en bâtonnets réguliers de 10 à 12 mm.",
+      "Éplucher les pommes de terre et les tailler en bâtonnets réguliers de 10 à 12mm.",
       "Rincer les frites dans un grand saladier d’eau froide jusqu’à ce que l’eau soit moins trouble.",
       "Égoutter, étaler sur un torchon propre, éponger soigneusement puis laisser sécher 10 à 15 minutes.",
-      "Chauffer le blanc de bœuf à 140-150 °C.",
+      "Chauffer le blanc de bœuf à 140-150°C.",
       "Plonger les frites par petites quantités et cuire 5 à 7 minutes : elles doivent être cuites à cœur mais encore pâles.",
       "Égoutter sur grille et laisser reposer 20 à 30 minutes minimum.",
-      "Monter le bain à 175-180 °C.",
+      "Monter le bain à 175-180°C.",
       "Replonger les frites en petites quantités 2 à 4 minutes jusqu’à belle coloration dorée.",
       "Égoutter immédiatement, secouer légèrement et saler avec du sel fin.",
       "Terminer avec une pincée de fleur de sel et servir aussitôt avec la <span data-goto=\"mayonnaise_maison\">mayonnaise maison</span>."
@@ -5090,38 +5090,38 @@ window.RECIPES = {
       {
         "group": "Pâte",
         "items": [
-          "235 g lait entier",
-          "120 g eau",
-          "55 g beurre doux",
-          "560 g farine",
-          "25 g sucre",
-          "9 g sel fin",
-          "50 g œuf entier",
-          "8 g levure boulangère sèche"
+          "235g lait entier",
+          "120g eau",
+          "55g beurre doux",
+          "560g farine",
+          "25g sucre",
+          "9g sel fin",
+          "50g œuf entier",
+          "8g levure boulangère sèche"
         ]
       },
       {
         "group": "Finition",
         "items": [
-          "Lait ou 55 g œuf battu pour dorer",
+          "Lait ou 55g œuf battu pour dorer",
           "Graines de sésame optionnelles"
         ]
       }
     ],
     "steps": [
-      "Chauffer doucement le lait, l’eau et le beurre jusqu’à environ 50 °C, sans dépasser cette température.",
-      "Mélanger 220 g de farine avec le sel, le sucre et la levure.",
+      "Chauffer doucement le lait, l’eau et le beurre jusqu’à environ 50°C, sans dépasser cette température.",
+      "Mélanger 220g de farine avec le sel, le sucre et la levure.",
       "Ajouter le mélange liquide tiède, puis l’œuf.",
-      "Incorporer le reste de farine progressivement, environ 60 g à la fois, jusqu’à obtenir une pâte souple.",
-      "Pétrir environ 10 min, jusqu’à ce que la pâte devienne élastique et moelleuse.",
+      "Incorporer le reste de farine progressivement, environ 60g à la fois, jusqu’à obtenir une pâte souple.",
+      "Pétrir environ 10min, jusqu’à ce que la pâte devienne élastique et moelleuse.",
       "Diviser en 16 pâtons, former des rectangles, puis rouler chaque pâton en boudin allongé.",
       "Pincer les extrémités et la soudure pour garder une forme régulière.",
-      "Laisser lever 25 à 45 min selon la température de la pièce.",
-      "Cuire à 200 °C pendant 10 à 12 min, jusqu’à légère coloration.",
+      "Laisser lever 25 à 45min selon la température de la pièce.",
+      "Cuire à 200°C pendant 10 à 12min, jusqu’à légère coloration.",
       "Refroidir sur grille avant ouverture."
     ],
     "notes": [
-      "Pour plus de moelleux, laisser pousser la pâte 1 h après pétrissage, dégazer, puis façonner.",
+      "Pour plus de moelleux, laisser pousser la pâte 1h après pétrissage, dégazer, puis façonner.",
       "Ces pains se congèlent très bien une fois refroidis.",
       "Chaque four réagit différemment : surveille la coloration et ajuste le temps de cuisson si nécessaire."
     ],
@@ -5171,7 +5171,7 @@ window.RECIPES = {
       {
         "group": "Base œufs",
         "items": [
-          "300 g œufs entiers",
+          "300g œufs entiers",
           "Eau froide",
           "Glaçons pour refroidissement"
         ]
@@ -5179,11 +5179,11 @@ window.RECIPES = {
       {
         "group": "Variante betterave",
         "items": [
-          "250 g betterave cuite",
-          "500 g eau",
-          "120 g vinaigre de cidre",
-          "25 g sucre",
-          "6 g sel fin",
+          "250g betterave cuite",
+          "500g eau",
+          "120g vinaigre de cidre",
+          "25g sucre",
+          "6g sel fin",
           "1 feuille de laurier",
           "Poivre noir"
         ]
@@ -5191,12 +5191,12 @@ window.RECIPES = {
       {
         "group": "Farce betterave",
         "items": [
-          "100 g jaunes d’œufs cuits",
-          "60 g mayonnaise maison",
-          "8 g moutarde douce",
-          "15 g crème fraîche épaisse ou yaourt grec",
-          "5 g vinaigre de cidre ou jus de citron",
-          "0,5 g paprika fumé ou piment d’Espelette",
+          "100g jaunes d’œufs cuits",
+          "60g mayonnaise maison",
+          "8g moutarde douce",
+          "15g crème fraîche épaisse ou yaourt grec",
+          "5g vinaigre de cidre ou jus de citron",
+          "0,5g paprika fumé ou piment d’Espelette",
           "Sel fin",
           "Poivre blanc"
         ]
@@ -5204,14 +5204,14 @@ window.RECIPES = {
       {
         "group": "Variante avocat crevette",
         "items": [
-          "180 g chair d’avocat mûr",
-          "100 g jaunes d’œufs cuits",
-          "15 à 30 g jus de citron vert",
-          "15 à 30 g mayonnaise maison",
-          "15 g crème fraîche épaisse",
-          "5 g moutarde douce",
-          "0,5 g piment d’Espelette",
-          "180 g crevettes décortiquées et nettoyées",
+          "180g chair d’avocat mûr",
+          "100g jaunes d’œufs cuits",
+          "15 à 30g jus de citron vert",
+          "15 à 30g mayonnaise maison",
+          "15g crème fraîche épaisse",
+          "5g moutarde douce",
+          "0,5g piment d’Espelette",
+          "180g crevettes décortiquées et nettoyées",
           "Sel fin",
           "Poivre blanc"
         ]
@@ -5227,10 +5227,10 @@ window.RECIPES = {
       }
     ],
     "steps": [
-      "Placer les œufs dans une casserole, couvrir d’eau froide avec 2 à 3 cm au-dessus des œufs, puis cuire 12 à 13 min depuis le départ à froid.",
-      "Plonger immédiatement dans un bain glacé 10 min, puis écaler délicatement.",
-      "Pour la variante betterave : chauffer betterave, eau, vinaigre, sucre, sel, poivre et laurier jusqu’à frémissement, couper le feu, infuser 10 min, mixer légèrement et refroidir complètement.",
-      "Immerger les œufs écalés entiers dans la marinade froide 6 à 12 h pour une couleur nette.",
+      "Placer les œufs dans une casserole, couvrir d’eau froide avec 2 à 3cm au-dessus des œufs, puis cuire 12 à 13min depuis le départ à froid.",
+      "Plonger immédiatement dans un bain glacé 10min, puis écaler délicatement.",
+      "Pour la variante betterave : chauffer betterave, eau, vinaigre, sucre, sel, poivre et laurier jusqu’à frémissement, couper le feu, infuser 10min, mixer légèrement et refroidir complètement.",
+      "Immerger les œufs écalés entiers dans la marinade froide 6 à 12h pour une couleur nette.",
       "Égoutter, éponger, couper en deux et retirer les jaunes.",
       "Pour la farce betterave : tamiser les jaunes, mélanger avec mayonnaise, moutarde, crème, vinaigre ou citron, paprika, sel et poivre.",
       "Pour la variante avocat crevette : mixer jaunes, avocat, citron vert, mayonnaise, crème, moutarde, piment, sel et poivre jusqu’à texture lisse et pochable.",
@@ -5285,62 +5285,62 @@ window.RECIPES = {
       {
         "group": "Calamars",
         "items": [
-          "600 g anneaux de calamar",
-          "500 g lait entier",
-          "20 g jus de citron",
-          "4 g ail écrasé",
-          "6 g sel fin",
+          "600g anneaux de calamar",
+          "500g lait entier",
+          "20g jus de citron",
+          "4g ail écrasé",
+          "6g sel fin",
           "Poivre blanc",
-          "0,5 g piment d’Espelette"
+          "0,5g piment d’Espelette"
         ]
       },
       {
         "group": "Pâte légère",
         "items": [
-          "120 g farine",
-          "40 g fécule de maïs",
-          "5 g levure chimique",
-          "3 g sel fin",
-          "30 g blanc d’œuf",
-          "180 à 220 g eau gazeuse très froide",
-          "20 g vodka très froide optionnelle",
+          "120g farine",
+          "40g fécule de maïs",
+          "5g levure chimique",
+          "3g sel fin",
+          "30g blanc d’œuf",
+          "180 à 220g eau gazeuse très froide",
+          "20g vodka très froide optionnelle",
           "Zeste de citron"
         ]
       },
       {
         "group": "Aïoli citronné léger",
         "items": [
-          "20 g jaune d’œuf",
-          "10 g moutarde",
-          "2 g ail râpé",
-          "10 g jus de citron",
-          "1 g zeste de citron",
-          "90 g huile neutre",
-          "45 g huile d’olive douce",
+          "20g jaune d’œuf",
+          "10g moutarde",
+          "2g ail râpé",
+          "10g jus de citron",
+          "1g zeste de citron",
+          "90g huile neutre",
+          "45g huile d’olive douce",
           "Sel fin",
-          "0,5 g piment d’Espelette"
+          "0,5g piment d’Espelette"
         ]
       },
       {
         "group": "Variante tempura",
         "items": [
-          "90 g farine",
-          "50 g fécule",
-          "20 g jaune d’œuf",
-          "220 g eau gazeuse glacée",
-          "3 g sel fin"
+          "90g farine",
+          "50g fécule",
+          "20g jaune d’œuf",
+          "220g eau gazeuse glacée",
+          "3g sel fin"
         ]
       }
     ],
     "steps": [
-      "Rincer rapidement les calamars, les éponger, puis couper les tubes en anneaux réguliers de 1 à 1,5 cm.",
-      "Mélanger lait, citron, ail, sel, poivre et piment, puis mariner les calamars 30 min à 2 h au frais.",
+      "Rincer rapidement les calamars, les éponger, puis couper les tubes en anneaux réguliers de 1 à 1,5cm.",
+      "Mélanger lait, citron, ail, sel, poivre et piment, puis mariner les calamars 30min à 2h au frais.",
       "Préparer l’aïoli : fouetter jaune, moutarde, ail, citron, zeste et sel, puis monter avec huile neutre et huile d’olive en filet.",
       "Mélanger farine, fécule, levure, sel et zeste.",
       "Juste avant cuisson, ajouter blanc d’œuf, eau gazeuse très froide et vodka optionnelle, puis mélanger très peu.",
       "Égoutter les calamars, les éponger très soigneusement, puis les passer légèrement dans farine ou fécule.",
-      "Chauffer l’huile à 180 °C.",
-      "Tremper les calamars dans la pâte et frire par petites quantités 1 min 30 à 2 min maximum.",
+      "Chauffer l’huile à 180°C.",
+      "Tremper les calamars dans la pâte et frire par petites quantités 1min 30 à 2min maximum.",
       "Égoutter sur grille, saler légèrement et servir immédiatement avec citron et sauce."
     ],
     "notes": [
@@ -5351,7 +5351,7 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Température",
-        "value": "180 °C pour saisir vite sans graisser."
+        "value": "180°C pour saisir vite sans graisser."
       },
       {
         "label": "Égouttage",
@@ -5395,20 +5395,20 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "600 g pommes de terre Agria, Bintje ou Maris Piper",
-          "100 g œufs",
-          "80 g Comté 18 mois ou Gruyère suisse",
-          "30 g parmesan râpé finement",
-          "25 g fécule de pomme de terre ou Maïzena",
-          "20 g farine",
-          "20 g crème épaisse",
-          "40 g beurre noisette",
-          "4 g ail râpé",
-          "30 g échalote ciselée",
-          "3 g ciboulette ciselée",
-          "3 g persil plat ciselé",
+          "600g pommes de terre Agria, Bintje ou Maris Piper",
+          "100g œufs",
+          "80g Comté 18 mois ou Gruyère suisse",
+          "30g parmesan râpé finement",
+          "25g fécule de pomme de terre ou Maïzena",
+          "20g farine",
+          "20g crème épaisse",
+          "40g beurre noisette",
+          "4g ail râpé",
+          "30g échalote ciselée",
+          "3g ciboulette ciselée",
+          "3g persil plat ciselé",
           "1 pincée noix de muscade",
-          "7 g sel fin",
+          "7g sel fin",
           "Poivre noir"
         ]
       },
@@ -5422,12 +5422,12 @@ window.RECIPES = {
       {
         "group": "Sauce crème citronnée",
         "items": [
-          "150 g crème fraîche épaisse",
-          "80 g yaourt grec",
-          "5 g jus de citron",
+          "150g crème fraîche épaisse",
+          "80g yaourt grec",
+          "5g jus de citron",
           "Zeste de 1/2 citron",
-          "3 g ciboulette ciselée",
-          "1 g aneth ou estragon",
+          "3g ciboulette ciselée",
+          "1g aneth ou estragon",
           "Sel fin",
           "Poivre blanc"
         ]
@@ -5436,7 +5436,7 @@ window.RECIPES = {
         "group": "Option luxe",
         "items": [
           "Saumon fumé ou truite fumée",
-          "55 g œuf poché (1 œuf moyen)",
+          "55g œuf poché (1 œuf moyen)",
           "Crème crue et caviar",
           "Jambon cru affiné",
           "Champignons poêlés au beurre noisette"
@@ -5445,14 +5445,14 @@ window.RECIPES = {
     ],
     "steps": [
       "Éplucher les pommes de terre, les râper gros, puis les presser très fort dans un torchon pour retirer un maximum d’eau.",
-      "Pré-cuire les pommes de terre râpées 1 min 30 au micro-ondes ou 2 min à la poêle sans coloration.",
-      "Faire un beurre noisette clair avec 40 g de beurre, filtrer si besoin et laisser tiédir.",
+      "Pré-cuire les pommes de terre râpées 1min 30 au micro-ondes ou 2min à la poêle sans coloration.",
+      "Faire un beurre noisette clair avec 40g de beurre, filtrer si besoin et laisser tiédir.",
       "Mélanger pommes de terre, œufs, fromages, fécule, farine, crème, beurre noisette, ail, échalote, herbes, muscade, sel et poivre.",
       "Préparer la sauce en mélangeant crème, yaourt, citron, zeste, herbes, sel et poivre, puis réserver au frais.",
       "Préchauffer le gaufrier au maximum et graisser légèrement.",
-      "Déposer une portion généreuse d’appareil, tasser légèrement, fermer et cuire 6 à 9 min.",
+      "Déposer une portion généreuse d’appareil, tasser légèrement, fermer et cuire 6 à 9min.",
       "Sortir quand la gaufre se détache seule, bien dorée et croustillante.",
-      "Option restaurant : passer 3 à 5 min sur grille au four à 190 °C, puis saler légèrement à la fleur de sel.",
+      "Option restaurant : passer 3 à 5min sur grille au four à 190°C, puis saler légèrement à la fleur de sel.",
       "Servir immédiatement avec sauce crème citronnée et herbes fraîches."
     ],
     "notes": [
@@ -5506,69 +5506,69 @@ window.RECIPES = {
       {
         "group": "Mojito classique",
         "items": [
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum blanc",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum blanc",
           "5 à 6 feuilles de menthe",
-          "80 à 120 g eau gazeuse",
+          "80 à 120g eau gazeuse",
           "Glaçons"
         ]
       },
       {
         "group": "Mojito framboise",
         "items": [
-          "45 g framboises",
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum blanc",
+          "45g framboises",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum blanc",
           "5 à 6 feuilles de menthe",
-          "80 à 120 g eau gazeuse",
+          "80 à 120g eau gazeuse",
           "Glaçons"
         ]
       },
       {
         "group": "Mojito mangue",
         "items": [
-          "60 g mangue mûre en dés",
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum blanc",
+          "60g mangue mûre en dés",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum blanc",
           "5 à 6 feuilles de menthe",
-          "80 à 120 g eau gazeuse",
+          "80 à 120g eau gazeuse",
           "Glaçons"
         ]
       },
       {
         "group": "Mojito concombre",
         "items": [
-          "40 g concombre en tranches",
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum blanc",
+          "40g concombre en tranches",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum blanc",
           "5 à 6 feuilles de menthe",
-          "80 à 120 g eau gazeuse",
+          "80 à 120g eau gazeuse",
           "Glaçons"
         ]
       },
       {
         "group": "Mojito fruit de la passion",
         "items": [
-          "45 g pulpe de fruit de la passion",
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum blanc",
+          "45g pulpe de fruit de la passion",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum blanc",
           "5 à 6 feuilles de menthe",
-          "80 à 120 g eau gazeuse",
+          "80 à 120g eau gazeuse",
           "Glaçons"
         ]
       },
       {
         "group": "Mojito rhum ambré",
         "items": [
-          "20 g jus de citron vert",
-          "5 g sucre",
-          "50 g rhum ambré",
-          "50 g eau gazeuse",
+          "20g jus de citron vert",
+          "5g sucre",
+          "50g rhum ambré",
+          "50g eau gazeuse",
           "5 à 6 feuilles de menthe",
           "Glaçons"
         ]
@@ -5625,12 +5625,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "600 g fleurettes de chou-fleur",
-          "30 g huile d’olive",
-          "50 g parmesan râpé",
-          "2 g paprika",
-          "2 g ail en poudre",
-          "2 g oignon en poudre",
+          "600g fleurettes de chou-fleur",
+          "30g huile d’olive",
+          "50g parmesan râpé",
+          "2g paprika",
+          "2g ail en poudre",
+          "2g oignon en poudre",
           "Sel fin",
           "Poivre noir"
         ]
@@ -5639,18 +5639,18 @@ window.RECIPES = {
         "group": "Service",
         "items": [
           "Sauce yaourt grec ou sauce ranch",
-          "5 g persil haché optionnel",
+          "5g persil haché optionnel",
           "Quartiers de citron"
         ]
       }
     ],
     "steps": [
-      "Préchauffer le four à 220 °C et couvrir une plaque de papier cuisson.",
+      "Préchauffer le four à 220°C et couvrir une plaque de papier cuisson.",
       "Mélanger les fleurettes avec l’huile d’olive pour les enrober.",
       "Mélanger parmesan, paprika, ail, oignon, sel et poivre.",
       "Saupoudrer sur le chou-fleur et mélanger pour bien répartir.",
       "Étaler en une seule couche sur la plaque.",
-      "Cuire 25 à 30 min en retournant à mi-cuisson, jusqu’à coloration dorée et bords croustillants.",
+      "Cuire 25 à 30min en retournant à mi-cuisson, jusqu’à coloration dorée et bords croustillants.",
       "Servir chaud avec sauce et citron."
     ],
     "notes": [
@@ -5701,15 +5701,15 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "880 g tomates bien mûres",
-          "50 à 70 g courgette crue épluchée ou partiellement épluchée",
-          "25 à 35 g jus de citron",
-          "20 à 30 g oignon doux",
-          "9 à 12 g huile d’olive vierge extra",
-          "1 à 2 g ail dégermé",
-          "5 g basilic frais",
-          "1 à 1,5 g menthe fraîche",
-          "6 à 8 g sel fin",
+          "880g tomates bien mûres",
+          "50 à 70g courgette crue épluchée ou partiellement épluchée",
+          "25 à 35g jus de citron",
+          "20 à 30g oignon doux",
+          "9 à 12g huile d’olive vierge extra",
+          "1 à 2g ail dégermé",
+          "5g basilic frais",
+          "1 à 1,5g menthe fraîche",
+          "6 à 8g sel fin",
           "Poivre blanc",
           "Eau froide seulement si besoin"
         ]
@@ -5733,7 +5733,7 @@ window.RECIPES = {
       "Ajouter basilic et menthe, puis mixer brièvement pour ne pas chauffer les herbes.",
       "Verser l’huile d’olive en filet pendant que le blender tourne.",
       "Passer au chinois fin en pressant doucement avec une louche.",
-      "Réserver au frais au moins 2 h, mélanger, puis servir très froid."
+      "Réserver au frais au moins 2h, mélanger, puis servir très froid."
     ],
     "notes": [
       "Monder les tomates donne une texture plus fine et plus nette.",
@@ -5782,11 +5782,11 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "200 à 250 g melon",
-          "75 g tomates jaunes ou tomates bien mûres",
-          "12 à 15 g mie de pain",
-          "20 g huile d’olive",
-          "8 à 15 g jus de citron ou vinaigre de Xérès",
+          "200 à 250g melon",
+          "75g tomates jaunes ou tomates bien mûres",
+          "12 à 15g mie de pain",
+          "20g huile d’olive",
+          "8 à 15g jus de citron ou vinaigre de Xérès",
           "Quelques feuilles de basilic ou de menthe",
           "Sel fin",
           "Poivre blanc",
@@ -5812,7 +5812,7 @@ window.RECIPES = {
       "Ajuster avec un peu d’eau froide ou quelques glaçons si la texture est trop épaisse.",
       "Passer au chinois fin pour une texture plus nette.",
       "Goûter, ajuster sel, acidité et piment.",
-      "Réserver au frais au moins 1 h et servir très froid."
+      "Réserver au frais au moins 1h et servir très froid."
     ],
     "notes": [
       "Ce gaspacho doit rester fruité, frais et légèrement acidulé, sans goût dominant de tomate.",
@@ -5859,14 +5859,14 @@ window.RECIPES = {
       {
         "group": "Salade",
         "items": [
-          "600 à 800 g melon charentais mûr",
-          "250 g billes de mozzarella ou mozzarella di bufala",
-          "120 à 150 g jambon cru italien, Serrano, Parme ou San Daniele",
-          "80 g roquette",
-          "40 g oignon rouge",
+          "600 à 800g melon charentais mûr",
+          "250g billes de mozzarella ou mozzarella di bufala",
+          "120 à 150g jambon cru italien, Serrano, Parme ou San Daniele",
+          "80g roquette",
+          "40g oignon rouge",
           "Basilic frais",
           "Menthe fraîche",
-          "30 g pignons de pin ou pistaches",
+          "30g pignons de pin ou pistaches",
           "Fleur de sel",
           "Poivre noir"
         ]
@@ -5874,11 +5874,11 @@ window.RECIPES = {
       {
         "group": "Marinade mozzarella",
         "items": [
-          "55 g huile d’olive fruitée",
+          "55g huile d’olive fruitée",
           "Zeste de 1/2 citron",
-          "15 g jus de citron",
-          "3 g basilic ciselé",
-          "1 g origan ou thym frais",
+          "15g jus de citron",
+          "3g basilic ciselé",
+          "1g origan ou thym frais",
           "Piment d’Espelette",
           "Sel fin",
           "Poivre"
@@ -5887,10 +5887,10 @@ window.RECIPES = {
       {
         "group": "Vinaigrette melon-citron",
         "items": [
-          "40 g huile d’olive",
-          "15 g jus de citron ou vinaigre de Xérès",
-          "7 g miel doux",
-          "15 à 30 g jus de melon récupéré",
+          "40g huile d’olive",
+          "15g jus de citron ou vinaigre de Xérès",
+          "7g miel doux",
+          "15 à 30g jus de melon récupéré",
           "Sel fin",
           "Poivre"
         ]
@@ -5900,9 +5900,9 @@ window.RECIPES = {
       "Couper le melon en deux, retirer les graines, puis former des billes avec une cuillère parisienne.",
       "Réserver les billes au frais et garder les chutes pour un gaspacho de melon.",
       "Égoutter et éponger la mozzarella.",
-      "Mélanger huile d’olive, jus de citron, zeste, basilic, origan ou thym, piment, sel et poivre, puis mariner la mozzarella 20 à 30 min au frais.",
-      "Émincer l’oignon rouge très finement, le placer 10 min dans eau froide avec quelques gouttes de citron, puis égoutter et éponger.",
-      "Torréfier les pignons ou pistaches 2 à 3 min à feu moyen dans une poêle sèche.",
+      "Mélanger huile d’olive, jus de citron, zeste, basilic, origan ou thym, piment, sel et poivre, puis mariner la mozzarella 20 à 30min au frais.",
+      "Émincer l’oignon rouge très finement, le placer 10min dans eau froide avec quelques gouttes de citron, puis égoutter et éponger.",
+      "Torréfier les pignons ou pistaches 2 à 3min à feu moyen dans une poêle sèche.",
       "Mélanger jus de citron ou vinaigre, miel, jus de melon, sel et poivre, puis ajouter l’huile d’olive.",
       "Assaisonner légèrement la roquette avec un peu de vinaigrette.",
       "Ajouter melon, mozzarella marinée, jambon cru en chiffonnade, oignon rouge, pignons ou pistaches, basilic, menthe, fleur de sel et poivre.",
@@ -5952,7 +5952,7 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "600 g pommes de terre type Bintje",
+          "600g pommes de terre type Bintje",
           "Huile de friture",
           "Sel fin"
         ]
@@ -5971,15 +5971,15 @@ window.RECIPES = {
       "Couper les pommes de terre en frites régulières, idéalement avec un coupe-frites.",
       "Rincer les frites à l’eau claire pour retirer l’excès d’amidon.",
       "Égoutter puis sécher très soigneusement dans un torchon propre.",
-      "Chauffer l’huile à 160 °C et cuire les frites 7 à 8 min pour cuire l’intérieur sans forte coloration.",
+      "Chauffer l’huile à 160°C et cuire les frites 7 à 8min pour cuire l’intérieur sans forte coloration.",
       "Égoutter sur grille et laisser refroidir.",
-      "Monter l’huile à 190 °C et cuire 3 à 4 min, jusqu’à ce que les frites soient dorées et croustillantes.",
+      "Monter l’huile à 190°C et cuire 3 à 4min, jusqu’à ce que les frites soient dorées et croustillantes.",
       "Égoutter sur papier absorbant ou, mieux, sur grille.",
       "Saler immédiatement et servir sans attendre."
     ],
     "notes": [
       "Bien sécher les pommes de terre avant friture : l’eau fait chuter la température de l’huile et ramollit les frites.",
-      "Pour une finition plus nette, laisse refroidir 20 à 30 min après le premier bain, puis fais le deuxième bain juste avant le service.",
+      "Pour une finition plus nette, laisse refroidir 20 à 30min après le premier bain, puis fais le deuxième bain juste avant le service.",
       "Accompagnements : burger maison, poulet rôti, fish and chips, steak, moules, mayonnaise maison, ketchup maison, sauce tartare ou sauce andalouse."
     ],
     "technical": [
@@ -5989,7 +5989,7 @@ window.RECIPES = {
       },
       {
         "label": "Cuisson",
-        "value": "Premier bain à 160 °C, second bain à 190 °C."
+        "value": "Premier bain à 160°C, second bain à 190°C."
       },
       {
         "label": "Cible",
@@ -6042,10 +6042,10 @@ window.RECIPES = {
       {
         "group": "Variante ail, parmesan et persil",
         "items": [
-          "40 g parmesan râpé finement",
-          "3 g ail râpé très finement",
-          "6 g persil plat haché",
-          "15 g huile d’olive ou 20 g beurre fondu",
+          "40g parmesan râpé finement",
+          "3g ail râpé très finement",
+          "6g persil plat haché",
+          "15g huile d’olive ou 20g beurre fondu",
           "Sel fin",
           "Poivre noir"
         ]
@@ -6053,8 +6053,8 @@ window.RECIPES = {
       {
         "group": "Variante cheddar et oignons verts",
         "items": [
-          "120 g cheddar râpé",
-          "30 g oignons verts émincés",
+          "120g cheddar râpé",
+          "30g oignons verts émincés",
           "Poivre noir",
           "Sel fin si nécessaire"
         ]
@@ -6062,17 +6062,17 @@ window.RECIPES = {
       {
         "group": "Sauce cheddar optionnelle",
         "items": [
-          "100 g cheddar râpé",
-          "80 g crème liquide",
-          "5 g moutarde douce"
+          "100g cheddar râpé",
+          "80g crème liquide",
+          "5g moutarde douce"
         ]
       },
       {
         "group": "Variante paprika et cayenne",
         "items": [
-          "3 g paprika",
-          "0,5 g piment de Cayenne",
-          "1,5 g ail en poudre",
+          "3g paprika",
+          "0,5g piment de Cayenne",
+          "1,5g ail en poudre",
           "Sel fin",
           "Poivre noir optionnel"
         ]
@@ -6080,19 +6080,19 @@ window.RECIPES = {
       {
         "group": "Variante cheddar, bacon et crème aigre",
         "items": [
-          "120 g cheddar râpé",
-          "80 g bacon croustillant en morceaux",
-          "30 g oignons verts émincés",
-          "60 g crème aigre ou crème fraîche épaisse citronnée",
+          "120g cheddar râpé",
+          "80g bacon croustillant en morceaux",
+          "30g oignons verts émincés",
+          "60g crème aigre ou crème fraîche épaisse citronnée",
           "Poivre noir"
         ]
       },
       {
         "group": "Crème aigre rapide",
         "items": [
-          "100 g crème fraîche épaisse",
-          "5 g jus de citron",
-          "1 g sel",
+          "100g crème fraîche épaisse",
+          "5g jus de citron",
+          "1g sel",
           "Poivre noir"
         ]
       },
@@ -6100,22 +6100,22 @@ window.RECIPES = {
         "group": "Variante patate douce paprika et ail",
         "items": [
           "Frites de patate douce chaudes",
-          "3 g paprika",
-          "1,5 g ail en poudre",
+          "3g paprika",
+          "1,5g ail en poudre",
           "Sel fin",
           "Poivre noir",
-          "0,5 g piment de Cayenne optionnel"
+          "0,5g piment de Cayenne optionnel"
         ]
       },
       {
         "group": "Sauce fraîche conseillée",
         "items": [
-          "100 g yaourt grec",
-          "5 g jus de citron",
-          "7 g miel",
+          "100g yaourt grec",
+          "5g jus de citron",
+          "7g miel",
           "Sel fin",
           "Poivre noir",
-          "1 g paprika"
+          "1g paprika"
         ]
       }
     ],
@@ -6123,7 +6123,7 @@ window.RECIPES = {
       "Préparer une base de frites : frites belges ou frites maison.",
       "Égoutter les frites et ajouter les toppings secs immédiatement tant qu’elles sont très chaudes.",
       "Pour la version ail-parmesan, mélanger ail et huile ou beurre fondu, verser sur les frites, puis ajouter parmesan et persil.",
-      "Pour les cheese fries, déposer cheddar sur les frites, passer 2 à 3 min sous le gril ou à 200 °C, puis ajouter les oignons verts.",
+      "Pour les cheese fries, déposer cheddar sur les frites, passer 2 à 3min sous le gril ou à 200°C, puis ajouter les oignons verts.",
       "Pour la sauce cheddar, chauffer la crème doucement, ajouter cheddar et moutarde, puis mélanger jusqu’à fonte complète.",
       "Pour les frites épicées, mélanger paprika, cayenne, ail en poudre et sel, puis secouer avec les frites chaudes.",
       "Pour les loaded fries, faire fondre le cheddar, puis ajouter bacon, oignons verts, crème aigre et poivre.",
@@ -6176,16 +6176,16 @@ window.RECIPES = {
       {
         "group": "Lentilles et sauce",
         "items": [
-          "250 g lentilles vertes",
-          "500 ml lait de coco entier",
-          "600 ml bouillon de légumes",
-          "150 g tomates concassées",
-          "120 g oignon jaune",
-          "30 g échalote",
-          "10 g ail",
-          "15 g gingembre frais râpé",
-          "20 g concentré de tomate",
-          "30 g huile de coco ou huile neutre",
+          "250g lentilles vertes",
+          "500ml lait de coco entier",
+          "600ml bouillon de légumes",
+          "150g tomates concassées",
+          "120g oignon jaune",
+          "30g échalote",
+          "10g ail",
+          "15g gingembre frais râpé",
+          "20g concentré de tomate",
+          "30g huile de coco ou huile neutre",
           "Sel fin",
           "Poivre noir"
         ]
@@ -6193,39 +6193,39 @@ window.RECIPES = {
       {
         "group": "Légumes",
         "items": [
-          "300 g carottes",
-          "200 g courgette",
-          "80 g épinards frais",
+          "300g carottes",
+          "200g courgette",
+          "80g épinards frais",
           "1 citron vert"
         ]
       },
       {
         "group": "Épices",
         "items": [
-          "3 g curry doux ou madras",
-          "3 g curcuma",
-          "3 g coriandre moulue",
-          "1,5 g cumin moulu",
-          "0,5 g cannelle",
-          "0,5 g cardamome moulue optionnelle",
+          "3g curry doux ou madras",
+          "3g curcuma",
+          "3g coriandre moulue",
+          "1,5g cumin moulu",
+          "0,5g cannelle",
+          "0,5g cardamome moulue optionnelle",
           "Piment doux ou piment d’Espelette",
-          "2 g graines de moutarde ou 5 g moutarde à l’ancienne optionnelle"
+          "2g graines de moutarde ou 5g moutarde à l’ancienne optionnelle"
         ]
       },
       {
         "group": "Finition",
         "items": [
           "Coriandre fraîche ou basilic thaï",
-          "40 g noix de cajou torréfiées",
+          "40g noix de cajou torréfiées",
           "Huile pimentée douce optionnelle"
         ]
       },
       {
         "group": "Riz basmati",
         "items": [
-          "300 g riz basmati",
-          "450 ml eau",
-          "5 g sel",
+          "300g riz basmati",
+          "450ml eau",
+          "5g sel",
           "Cardamome optionnelle",
           "Zeste de citron vert"
         ]
@@ -6235,13 +6235,13 @@ window.RECIPES = {
       "Rincer les lentilles à l’eau froide, égoutter et réserver sans trempage pour garder une bonne tenue.",
       "Couper les carottes en petite brunoise ou demi-rondelles fines, la courgette en dés, émincer l’oignon, ciseler l’échalote, puis râper ail et gingembre.",
       "Chauffer une grande sauteuse avec l’huile de coco, ajouter les graines de moutarde si utilisées, puis torréfier curry, curcuma, coriandre, cumin, cannelle, cardamome et piment 30 à 45 secondes.",
-      "Ajouter oignon et échalote, faire suer 5 à 7 min, puis ajouter ail et gingembre et cuire 1 min.",
-      "Ajouter le concentré de tomate, cuire 2 min, puis ajouter les tomates concassées et réduire 3 à 4 min.",
-      "Ajouter les lentilles, mélanger pour les enrober, verser le bouillon chaud, porter à frémissement, couvrir à moitié et cuire 20 min à feu doux.",
-      "Ajouter les carottes et le lait de coco, puis cuire encore 15 à 20 min à feu doux.",
+      "Ajouter oignon et échalote, faire suer 5 à 7min, puis ajouter ail et gingembre et cuire 1min.",
+      "Ajouter le concentré de tomate, cuire 2min, puis ajouter les tomates concassées et réduire 3 à 4min.",
+      "Ajouter les lentilles, mélanger pour les enrober, verser le bouillon chaud, porter à frémissement, couvrir à moitié et cuire 20min à feu doux.",
+      "Ajouter les carottes et le lait de coco, puis cuire encore 15 à 20min à feu doux.",
       "Ajouter la courgette sur les 8 à 10 dernières minutes, puis les épinards à la toute fin.",
       "Hors du feu, équilibrer avec quelques gouttes de citron vert, un peu de zeste et du poivre noir fraîchement moulu.",
-      "Pour le riz, rincer le riz basmati, cuire avec eau, sel et cardamome 10 min à feu très doux, puis laisser reposer 10 min couvert.",
+      "Pour le riz, rincer le riz basmati, cuire avec eau, sel et cardamome 10min à feu très doux, puis laisser reposer 10min couvert.",
       "Dresser avec riz, curry, herbes fraîches, noix de cajou torréfiées, citron vert, oignons frits ou échalotes croustillantes et un filet d’huile pimentée si souhaité."
     ],
     "notes": [
@@ -6292,12 +6292,12 @@ window.RECIPES = {
       {
         "group": "Frites",
         "items": [
-          "800 g patates douces",
-          "30 g huile neutre ou huile d’olive douce",
-          "12 g fécule de maïs ou fécule de pomme de terre",
-          "2 g paprika fumé",
-          "1,5 g ail en poudre",
-          "1,5 g oignon en poudre optionnel",
+          "800g patates douces",
+          "30g huile neutre ou huile d’olive douce",
+          "12g fécule de maïs ou fécule de pomme de terre",
+          "2g paprika fumé",
+          "1,5g ail en poudre",
+          "1,5g oignon en poudre optionnel",
           "1 petite pincée piment d’Espelette",
           "Poivre noir",
           "Sel fin après cuisson",
@@ -6321,16 +6321,16 @@ window.RECIPES = {
     ],
     "steps": [
       "Éplucher les patates douces si la peau est épaisse.",
-      "Couper en bâtonnets réguliers de 8 à 10 mm d’épaisseur.",
-      "Rincer 1 à 2 min dans un grand saladier d’eau froide, puis égoutter.",
-      "Sécher très soigneusement dans un torchon et laisser sécher 10 min à l’air libre.",
+      "Couper en bâtonnets réguliers de 8 à 10mm d’épaisseur.",
+      "Rincer 1 à 2min dans un grand saladier d’eau froide, puis égoutter.",
+      "Sécher très soigneusement dans un torchon et laisser sécher 10min à l’air libre.",
       "Enrober les frites avec un voile très fin de fécule, sans paquet blanc visible.",
       "Ajouter l’huile, le paprika fumé, l’ail, l’oignon si utilisé, le piment et le poivre. Ne pas saler avant cuisson.",
-      "Préchauffer le four à 220 °C chaleur tournante avec la plaque dans le four.",
+      "Préchauffer le four à 220°C chaleur tournante avec la plaque dans le four.",
       "Disposer les frites espacées sur papier cuisson ou plaque légèrement huilée.",
-      "Cuire 20 à 25 min en retournant à mi-cuisson, puis prolonger 5 min si nécessaire.",
-      "Finir 2 à 3 min sous le gril pour plus de croustillant en surveillant attentivement.",
-      "Laisser reposer 2 min sur la plaque, transférer sur grille si possible, puis saler et finir avec herbes, zeste et fleur de sel."
+      "Cuire 20 à 25min en retournant à mi-cuisson, puis prolonger 5min si nécessaire.",
+      "Finir 2 à 3min sous le gril pour plus de croustillant en surveillant attentivement.",
+      "Laisser reposer 2min sur la plaque, transférer sur grille si possible, puis saler et finir avec herbes, zeste et fleur de sel."
     ],
     "notes": [
       "Servir avec la <span data-goto=\"sauce_yaourt_citronnee\">sauce yaourt citronnée</span> dans un bol à part pour garder le croustillant.",
@@ -6340,11 +6340,11 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Cuisson four",
-        "value": "220 °C chaleur tournante, 20 à 25 min, puis 2 à 3 min sous le gril si besoin."
+        "value": "220°C chaleur tournante, 20 à 25min, puis 2 à 3min sous le gril si besoin."
       },
       {
         "label": "Air fryer",
-        "value": "200 °C, 15 à 20 min, panier secoué toutes les 5 min."
+        "value": "200°C, 15 à 20min, panier secoué toutes les 5min."
       },
       {
         "label": "Cible",
@@ -6381,12 +6381,12 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "150 g yaourt grec",
-          "15 g mayonnaise maison ou bonne mayonnaise",
-          "5 g jus de citron vert ou jaune",
+          "150g yaourt grec",
+          "15g mayonnaise maison ou bonne mayonnaise",
+          "5g jus de citron vert ou jaune",
           "Zeste de 1/2 citron vert",
-          "7 g miel",
-          "1 g paprika fumé",
+          "7g miel",
+          "1g paprika fumé",
           "1 petite pincée piment d’Espelette",
           "Sel fin",
           "Poivre blanc"
@@ -6397,7 +6397,7 @@ window.RECIPES = {
       "Mélanger le yaourt grec et la mayonnaise.",
       "Ajouter le jus de citron, le zeste, le miel, le paprika fumé et le piment.",
       "Saler et poivrer.",
-      "Réserver au frais au moins 15 min avant service."
+      "Réserver au frais au moins 15min avant service."
     ],
     "notes": [
       "Prévue pour accompagner les <span data-goto=\"frites_patate_douce\">frites de patate douce croustillantes</span>.",
@@ -6406,7 +6406,7 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Repos",
-        "value": "15 min au frais pour arrondir l’assaisonnement."
+        "value": "15min au frais pour arrondir l’assaisonnement."
       },
       {
         "label": "Texture",
@@ -6444,14 +6444,14 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "35 g beurre",
-          "35 g farine",
-          "450 g lait entier",
-          "100 g crème liquide entière",
-          "90 g comté 18 mois râpé",
-          "35 g parmesan râpé",
-          "18 g jaune d’œuf (1 jaune)",
-          "5 g moutarde de Dijon",
+          "35g beurre",
+          "35g farine",
+          "450g lait entier",
+          "100g crème liquide entière",
+          "90g comté 18 mois râpé",
+          "35g parmesan râpé",
+          "18g jaune d’œuf (1 jaune)",
+          "5g moutarde de Dijon",
           "1 pincée muscade",
           "Sel",
           "Poivre blanc"
@@ -6460,9 +6460,9 @@ window.RECIPES = {
     ],
     "steps": [
       "Faire fondre le beurre dans une casserole.",
-      "Ajouter la farine et cuire le roux 2 min sans coloration.",
+      "Ajouter la farine et cuire le roux 2min sans coloration.",
       "Verser le lait froid progressivement en fouettant.",
-      "Ajouter la crème et cuire 5 à 7 min jusqu’à obtenir une sauce nappante.",
+      "Ajouter la crème et cuire 5 à 7min jusqu’à obtenir une sauce nappante.",
       "Hors du feu, ajouter le comté, le parmesan, la moutarde, la muscade et le poivre.",
       "Goûter avant de saler.",
       "Ajouter le jaune d’œuf hors du feu en fouettant."
@@ -6474,11 +6474,11 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Roux",
-        "value": "2 min sans coloration pour éviter le goût de farine."
+        "value": "2min sans coloration pour éviter le goût de farine."
       },
       {
         "label": "Cuisson",
-        "value": "5 à 7 min après ajout lait et crème."
+        "value": "5 à 7min après ajout lait et crème."
       }
     ]
   },
@@ -6512,9 +6512,9 @@ window.RECIPES = {
       {
         "group": "Chou-fleur",
         "items": [
-          "900 g à 1 kg chou-fleur",
-          "30 g huile d’olive",
-          "20 g beurre fondu",
+          "900g à 1kg chou-fleur",
+          "30g huile d’olive",
+          "20g beurre fondu",
           "Sel fin",
           "Poivre blanc",
           "1 pincée muscade"
@@ -6529,26 +6529,26 @@ window.RECIPES = {
       {
         "group": "Chapelure noisette",
         "items": [
-          "45 g chapelure panko ou chapelure maison",
-          "25 g noisettes torréfiées concassées",
-          "20 g parmesan râpé",
-          "25 g beurre fondu",
-          "8 g persil plat haché"
+          "45g chapelure panko ou chapelure maison",
+          "25g noisettes torréfiées concassées",
+          "20g parmesan râpé",
+          "25g beurre fondu",
+          "8g persil plat haché"
         ]
       }
     ],
     "steps": [
       "Couper le chou-fleur en sommités régulières et garder le cœur épluché en petits morceaux.",
       "Rincer rapidement puis égoutter très soigneusement.",
-      "Cuire les sommités 5 à 6 min à la vapeur, ou 6 à 8 min dans une eau-lait salée, en gardant le chou-fleur ferme.",
-      "Préchauffer le four à 220 °C.",
+      "Cuire les sommités 5 à 6min à la vapeur, ou 6 à 8min dans une eau-lait salée, en gardant le chou-fleur ferme.",
+      "Préchauffer le four à 220°C.",
       "Mélanger le chou-fleur avec huile d’olive, beurre fondu, sel, poivre et muscade.",
-      "Étaler sur plaque et rôtir 15 à 20 min jusqu’à légère coloration.",
+      "Étaler sur plaque et rôtir 15 à 20min jusqu’à légère coloration.",
       "Préparer la <span data-goto=\"sauce_mornay\">sauce Mornay</span>.",
       "Mélanger chapelure, noisettes, parmesan, persil et beurre fondu jusqu’à texture sableuse.",
       "Beurrer légèrement un plat, disposer le chou-fleur rôti, napper de sauce Mornay et couvrir de chapelure noisette.",
-      "Enfourner à 190 °C pendant 18 à 22 min.",
-      "Terminer sous le gril 2 à 3 min si besoin, puis laisser reposer 5 min avant service."
+      "Enfourner à 190°C pendant 18 à 22min.",
+      "Terminer sous le gril 2 à 3min si besoin, puis laisser reposer 5min avant service."
     ],
     "notes": [
       "La <span data-goto=\"sauce_mornay\">sauce Mornay</span> doit rester nappante, pas trop épaisse, pour éviter un gratin pâteux.",
@@ -6558,11 +6558,11 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Pré-cuisson",
-        "value": "5 à 6 min vapeur ou 6 à 8 min eau-lait, chou-fleur encore ferme."
+        "value": "5 à 6min vapeur ou 6 à 8min eau-lait, chou-fleur encore ferme."
       },
       {
         "label": "Gratin",
-        "value": "190 °C, 18 à 22 min, puis gril 2 à 3 min si besoin."
+        "value": "190°C, 18 à 22min, puis gril 2 à 3min si besoin."
       },
       {
         "label": "Cible",
@@ -6601,21 +6601,21 @@ window.RECIPES = {
       {
         "group": "Pâte",
         "items": [
-          "500 g farine T55",
-          "25 à 30 g levure fraîche de boulanger ou 10 à 12 g levure sèche active",
-          "10 g sel fin",
-          "25 g sucre",
-          "200 g eau tiède",
-          "80 g lait tiède",
-          "60 g œuf entier battu",
-          "30 g beurre doux ramolli"
+          "500g farine T55",
+          "25 à 30g levure fraîche de boulanger ou 10 à 12g levure sèche active",
+          "10g sel fin",
+          "25g sucre",
+          "200g eau tiède",
+          "80g lait tiède",
+          "60g œuf entier battu",
+          "30g beurre doux ramolli"
         ]
       },
       {
         "group": "Dorure",
         "items": [
-          "18 g jaune d’œuf (1 jaune)",
-          "15 g eau",
+          "18g jaune d’œuf (1 jaune)",
+          "15g eau",
           "1 petite pincée sel optionnelle"
         ]
       },
@@ -6632,15 +6632,15 @@ window.RECIPES = {
       "Peser tous les ingrédients, couper le beurre en petits morceaux et le laisser ramollir.",
       "Battre légèrement l’œuf entier et préparer la dorure avec le jaune d’œuf et l’eau.",
       "Verser la farine dans la cuve du batteur, ajouter le sel et le sucre, puis mélanger rapidement.",
-      "Mélanger l’eau tiède et le lait tiède, ajouter la levure et laisser reposer 10 min à température ambiante.",
+      "Mélanger l’eau tiède et le lait tiède, ajouter la levure et laisser reposer 10min à température ambiante.",
       "Pétrir à vitesse lente en versant le mélange eau, lait et levure, puis ajouter l’œuf battu.",
-      "Ajouter le beurre ramolli et pétrir environ 5 min à vitesse assez élevée, jusqu’à ce que la pâte se décolle des parois.",
-      "Transvaser dans un saladier, couvrir et laisser pousser 2 h à température ambiante ou autour de 25 à 28 °C.",
+      "Ajouter le beurre ramolli et pétrir environ 5min à vitesse assez élevée, jusqu’à ce que la pâte se décolle des parois.",
+      "Transvaser dans un saladier, couvrir et laisser pousser 2h à température ambiante ou autour de 25 à 28°C.",
       "Dégazer doucement, peser la pâte et diviser en 8 pâtons réguliers.",
       "Bouler chaque pâton avec la soudure dessous pour tendre la surface et obtenir un bun bien rond.",
-      "Déposer sur plaque avec papier cuisson, bien espacer, couvrir légèrement et laisser pousser 1 h.",
+      "Déposer sur plaque avec papier cuisson, bien espacer, couvrir légèrement et laisser pousser 1h.",
       "Dorer délicatement au pinceau sans appuyer, puis ajouter les graines.",
-      "Cuire à 200 °C chaleur tournante pendant 10 à 12 min, jusqu’à coloration dorée.",
+      "Cuire à 200°C chaleur tournante pendant 10 à 12min, jusqu’à coloration dorée.",
       "Laisser refroidir sur grille avant de couper ou congeler."
     ],
     "notes": [
@@ -6653,15 +6653,15 @@ window.RECIPES = {
     "technical": [
       {
         "label": "Pousse",
-        "value": "2 h première pousse, puis 1 h après façonnage."
+        "value": "2h première pousse, puis 1h après façonnage."
       },
       {
         "label": "Cuisson",
-        "value": "200 °C chaleur tournante, 10 à 12 min."
+        "value": "200°C chaleur tournante, 10 à 12min."
       },
       {
         "label": "Conservation",
-        "value": "24 h bien emballés ou congélation après refroidissement."
+        "value": "24h bien emballés ou congélation après refroidissement."
       },
       {
         "label": "Cible",

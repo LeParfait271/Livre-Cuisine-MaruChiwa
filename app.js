@@ -163,25 +163,25 @@ function getRecipeAllergens(recipe) {
 }
 
 const AVERAGE_WEIGHT_RULES = [
-  { label: 'Œuf moyen', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/, except: /\b(jaunes?|blancs?) d['’ ]?(oeuf|oeufs)\b/ },
-  { label: 'Jaune d’œuf', value: '≈ 18 g', pattern: /\bjaunes? d['’ ]?(oeuf|oeufs)\b/ },
-  { label: 'Blanc d’œuf', value: '≈ 30 g', pattern: /\bblancs? d['’ ]?(oeuf|oeufs)\b/ },
-  { label: 'Citron jaune', value: '≈ 100 à 120 g', pattern: /\b(citron entier|citron jaune|citrons jaunes)\b/ },
-  { label: 'Jus d’un citron', value: '≈ 40 à 50 g', pattern: /\bjus de citron\b/ },
-  { label: 'Gousse d’ail', value: '≈ 5 g', pattern: /\b(gousse d ail|gousses d ail|ail)\b/ },
-  { label: 'Oignon moyen', value: '≈ 100 à 120 g', pattern: /\b(oignon|oignons)\b/ },
-  { label: 'Échalote', value: '≈ 25 à 30 g', pattern: /\b(echalote|echalotes)\b/ },
-  { label: 'Tomate moyenne', value: '≈ 120 g', pattern: /\b(tomate|tomates)\b/ },
-  { label: 'Carotte moyenne', value: '≈ 100 g', pattern: /\b(carotte|carottes)\b/ },
-  { label: 'Pomme de terre moyenne', value: '≈ 150 g', pattern: /\b(pomme de terre|pommes de terre)\b/ },
-  { label: 'Patate douce moyenne', value: '≈ 250 g', pattern: /\b(patate douce|patates douces)\b/ },
-  { label: 'Avocat', value: '≈ 150 g de chair', pattern: /\b(avocat|avocats)\b/ },
-  { label: 'Poivron', value: '≈ 150 à 180 g', pattern: /\b(poivron|poivrons)\b/ },
-  { label: 'Courgette moyenne', value: '≈ 200 g', pattern: /\b(courgette|courgettes)\b/ },
-  { label: 'Aubergine moyenne', value: '≈ 300 g', pattern: /\b(aubergine|aubergines)\b/ },
-  { label: 'Orange', value: '≈ 150 à 180 g', pattern: /\b(orange|oranges)\b/ },
-  { label: 'Pomme', value: '≈ 150 g', pattern: /\b(pomme|pommes)\b(?!\s+de\s+terre)/ },
-  { label: 'Poire', value: '≈ 160 g', pattern: /\b(poire|poires)\b/ }
+  { label: 'Œuf moyen', value: '≈ 55g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/, except: /\b(jaunes?|blancs?) d['’ ]?(oeuf|oeufs)\b/ },
+  { label: 'Jaune d’œuf', value: '≈ 18g', pattern: /\bjaunes? d['’ ]?(oeuf|oeufs)\b/ },
+  { label: 'Blanc d’œuf', value: '≈ 30g', pattern: /\bblancs? d['’ ]?(oeuf|oeufs)\b/ },
+  { label: 'Citron jaune', value: '≈ 100 à 120g', pattern: /\b(citron entier|citron jaune|citrons jaunes)\b/ },
+  { label: 'Jus d’un citron', value: '≈ 40 à 50g', pattern: /\bjus de citron\b/ },
+  { label: 'Gousse d’ail', value: '≈ 5g', pattern: /\b(gousse d ail|gousses d ail|ail)\b/ },
+  { label: 'Oignon moyen', value: '≈ 100 à 120g', pattern: /\b(oignon|oignons)\b/ },
+  { label: 'Échalote', value: '≈ 25 à 30g', pattern: /\b(echalote|echalotes)\b/ },
+  { label: 'Tomate moyenne', value: '≈ 120g', pattern: /\b(tomate|tomates)\b/ },
+  { label: 'Carotte moyenne', value: '≈ 100g', pattern: /\b(carotte|carottes)\b/ },
+  { label: 'Pomme de terre moyenne', value: '≈ 150g', pattern: /\b(pomme de terre|pommes de terre)\b/ },
+  { label: 'Patate douce moyenne', value: '≈ 250g', pattern: /\b(patate douce|patates douces)\b/ },
+  { label: 'Avocat', value: '≈ 150g de chair', pattern: /\b(avocat|avocats)\b/ },
+  { label: 'Poivron', value: '≈ 150 à 180g', pattern: /\b(poivron|poivrons)\b/ },
+  { label: 'Courgette moyenne', value: '≈ 200g', pattern: /\b(courgette|courgettes)\b/ },
+  { label: 'Aubergine moyenne', value: '≈ 300g', pattern: /\b(aubergine|aubergines)\b/ },
+  { label: 'Orange', value: '≈ 150 à 180g', pattern: /\b(orange|oranges)\b/ },
+  { label: 'Pomme', value: '≈ 150g', pattern: /\b(pomme|pommes)\b(?!\s+de\s+terre)/ },
+  { label: 'Poire', value: '≈ 160g', pattern: /\b(poire|poires)\b/ }
 ];
 
 function getRecipeAverageWeights(recipe) {
