@@ -273,22 +273,21 @@ function scaleYieldDisplay(text, factor) {
   if (factor === 1 || !value) return value;
   const amountPattern = String.raw`\d+(?:[.,]\d+)?(?:\/\d+)?`;
   const rangeSeparatorPattern = String.raw`\s*(?:[\u2013\u2014-]|\u00e0|a)\s*`;
-  const quantityPattern = new RegExp(String.raw`(^|pour\s+|ou\s+)(${amountPattern})(${rangeSeparatorPattern}(${amountPattern}))?`, 'gi');
-  const detailUnitPattern = /^(?:\D*\d+(?:[.,]\d+)?(?:\/\d+)?\s*)?(?:g|kg|mg|ml|cl|cm|mm)\b/;
-  let scaledCount = 0;
-  return value.replace(quantityPattern, (match, prefix, firstRaw, rangeFull, secondRaw, offset, fullText) => {
+  const quantityPattern = new RegExp(String.raw`(^|[^0-9A-Za-z\u00c0-\u017f])(${amountPattern})(${rangeSeparatorPattern}(${amountPattern}))?`, 'gi');
+  const detailUnitPattern = /^\s*(?:g|kg|mg|ml|cl|cm|mm)\b/i;
+  const scaled = value.replace(quantityPattern, (match, prefix, firstRaw, rangeFull, secondRaw, offset, fullText) => {
     const after = fullText.slice(offset + match.length).trimStart().toLowerCase();
-    if (scaledCount > 0 && detailUnitPattern.test(after)) return match;
+    if (detailUnitPattern.test(after)) return match;
     const first = parseAmount(firstRaw);
     const second = secondRaw ? parseAmount(secondRaw) : null;
     if (!Number.isFinite(first)) return match;
-    scaledCount += 1;
     if (second !== null && Number.isFinite(second)) {
       const separator = rangeFull.slice(0, rangeFull.length - secondRaw.length);
       return `${prefix}${formatNumber(first * factor)}${separator}${formatNumber(second * factor)}`;
     }
     return `${prefix}${formatNumber(first * factor)}`;
   });
+  return scaled.replace(/\b([2-9]|\d{2,}) cake\b/gi, '$1 cakes');
 }
 
 function recipeShoppingLines(recipe, factor = 1) {
