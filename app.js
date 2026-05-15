@@ -5,6 +5,7 @@ const h = React.createElement;
 
 const HERO_IMAGE = '/assets/base-principale-fond-site.jpg';
 const COOK_NOTE_LOGO = '/assets/cook-note-white.png';
+const READ_BEFORE_STEP = 'Lire la section A lire avant tout avant de commencer la recette.';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
@@ -201,6 +202,15 @@ function getRecipeAverageWeights(recipe) {
     });
   });
   return Array.from(found, ([label, value]) => ({ label, value }));
+}
+
+function getRecipeSteps(recipe) {
+  const normalizedReadBefore = normalizeText(READ_BEFORE_STEP);
+  const steps = recipe?.steps || [];
+  return [
+    READ_BEFORE_STEP,
+    ...steps.filter(step => normalizeText(step) !== normalizedReadBefore)
+  ];
 }
 
 function getVariantRefs(recipe) {
@@ -1025,7 +1035,8 @@ function RecipeView({
   const [timerLabel, setTimerLabel] = useState('');
   const [now, setNow] = useState(Date.now());
   const completedRef = useRef('');
-  const stepTotal = hasSelectedVariant ? (selectedRecipe.steps || []).length : 0;
+  const displaySteps = hasSelectedVariant ? getRecipeSteps(selectedRecipe) : [];
+  const stepTotal = displaySteps.length;
   const doneSteps = Object.keys(checked).filter(key => key.startsWith(`${detailKey}:step:`) && checked[key]).length;
   const progress = stepTotal ? Math.round((doneSteps / stepTotal) * 100) : 0;
   const isInShopping = hasSelectedVariant && shoppingIds.includes(detailKey);
@@ -1200,7 +1211,7 @@ function RecipeView({
         ),
         hasSelectedVariant && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
         h('ol', { className: 'step-list' },
-          (selectedRecipe.steps || []).map((step, index) => {
+          displaySteps.map((step, index) => {
             const key = `${detailKey}:step:${index}`;
             const minutes = getStepMinutes(step);
             return h('li', { key, className: checked[key] ? 'done' : '' },
@@ -1223,6 +1234,7 @@ function RecipeView({
         )
       ),
       hasSelectedVariant && h('aside', { className: mobileDetailTab === 'notes' ? 'recipe-panel notes-panel active-tab-panel' : 'recipe-panel notes-panel' },
+        h('h2', { className: 'read-before-title' }, 'A lire avant tout'),
         h('div', { className: 'allergen-card' },
           h('p', { className: 'eyebrow' }, 'Allergènes'),
           recipeAllergens.length

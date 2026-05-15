@@ -1345,6 +1345,10 @@ a {
   font-weight: 950;
 }
 
+.read-before-title {
+  margin-bottom: 18px !important;
+}
+
 .allergen-card {
   margin-bottom: 18px;
   padding-bottom: 16px;
