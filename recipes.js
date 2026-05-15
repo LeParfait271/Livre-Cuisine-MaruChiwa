@@ -2406,6 +2406,7 @@ window.RECIPES = {
     "notes": [
       "Le beurre doit être pommade, pas fondu, pour obtenir un crumble bien sableux.",
       "Surveiller la coloration en fin de cuisson : le dessus doit être doré sans brûler.",
+      "Chaque four réagit différemment : surveille la coloration et la texture en fin de cuisson, puis ajuste le temps si nécessaire.",
       "Très bon tiède, nature ou avec une crème anglaise."
     ],
     "technical": [
