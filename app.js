@@ -163,7 +163,7 @@ function getRecipeAllergens(recipe) {
 }
 
 const AVERAGE_WEIGHT_RULES = [
-  { label: 'Œuf moyen sans coquille', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/ },
+  { label: 'Œuf moyen', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/ },
   { label: 'Jaune d’œuf', value: '≈ 18 g', pattern: /\b(jaune d oeuf|jaunes d oeufs|jaune d œuf|jaunes d œufs)\b/ },
   { label: 'Blanc d’œuf', value: '≈ 30 g', pattern: /\b(blanc d oeuf|blancs d oeufs|blanc d œuf|blancs d œufs)\b/ },
   { label: 'Citron jaune', value: '≈ 100 à 120 g', pattern: /\b(citron entier|citron jaune|citrons jaunes)\b/ },

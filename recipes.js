@@ -3661,7 +3661,7 @@ window.RECIPES = {
           "200 g sucre",
           "120 g beurre fondu",
           "Zeste fin d’un citron jaune non traité",
-          "165 g œufs sans coquille (environ 3 œufs moyens)",
+          "165 g œufs (environ 3 œufs moyens)",
           "150 g farine",
           "1/2 c. à café levure chimique",
           "80 g jus de citron"
@@ -3678,7 +3678,7 @@ window.RECIPES = {
     "steps": [
       "Préchauffer le four à 170 °C. Beurrer légèrement le moule ou utiliser un spray de démoulage, puis retirer l’excédent de gras avec un papier absorbant si besoin.",
       "Faire fondre le beurre au bain-marie, le laisser tiédir légèrement, puis le verser dans un bol avec le sucre et le zeste de citron. Mélanger simplement, sans blanchir.",
-      "Ajouter les 165 g d’œufs pesés sans coquille, puis mélanger juste assez pour homogénéiser.",
+      "Ajouter les 165 g d’œufs, puis mélanger juste assez pour homogénéiser.",
       "Ajouter la farine et la levure chimique. Mélanger sans insister, seulement jusqu’à obtenir une pâte homogène.",
       "Verser les 80 g de jus de citron et mélanger jusqu’à obtention d’une pâte lisse. La pâte est fluide, c’est normal.",
       "Verser la pâte dans le moule préparé et lisser légèrement la surface. La pâte doit remplir environ les 3/4 du moule.",
@@ -3692,7 +3692,7 @@ window.RECIPES = {
     "notes": [
       "Ne pas blanchir beurre et sucre : trop fouetter nuit à la texture recherchée.",
       "Le moule ne doit pas être trop grand : la pâte doit arriver aux 3/4 de la hauteur pour une belle forme et une cuisson régulière.",
-      "Peser les œufs sans coquille. La précision aide à obtenir une mie qui se tient bien, même en tranches fines.",
+      "Respecter la quantité d’œufs indiquée : la précision aide à obtenir une mie qui se tient bien, même en tranches fines.",
       "Surveiller dès 30 min : une surcuisson dessèche le cake et déséquilibre l’acidité du citron.",
       "Filmer le cake dès la sortie du four retient l’humidité et donne une texture moelleuse, dense et fondante.",
       "Laisser vraiment refroidir le cake avant glaçage, sinon le nappage fond et reste collant.",
