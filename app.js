@@ -147,6 +147,7 @@ function getRecipeAllergens(recipe) {
   addIf('Arachides', /\b(arachide|arachides|cacahuete|cacahuetes|beurre de cacahuete)\b/);
   addIf('Soja', /\b(soja|sauce soja|tofu|miso|edamame)\b/);
   addIf('Moutarde', /\b(moutarde|graines de moutarde)\b/);
+  addIf('Miel', /\b(miel)\b/);
   addIf('Poisson', /\b(poisson|saumon|thon|cabillaud|anchois|sardine|dorade|bar|bouillabaisse)\b/);
   addIf('Crustacés', /\b(crevette|crevettes|crabe|homard|langoustine|gambas)\b/);
   addIf('Mollusques', /\b(calamar|calamars|moule|moules|palourde|palourdes|poulpe|encornet|encornets)\b/);
