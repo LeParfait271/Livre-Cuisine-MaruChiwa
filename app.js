@@ -5,7 +5,7 @@ const h = React.createElement;
 
 const HERO_IMAGE = '/assets/base-principale-fond-site.jpg';
 const COOK_NOTE_LOGO = '/assets/cook-note-white.png';
-const READ_BEFORE_STEP = 'Lire la section A lire avant tout avant de commencer la recette.';
+const READ_BEFORE_STEP = 'Avant de commencer, lis la section "A lire avant tout" à droite de la recette.';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
