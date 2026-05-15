@@ -1099,7 +1099,7 @@ window.RECIPES = {
         "items": [
           "150 g farine",
           "75 g beurre doux mou",
-          "1 œuf",
+          "55 g œuf (1 œuf moyen)",
           "2 g levure chimique",
           "Sel, poivre"
         ]
@@ -1159,7 +1159,7 @@ window.RECIPES = {
       {
         "group": "Version lait",
         "items": [
-          "2 œufs",
+          "110 g œufs (2 œufs moyens)",
           "300 g lait",
           "40 g beurre fondu"
         ]
@@ -1167,7 +1167,7 @@ window.RECIPES = {
       {
         "group": "Version babeurre",
         "items": [
-          "2 œufs",
+          "110 g œufs (2 œufs moyens)",
           "300 g babeurre",
           "40 g beurre fondu"
         ]
@@ -3453,7 +3453,7 @@ window.RECIPES = {
         "items": [
           "200 g chocolat noir",
           "120 g beurre",
-          "3 œufs",
+          "165 g œufs (3 œufs moyens)",
           "90 g sucre",
           "45 g farine",
           "1 g fleur de sel"
@@ -3517,7 +3517,7 @@ window.RECIPES = {
           "115 g beurre mou",
           "90 g sucre cassonade",
           "60 g sucre blanc",
-          "1 œuf",
+          "55 g œuf (1 œuf moyen)",
           "5 g extrait de vanille",
           "180 g farine",
           "3 g bicarbonate",
@@ -3736,7 +3736,7 @@ window.RECIPES = {
         "group": "Pâte à churros",
         "items": [
           "245 g farine",
-          "3 œufs",
+          "165 g œufs (3 œufs moyens)",
           "2 g sel",
           "25 g sucre",
           "30 g huile neutre",
@@ -4121,7 +4121,7 @@ window.RECIPES = {
           "115 g beurre doux mou",
           "100 g cassonade",
           "50 g sucre",
-          "1 œuf",
+          "55 g œuf (1 œuf moyen)",
           "1 1/2 c. à café extrait de vanille",
           "220 g farine",
           "1/2 c. à café bicarbonate",
@@ -4458,7 +4458,7 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "2 jaunes d’œufs",
+          "36 g jaunes d’œufs (2 jaunes)",
           "2 petites gousses d’ail dégermées",
           "80 g de pomme de terre cuite dans le bouillon",
           "1 c. à café de moutarde de Dijon douce",
@@ -4676,7 +4676,7 @@ window.RECIPES = {
           "250 g de cassonade tassée",
           "340 g de beurre mou",
           "2 c. à café de vanille",
-          "3 œufs",
+          "165 g œufs (3 œufs moyens)",
           "530 g de farine",
           "2 c. à café de bicarbonate de soude",
           "1/2 c. à café de sel",
@@ -4742,7 +4742,7 @@ window.RECIPES = {
           "1/2 c. à café de sel",
           "1 c. à soupe de sucre",
           "300 ml de lait",
-          "1 gros œuf",
+          "60 g œuf (1 gros œuf)",
           "45 g de beurre fondu"
         ]
       }
@@ -4799,7 +4799,7 @@ window.RECIPES = {
       {
         "group": "Base mayonnaise",
         "items": [
-          "1 jaune d’œuf",
+          "18 g jaune d’œuf (1 jaune)",
           "1 c. à café de moutarde",
           "1 c. à soupe de vinaigre de vin blanc ou jus de citron",
           "200 ml d’huile neutre",
@@ -4972,7 +4972,7 @@ window.RECIPES = {
       {
         "group": "Finition",
         "items": [
-          "Lait ou œuf battu pour dorer",
+          "Lait ou 55 g œuf battu pour dorer",
           "Graines de sésame optionnelles"
         ]
       }
@@ -5305,7 +5305,7 @@ window.RECIPES = {
         "group": "Option luxe",
         "items": [
           "Saumon fumé ou truite fumée",
-          "Œuf poché",
+          "55 g œuf poché (1 œuf moyen)",
           "Crème crue et caviar",
           "Jambon cru affiné",
           "Champignons poêlés au beurre noisette"
@@ -6319,7 +6319,7 @@ window.RECIPES = {
           "100 g crème liquide entière",
           "90 g comté 18 mois râpé",
           "35 g parmesan râpé",
-          "1 jaune d’œuf",
+          "18 g jaune d’œuf (1 jaune)",
           "5 g moutarde de Dijon",
           "1 pincée muscade",
           "Sel",
@@ -6483,7 +6483,7 @@ window.RECIPES = {
       {
         "group": "Dorure",
         "items": [
-          "1 jaune d’œuf",
+          "18 g jaune d’œuf (1 jaune)",
           "15 g eau",
           "1 petite pincée sel optionnelle"
         ]
