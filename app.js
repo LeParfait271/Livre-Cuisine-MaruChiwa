@@ -1256,7 +1256,19 @@ function RecipeView({
   const [timerLabel, setTimerLabel] = useState('');
   const [now, setNow] = useState(Date.now());
   const completedRef = useRef('');
-  const displaySteps = hasSelectedVariant ? getRecipeSteps(selectedRecipe) : [];
+  const inlineVariantGroupIndexes = useMemo(() => (
+    !showVariants && selectedRecipe?.variantGroups
+      ? (selectedRecipe.ingredients || [])
+        .map((group, index) => ({ group, index }))
+        .filter(({ group }) => isVariantIngredientGroup(group, selectedRecipe.ingredients || [], selectedRecipe))
+      : []
+  ), [showVariants, selectedRecipe]);
+  const needsInlineVariantSelection = inlineVariantGroupIndexes.length > 0;
+  const selectedInlineVariantGroup = needsInlineVariantSelection
+    ? inlineVariantGroupIndexes.find(({ index }) => Boolean(openIngredientGroups[`${detailKey}:group:${index}`]))
+    : null;
+  const canShowSteps = hasSelectedVariant && (!needsInlineVariantSelection || Boolean(selectedInlineVariantGroup));
+  const displaySteps = canShowSteps ? getRecipeSteps(selectedRecipe) : [];
   const stepTotal = displaySteps.length;
   const doneSteps = Object.keys(checked).filter(key => key.startsWith(`${detailKey}:step:`) && checked[key]).length;
   const progress = stepTotal ? Math.round((doneSteps / stepTotal) * 100) : 0;
@@ -1314,11 +1326,21 @@ function RecipeView({
   }
 
   function toggleIngredientGroup(groupKey) {
-    setOpenIngredientGroups(prev => ({ ...prev, [groupKey]: !prev[groupKey] }));
+    setOpenIngredientGroups(prev => {
+      const isOpening = !prev[groupKey];
+      if (!needsInlineVariantSelection || !isOpening) return { ...prev, [groupKey]: !prev[groupKey] };
+      const next = { ...prev };
+      inlineVariantGroupIndexes.forEach(({ index }) => {
+        delete next[`${detailKey}:group:${index}`];
+      });
+      next[groupKey] = true;
+      return next;
+    });
   }
 
   const heroUsesHomeImage = showVariants;
   const heroImage = heroUsesHomeImage ? HERO_IMAGE : (selectedRecipe.image || recipe.image);
+  const heroEyebrow = isMasterRecipe(recipe) ? 'Catégorie' : primaryCategory(recipe);
   const heroStyle = heroImage
     ? {
       backgroundImage: heroUsesHomeImage
@@ -1335,7 +1357,7 @@ function RecipeView({
       h('div', { className: 'detail-hero-copy' },
         h('button', { type: 'button', className: 'back-link', onClick: goHome }, 'Retour aux recettes'),
         heroUsesHomeImage && h('img', { className: 'detail-hero-logo', src: COOK_NOTE_LOGO, alt: 'Cook Note' }),
-        h('p', { className: 'eyebrow' }, primaryCategory(recipe)),
+        h('p', { className: 'eyebrow' }, heroEyebrow),
         h('h1', null, recipe.title),
         h('div', { className: 'detail-meta' },
           showVariants && !hasSelectedVariant
@@ -1415,15 +1437,20 @@ function RecipeView({
       hasSelectedVariant && h('section', { className: mobileDetailTab === 'steps' ? 'recipe-panel steps-panel active-tab-panel' : 'recipe-panel steps-panel' },
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Exécution'), h('h2', null, 'Étapes')),
-          hasSelectedVariant && h('div', { className: 'history-actions' },
+          canShowSteps && h('div', { className: 'history-actions' },
             h('button', { type: 'button', onClick: undo, disabled: !canUndo, title: 'Ctrl+Z' }, 'Annuler'),
             h('button', { type: 'button', onClick: redo, disabled: !canRedo, title: 'Ctrl+Y' }, 'Rétablir'),
             h('span', { className: 'progress-label' }, `${doneSteps}/${stepTotal}`),
             timerEnd && remainingMs > 0 && h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
           )
         ),
-        hasSelectedVariant && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
-        h('ol', { className: 'step-list' },
+        canShowSteps && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
+        !canShowSteps
+          ? h('div', { className: 'choice-empty-state variant-step-empty' },
+            h('strong', null, 'Sélectionne une variante'),
+            h('p', null, 'Ouvre une variante dans la section Ingrédients pour afficher les étapes à suivre.')
+          )
+          : h('ol', { className: 'step-list' },
           displaySteps.map((step, index) => {
             const key = `${detailKey}:step:${index}`;
             const minutes = getStepMinutes(step);
