@@ -486,6 +486,10 @@ window.RECIPES = {
     "masterType": "collection",
     "variants": [
       {
+        "id": "cake_citron",
+        "label": "Cake au citron"
+      },
+      {
         "id": "churros_maison",
         "label": "Churros"
       },
@@ -3616,6 +3620,110 @@ window.RECIPES = {
     "difficultyScore": 9,
     "additionalMasters": [
       "desserts_maitre"
+    ]
+  },
+  "cake_citron": {
+    "title": "Cake au citron",
+    "master": "biscuits_gouters_maitre",
+    "image": "/assets/recipe-images/cake_citron.png",
+    "categories": [
+      "Desserts"
+    ],
+    "seasons": [
+      "Toutes saisons"
+    ],
+    "difficulty": "easy",
+    "difficultyScore": 3,
+    "yield": "1 cake, environ 8 à 10 tranches",
+    "aliases": [
+      "cake citron",
+      "cake ultime au citron",
+      "gâteau au citron",
+      "goûter citron"
+    ],
+    "tags": [
+      "cake",
+      "citron",
+      "dessert",
+      "goûter",
+      "glaçage"
+    ],
+    "allergens": [
+      "Gluten",
+      "Lait",
+      "Œufs"
+    ],
+    "nutriScore": "D",
+    "ingredients": [
+      {
+        "group": "Cake",
+        "items": [
+          "200 g sucre",
+          "120 g beurre fondu",
+          "Zeste fin d’un citron jaune non traité",
+          "165 g œufs sans coquille (environ 3 œufs moyens)",
+          "150 g farine",
+          "1/2 c. à café levure chimique",
+          "80 g jus de citron"
+        ]
+      },
+      {
+        "group": "Glaçage",
+        "items": [
+          "25 g jus de citron",
+          "130 g sucre glace"
+        ]
+      },
+      {
+        "group": "Matériel conseillé",
+        "items": [
+          "1 petit moule à cake d’environ 160 x 80 mm",
+          "1 grille",
+          "1 fouet ou spatule",
+          "1 balance précise",
+          "Film étirable",
+          "1 spatule coudée ou couteau pour lisser le glaçage"
+        ]
+      }
+    ],
+    "steps": [
+      "Préchauffer le four à 170 °C. Beurrer légèrement le moule ou utiliser un spray de démoulage, puis retirer l’excédent de gras avec un papier absorbant si besoin.",
+      "Faire fondre le beurre au bain-marie, le laisser tiédir légèrement, puis le verser dans un bol avec le sucre et le zeste de citron. Mélanger simplement, sans blanchir.",
+      "Ajouter les 165 g d’œufs pesés sans coquille, puis mélanger juste assez pour homogénéiser.",
+      "Ajouter la farine et la levure chimique. Mélanger sans insister, seulement jusqu’à obtenir une pâte homogène.",
+      "Verser les 80 g de jus de citron et mélanger jusqu’à obtention d’une pâte lisse. La pâte est fluide, c’est normal.",
+      "Verser la pâte dans le moule préparé et lisser légèrement la surface. La pâte doit remplir environ les 3/4 du moule.",
+      "Cuire à 170 °C pendant 30 à 40 min. Le cake doit être légèrement doré et une lame doit ressortir sèche.",
+      "Démouler le cake à l’envers sur une grille, l’emballer immédiatement dans du film étirable et le laisser refroidir totalement dans cet emballage.",
+      "Mélanger le sucre glace avec les 25 g de jus de citron jusqu’à obtenir un glaçage lisse, fluide mais couvrant. Ajuster avec quelques gouttes de citron ou un peu de sucre glace si besoin.",
+      "Déballer le cake totalement refroidi, poser une assiette sous la grille, verser le glaçage et lisser en couche fine régulière.",
+      "Remettre le cake sur sa grille et sécher le glaçage au four à 100 °C pendant 8 min. Le glaçage doit être sec et doux au toucher.",
+      "Laisser revenir à température ambiante, puis couper en tranches fines ou moyennes."
+    ],
+    "notes": [
+      "Ne pas blanchir beurre et sucre : trop fouetter nuit à la texture recherchée.",
+      "Le moule ne doit pas être trop grand : la pâte doit arriver aux 3/4 de la hauteur pour une belle forme et une cuisson régulière.",
+      "Peser les œufs sans coquille. La précision aide à obtenir une mie qui se tient bien, même en tranches fines.",
+      "Surveiller dès 30 min : une surcuisson dessèche le cake et déséquilibre l’acidité du citron.",
+      "Filmer le cake dès la sortie du four retient l’humidité et donne une texture moelleuse, dense et fondante.",
+      "Laisser vraiment refroidir le cake avant glaçage, sinon le nappage fond et reste collant.",
+      "Le cake est souvent meilleur le lendemain : les arômes se stabilisent et la texture se tient encore mieux.",
+      "Conservation : 3 à 4 jours à température ambiante dans une boîte hermétique ou bien filmé ; 5 à 6 jours au réfrigérateur, avec une texture un peu plus ferme.",
+      "Congélation possible, idéalement sans glaçage ou en tranches bien emballées, jusqu’à 1 à 2 mois."
+    ],
+    "technical": [
+      {
+        "label": "Cuisson",
+        "value": "30 à 40 min à 170 °C, puis 8 min à 100 °C pour sécher le glaçage."
+      },
+      {
+        "label": "Texture cible",
+        "value": "Moelleux, légèrement dense, intensément citronné et assez stable pour être tranché finement."
+      },
+      {
+        "label": "Stockage optimal",
+        "value": "Conserver entier plutôt qu’en tranches, en boîte hermétique, à température ambiante dans un endroit frais et sec."
+      }
     ]
   },
   "churros_maison": {
