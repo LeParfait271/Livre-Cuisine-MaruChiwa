@@ -941,6 +941,11 @@ a {
   font-weight: 850;
 }
 
+.variant-factor-control {
+  width: fit-content;
+  margin-top: 10px;
+}
+
 .variant-card {
   position: relative;
   overflow: hidden;
