@@ -1,16 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Cook Note logo">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" role="img" aria-label="Cook Note">
   <defs>
-    <radialGradient id="g" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="70%" stop-color="#f3f3f3" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="glow" x="-30%" y="-80%" width="160%" height="260%">
-      <feGaussianBlur stdDeviation="18" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#000000" flood-opacity="0.72"/>
     </filter>
   </defs>
-  <rect width="1200" height="360" fill="transparent"/>
-  <ellipse cx="600" cy="180" rx="470" ry="125" fill="url(#g)"/>
-  <text x="600" y="220" text-anchor="middle" fill="#ffffff" font-size="132" font-family="Georgia, 'Times New Roman', serif" letter-spacing="2" filter="url(#glow)">Cook Note</text>
+  <rect width="900" height="240" fill="none"/>
+  <text
+    x="450"
+    y="145"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-size="104"
+    font-family="Creepster, Chiller, 'Bradley Hand ITC', Papyrus, fantasy"
+    font-weight="400"
+    letter-spacing="3"
+    filter="url(#shadow)">Cook Note</text>
 </svg>
