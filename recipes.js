@@ -3673,17 +3673,6 @@ window.RECIPES = {
           "25 g jus de citron",
           "130 g sucre glace"
         ]
-      },
-      {
-        "group": "Matériel conseillé",
-        "items": [
-          "1 petit moule à cake d’environ 160 x 80 mm",
-          "1 grille",
-          "1 fouet ou spatule",
-          "1 balance précise",
-          "Film étirable",
-          "1 spatule coudée ou couteau pour lisser le glaçage"
-        ]
       }
     ],
     "steps": [
