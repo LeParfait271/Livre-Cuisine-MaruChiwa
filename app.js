@@ -735,7 +735,7 @@ function updateDocumentMeta(recipe) {
   const title = recipe?.title ? `${recipe.title} - Cook Note` : 'Cook Note';
   const description = recipe?.title
     ? `${recipe.title} sur Cook Note : ingrédients, étapes, portions et astuces.`
-    : 'Cook Note - carnet de recettes illustré avec recherche, favoris, listes de courses et minuteurs.';
+    : 'Livre de cuisine de MaruChiwa';
   document.title = title;
   setMetaContent('meta[name="description"]', description);
   setMetaContent('meta[property="og:title"]', title);
