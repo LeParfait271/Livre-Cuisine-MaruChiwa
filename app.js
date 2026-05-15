@@ -5,7 +5,7 @@ const h = React.createElement;
 
 const HERO_IMAGE = '/assets/base-principale-fond-site.jpg';
 const COOK_NOTE_LOGO = '/assets/cook-note-white.png';
-const READ_BEFORE_STEP = 'Avant de commencer, lis la section "A lire avant tout" à droite de la recette.';
+const READ_BEFORE_STEP = 'Bien lire la section "Avant toute chose" à droite de la recette.';
 
 const SEASONS = ['Printemps', 'Été', 'Automne', 'Hiver'];
 const DIFFICULTY_LABELS = { easy: 'Facile', medium: 'Intermédiaire', hard: 'Technique' };
@@ -1235,7 +1235,7 @@ function RecipeView({
         )
       ),
       hasSelectedVariant && h('aside', { className: mobileDetailTab === 'notes' ? 'recipe-panel notes-panel active-tab-panel' : 'recipe-panel notes-panel' },
-        h('h2', { className: 'read-before-title' }, 'A lire avant tout'),
+        h('h2', { className: 'read-before-title' }, 'Avant toute chose'),
         h('div', { className: 'allergen-card' },
           h('p', { className: 'eyebrow' }, 'Allergènes'),
           recipeAllergens.length
