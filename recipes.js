@@ -3518,7 +3518,7 @@ window.RECIPES = {
           "90 g sucre cassonade",
           "60 g sucre blanc",
           "55 g œuf (1 œuf moyen)",
-          "5 g extrait de vanille",
+          "1 gousse de vanille ou arôme vanille selon dosage du flacon",
           "180 g farine",
           "3 g bicarbonate",
           "2 g sel fin"
@@ -3544,6 +3544,7 @@ window.RECIPES = {
     "notes": [
       "Pour des cookies épais, cuire la pâte bien froide.",
       "Stockage : 4 jours en boîte hermétique.",
+      "Si tu utilises un arôme vanille, suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -4052,7 +4053,7 @@ window.RECIPES = {
           "125 g farine",
           "60 g beurre",
           "30 g sucre glace",
-          "1/2 c. à café vanille"
+          "vanille ou arôme vanille selon dosage du flacon"
         ]
       },
       {
@@ -4081,7 +4082,8 @@ window.RECIPES = {
       "Foncer le moule, réfrigérer 30 min, puis cuire à blanc selon la garniture prévue."
     ],
     "notes": [
-      "Adapter la cuisson à la garniture : précuire pour une crème froide, cuire avec la garniture pour une tarte cuite."
+      "Adapter la cuisson à la garniture : précuire pour une crème froide, cuire avec la garniture pour une tarte cuite.",
+      "Si tu utilises un arôme vanille, suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil."
     ],
     "tags": [
       "pate",
@@ -4122,7 +4124,7 @@ window.RECIPES = {
           "100 g cassonade",
           "50 g sucre",
           "55 g œuf (1 œuf moyen)",
-          "1 1/2 c. à café extrait de vanille",
+          "1 gousse de vanille ou arôme vanille selon dosage du flacon",
           "220 g farine",
           "1/2 c. à café bicarbonate",
           "1/4 c. à café sel"
@@ -4148,6 +4150,7 @@ window.RECIPES = {
     "notes": [
       "Le cream cheese correspond à un fromage frais dense et légèrement acidulé, type Philadelphia. Évite le fromage blanc ou le Saint Môret trop souple si tu veux un cœur net.",
       "Bien refermer la pâte autour du fourrage pour éviter les fuites. Conservation : 3 jours au réfrigérateur.",
+      "Si tu utilises un arôme vanille, suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil.",
       "Chaque four réagit différemment : surveillez la coloration et la texture en fin de cuisson, puis ajustez le temps si nécessaire."
     ],
     "tags": [
@@ -4189,13 +4192,13 @@ window.RECIPES = {
         "items": [
           "120 g crème liquide 35 %",
           "120 g lait entier",
-          "5 g extrait de vanille"
+          "1 gousse de vanille"
         ]
       },
       {
         "group": "Finition",
         "items": [
-          "5 g extrait de vanille"
+          "arôme vanille optionnel selon dosage du flacon"
         ]
       }
     ],
@@ -4211,6 +4214,7 @@ window.RECIPES = {
     "notes": [
       "Pour une sauce plus fluide, ajoute une petite touche de lait chaud après cuisson.",
       "Pour une sauce plus épaisse, prolonge très légèrement la cuisson en surveillant la couleur et la texture.",
+      "Si tu utilises un arôme vanille, suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil.",
       "Conservation : environ 1 semaine au réfrigérateur dans un pot propre fermé."
     ],
     "tags": [
@@ -4675,7 +4679,7 @@ window.RECIPES = {
           "250 g de sucre",
           "250 g de cassonade tassée",
           "340 g de beurre mou",
-          "2 c. à café de vanille",
+          "1 gousse de vanille ou arôme vanille selon dosage du flacon",
           "165 g œufs (3 œufs moyens)",
           "530 g de farine",
           "2 c. à café de bicarbonate de soude",
@@ -4697,6 +4701,7 @@ window.RECIPES = {
     "notes": [
       "Pour des cookies plus chocolatés, utiliser la quantité haute de pépites.",
       "La pâte peut être congelée en boules et cuite après décongélation.",
+      "Si tu utilises un arôme vanille, suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil.",
       "Chaque four réagit différemment : surveille la coloration et ajuste le temps de cuisson si nécessaire."
     ],
     "technical": [
@@ -4743,7 +4748,7 @@ window.RECIPES = {
           "150 g de farine",
           "1 sachet de levure chimique",
           "100 ml de lait",
-          "2 c. à café de vanille liquide",
+          "1 gousse de vanille",
           "1 pincée de sel",
           "beurre fondu pour les cercles et la poêle"
         ]
@@ -4764,6 +4769,7 @@ window.RECIPES = {
     "notes": [
       "Un cercle à pâtisserie aide les pancakes à rester hauts et réguliers.",
       "Sans cercle, la recette fonctionne aussi comme des pancakes classiques, mais ils seront moins hauts.",
+      "Tu peux remplacer la gousse par de l'arôme vanille, mais suis le dosage indiqué sur la bouteille : les arômes ne se dosent pas tous pareil.",
       "Garnitures possibles : chocolat fondu, sirop d'érable, caramel ou fruits frais."
     ],
     "technical": [
