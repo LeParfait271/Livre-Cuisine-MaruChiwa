@@ -1257,12 +1257,12 @@ function RecipeView({
   const [now, setNow] = useState(Date.now());
   const completedRef = useRef('');
   const inlineVariantGroupIndexes = useMemo(() => (
-    !showVariants && selectedRecipe?.variantGroups
+    selectedRecipe?.variantGroups
       ? (selectedRecipe.ingredients || [])
         .map((group, index) => ({ group, index }))
         .filter(({ group }) => isVariantIngredientGroup(group, selectedRecipe.ingredients || [], selectedRecipe))
       : []
-  ), [showVariants, selectedRecipe]);
+  ), [selectedRecipe]);
   const needsInlineVariantSelection = inlineVariantGroupIndexes.length > 0;
   const selectedInlineVariantGroup = needsInlineVariantSelection
     ? inlineVariantGroupIndexes.find(({ index }) => Boolean(openIngredientGroups[`${detailKey}:group:${index}`]))
