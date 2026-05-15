@@ -1330,6 +1330,40 @@ a {
   font-weight: 950;
 }
 
+.allergen-card {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.allergen-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px !important;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notes-panel .allergen-list li,
+.notes-panel .allergen-list li:last-child {
+  min-height: 28px;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, rgba(0, 0, 0, .22));
+  color: var(--text);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.allergen-empty {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .notes-panel li {
   border-bottom: 1px solid var(--line);
   padding-bottom: 10px;

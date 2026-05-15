@@ -126,6 +126,38 @@ function getNutriScore(recipe) {
   return ['A', 'B', 'C', 'D', 'E'][index];
 }
 
+function getRecipeAllergens(recipe) {
+  const explicit = Array.isArray(recipe?.allergens) ? recipe.allergens : [];
+  const text = normalizeText([
+    recipe?.title,
+    recipe?.yield,
+    ...(recipe?.tags || []),
+    ...(recipe?.aliases || []),
+    ...(recipe?.ingredients || []).flatMap(group => [group.group, ...(group.items || [])])
+  ].join(' '));
+  const allergens = new Set(explicit);
+  const addIf = (label, pattern) => {
+    if (pattern.test(text)) allergens.add(label);
+  };
+
+  addIf('Gluten', /\b(farine|ble|pain|pains|brioche|brioches|bun|buns|pate a choux|pate sucree|pate a tarte|pates a tarte|chapelure|semoule|orge|avoine|epeautre|tortillas?)\b/);
+  addIf('Œufs', /\b(oeuf|oeufs|jaune d oeuf|jaunes d oeufs|blanc d oeuf|blancs d oeufs|mimosa)\b/);
+  addIf('Lait', /\b(lait entier|lait tiede|lait froid|lait chaud|lait ribot|babeurre|beurre|creme|fromage|parmesan|comte|cheddar|mozzarella|mascarpone|ricotta|yaourt|yogourt)\b/);
+  addIf('Fruits à coque', /\b(amande|amandes|noisette|noisettes|pistache|pistaches|noix|pecan|cajou|praline|praline|pralinoise)\b/);
+  addIf('Arachides', /\b(arachide|arachides|cacahuete|cacahuetes|beurre de cacahuete)\b/);
+  addIf('Soja', /\b(soja|sauce soja|tofu|miso|edamame)\b/);
+  addIf('Moutarde', /\b(moutarde|graines de moutarde)\b/);
+  addIf('Poisson', /\b(poisson|saumon|thon|cabillaud|anchois|sardine|dorade|bar|bouillabaisse)\b/);
+  addIf('Crustacés', /\b(crevette|crevettes|crabe|homard|langoustine|gambas)\b/);
+  addIf('Mollusques', /\b(calamar|calamars|moule|moules|palourde|palourdes|poulpe|encornet|encornets)\b/);
+  addIf('Sésame', /\b(sesame|tahini|tahin)\b/);
+  addIf('Sulfites', /\b(sulfite|sulfites|vin blanc|vin rouge|vinaigre de vin)\b/);
+  addIf('Céleri', /\b(celeri|celeri rave|celeri-rave)\b/);
+  addIf('Lupin', /\b(lupin|farine de lupin)\b/);
+
+  return uniq(Array.from(allergens));
+}
+
 function getVariantRefs(recipe) {
   return Array.isArray(recipe.variants) ? recipe.variants.filter(variant => variant && variant.id) : [];
 }
@@ -955,6 +987,7 @@ function RecipeView({
   const isInShopping = hasSelectedVariant && shoppingIds.includes(detailKey);
   const canFavorite = hasSelectedVariant && !isMasterRecipe(selectedRecipe);
   const remainingMs = timerEnd ? timerEnd - now : 0;
+  const recipeAllergens = hasSelectedVariant ? getRecipeAllergens(selectedRecipe) : [];
 
   useEffect(() => {
     setFactor(1);
@@ -1144,6 +1177,12 @@ function RecipeView({
         )
       ),
       hasSelectedVariant && h('aside', { className: mobileDetailTab === 'notes' ? 'recipe-panel notes-panel active-tab-panel' : 'recipe-panel notes-panel' },
+        h('div', { className: 'allergen-card' },
+          h('p', { className: 'eyebrow' }, 'Allergènes'),
+          recipeAllergens.length
+            ? h('ul', { className: 'allergen-list' }, recipeAllergens.map(allergen => h('li', { key: `${detailKey}:allergen:${allergen}` }, allergen)))
+            : h('p', { className: 'allergen-empty' }, 'Aucun allergène majeur détecté dans les ingrédients.')
+        ),
         h('p', { className: 'eyebrow' }, 'Notes'),
         h('h2', null, 'Astuces et liens'),
         (selectedRecipe.notes || []).length
