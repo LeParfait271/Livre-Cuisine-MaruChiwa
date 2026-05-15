@@ -1376,6 +1376,31 @@ a {
   line-height: 1.45;
 }
 
+.average-weight-card {
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.average-weight-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.average-weight-card dt {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.average-weight-card dd {
+  margin: -4px 0 8px;
+  color: var(--text);
+  line-height: 1.45;
+}
+
 .notes-panel li {
   border-bottom: 1px solid var(--line);
   padding-bottom: 10px;

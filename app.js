@@ -67,6 +67,8 @@ function normalizeText(value) {
   return String(value || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
+    .replace(/œ/g, 'oe')
+    .replace(/æ/g, 'ae')
     .toLowerCase();
 }
 
@@ -157,6 +159,48 @@ function getRecipeAllergens(recipe) {
   addIf('Lupin', /\b(lupin|farine de lupin)\b/);
 
   return uniq(Array.from(allergens));
+}
+
+const AVERAGE_WEIGHT_RULES = [
+  { label: 'Œuf moyen sans coquille', value: '≈ 55 g', pattern: /\b(oeuf|oeufs|œuf|œufs|oeufs entiers|œufs entiers|oeuf entier|œuf entier)\b/ },
+  { label: 'Jaune d’œuf', value: '≈ 18 g', pattern: /\b(jaune d oeuf|jaunes d oeufs|jaune d œuf|jaunes d œufs)\b/ },
+  { label: 'Blanc d’œuf', value: '≈ 30 g', pattern: /\b(blanc d oeuf|blancs d oeufs|blanc d œuf|blancs d œufs)\b/ },
+  { label: 'Citron jaune', value: '≈ 100 à 120 g', pattern: /\b(citron entier|citron jaune|citrons jaunes)\b/ },
+  { label: 'Jus d’un citron', value: '≈ 40 à 50 g', pattern: /\bjus de citron\b/ },
+  { label: 'Gousse d’ail', value: '≈ 5 g', pattern: /\b(gousse d ail|gousses d ail|ail)\b/ },
+  { label: 'Oignon moyen', value: '≈ 100 à 120 g', pattern: /\b(oignon|oignons)\b/ },
+  { label: 'Échalote', value: '≈ 25 à 30 g', pattern: /\b(echalote|echalotes)\b/ },
+  { label: 'Tomate moyenne', value: '≈ 120 g', pattern: /\b(tomate|tomates)\b/ },
+  { label: 'Carotte moyenne', value: '≈ 100 g', pattern: /\b(carotte|carottes)\b/ },
+  { label: 'Pomme de terre moyenne', value: '≈ 150 g', pattern: /\b(pomme de terre|pommes de terre)\b/ },
+  { label: 'Patate douce moyenne', value: '≈ 250 g', pattern: /\b(patate douce|patates douces)\b/ },
+  { label: 'Avocat', value: '≈ 150 g de chair', pattern: /\b(avocat|avocats)\b/ },
+  { label: 'Poivron', value: '≈ 150 à 180 g', pattern: /\b(poivron|poivrons)\b/ },
+  { label: 'Courgette moyenne', value: '≈ 200 g', pattern: /\b(courgette|courgettes)\b/ },
+  { label: 'Aubergine moyenne', value: '≈ 300 g', pattern: /\b(aubergine|aubergines)\b/ },
+  { label: 'Orange', value: '≈ 150 à 180 g', pattern: /\b(orange|oranges)\b/ },
+  { label: 'Pomme', value: '≈ 150 g', pattern: /\b(pomme|pommes)\b(?!\s+de\s+terre)/ },
+  { label: 'Poire', value: '≈ 160 g', pattern: /\b(poire|poires)\b/ }
+];
+
+function getRecipeAverageWeights(recipe) {
+  const explicit = Array.isArray(recipe?.averageWeights) ? recipe.averageWeights : [];
+  const found = new Map();
+  explicit.forEach(item => {
+    const label = item?.label || item?.name;
+    const value = item?.value || item?.weight;
+    if (label && value) found.set(label, value);
+  });
+  (recipe?.ingredients || []).forEach(group => {
+    (group.items || []).forEach(item => {
+      const text = normalizeText(item);
+      if (!/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) return;
+      AVERAGE_WEIGHT_RULES.forEach(rule => {
+        if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
+      });
+    });
+  });
+  return Array.from(found, ([label, value]) => ({ label, value }));
 }
 
 function getVariantRefs(recipe) {
@@ -988,6 +1032,7 @@ function RecipeView({
   const canFavorite = hasSelectedVariant && !isMasterRecipe(selectedRecipe);
   const remainingMs = timerEnd ? timerEnd - now : 0;
   const recipeAllergens = hasSelectedVariant ? getRecipeAllergens(selectedRecipe) : [];
+  const averageWeights = hasSelectedVariant ? getRecipeAverageWeights(selectedRecipe) : [];
 
   useEffect(() => {
     setFactor(1);
@@ -1183,6 +1228,15 @@ function RecipeView({
           recipeAllergens.length
             ? h('ul', { className: 'allergen-list' }, recipeAllergens.map(allergen => h('li', { key: `${detailKey}:allergen:${allergen}` }, allergen)))
             : h('p', { className: 'allergen-empty' }, 'Aucun allergène majeur détecté dans les ingrédients.')
+        ),
+        averageWeights.length > 0 && h('div', { className: 'average-weight-card' },
+          h('p', { className: 'eyebrow' }, 'Poids moyens'),
+          h('dl', null, averageWeights.map(item =>
+            h(React.Fragment, { key: `${detailKey}:average:${item.label}` },
+              h('dt', null, item.label),
+              h('dd', null, item.value)
+            )
+          ))
         ),
         h('p', { className: 'eyebrow' }, 'Notes'),
         h('h2', null, 'Astuces et liens'),
