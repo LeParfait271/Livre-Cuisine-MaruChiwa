@@ -1137,6 +1137,11 @@ a {
   color: var(--accent-ink);
 }
 
+.detail-factor-control {
+  width: fit-content;
+  margin-top: 4px;
+}
+
 .ingredient-group + .ingredient-group {
   margin-top: 20px;
   padding-top: 16px;

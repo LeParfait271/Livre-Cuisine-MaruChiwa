@@ -1262,6 +1262,15 @@ function RecipeView({
               h('span', { key: 'steps' }, `${stepTotal} étapes`)
             ]
         ),
+        hasSelectedVariant && h('div', { className: 'factor-control detail-factor-control', 'aria-label': 'Multiplier les quantités' },
+          h('span', { className: 'factor-label' }, 'Quantités'),
+          [0.25, 0.5, 1, 2].map(value => h('button', {
+            key: value,
+            type: 'button',
+            className: factor === value ? 'active' : '',
+            onClick: () => setFactor(value)
+          }, `${String(value).replace('.', ',')}x`))
+        ),
         h('div', { className: 'detail-actions' },
           h(Button, { variant: isInShopping ? 'primary' : 'ghost', disabled: !hasSelectedVariant, onClick: () => hasSelectedVariant && toggleShopping(detailKey, factor) }, isInShopping ? 'Dans les courses' : 'Ajouter aux courses'),
           h(Button, { variant: 'ghost', className: 'icon-square', onClick: () => setShareOpen(true), title: 'Partager', ariaLabel: 'Partager' }, '\u2197'),
@@ -1294,16 +1303,7 @@ function RecipeView({
     hasSelectedVariant && h('div', { className: 'recipe-detail-grid' },
       h('section', { className: mobileDetailTab === 'ingredients' ? 'recipe-panel ingredients-panel active-tab-panel' : 'recipe-panel ingredients-panel' },
         h('div', { className: 'panel-heading' },
-          h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients')),
-          hasSelectedVariant && h('div', { className: 'factor-control', 'aria-label': 'Multiplier les quantités' },
-            h('span', { className: 'factor-label' }, 'Quantités'),
-            [0.25, 0.5, 1, 2].map(value => h('button', {
-              key: value,
-              type: 'button',
-              className: factor === value ? 'active' : '',
-              onClick: () => setFactor(value)
-            }, `${String(value).replace('.', ',')}x`))
-          )
+          h('div', null, h('p', { className: 'eyebrow' }, 'Mise en place'), h('h2', null, 'Ingrédients'))
         ),
         (selectedRecipe.ingredients || []).map((group, groupIndex) => {
           const groupKey = `${detailKey}:group:${groupIndex}`;
