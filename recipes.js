@@ -2231,6 +2231,10 @@ window.RECIPES = {
         "label": "Bouillabaisse"
       },
       {
+        "id": "cassolette_crevettes_ravioles_persil",
+        "label": "Cassolette de crevettes et ravioles au persil"
+      },
+      {
         "id": "cochon_confit_biere_erable",
         "label": "Cochon confit à la bière et au sirop d’érable"
       },
@@ -4864,6 +4868,121 @@ window.RECIPES = {
       {
         "label": "Acidité",
         "value": "Ajuster en fin de montage pour équilibrer le gras."
+      }
+    ]
+  },
+  "cassolette_crevettes_ravioles_persil": {
+    "title": "Cassolette de crevettes et ravioles au persil",
+    "master": "plats_maitre",
+    "image": "/assets/recipe-images/cassolette_crevettes_ravioles_persil.png",
+    "categories": [
+      "Plats"
+    ],
+    "seasons": [
+      "Automne",
+      "Hiver",
+      "Toutes saisons"
+    ],
+    "difficulty": "medium",
+    "difficultyScore": 5,
+    "yield": "4 personnes",
+    "aliases": [
+      "cassolette crevettes ravioles",
+      "ravioles au persil crevettes",
+      "bisque crémée crevettes"
+    ],
+    "tags": [
+      "crevettes",
+      "ravioles",
+      "bisque",
+      "gratin"
+    ],
+    "ingredients": [
+      {
+        "group": "Crevettes",
+        "items": [
+          "500 g de grosses crevettes crues décortiquées",
+          "Carapaces et têtes des crevettes, si disponibles",
+          "1 filet d'huile d'olive",
+          "Sel",
+          "Poivre blanc"
+        ]
+      },
+      {
+        "group": "Ravioles",
+        "items": [
+          "4 plaques de ravioles au persil",
+          "Eau salée",
+          "Un peu de beurre ou d'huile neutre pour éviter qu'elles collent après cuisson"
+        ]
+      },
+      {
+        "group": "Bisque crémée",
+        "items": [
+          "1 échalote émincée",
+          "1 petite carotte en dés",
+          "1 c. à soupe de concentré de tomate",
+          "5 cl de cognac ou armagnac",
+          "12 cl de vin blanc sec",
+          "25 cl de fumet de poisson ou bouillon de crustacés",
+          "15 cl de crème liquide entière",
+          "1 pincée de piment d'Espelette",
+          "1 petite branche de thym",
+          "1 feuille de laurier"
+        ]
+      },
+      {
+        "group": "Gratin",
+        "items": [
+          "30 g de parmesan râpé finement",
+          "20 g de chapelure fine ou panko",
+          "15 g de beurre froid en petits dés"
+        ]
+      },
+      {
+        "group": "Finition",
+        "items": [
+          "Zeste très fin de citron jaune ou vert",
+          "Une pointe de piment d'Espelette, facultatif"
+        ]
+      }
+    ],
+    "steps": [
+      "Mettre les plaques de ravioles au persil au congélateur 15 minutes avant cuisson pour les raffermir.",
+      "Chauffer un filet d'huile d'olive dans une casserole, ajouter les carapaces et têtes de crevettes si disponibles, puis faire colorer 4 à 5 minutes à feu vif en les écrasant légèrement.",
+      "Ajouter l'échalote, la carotte, le thym et le laurier, puis faire revenir 3 minutes.",
+      "Ajouter le concentré de tomate et cuire 1 minute.",
+      "Verser le cognac ou l'armagnac, flamber prudemment ou laisser réduire quelques instants.",
+      "Ajouter le vin blanc, réduire de moitié, puis verser le fumet de poisson ou le bouillon de crustacés.",
+      "Laisser frémir 20 minutes, filtrer en pressant bien les carapaces, puis remettre le jus filtré dans la casserole.",
+      "Ajouter la crème liquide et le piment d'Espelette, puis réduire doucement jusqu'à obtenir une sauce nappante. Rectifier en sel et poivre blanc.",
+      "Porter une grande casserole d'eau salée à frémissement, sans gros bouillon.",
+      "Cuire les plaques de ravioles 45 secondes à 1 minute maximum, une par une, puis les retirer délicatement avec une écumoire large.",
+      "Déposer les ravioles sur une assiette légèrement beurrée ou huilée pour éviter qu'elles collent.",
+      "Saisir les crevettes dans une poêle bien chaude avec un filet d'huile d'olive, 45 secondes à 1 minute par face selon leur taille. Saler, poivrer et retirer aussitôt.",
+      "Déposer une plaque de ravioles cuite dans chaque cassolette, ajouter les crevettes et napper de bisque crémée chaude sans noyer la garniture.",
+      "Mélanger le parmesan râpé et la chapelure, parsemer les cassolettes, puis ajouter quelques dés de beurre froid.",
+      "Passer sous le gril du four 2 à 3 minutes, juste pour dorer légèrement le dessus.",
+      "À la sortie du four, ajouter un zeste très fin de citron jaune ou vert et éventuellement une pointe de piment d'Espelette. Servir immédiatement."
+    ],
+    "notes": [
+      "Les ravioles ne doivent pas cuire dans la sauce : elles sont cuites séparément, puis simplement montées dans la cassolette.",
+      "Les crevettes doivent rester légèrement nacrées avant le passage sous le gril, sinon elles deviennent fermes.",
+      "La sauce doit enrober les ravioles et les crevettes, pas les noyer.",
+      "Sans carapaces ni têtes, utilise directement un bon fumet de poisson ou un bouillon de crustacés."
+    ],
+    "technical": [
+      {
+        "label": "Bisque",
+        "value": "La coloration des carapaces apporte les sucs et la profondeur de goût."
+      },
+      {
+        "label": "Ravioles",
+        "value": "Le passage au congélateur les raffermit et limite les déchirures à la cuisson."
+      },
+      {
+        "label": "Gril",
+        "value": "Le gratinage doit rester court : les ravioles et les crevettes sont déjà cuites."
       }
     ]
   },
