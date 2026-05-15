@@ -4722,7 +4722,7 @@ window.RECIPES = {
     ],
     "difficulty": "easy",
     "difficultyScore": 3,
-    "yield": "8 à 10 pancakes",
+    "yield": "6 à 8 pancakes",
     "aliases": [
       "pancakes moelleux",
       "fluffy pancakes",
@@ -4737,37 +4737,43 @@ window.RECIPES = {
       {
         "group": "Base",
         "items": [
-          "190 g de farine",
-          "2 1/2 c. à café de levure chimique",
-          "1/2 c. à café de sel",
-          "1 c. à soupe de sucre",
-          "300 ml de lait",
-          "60 g œuf (1 gros œuf)",
-          "45 g de beurre fondu"
+          "60 g de jaunes d'œufs (3 jaunes moyens)",
+          "105 g de blancs d'œufs (3 blancs moyens)",
+          "100 g de sucre",
+          "150 g de farine",
+          "1 sachet de levure chimique",
+          "100 ml de lait",
+          "2 c. à café de vanille liquide",
+          "1 pincée de sel",
+          "beurre fondu pour les cercles et la poêle"
         ]
       }
     ],
     "steps": [
-      "Mélanger farine, levure chimique, sel et sucre.",
-      "Fouetter à part le lait, l’œuf et le beurre fondu tiédi.",
-      "Verser les liquides sur les ingrédients secs et mélanger juste assez pour hydrater la pâte.",
-      "Laisser reposer 10 minutes.",
-      "Cuire dans une poêle légèrement graissée à feu moyen-doux.",
-      "Retourner quand des bulles apparaissent et que les bords commencent à se tenir.",
-      "Servir chaud."
+      "Séparer les blancs des jaunes.",
+      "Fouetter les jaunes avec le sucre jusqu'à obtenir un mélange homogène.",
+      "Ajouter le lait et la vanille, puis mélanger.",
+      "Incorporer la farine progressivement, ajouter la levure chimique et mélanger jusqu'à obtenir une pâte épaisse.",
+      "Monter les blancs en neige avec la pincée de sel.",
+      "Incorporer les blancs montés en 3 ou 4 fois avec une spatule, doucement, pour garder une pâte mousseuse.",
+      "Beurrer les cercles à pâtisserie et la poêle, puis poser les cercles dans la poêle chaude.",
+      "Remplir chaque cercle aux trois quarts avec la pâte.",
+      "Cuire environ 5 minutes sur la première face, retourner avec le cercle, puis cuire encore 2 à 3 minutes.",
+      "Décoller le pancake du cercle avec la pointe d'un couteau, retirer le cercle et servir avec la garniture choisie."
     ],
     "notes": [
-      "Ne cherche pas une pâte parfaitement lisse : quelques petits grumeaux aident à garder des pancakes moelleux.",
-      "Pour une version plus épaisse, baisse légèrement le feu et couvre la poêle quelques instants."
+      "Un cercle à pâtisserie aide les pancakes à rester hauts et réguliers.",
+      "Sans cercle, la recette fonctionne aussi comme des pancakes classiques, mais ils seront moins hauts.",
+      "Garnitures possibles : chocolat fondu, sirop d'érable, caramel ou fruits frais."
     ],
     "technical": [
       {
-        "label": "Repos",
-        "value": "Dix minutes suffisent pour hydrater la farine sans alourdir la pâte."
+        "label": "Blancs en neige",
+        "value": "Incorporer les blancs délicatement pour ne pas perdre le volume."
       },
       {
         "label": "Cuisson",
-        "value": "Feu moyen-doux pour laisser gonfler sans brûler."
+        "value": "Feu doux à moyen : les pancakes doivent cuire à cœur sans colorer trop vite."
       }
     ]
   },
