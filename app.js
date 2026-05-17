@@ -373,6 +373,60 @@ function formatNumber(value) {
   return value.toLocaleString('fr-FR', { maximumFractionDigits: 1 });
 }
 
+function getServingInfo(recipe) {
+  const yieldText = String(recipe?.yield || '');
+  const normalized = normalizeText(yieldText);
+  const match = normalized.match(/(\d+(?:[.,]\d+)?(?:\/\d+)?)(?:\s*(?:[\u2013\u2014-]|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?\s*(personnes?|portions?|parts?)\b/);
+  if (!match) return null;
+  const base = parseAmount(match[1]);
+  if (!Number.isFinite(base) || base <= 0) return null;
+  const unit = match[3].startsWith('personne')
+    ? 'personne'
+    : match[3].startsWith('part')
+      ? 'part'
+      : 'portion';
+  return { base, unit };
+}
+
+function servingUnitLabel(unit, count) {
+  if (unit === 'personne') return count > 1 ? 'personnes' : 'personne';
+  if (unit === 'part') return count > 1 ? 'parts' : 'part';
+  return count > 1 ? 'portions' : 'portion';
+}
+
+function getServingTarget(recipe, factor = 1) {
+  const info = getServingInfo(recipe);
+  if (!info) return null;
+  return Math.max(1, Math.round(info.base * factor));
+}
+
+function getQuantityDisplay(recipe, factor = 1) {
+  const info = getServingInfo(recipe);
+  if (!info) return scaleYieldDisplay(recipe?.yield, factor);
+  const target = getServingTarget(recipe, factor);
+  return `Pour ${formatNumber(target)} ${servingUnitLabel(info.unit, target)}`;
+}
+
+function getQuantitySummary(recipe, factor = 1) {
+  const info = getServingInfo(recipe);
+  if (info) {
+    const target = getServingTarget(recipe, factor);
+    return `pour ${formatNumber(target)} ${servingUnitLabel(info.unit, target)}`;
+  }
+  return factor === 1 ? '' : `${String(factor).replace('.', ',')}x`;
+}
+
+function servingOptionsFor(recipe) {
+  const info = getServingInfo(recipe);
+  if (!info) return [];
+  const base = Math.round(info.base);
+  return uniq([1, 2, 3, 4, 5, 6, 8, 10, 12, base, base * 2]
+    .filter(value => Number.isFinite(value) && value >= 1 && value <= 24)
+    .map(String))
+    .map(Number)
+    .sort((a, b) => a - b);
+}
+
 function scaleParentheticalAmounts(text, factor) {
   return String(text || '').replace(/\(([^)]*)\)/g, (full, content) => {
     const hasScalableHint = /(?:≈|env\.?|environ|oeufs?|œufs?|jaunes?|blancs?|pi[eè]ces?|portions?|cl|ml|g|kg)/i.test(content);
@@ -490,7 +544,8 @@ function shoppingListText(recipes, factorById = {}) {
   const grouped = new Map();
   const blocks = recipes.map(recipe => {
     const factor = factorById[recipe.id] || 1;
-    const factorLabel = factor === 1 ? '' : ` (${String(factor).replace('.', ',')}x)`;
+    const quantitySummary = getQuantitySummary(recipe, factor);
+    const factorLabel = quantitySummary ? ` (${quantitySummary})` : '';
     (recipe.ingredients || []).forEach(group => {
       (group.items || []).forEach(item => {
         const scaled = scaleIngredient(item, factor);
@@ -1242,7 +1297,26 @@ function ShoppingBasketPanel({ open, onClose, recipes, factorById, removeRecipe,
   );
 }
 
-function QuantityFactorControl({ factor, setFactor, className = '' }) {
+function QuantityFactorControl({ recipe, factor, setFactor, className = '' }) {
+  const servingInfo = getServingInfo(recipe);
+  const servingOptions = servingOptionsFor(recipe);
+  if (servingInfo && servingOptions.length) {
+    const currentTarget = getServingTarget(recipe, factor);
+    return h('div', {
+      className: ['factor-control serving-control', className].filter(Boolean).join(' '),
+      'aria-label': `Choisir le nombre de ${servingUnitLabel(servingInfo.unit, 2)}`
+    },
+      h('span', { className: 'factor-label' }, servingInfo.unit === 'personne' ? 'Pour' : 'Quantités'),
+      servingOptions.map(value => h('button', {
+        key: value,
+        type: 'button',
+        className: currentTarget === value ? 'active' : '',
+        onClick: () => setFactor(value / servingInfo.base),
+        title: `${value} ${servingUnitLabel(servingInfo.unit, value)}`
+      }, String(value)))
+    );
+  }
+
   return h('div', {
     className: ['factor-control', className].filter(Boolean).join(' '),
     'aria-label': 'Multiplier les quantités'
@@ -1274,9 +1348,9 @@ function VariantPickerPanel({ parent, variantRefs, recipesById, selectedVariantI
           h('h2', null, selectedVariant.label || selectedRecipe.title),
           h('p', { className: 'selected-recipe-meta' },
             difficultyText(selectedRecipe),
-            selectedRecipe.yield && h(React.Fragment, null, ' · ', scaleYieldDisplay(selectedRecipe.yield, factor))
+            selectedRecipe.yield && h(React.Fragment, null, ' · ', getQuantityDisplay(selectedRecipe, factor))
           ),
-          h(QuantityFactorControl, { factor, setFactor, className: 'variant-factor-control' })
+          h(QuantityFactorControl, { recipe: selectedRecipe, factor, setFactor, className: 'variant-factor-control' })
         ),
         h(Button, { variant: 'subtle', onClick: () => onSelect('') }, 'Changer de recette')
       )
@@ -1457,7 +1531,7 @@ function RecipeView({
             : [
               h('span', { key: 'difficulty' }, difficultyText(selectedRecipe)),
               h('span', { key: 'nutri', className: `nutri-score nutri-${getNutriScore(selectedRecipe).toLowerCase()}` }, `Nutri ${getNutriScore(selectedRecipe)}`),
-              selectedRecipe.yield && h('span', { key: 'yield' }, scaleYieldDisplay(selectedRecipe.yield, factor)),
+              selectedRecipe.yield && h('span', { key: 'yield' }, getQuantityDisplay(selectedRecipe, factor)),
               h('span', { key: 'ingredients' }, `${countIngredients(selectedRecipe)} ingrédients`),
               h('span', { key: 'steps' }, `${stepTotal} étapes`)
             ]

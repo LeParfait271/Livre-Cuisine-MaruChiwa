@@ -1223,6 +1223,7 @@ a {
 .factor-control,
 .history-actions {
   display: inline-flex;
+  flex-wrap: wrap;
   gap: 4px;
   align-items: center;
   max-width: 100%;
@@ -1254,6 +1255,10 @@ a {
   padding: 0 8px;
   font-size: 12px;
   font-weight: 900;
+}
+
+.serving-control button {
+  min-width: 34px;
 }
 
 .factor-control button.active,
