@@ -1603,12 +1603,6 @@ function RecipeView({
       hasSelectedVariant && h('section', { className: mobileDetailTab === 'steps' ? 'recipe-panel steps-panel active-tab-panel' : 'recipe-panel steps-panel' },
         h('div', { className: 'panel-heading' },
           h('div', null, h('p', { className: 'eyebrow' }, 'Exécution'), h('h2', null, 'Étapes')),
-          canShowSteps && h('div', { className: 'history-actions' },
-            h('button', { type: 'button', onClick: undo, disabled: !canUndo, title: 'Ctrl+Z' }, 'Annuler'),
-            h('button', { type: 'button', onClick: redo, disabled: !canRedo, title: 'Ctrl+Y' }, 'Rétablir'),
-            h('span', { className: 'progress-label' }, `${doneSteps}/${stepTotal}`),
-            timerEnd && remainingMs > 0 && h('span', { className: 'timer-pill' }, `${timerLabel} · ${formatRemaining(remainingMs)}`)
-          )
         ),
         canShowSteps && h('div', { className: 'progress-track' }, h('span', { style: { width: `${progress}%` } })),
         !canShowSteps
