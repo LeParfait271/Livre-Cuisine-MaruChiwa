@@ -3897,7 +3897,7 @@ window.RECIPES = {
     ]
   },
   "elements_base_maitre": {
-    "title": "Base",
+    "title": "Bases",
     "image": "/assets/recipe-images/parent_base.png",
     "categories": [
       "Base"

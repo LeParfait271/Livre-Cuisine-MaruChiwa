@@ -73,10 +73,29 @@ Par defaut, le serveur ecoute sur :
 
 Cette URL sert uniquement au test et au back-office pendant le developpement.
 
+Pour la production, definir aussi :
+
+   SITE_URL=https://ton-domaine.example
+
+Cette URL est utilisee pour robots.txt, sitemap.xml et les URLs canoniques.
+
+Si Node n'est pas installe globalement sur Windows, le projet peut utiliser
+le Node local place dans :
+
+   .tools/node/current/
+
+Dans ce cas, lancer plutot :
+
+   powershell -ExecutionPolicy Bypass -File .\dev.ps1
+
 VERIFICATION
 ------------
 
    npm run check
+
+Ou avec le Node local du projet :
+
+   powershell -ExecutionPolicy Bypass -File .\check.ps1
 
 La verification controle la syntaxe JavaScript, les fiches parents, les variantes,
 les liens internes data-goto et la presence des images locales.

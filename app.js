@@ -224,41 +224,64 @@ const AVERAGE_WEIGHT_RULES = [
 ];
 
 const SPOON_WEIGHT_RULES = [
-  { label: 'Levure chimique (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\blevure chimique\b/ },
-  { label: 'Bicarbonate (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bbicarbonate\b/ },
-  { label: 'Sel fin (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bsel\b/ },
-  { label: 'Sucre (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\bsucre\b/ },
-  { label: 'Ail en poudre (1 c. à café)', value: '≈ 3g', spoon: 'cafe', pattern: /\bail en poudre\b/ },
-  { label: 'Oignon en poudre (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\boignon en poudre\b/ },
-  { label: 'Paprika (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpaprika\b/ },
-  { label: 'Paprika (1 c. à soupe)', value: '≈ 7g', spoon: 'soupe', pattern: /\bpaprika\b/ },
-  { label: 'Piment de Cayenne (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpiment de cayenne\b/ },
-  { label: 'Piment d’Espelette (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpiment d['’ ]?espelette\b/ },
-  { label: 'Poivre moulu (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpoivre\b/, except: /\bpoivre vert\b/ },
-  { label: 'Poivre vert (1 c. à soupe)', value: '≈ 12g', spoon: 'soupe', pattern: /\bpoivre vert\b/ },
-  { label: 'Huile (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\bhuile\b/ },
-  { label: 'Huile (1 c. à soupe)', value: '≈ 13g', spoon: 'soupe', pattern: /\bhuile\b/ },
-  { label: 'Moutarde (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bmoutarde\b/ },
-  { label: 'Moutarde (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bmoutarde\b/ },
-  { label: 'Miel (1 c. à soupe)', value: '≈ 21g', spoon: 'soupe', pattern: /\bmiel\b/ },
-  { label: 'Vinaigre (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bvinaigre\b/ },
-  { label: 'Vinaigre (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bvinaigre\b/ },
-  { label: 'Jus de citron (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bjus de citron\b/ },
-  { label: 'Jus de viande (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bjus de viande\b/ },
-  { label: 'Bouillon (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bbouillon\b/ },
-  { label: 'Ketchup (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bketchup\b/ },
-  { label: 'Sauce barbecue (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bsauce barbecue\b/ },
-  { label: 'Relish (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\brelish\b/ },
-  { label: 'Concentré de tomate (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bconcentre de tomate\b/ },
-  { label: 'Foie de poisson cuit (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bfoie de poisson\b/ },
-  { label: 'Bisque réduite (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bbisque\b/ }
+  { label: 'Huile', tablespoon: 14, teaspoon: 5, pattern: /\b(huile|graisse)\b/ },
+  { label: 'Eau / bouillon', tablespoon: 15, teaspoon: 5, pattern: /\b(eau|bouillon|jus de viande)\b/ },
+  { label: 'Lait / crème', tablespoon: 15, teaspoon: 5, pattern: /\b(lait|creme|yaourt|yogourt)\b/ },
+  { label: 'Vinaigre', tablespoon: 15, teaspoon: 5, pattern: /\b(vinaigre)\b/ },
+  { label: 'Jus de citron', tablespoon: 15, teaspoon: 5, pattern: /\bjus de citron\b/ },
+  { label: 'Miel', tablespoon: 21, teaspoon: 7, pattern: /\b(miel)\b/ },
+  { label: 'Moutarde', tablespoon: 15, teaspoon: 5, pattern: /\b(moutarde)\b/ },
+  { label: 'Ketchup / sauce', tablespoon: 15, teaspoon: 5, pattern: /\b(ketchup|sauce barbecue|sauce soja|sauce)\b/ },
+  { label: 'Concentré de tomate', tablespoon: 16, teaspoon: 5, pattern: /\b(concentre de tomate)\b/ },
+  { label: 'Relish', tablespoon: 15, teaspoon: 5, pattern: /\b(relish)\b/ },
+  { label: 'Sucre', tablespoon: 12, teaspoon: 4, pattern: /\b(sucre|cassonade|vergeoise)\b/ },
+  { label: 'Farine', tablespoon: 8, teaspoon: 3, pattern: /\b(farine|fecule|maizena)\b/ },
+  { label: 'Cacao', tablespoon: 8, teaspoon: 3, pattern: /\b(cacao)\b/ },
+  { label: 'Levure / bicarbonate', tablespoon: 12, teaspoon: 4, pattern: /\b(levure chimique|bicarbonate)\b/ },
+  { label: 'Sel', tablespoon: 18, teaspoon: 6, pattern: /\b(sel|fleur de sel)\b/ },
+  { label: 'Poivre', tablespoon: 6, teaspoon: 2, pattern: /\b(poivre)\b/ },
+  { label: 'Épices en poudre', tablespoon: 7, teaspoon: 2, pattern: /\b(paprika|piment|cayenne|espelette|cumin|curry|garam masala|tandoori|cannelle|muscade)\b/ },
+  { label: 'Ail / oignon en poudre', tablespoon: 9, teaspoon: 3, pattern: /\b(ail en poudre|oignon en poudre)\b/ },
+  { label: 'Herbes séchées', tablespoon: 3, teaspoon: 1, pattern: /\b(thym|origan|herbes?|persil sec|basilic sec)\b/ }
 ];
 
-function getSpoonMeasureTypes(text) {
-  const types = new Set();
-  if (/\bc\.\s*a\s*cafe\b/.test(text)) types.add('cafe');
-  if (/\bc\.\s*a\s*soupe\b/.test(text)) types.add('soupe');
-  return types;
+function formatGramRange(first, second = null) {
+  if (second !== null && Number.isFinite(second) && Math.abs(second - first) > 0.01) {
+    return `${formatNumber(first)} à ${formatNumber(second)}g`;
+  }
+  return `${formatNumber(first)}g`;
+}
+
+function spoonLabel(kind) {
+  return kind === 'tablespoon' ? 'c. à soupe' : 'c. à café';
+}
+
+function getSpoonMeasureInfo(line) {
+  const text = normalizeText(line);
+  const match = text.match(/(\d+(?:[.,]\d+)?(?:\/\d+)?)(?:\s*(?:[\u2013\u2014-]|a)\s*(\d+(?:[.,]\d+)?(?:\/\d+)?))?\s*c\.?\s*(?:a\s*)?(soupe|cafe)\b/);
+  if (!match) return null;
+
+  const firstAmount = parseAmount(match[1]);
+  const secondAmount = match[2] ? parseAmount(match[2]) : null;
+  if (!Number.isFinite(firstAmount)) return null;
+
+  const kind = match[3] === 'soupe' ? 'tablespoon' : 'teaspoon';
+  const rule = SPOON_WEIGHT_RULES.find(item => item.pattern.test(text)) || {
+    label: 'Ingrédient mesuré à la cuillère',
+    tablespoon: 15,
+    teaspoon: 5
+  };
+  const unitWeight = rule[kind];
+  const firstWeight = firstAmount * unitWeight;
+  const secondWeight = Number.isFinite(secondAmount) ? secondAmount * unitWeight : null;
+  const amountText = match[2]
+    ? `${formatNumber(firstAmount)} à ${formatNumber(secondAmount)} ${spoonLabel(kind)}`
+    : `${formatNumber(firstAmount)} ${spoonLabel(kind)}`;
+
+  return {
+    label: `${rule.label} (${amountText})`,
+    value: `≈ ${formatGramRange(firstWeight, secondWeight)}`
+  };
 }
 
 function getRecipeAverageWeights(recipe) {
@@ -272,20 +295,13 @@ function getRecipeAverageWeights(recipe) {
   (recipe?.ingredients || []).forEach(group => {
     (group.items || []).forEach(item => {
       const text = normalizeText(item);
-      if (/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) {
-        AVERAGE_WEIGHT_RULES.forEach(rule => {
-          if (rule.except?.test(text)) return;
-          if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
-        });
-      }
-      const spoonTypes = getSpoonMeasureTypes(text);
-      if (spoonTypes.size) {
-        SPOON_WEIGHT_RULES.forEach(rule => {
-          if (!spoonTypes.has(rule.spoon)) return;
-          if (rule.except?.test(text)) return;
-          if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
-        });
-      }
+      const spoonInfo = getSpoonMeasureInfo(item);
+      if (spoonInfo && !found.has(spoonInfo.label)) found.set(spoonInfo.label, spoonInfo.value);
+      if (!/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) return;
+      AVERAGE_WEIGHT_RULES.forEach(rule => {
+        if (rule.except?.test(text)) return;
+        if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
+      });
     });
   });
   return Array.from(found, ([label, value]) => ({ label, value }));
@@ -698,12 +714,30 @@ function renderLinkedText(text, targets, openRecipe) {
   );
 }
 
-function getInitialHashRecipe() {
+function getPathRecipe() {
+  const match = window.location.pathname.match(/^\/recette\/([^/?#]+)\/?$/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function getRecipeUrl(recipeId, variantId = '') {
+  const path = `/recette/${encodeURIComponent(recipeId)}`;
+  return variantId ? `${path}?variant=${encodeURIComponent(variantId)}` : path;
+}
+
+function getHomeUrl() {
+  return `${window.location.origin}/`;
+}
+
+function getInitialRecipe() {
+  const pathRecipe = getPathRecipe();
+  if (pathRecipe) return pathRecipe;
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   return params.get('recipe');
 }
 
-function getInitialHashVariant() {
+function getInitialVariant() {
+  const queryVariant = new URLSearchParams(window.location.search).get('variant');
+  if (queryVariant) return queryVariant;
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   return params.get('variant');
 }
@@ -784,12 +818,21 @@ function updateDocumentMeta(recipe) {
   const description = recipe?.title
     ? `${recipe.title} sur Cook Note : ingrédients, étapes, portions et astuces.`
     : 'Livre de cuisine de MaruChiwa';
+  const canonicalUrl = recipe?.id ? `${window.location.origin}${getRecipeUrl(recipe.id)}` : getHomeUrl();
   document.title = title;
   setMetaContent('meta[name="description"]', description);
   setMetaContent('meta[property="og:title"]', title);
   setMetaContent('meta[property="og:description"]', description);
+  setMetaContent('meta[property="og:url"]', canonicalUrl);
   setMetaContent('meta[name="twitter:title"]', title);
   setMetaContent('meta[name="twitter:description"]', description);
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', canonicalUrl);
   if (recipe?.image) {
     const image = absoluteAssetUrl(recipe.image);
     setMetaContent('meta[property="og:image"]', image);
@@ -822,7 +865,7 @@ function Button(props) {
   }, props.children);
 }
 
-function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, openSearch }) {
+function TopBarFixed({ onHome, shoppingCount, showFavorites, openShoppingBasket, query, openSearch }) {
   return h('header', { className: 'topbar' },
     h('div', { className: 'top-left' },
       h(Button, { variant: 'subtle', className: 'icon-square', onClick: onHome, title: 'Accueil', ariaLabel: 'Accueil' }, '\u2302')
@@ -833,7 +876,7 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
         href: 'mailto:cooknote271@gmail.com?subject=Demande%20d%27ajout%20de%20recette%20Cook%20Note&body=Bonjour%2C%0A%0AJ%27aimerais%20demander%20l%27ajout%20de%20cette%20recette%20dans%20Cook%20Note%20%3A%0A%0ANom%20de%20la%20recette%20%3A%0AIngr%C3%A9dients%20%3A%0A%C3%89tapes%20%3A%0A%0AMerci.'
       }, 'Demander une recette'),
       h(Button, { variant: 'subtle', className: 'cart-icon-btn icon-square', onClick: openShoppingBasket, title: `${shoppingCount} course${shoppingCount > 1 ? 's' : ''}`, ariaLabel: 'Panier courses' }, [
-        '\u{1F6D2}',
+        '\u25a4',
         shoppingCount > 0 && h('span', { className: 'cart-count', key: 'count' }, shoppingCount)
       ])
     ),
@@ -845,7 +888,7 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
         title: 'Rechercher',
         ariaLabel: 'Rechercher',
         pressed: Boolean(query.trim())
-      }, '\u{1F50D}'),
+      }, '\u2315'),
       h(Button, {
         variant: 'ghost',
         className: 'top-fav-btn icon-square',
@@ -856,6 +899,7 @@ function TopBar({ onHome, shoppingCount, showFavorites, openShoppingBasket, quer
     )
   );
 }
+
 function Hero() {
   return h('section', {
     className: 'hero',
@@ -1576,11 +1620,11 @@ function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [season, setSeason] = useState('');
   const [tagFilter, setTagFilter] = useState('');
-  const [onlyFavorites, setOnlyFavorites] = useState(false);
-  const [activeId, setActiveId] = useState(() => getInitialHashRecipe());
+  const [onlyFavorites, setOnlyFavorites] = useState(() => new URLSearchParams(window.location.search).get('view') === '__favs__');
+  const [activeId, setActiveId] = useState(() => getInitialRecipe());
   const [variantSelection, setVariantSelection] = useState(() => {
-    const recipe = getInitialHashRecipe();
-    const variant = getInitialHashVariant();
+    const recipe = getInitialRecipe();
+    const variant = getInitialVariant();
     return recipe && variant ? { [recipe]: variant } : {};
   });
   const [favorites, setFavorites] = useState(() => readStoredList(STORAGE_KEYS.favorites, STORAGE_KEYS.legacyFavorites));
@@ -1768,11 +1812,9 @@ function App() {
     const nextRecents = [parentId, ...recents.filter(item => item !== parentId)].slice(0, 12);
     setRecents(nextRecents);
     writeJson(STORAGE_KEYS.recents, nextRecents);
-    const nextHash = target.master
-      ? `#recipe=${encodeURIComponent(parentId)}&variant=${encodeURIComponent(id)}`
-      : `#recipe=${encodeURIComponent(parentId)}`;
-    if (window.location.hash !== nextHash) {
-      window.location.hash = nextHash.slice(1);
+    const nextUrl = getRecipeUrl(parentId, target.master ? id : '');
+    if (window.location.pathname + window.location.search !== nextUrl) {
+      history.pushState('', document.title, nextUrl);
     }
     requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
   }
@@ -1784,25 +1826,25 @@ function App() {
         delete next[parentId];
         return next;
       });
-      const parentHash = `#recipe=${encodeURIComponent(parentId)}`;
-      if (window.location.hash !== parentHash) window.location.hash = parentHash.slice(1);
+      const parentUrl = getRecipeUrl(parentId);
+      if (window.location.pathname + window.location.search !== parentUrl) history.pushState('', document.title, parentUrl);
       return;
     }
     setVariantSelection(prev => ({ ...prev, [parentId]: variantId }));
-    const nextHash = `#recipe=${encodeURIComponent(parentId)}&variant=${encodeURIComponent(variantId)}`;
-    if (window.location.hash !== nextHash) window.location.hash = nextHash.slice(1);
+    const nextUrl = getRecipeUrl(parentId, variantId);
+    if (window.location.pathname + window.location.search !== nextUrl) history.pushState('', document.title, nextUrl);
   }
 
   function goHome() {
     restoreHomeScrollRef.current = Boolean(activeRecipe);
     setActiveId(null);
-    history.pushState('', document.title, window.location.pathname + window.location.search);
+    history.pushState('', document.title, '/');
   }
 
   function showFavorites() {
     setOnlyFavorites(true);
     setActiveId(null);
-    history.pushState('', document.title, window.location.pathname + window.location.search);
+    history.pushState('', document.title, '/?view=__favs__');
     setTimeout(() => document.getElementById('recettes')?.scrollIntoView({ behavior: 'smooth' }), 0);
   }
 
@@ -1816,13 +1858,14 @@ function App() {
   }
 
   useEffect(() => {
-    const handleHash = () => {
-      const recipe = getInitialHashRecipe();
-      const variant = getInitialHashVariant();
+    const handleLocation = () => {
+      const recipe = getInitialRecipe();
+      const variant = getInitialVariant();
       if (recipe && !activeId) {
         homeScrollRef.current = Math.max(window.scrollY || 0, homeScrollRef.current || 0);
         restoreHomeScrollRef.current = false;
       }
+      setOnlyFavorites(new URLSearchParams(window.location.search).get('view') === '__favs__');
       setActiveId(recipe);
       if (!recipe) restoreHomeScrollRef.current = true;
       if (recipe && variant) {
@@ -1835,8 +1878,12 @@ function App() {
         });
       }
     };
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    window.addEventListener('hashchange', handleLocation);
+    window.addEventListener('popstate', handleLocation);
+    return () => {
+      window.removeEventListener('hashchange', handleLocation);
+      window.removeEventListener('popstate', handleLocation);
+    };
   }, [activeId]);
 
   useEffect(() => {
@@ -1924,7 +1971,7 @@ function App() {
   };
 
   return h('div', { className: 'mc-shell' },
-    h(TopBar, {
+    h(TopBarFixed, {
       onHome: goHome,
       shoppingCount: shoppingRecipes.length,
       showFavorites,

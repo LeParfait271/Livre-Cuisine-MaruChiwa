@@ -1,4 +1,5 @@
 node_modules/
+.tools/
 admin.local.json
 backups/
 .DS_Store

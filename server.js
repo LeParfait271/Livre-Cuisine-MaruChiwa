@@ -7,11 +7,42 @@ const vm = require('node:vm');
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 8080);
 const HOST = process.env.HOST || '127.0.0.1';
+const SITE_URL = String(process.env.SITE_URL || `http://${HOST}:${PORT}`).replace(/\/+$/, '');
 const SESSION_COOKIE = 'cook_note_session';
 const MAX_JSON_BYTES = 2 * 1024 * 1024;
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+const SESSION_TTL_MS = 1000 * 60 * 60 * 12;
 const VALID_IMAGE_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const sessions = new Map();
+const PUBLIC_ROOT_FILES = new Set([
+  'index.html',
+  'recipe.html',
+  'manifest.json',
+  'style.css',
+  'app.js',
+  'recipes.js',
+  'recipe.js',
+  'script.js',
+  'service-worker.js'
+]);
+const ADMIN_PUBLIC_FILES = new Set(['admin-login.html', 'admin.css']);
+const EDITABLE_RECIPE_FIELDS = new Set([
+  'title',
+  'categories',
+  'seasons',
+  'difficulty',
+  'yield',
+  'ingredients',
+  'steps',
+  'notes',
+  'technical',
+  'image',
+  'video',
+  'tags',
+  'master',
+  'variants',
+  'masterType'
+]);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -69,7 +100,20 @@ function parseCookies(req) {
 
 function isAuthed(req) {
   const token = parseCookies(req)[SESSION_COOKIE];
-  return Boolean(token && sessions.has(token));
+  const session = token && sessions.get(token);
+  if (!session) return false;
+  if (Date.now() - session.createdAt > SESSION_TTL_MS) {
+    sessions.delete(token);
+    return false;
+  }
+  session.lastSeenAt = Date.now();
+  return true;
+}
+
+function passwordMatches(candidate, expected) {
+  const candidateHash = crypto.createHash('sha256').update(String(candidate || '')).digest();
+  const expectedHash = crypto.createHash('sha256').update(String(expected || '')).digest();
+  return crypto.timingSafeEqual(candidateHash, expectedHash);
 }
 
 function requireAdmin(req, res) {
@@ -108,6 +152,18 @@ async function readJson(req) {
 
 function safePath(urlPath) {
   const clean = decodeURIComponent(urlPath.split('?')[0]).replace(/^\/+/, '') || 'index.html';
+  const normalized = clean.split(/[\\/]+/).filter(Boolean).join('/');
+  const [firstPart] = normalized.split('/');
+
+  if (
+    !PUBLIC_ROOT_FILES.has(normalized) &&
+    !ADMIN_PUBLIC_FILES.has(normalized) &&
+    firstPart !== 'assets'
+  ) {
+    return null;
+  }
+  if (normalized.split('/').some(part => part.startsWith('.'))) return null;
+
   const filePath = path.resolve(ROOT, clean);
   const relative = path.relative(ROOT, filePath);
   if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
@@ -209,6 +265,65 @@ function normalizeRecipe(recipe) {
     } : {}),
     ...(recipe.masterType ? { masterType: String(recipe.masterType).trim() } : {})
   };
+}
+
+function escapeXml(value) {
+  return String(value).replace(/[<>&'"]/g, char => ({
+    '<': '&lt;',
+    '>': '&gt;',
+    '&': '&amp;',
+    "'": '&apos;',
+    '"': '&quot;'
+  }[char]));
+}
+
+function recipeUrl(id) {
+  return `${SITE_URL}/recette/${encodeURIComponent(id)}`;
+}
+
+function sendRobots(res) {
+  send(res, 200, [
+    'User-agent: *',
+    'Disallow: /admin',
+    'Disallow: /api/',
+    `Sitemap: ${SITE_URL}/sitemap.xml`,
+    ''
+  ].join('\n'), {
+    'content-type': 'text/plain; charset=utf-8',
+    'cache-control': 'public, max-age=3600'
+  });
+}
+
+function sendSitemap(res) {
+  const recipes = readRecipes();
+  const recipeEntries = Object.entries(recipes)
+    .filter(([, recipe]) => !(Array.isArray(recipe.variants) && recipe.variants.length))
+    .map(([id]) => `  <url><loc>${escapeXml(recipeUrl(id))}</loc></url>`);
+  const body = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    `  <url><loc>${escapeXml(`${SITE_URL}/`)}</loc></url>`,
+    ...recipeEntries,
+    '</urlset>',
+    ''
+  ].join('\n');
+  send(res, 200, body, {
+    'content-type': 'application/xml; charset=utf-8',
+    'cache-control': 'public, max-age=3600'
+  });
+}
+
+function recipeForAdminSave(inputRecipe, existingRecipe = null) {
+  const recipe = normalizeRecipe(inputRecipe || {});
+  if (!existingRecipe) return recipe;
+
+  for (const [key, value] of Object.entries(existingRecipe)) {
+    if (!EDITABLE_RECIPE_FIELDS.has(key)) {
+      recipe[key] = value;
+    }
+  }
+
+  return recipe;
 }
 
 function validateRecipe(id, recipe, recipes, mode) {
@@ -315,11 +430,7 @@ async function handleApi(req, res, url) {
 
       if (req.method === 'PUT') {
         const body = await readJson(req);
-        const recipe = normalizeRecipe(body.recipe || {});
-        if (recipes[id].master && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'master')) recipe.master = recipes[id].master;
-        if (recipes[id].masterType && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'masterType')) recipe.masterType = recipes[id].masterType;
-        if (recipes[id].variants && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'variants')) recipe.variants = recipes[id].variants;
-        if (recipes[id].technical && !Object.prototype.hasOwnProperty.call(body.recipe || {}, 'technical')) recipe.technical = recipes[id].technical;
+        const recipe = recipeForAdminSave(body.recipe || {}, recipes[id]);
         const errors = validateRecipe(id, recipe, recipes, 'update');
         if (errors.length) return sendJson(res, 400, { error: errors.join(' ') });
         recipes[id] = recipe;
@@ -343,22 +454,37 @@ async function handleApi(req, res, url) {
 function route(req, res) {
   const url = new URL(req.url, `http://${req.headers.host || `${HOST}:${PORT}`}`);
 
+  if (req.method === 'GET' && url.pathname === '/robots.txt') {
+    sendRobots(res);
+    return;
+  }
+
+  if (req.method === 'GET' && url.pathname === '/sitemap.xml') {
+    try {
+      sendSitemap(res);
+    } catch (error) {
+      send(res, 500, 'Server error');
+    }
+    return;
+  }
+
   if (req.method === 'POST' && url.pathname === '/api/admin/login') {
     readJson(req).then(body => {
       if (!ADMIN_PASSWORD) {
         sendJson(res, 503, { error: 'Admin non configure. Definir COOK_NOTE_ADMIN_PASSWORD.' });
         return;
       }
-      if (String(body.password || '') !== ADMIN_PASSWORD) {
+      if (!passwordMatches(body.password, ADMIN_PASSWORD)) {
         sendJson(res, 401, { error: 'Mot de passe invalide' });
         return;
       }
       const token = crypto.randomBytes(32).toString('hex');
       sessions.set(token, { createdAt: Date.now() });
+      const secure = req.headers['x-forwarded-proto'] === 'https' || req.socket.encrypted ? '; Secure' : '';
       send(res, 200, JSON.stringify({ ok: true }), {
         'content-type': 'application/json; charset=utf-8',
         'cache-control': 'no-store',
-        'set-cookie': `${SESSION_COOKIE}=${encodeURIComponent(token)}; HttpOnly; SameSite=Lax; Path=/`
+        'set-cookie': `${SESSION_COOKIE}=${encodeURIComponent(token)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${Math.floor(SESSION_TTL_MS / 1000)}${secure}`
       });
     }).catch(error => sendJson(res, 400, { error: error.message }));
     return;
@@ -386,8 +512,13 @@ function route(req, res) {
     return;
   }
 
+  if (url.pathname.startsWith('/recette/')) {
+    serveFile(req, res, path.join(ROOT, 'index.html'), true);
+    return;
+  }
+
   const filePath = safePath(url.pathname);
-  if (!filePath) return send(res, 400, 'Bad request');
+  if (!filePath) return send(res, 404, 'Not found');
   serveFile(req, res, filePath);
 }
 
