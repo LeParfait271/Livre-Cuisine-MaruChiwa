@@ -223,6 +223,44 @@ const AVERAGE_WEIGHT_RULES = [
   { label: 'Poire', value: '≈ 160g', pattern: /\b(poire|poires)\b/ }
 ];
 
+const SPOON_WEIGHT_RULES = [
+  { label: 'Levure chimique (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\blevure chimique\b/ },
+  { label: 'Bicarbonate (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bbicarbonate\b/ },
+  { label: 'Sel fin (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bsel\b/ },
+  { label: 'Sucre (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\bsucre\b/ },
+  { label: 'Ail en poudre (1 c. à café)', value: '≈ 3g', spoon: 'cafe', pattern: /\bail en poudre\b/ },
+  { label: 'Oignon en poudre (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\boignon en poudre\b/ },
+  { label: 'Paprika (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpaprika\b/ },
+  { label: 'Paprika (1 c. à soupe)', value: '≈ 7g', spoon: 'soupe', pattern: /\bpaprika\b/ },
+  { label: 'Piment de Cayenne (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpiment de cayenne\b/ },
+  { label: 'Piment d’Espelette (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpiment d['’ ]?espelette\b/ },
+  { label: 'Poivre moulu (1 c. à café)', value: '≈ 2g', spoon: 'cafe', pattern: /\bpoivre\b/, except: /\bpoivre vert\b/ },
+  { label: 'Poivre vert (1 c. à soupe)', value: '≈ 12g', spoon: 'soupe', pattern: /\bpoivre vert\b/ },
+  { label: 'Huile (1 c. à café)', value: '≈ 4g', spoon: 'cafe', pattern: /\bhuile\b/ },
+  { label: 'Huile (1 c. à soupe)', value: '≈ 13g', spoon: 'soupe', pattern: /\bhuile\b/ },
+  { label: 'Moutarde (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bmoutarde\b/ },
+  { label: 'Moutarde (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bmoutarde\b/ },
+  { label: 'Miel (1 c. à soupe)', value: '≈ 21g', spoon: 'soupe', pattern: /\bmiel\b/ },
+  { label: 'Vinaigre (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bvinaigre\b/ },
+  { label: 'Vinaigre (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bvinaigre\b/ },
+  { label: 'Jus de citron (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bjus de citron\b/ },
+  { label: 'Jus de viande (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bjus de viande\b/ },
+  { label: 'Bouillon (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bbouillon\b/ },
+  { label: 'Ketchup (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bketchup\b/ },
+  { label: 'Sauce barbecue (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bsauce barbecue\b/ },
+  { label: 'Relish (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\brelish\b/ },
+  { label: 'Concentré de tomate (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bconcentre de tomate\b/ },
+  { label: 'Foie de poisson cuit (1 c. à soupe)', value: '≈ 15g', spoon: 'soupe', pattern: /\bfoie de poisson\b/ },
+  { label: 'Bisque réduite (1 c. à café)', value: '≈ 5g', spoon: 'cafe', pattern: /\bbisque\b/ }
+];
+
+function getSpoonMeasureTypes(text) {
+  const types = new Set();
+  if (/\bc\.\s*a\s*cafe\b/.test(text)) types.add('cafe');
+  if (/\bc\.\s*a\s*soupe\b/.test(text)) types.add('soupe');
+  return types;
+}
+
 function getRecipeAverageWeights(recipe) {
   const explicit = Array.isArray(recipe?.averageWeights) ? recipe.averageWeights : [];
   const found = new Map();
@@ -234,11 +272,20 @@ function getRecipeAverageWeights(recipe) {
   (recipe?.ingredients || []).forEach(group => {
     (group.items || []).forEach(item => {
       const text = normalizeText(item);
-      if (!/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) return;
-      AVERAGE_WEIGHT_RULES.forEach(rule => {
-        if (rule.except?.test(text)) return;
-        if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
-      });
+      if (/\b\d+(?:[.,]\d+)?\s*g\b/.test(text)) {
+        AVERAGE_WEIGHT_RULES.forEach(rule => {
+          if (rule.except?.test(text)) return;
+          if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
+        });
+      }
+      const spoonTypes = getSpoonMeasureTypes(text);
+      if (spoonTypes.size) {
+        SPOON_WEIGHT_RULES.forEach(rule => {
+          if (!spoonTypes.has(rule.spoon)) return;
+          if (rule.except?.test(text)) return;
+          if (rule.pattern.test(text) && !found.has(rule.label)) found.set(rule.label, rule.value);
+        });
+      }
     });
   });
   return Array.from(found, ([label, value]) => ({ label, value }));

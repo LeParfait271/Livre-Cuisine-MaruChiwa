@@ -464,13 +464,13 @@ a {
 }
 
 .favorite-action {
-  color: #ff8fbd;
+  color: #fff;
 }
 
 .favorite-action.active {
   border-color: color-mix(in srgb, #ff4fa3 74%, white);
   background: color-mix(in srgb, #ff4fa3 22%, var(--surface-soft));
-  color: #ff4fa3;
+  color: #fff;
 }
 
 .icon-square {
@@ -868,7 +868,7 @@ a {
 
 .mobile-bottom-nav span {
   display: block;
-  color: var(--accent);
+  color: #fff;
   font-size: 18px;
   line-height: 1;
 }
@@ -1709,7 +1709,7 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface-soft);
-  color: var(--text);
+  color: #fff;
   font-size: 22px;
   line-height: 1;
 }
